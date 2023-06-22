@@ -8,5 +8,6 @@ class HomeState with _$HomeState {
     required List<Comic> comics,
     required List<Series> series,
     required List<Story> stories,
+    required List<Creator> creators,
   }) = _HomeLoadedState;
 }

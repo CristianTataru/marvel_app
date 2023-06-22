@@ -1,8 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:marvel_app/domain/marvel_api.dart';
-import 'package:marvel_app/feature/home/presentation/home_page.dart';
+import 'package:marvel_app/routes/router.dart';
 
+final router = AppRouter();
 final dio = Dio();
 final marvelApi = MarvelApi(dio);
 void main() {
@@ -14,8 +15,8 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomePage(),
+    return MaterialApp.router(
+      routerConfig: router.config(),
     );
   }
 }

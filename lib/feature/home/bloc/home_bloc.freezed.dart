@@ -19,32 +19,41 @@ mixin _$HomeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onAppStarted,
+    required TResult Function() onCharactersPageTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onAppStarted,
+    TResult? Function()? onCharactersPageTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onAppStarted,
+    TResult Function()? onCharactersPageTapped,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_HomeOnAppStartedEvent value) onAppStarted,
+    required TResult Function(_HomeOnCharactersPageTappedEvent value)
+        onCharactersPageTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_HomeOnAppStartedEvent value)? onAppStarted,
+    TResult? Function(_HomeOnCharactersPageTappedEvent value)?
+        onCharactersPageTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_HomeOnAppStartedEvent value)? onAppStarted,
+    TResult Function(_HomeOnCharactersPageTappedEvent value)?
+        onCharactersPageTapped,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -106,6 +115,7 @@ class _$_HomeOnAppStartedEvent implements _HomeOnAppStartedEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onAppStarted,
+    required TResult Function() onCharactersPageTapped,
   }) {
     return onAppStarted();
   }
@@ -114,6 +124,7 @@ class _$_HomeOnAppStartedEvent implements _HomeOnAppStartedEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onAppStarted,
+    TResult? Function()? onCharactersPageTapped,
   }) {
     return onAppStarted?.call();
   }
@@ -122,6 +133,7 @@ class _$_HomeOnAppStartedEvent implements _HomeOnAppStartedEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onAppStarted,
+    TResult Function()? onCharactersPageTapped,
     required TResult orElse(),
   }) {
     if (onAppStarted != null) {
@@ -134,6 +146,8 @@ class _$_HomeOnAppStartedEvent implements _HomeOnAppStartedEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_HomeOnAppStartedEvent value) onAppStarted,
+    required TResult Function(_HomeOnCharactersPageTappedEvent value)
+        onCharactersPageTapped,
   }) {
     return onAppStarted(this);
   }
@@ -142,6 +156,8 @@ class _$_HomeOnAppStartedEvent implements _HomeOnAppStartedEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_HomeOnAppStartedEvent value)? onAppStarted,
+    TResult? Function(_HomeOnCharactersPageTappedEvent value)?
+        onCharactersPageTapped,
   }) {
     return onAppStarted?.call(this);
   }
@@ -150,6 +166,8 @@ class _$_HomeOnAppStartedEvent implements _HomeOnAppStartedEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_HomeOnAppStartedEvent value)? onAppStarted,
+    TResult Function(_HomeOnCharactersPageTappedEvent value)?
+        onCharactersPageTapped,
     required TResult orElse(),
   }) {
     if (onAppStarted != null) {
@@ -164,12 +182,122 @@ abstract class _HomeOnAppStartedEvent implements HomeEvent {
 }
 
 /// @nodoc
+abstract class _$$_HomeOnCharactersPageTappedEventCopyWith<$Res> {
+  factory _$$_HomeOnCharactersPageTappedEventCopyWith(
+          _$_HomeOnCharactersPageTappedEvent value,
+          $Res Function(_$_HomeOnCharactersPageTappedEvent) then) =
+      __$$_HomeOnCharactersPageTappedEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_HomeOnCharactersPageTappedEventCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$_HomeOnCharactersPageTappedEvent>
+    implements _$$_HomeOnCharactersPageTappedEventCopyWith<$Res> {
+  __$$_HomeOnCharactersPageTappedEventCopyWithImpl(
+      _$_HomeOnCharactersPageTappedEvent _value,
+      $Res Function(_$_HomeOnCharactersPageTappedEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_HomeOnCharactersPageTappedEvent
+    implements _HomeOnCharactersPageTappedEvent {
+  const _$_HomeOnCharactersPageTappedEvent();
+
+  @override
+  String toString() {
+    return 'HomeEvent.onCharactersPageTapped()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_HomeOnCharactersPageTappedEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onAppStarted,
+    required TResult Function() onCharactersPageTapped,
+  }) {
+    return onCharactersPageTapped();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? onAppStarted,
+    TResult? Function()? onCharactersPageTapped,
+  }) {
+    return onCharactersPageTapped?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onAppStarted,
+    TResult Function()? onCharactersPageTapped,
+    required TResult orElse(),
+  }) {
+    if (onCharactersPageTapped != null) {
+      return onCharactersPageTapped();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_HomeOnAppStartedEvent value) onAppStarted,
+    required TResult Function(_HomeOnCharactersPageTappedEvent value)
+        onCharactersPageTapped,
+  }) {
+    return onCharactersPageTapped(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_HomeOnAppStartedEvent value)? onAppStarted,
+    TResult? Function(_HomeOnCharactersPageTappedEvent value)?
+        onCharactersPageTapped,
+  }) {
+    return onCharactersPageTapped?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_HomeOnAppStartedEvent value)? onAppStarted,
+    TResult Function(_HomeOnCharactersPageTappedEvent value)?
+        onCharactersPageTapped,
+    required TResult orElse(),
+  }) {
+    if (onCharactersPageTapped != null) {
+      return onCharactersPageTapped(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _HomeOnCharactersPageTappedEvent implements HomeEvent {
+  const factory _HomeOnCharactersPageTappedEvent() =
+      _$_HomeOnCharactersPageTappedEvent;
+}
+
+/// @nodoc
 mixin _$HomeState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(List<Character> characters, List<Comic> comics,
-            List<Series> series, List<Story> stories)
+            List<Series> series, List<Story> stories, List<Creator> creators)
         loaded,
   }) =>
       throw _privateConstructorUsedError;
@@ -177,7 +305,7 @@ mixin _$HomeState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(List<Character> characters, List<Comic> comics,
-            List<Series> series, List<Story> stories)?
+            List<Series> series, List<Story> stories, List<Creator> creators)?
         loaded,
   }) =>
       throw _privateConstructorUsedError;
@@ -185,7 +313,7 @@ mixin _$HomeState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(List<Character> characters, List<Comic> comics,
-            List<Series> series, List<Story> stories)?
+            List<Series> series, List<Story> stories, List<Creator> creators)?
         loaded,
     required TResult orElse(),
   }) =>
@@ -268,7 +396,7 @@ class _$_HomeLoadingState implements _HomeLoadingState {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(List<Character> characters, List<Comic> comics,
-            List<Series> series, List<Story> stories)
+            List<Series> series, List<Story> stories, List<Creator> creators)
         loaded,
   }) {
     return loading();
@@ -279,7 +407,7 @@ class _$_HomeLoadingState implements _HomeLoadingState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(List<Character> characters, List<Comic> comics,
-            List<Series> series, List<Story> stories)?
+            List<Series> series, List<Story> stories, List<Creator> creators)?
         loaded,
   }) {
     return loading?.call();
@@ -290,7 +418,7 @@ class _$_HomeLoadingState implements _HomeLoadingState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(List<Character> characters, List<Comic> comics,
-            List<Series> series, List<Story> stories)?
+            List<Series> series, List<Story> stories, List<Creator> creators)?
         loaded,
     required TResult orElse(),
   }) {
@@ -346,7 +474,8 @@ abstract class _$$_HomeLoadedStateCopyWith<$Res> {
       {List<Character> characters,
       List<Comic> comics,
       List<Series> series,
-      List<Story> stories});
+      List<Story> stories,
+      List<Creator> creators});
 }
 
 /// @nodoc
@@ -364,6 +493,7 @@ class __$$_HomeLoadedStateCopyWithImpl<$Res>
     Object? comics = null,
     Object? series = null,
     Object? stories = null,
+    Object? creators = null,
   }) {
     return _then(_$_HomeLoadedState(
       characters: null == characters
@@ -382,6 +512,10 @@ class __$$_HomeLoadedStateCopyWithImpl<$Res>
           ? _value._stories
           : stories // ignore: cast_nullable_to_non_nullable
               as List<Story>,
+      creators: null == creators
+          ? _value._creators
+          : creators // ignore: cast_nullable_to_non_nullable
+              as List<Creator>,
     ));
   }
 }
@@ -393,11 +527,13 @@ class _$_HomeLoadedState implements _HomeLoadedState {
       {required final List<Character> characters,
       required final List<Comic> comics,
       required final List<Series> series,
-      required final List<Story> stories})
+      required final List<Story> stories,
+      required final List<Creator> creators})
       : _characters = characters,
         _comics = comics,
         _series = series,
-        _stories = stories;
+        _stories = stories,
+        _creators = creators;
 
   final List<Character> _characters;
   @override
@@ -431,9 +567,17 @@ class _$_HomeLoadedState implements _HomeLoadedState {
     return EqualUnmodifiableListView(_stories);
   }
 
+  final List<Creator> _creators;
+  @override
+  List<Creator> get creators {
+    if (_creators is EqualUnmodifiableListView) return _creators;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_creators);
+  }
+
   @override
   String toString() {
-    return 'HomeState.loaded(characters: $characters, comics: $comics, series: $series, stories: $stories)';
+    return 'HomeState.loaded(characters: $characters, comics: $comics, series: $series, stories: $stories, creators: $creators)';
   }
 
   @override
@@ -445,7 +589,8 @@ class _$_HomeLoadedState implements _HomeLoadedState {
                 .equals(other._characters, _characters) &&
             const DeepCollectionEquality().equals(other._comics, _comics) &&
             const DeepCollectionEquality().equals(other._series, _series) &&
-            const DeepCollectionEquality().equals(other._stories, _stories));
+            const DeepCollectionEquality().equals(other._stories, _stories) &&
+            const DeepCollectionEquality().equals(other._creators, _creators));
   }
 
   @override
@@ -454,7 +599,8 @@ class _$_HomeLoadedState implements _HomeLoadedState {
       const DeepCollectionEquality().hash(_characters),
       const DeepCollectionEquality().hash(_comics),
       const DeepCollectionEquality().hash(_series),
-      const DeepCollectionEquality().hash(_stories));
+      const DeepCollectionEquality().hash(_stories),
+      const DeepCollectionEquality().hash(_creators));
 
   @JsonKey(ignore: true)
   @override
@@ -467,10 +613,10 @@ class _$_HomeLoadedState implements _HomeLoadedState {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(List<Character> characters, List<Comic> comics,
-            List<Series> series, List<Story> stories)
+            List<Series> series, List<Story> stories, List<Creator> creators)
         loaded,
   }) {
-    return loaded(characters, comics, series, stories);
+    return loaded(characters, comics, series, stories, creators);
   }
 
   @override
@@ -478,10 +624,10 @@ class _$_HomeLoadedState implements _HomeLoadedState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(List<Character> characters, List<Comic> comics,
-            List<Series> series, List<Story> stories)?
+            List<Series> series, List<Story> stories, List<Creator> creators)?
         loaded,
   }) {
-    return loaded?.call(characters, comics, series, stories);
+    return loaded?.call(characters, comics, series, stories, creators);
   }
 
   @override
@@ -489,12 +635,12 @@ class _$_HomeLoadedState implements _HomeLoadedState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(List<Character> characters, List<Comic> comics,
-            List<Series> series, List<Story> stories)?
+            List<Series> series, List<Story> stories, List<Creator> creators)?
         loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(characters, comics, series, stories);
+      return loaded(characters, comics, series, stories, creators);
     }
     return orElse();
   }
@@ -536,12 +682,14 @@ abstract class _HomeLoadedState implements HomeState {
       {required final List<Character> characters,
       required final List<Comic> comics,
       required final List<Series> series,
-      required final List<Story> stories}) = _$_HomeLoadedState;
+      required final List<Story> stories,
+      required final List<Creator> creators}) = _$_HomeLoadedState;
 
   List<Character> get characters;
   List<Comic> get comics;
   List<Series> get series;
   List<Story> get stories;
+  List<Creator> get creators;
   @JsonKey(ignore: true)
   _$$_HomeLoadedStateCopyWith<_$_HomeLoadedState> get copyWith =>
       throw _privateConstructorUsedError;
