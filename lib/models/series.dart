@@ -8,6 +8,7 @@ part 'series.g.dart';
 class Series with _$Series {
   const factory Series({
     required int id,
+    required String title,
     required Thumbnail thumbnail,
   }) = _Series;
 

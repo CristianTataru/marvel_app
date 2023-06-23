@@ -2,29 +2,29 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_fade/image_fade.dart';
-import 'package:marvel_app/feature/comics/bloc/comics_bloc.dart';
-import 'package:marvel_app/models/comic.dart';
+import 'package:marvel_app/feature/series/bloc/series_bloc.dart';
+import 'package:marvel_app/models/series.dart';
 
-final bloc = ComicsBloc();
+final bloc = SeriesBloc();
 
 @RoutePage()
-class ComicsPage extends StatefulWidget {
-  const ComicsPage({super.key});
+class SeriesPage extends StatefulWidget {
+  const SeriesPage({super.key});
 
   @override
-  State<ComicsPage> createState() => _ComicsPageState();
+  State<SeriesPage> createState() => _SeriesPageState();
 }
 
-class _ComicsPageState extends State<ComicsPage> {
+class _SeriesPageState extends State<SeriesPage> {
   ScrollController scrollController = ScrollController();
 
   @override
   void initState() {
     super.initState();
-    bloc.add(const ComicsEvent.onPageOpened());
+    bloc.add(const SeriesEvent.onPageOpened());
     scrollController.addListener(() {
       if (scrollController.position.pixels == scrollController.position.maxScrollExtent) {
-        bloc.add(const ComicsEvent.onMoreDataLoading());
+        bloc.add(const SeriesEvent.onMoreDataLoading());
       }
     });
   }
@@ -37,17 +37,17 @@ class _ComicsPageState extends State<ComicsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ComicsBloc, ComicsState>(
+    return BlocBuilder<SeriesBloc, SeriesState>(
       bloc: bloc,
-      builder: (context, comicsState) {
+      builder: (context, seriesState) {
         return Scaffold(
           backgroundColor: const Color.fromARGB(255, 9, 54, 92),
           appBar: AppBar(
             title: Row(
               children: const [
-                Text("Comics"),
+                Text("Series"),
                 Spacer(),
-                Icon(Icons.book),
+                Icon(Icons.library_books_outlined),
               ],
             ),
             backgroundColor: const Color.fromARGB(255, 6, 33, 54),
@@ -61,13 +61,13 @@ class _ComicsPageState extends State<ComicsPage> {
                   child: Column(
                     children: [
                       const SizedBox(height: 8),
-                      ...comicsState.map(
+                      ...seriesState.map(
                         loaded: (state) => [
-                          ...state.comics.map((e) => ComicsEntry(e)),
+                          ...state.series.map((e) => SeriesEntry(e)),
                           const SizedBox(height: 96),
                         ],
                         moreLoading: (state) => [
-                          ...state.comics.map((e) => ComicsEntry(e)),
+                          ...state.series.map((e) => SeriesEntry(e)),
                           const SizedBox(
                             height: 96,
                             child: Center(
@@ -88,10 +88,10 @@ class _ComicsPageState extends State<ComicsPage> {
   }
 }
 
-class ComicsEntry extends StatelessWidget {
-  const ComicsEntry(this.comic, {super.key});
+class SeriesEntry extends StatelessWidget {
+  const SeriesEntry(this.series, {super.key});
 
-  final Comic comic;
+  final Series series;
 
   @override
   Widget build(BuildContext context) {
@@ -107,17 +107,17 @@ class ComicsEntry extends StatelessWidget {
             ),
             height: 120,
             width: 80,
-            child: comic.thumbnail.path.contains("image_not_available")
+            child: series.thumbnail.path.contains("image_not_available")
                 ? const Align(
                     alignment: Alignment.center,
                     child: Icon(
-                      Icons.book,
+                      Icons.my_library_books_outlined,
                       color: Colors.white,
                       size: 64,
                     ),
                   )
                 : ImageFade(
-                    image: NetworkImage("${comic.thumbnail.path}.${comic.thumbnail.extension}"),
+                    image: NetworkImage("${series.thumbnail.path}.${series.thumbnail.extension}"),
                     fit: BoxFit.cover,
                     loadingBuilder: (context, progress, chunkEvent) => Center(
                       child: CircularProgressIndicator(
@@ -135,7 +135,7 @@ class ComicsEntry extends StatelessWidget {
           const SizedBox(width: 8),
           Expanded(
             child: Text(
-              comic.title,
+              series.title,
               style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
               overflow: TextOverflow.ellipsis,
             ),

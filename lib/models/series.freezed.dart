@@ -21,6 +21,7 @@ Series _$SeriesFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Series {
   int get id => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
   Thumbnail get thumbnail => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -33,7 +34,7 @@ abstract class $SeriesCopyWith<$Res> {
   factory $SeriesCopyWith(Series value, $Res Function(Series) then) =
       _$SeriesCopyWithImpl<$Res, Series>;
   @useResult
-  $Res call({int id, Thumbnail thumbnail});
+  $Res call({int id, String title, Thumbnail thumbnail});
 
   $ThumbnailCopyWith<$Res> get thumbnail;
 }
@@ -52,6 +53,7 @@ class _$SeriesCopyWithImpl<$Res, $Val extends Series>
   @override
   $Res call({
     Object? id = null,
+    Object? title = null,
     Object? thumbnail = null,
   }) {
     return _then(_value.copyWith(
@@ -59,6 +61,10 @@ class _$SeriesCopyWithImpl<$Res, $Val extends Series>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
       thumbnail: null == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
@@ -81,7 +87,7 @@ abstract class _$$_SeriesCopyWith<$Res> implements $SeriesCopyWith<$Res> {
       __$$_SeriesCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, Thumbnail thumbnail});
+  $Res call({int id, String title, Thumbnail thumbnail});
 
   @override
   $ThumbnailCopyWith<$Res> get thumbnail;
@@ -98,6 +104,7 @@ class __$$_SeriesCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? title = null,
     Object? thumbnail = null,
   }) {
     return _then(_$_Series(
@@ -105,6 +112,10 @@ class __$$_SeriesCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
       thumbnail: null == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
@@ -116,7 +127,8 @@ class __$$_SeriesCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Series implements _Series {
-  const _$_Series({required this.id, required this.thumbnail});
+  const _$_Series(
+      {required this.id, required this.title, required this.thumbnail});
 
   factory _$_Series.fromJson(Map<String, dynamic> json) =>
       _$$_SeriesFromJson(json);
@@ -124,11 +136,13 @@ class _$_Series implements _Series {
   @override
   final int id;
   @override
+  final String title;
+  @override
   final Thumbnail thumbnail;
 
   @override
   String toString() {
-    return 'Series(id: $id, thumbnail: $thumbnail)';
+    return 'Series(id: $id, title: $title, thumbnail: $thumbnail)';
   }
 
   @override
@@ -137,13 +151,14 @@ class _$_Series implements _Series {
         (other.runtimeType == runtimeType &&
             other is _$_Series &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
             (identical(other.thumbnail, thumbnail) ||
                 other.thumbnail == thumbnail));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, thumbnail);
+  int get hashCode => Object.hash(runtimeType, id, title, thumbnail);
 
   @JsonKey(ignore: true)
   @override
@@ -161,12 +176,16 @@ class _$_Series implements _Series {
 
 abstract class _Series implements Series {
   const factory _Series(
-      {required final int id, required final Thumbnail thumbnail}) = _$_Series;
+      {required final int id,
+      required final String title,
+      required final Thumbnail thumbnail}) = _$_Series;
 
   factory _Series.fromJson(Map<String, dynamic> json) = _$_Series.fromJson;
 
   @override
   int get id;
+  @override
+  String get title;
   @override
   Thumbnail get thumbnail;
   @override

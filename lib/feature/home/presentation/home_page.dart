@@ -98,7 +98,9 @@ class _HomePageState extends State<HomePage> {
                           bloc.add(HomeEvent.onComicsPageTapped(comics: state.comics));
                         }),
                         const Spacer(),
-                        _UserPick(state.series[2].thumbnail, "Series", () {}),
+                        _UserPick(state.series[2].thumbnail, "Series", () {
+                          bloc.add(HomeEvent.onSeriesPageTapped(series: state.series));
+                        }),
                       ],
                     ),
                   ),

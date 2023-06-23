@@ -23,6 +23,7 @@ class MarvelRepository {
   List<Creator> creators = [];
   int charactersTotal = 0;
   int comicsTotal = 0;
+  int seriesTotal = 0;
 
   Future<List<Character>> getCharacters(int offset) async {
     if (characters.isNotEmpty && offset == 0) {
@@ -49,6 +50,7 @@ class MarvelRepository {
       return series.sublist(0, 20);
     }
     ApiResponseSeries response = await marvelApi.getSeries(offset);
+    seriesTotal = response.data.total;
     series = [...series, ...response.data.results];
     return series;
   }

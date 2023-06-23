@@ -8,10 +8,12 @@ part of 'series.dart';
 
 _$_Series _$$_SeriesFromJson(Map<String, dynamic> json) => _$_Series(
       id: json['id'] as int,
+      title: json['title'] as String,
       thumbnail: Thumbnail.fromJson(json['thumbnail'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_SeriesToJson(_$_Series instance) => <String, dynamic>{
       'id': instance.id,
+      'title': instance.title,
       'thumbnail': instance.thumbnail,
     };

@@ -43,7 +43,13 @@ class _CharactersPageState extends State<CharactersPage> {
         return Scaffold(
           backgroundColor: const Color.fromARGB(255, 9, 54, 92),
           appBar: AppBar(
-            title: const Text("Characters"),
+            title: Row(
+              children: const [
+                Text("Characters"),
+                Spacer(),
+                Icon(Icons.person_4),
+              ],
+            ),
             backgroundColor: const Color.fromARGB(255, 6, 33, 54),
             leading: const BackButton(color: Colors.blue),
           ),
