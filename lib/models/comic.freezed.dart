@@ -21,6 +21,7 @@ Comic _$ComicFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Comic {
   int get id => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
   Thumbnail get thumbnail => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -33,7 +34,7 @@ abstract class $ComicCopyWith<$Res> {
   factory $ComicCopyWith(Comic value, $Res Function(Comic) then) =
       _$ComicCopyWithImpl<$Res, Comic>;
   @useResult
-  $Res call({int id, Thumbnail thumbnail});
+  $Res call({int id, String title, Thumbnail thumbnail});
 
   $ThumbnailCopyWith<$Res> get thumbnail;
 }
@@ -52,6 +53,7 @@ class _$ComicCopyWithImpl<$Res, $Val extends Comic>
   @override
   $Res call({
     Object? id = null,
+    Object? title = null,
     Object? thumbnail = null,
   }) {
     return _then(_value.copyWith(
@@ -59,6 +61,10 @@ class _$ComicCopyWithImpl<$Res, $Val extends Comic>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
       thumbnail: null == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
@@ -81,7 +87,7 @@ abstract class _$$_ComicCopyWith<$Res> implements $ComicCopyWith<$Res> {
       __$$_ComicCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, Thumbnail thumbnail});
+  $Res call({int id, String title, Thumbnail thumbnail});
 
   @override
   $ThumbnailCopyWith<$Res> get thumbnail;
@@ -97,6 +103,7 @@ class __$$_ComicCopyWithImpl<$Res> extends _$ComicCopyWithImpl<$Res, _$_Comic>
   @override
   $Res call({
     Object? id = null,
+    Object? title = null,
     Object? thumbnail = null,
   }) {
     return _then(_$_Comic(
@@ -104,6 +111,10 @@ class __$$_ComicCopyWithImpl<$Res> extends _$ComicCopyWithImpl<$Res, _$_Comic>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
       thumbnail: null == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
@@ -115,7 +126,8 @@ class __$$_ComicCopyWithImpl<$Res> extends _$ComicCopyWithImpl<$Res, _$_Comic>
 /// @nodoc
 @JsonSerializable()
 class _$_Comic implements _Comic {
-  const _$_Comic({required this.id, required this.thumbnail});
+  const _$_Comic(
+      {required this.id, required this.title, required this.thumbnail});
 
   factory _$_Comic.fromJson(Map<String, dynamic> json) =>
       _$$_ComicFromJson(json);
@@ -123,11 +135,13 @@ class _$_Comic implements _Comic {
   @override
   final int id;
   @override
+  final String title;
+  @override
   final Thumbnail thumbnail;
 
   @override
   String toString() {
-    return 'Comic(id: $id, thumbnail: $thumbnail)';
+    return 'Comic(id: $id, title: $title, thumbnail: $thumbnail)';
   }
 
   @override
@@ -136,13 +150,14 @@ class _$_Comic implements _Comic {
         (other.runtimeType == runtimeType &&
             other is _$_Comic &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
             (identical(other.thumbnail, thumbnail) ||
                 other.thumbnail == thumbnail));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, thumbnail);
+  int get hashCode => Object.hash(runtimeType, id, title, thumbnail);
 
   @JsonKey(ignore: true)
   @override
@@ -160,12 +175,16 @@ class _$_Comic implements _Comic {
 
 abstract class _Comic implements Comic {
   const factory _Comic(
-      {required final int id, required final Thumbnail thumbnail}) = _$_Comic;
+      {required final int id,
+      required final String title,
+      required final Thumbnail thumbnail}) = _$_Comic;
 
   factory _Comic.fromJson(Map<String, dynamic> json) = _$_Comic.fromJson;
 
   @override
   int get id;
+  @override
+  String get title;
   @override
   Thumbnail get thumbnail;
   @override

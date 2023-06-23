@@ -21,18 +21,21 @@ mixin _$HomeEvent {
     required TResult Function() onAppStarted,
     required TResult Function(List<Character> characters)
         onCharactersPageTapped,
+    required TResult Function(List<Comic> comics) onComicsPageTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onAppStarted,
     TResult? Function(List<Character> characters)? onCharactersPageTapped,
+    TResult? Function(List<Comic> comics)? onComicsPageTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onAppStarted,
     TResult Function(List<Character> characters)? onCharactersPageTapped,
+    TResult Function(List<Comic> comics)? onComicsPageTapped,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -41,6 +44,8 @@ mixin _$HomeEvent {
     required TResult Function(_HomeOnAppStartedEvent value) onAppStarted,
     required TResult Function(_HomeOnCharactersPageTappedEvent value)
         onCharactersPageTapped,
+    required TResult Function(_HomeOnComicsPageTappedEvent value)
+        onComicsPageTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -48,6 +53,7 @@ mixin _$HomeEvent {
     TResult? Function(_HomeOnAppStartedEvent value)? onAppStarted,
     TResult? Function(_HomeOnCharactersPageTappedEvent value)?
         onCharactersPageTapped,
+    TResult? Function(_HomeOnComicsPageTappedEvent value)? onComicsPageTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +61,7 @@ mixin _$HomeEvent {
     TResult Function(_HomeOnAppStartedEvent value)? onAppStarted,
     TResult Function(_HomeOnCharactersPageTappedEvent value)?
         onCharactersPageTapped,
+    TResult Function(_HomeOnComicsPageTappedEvent value)? onComicsPageTapped,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -118,6 +125,7 @@ class _$_HomeOnAppStartedEvent implements _HomeOnAppStartedEvent {
     required TResult Function() onAppStarted,
     required TResult Function(List<Character> characters)
         onCharactersPageTapped,
+    required TResult Function(List<Comic> comics) onComicsPageTapped,
   }) {
     return onAppStarted();
   }
@@ -127,6 +135,7 @@ class _$_HomeOnAppStartedEvent implements _HomeOnAppStartedEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onAppStarted,
     TResult? Function(List<Character> characters)? onCharactersPageTapped,
+    TResult? Function(List<Comic> comics)? onComicsPageTapped,
   }) {
     return onAppStarted?.call();
   }
@@ -136,6 +145,7 @@ class _$_HomeOnAppStartedEvent implements _HomeOnAppStartedEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onAppStarted,
     TResult Function(List<Character> characters)? onCharactersPageTapped,
+    TResult Function(List<Comic> comics)? onComicsPageTapped,
     required TResult orElse(),
   }) {
     if (onAppStarted != null) {
@@ -150,6 +160,8 @@ class _$_HomeOnAppStartedEvent implements _HomeOnAppStartedEvent {
     required TResult Function(_HomeOnAppStartedEvent value) onAppStarted,
     required TResult Function(_HomeOnCharactersPageTappedEvent value)
         onCharactersPageTapped,
+    required TResult Function(_HomeOnComicsPageTappedEvent value)
+        onComicsPageTapped,
   }) {
     return onAppStarted(this);
   }
@@ -160,6 +172,7 @@ class _$_HomeOnAppStartedEvent implements _HomeOnAppStartedEvent {
     TResult? Function(_HomeOnAppStartedEvent value)? onAppStarted,
     TResult? Function(_HomeOnCharactersPageTappedEvent value)?
         onCharactersPageTapped,
+    TResult? Function(_HomeOnComicsPageTappedEvent value)? onComicsPageTapped,
   }) {
     return onAppStarted?.call(this);
   }
@@ -170,6 +183,7 @@ class _$_HomeOnAppStartedEvent implements _HomeOnAppStartedEvent {
     TResult Function(_HomeOnAppStartedEvent value)? onAppStarted,
     TResult Function(_HomeOnCharactersPageTappedEvent value)?
         onCharactersPageTapped,
+    TResult Function(_HomeOnComicsPageTappedEvent value)? onComicsPageTapped,
     required TResult orElse(),
   }) {
     if (onAppStarted != null) {
@@ -264,6 +278,7 @@ class _$_HomeOnCharactersPageTappedEvent
     required TResult Function() onAppStarted,
     required TResult Function(List<Character> characters)
         onCharactersPageTapped,
+    required TResult Function(List<Comic> comics) onComicsPageTapped,
   }) {
     return onCharactersPageTapped(characters);
   }
@@ -273,6 +288,7 @@ class _$_HomeOnCharactersPageTappedEvent
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onAppStarted,
     TResult? Function(List<Character> characters)? onCharactersPageTapped,
+    TResult? Function(List<Comic> comics)? onComicsPageTapped,
   }) {
     return onCharactersPageTapped?.call(characters);
   }
@@ -282,6 +298,7 @@ class _$_HomeOnCharactersPageTappedEvent
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onAppStarted,
     TResult Function(List<Character> characters)? onCharactersPageTapped,
+    TResult Function(List<Comic> comics)? onComicsPageTapped,
     required TResult orElse(),
   }) {
     if (onCharactersPageTapped != null) {
@@ -296,6 +313,8 @@ class _$_HomeOnCharactersPageTappedEvent
     required TResult Function(_HomeOnAppStartedEvent value) onAppStarted,
     required TResult Function(_HomeOnCharactersPageTappedEvent value)
         onCharactersPageTapped,
+    required TResult Function(_HomeOnComicsPageTappedEvent value)
+        onComicsPageTapped,
   }) {
     return onCharactersPageTapped(this);
   }
@@ -306,6 +325,7 @@ class _$_HomeOnCharactersPageTappedEvent
     TResult? Function(_HomeOnAppStartedEvent value)? onAppStarted,
     TResult? Function(_HomeOnCharactersPageTappedEvent value)?
         onCharactersPageTapped,
+    TResult? Function(_HomeOnComicsPageTappedEvent value)? onComicsPageTapped,
   }) {
     return onCharactersPageTapped?.call(this);
   }
@@ -316,6 +336,7 @@ class _$_HomeOnCharactersPageTappedEvent
     TResult Function(_HomeOnAppStartedEvent value)? onAppStarted,
     TResult Function(_HomeOnCharactersPageTappedEvent value)?
         onCharactersPageTapped,
+    TResult Function(_HomeOnComicsPageTappedEvent value)? onComicsPageTapped,
     required TResult orElse(),
   }) {
     if (onCharactersPageTapped != null) {
@@ -334,6 +355,161 @@ abstract class _HomeOnCharactersPageTappedEvent implements HomeEvent {
   @JsonKey(ignore: true)
   _$$_HomeOnCharactersPageTappedEventCopyWith<
           _$_HomeOnCharactersPageTappedEvent>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_HomeOnComicsPageTappedEventCopyWith<$Res> {
+  factory _$$_HomeOnComicsPageTappedEventCopyWith(
+          _$_HomeOnComicsPageTappedEvent value,
+          $Res Function(_$_HomeOnComicsPageTappedEvent) then) =
+      __$$_HomeOnComicsPageTappedEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<Comic> comics});
+}
+
+/// @nodoc
+class __$$_HomeOnComicsPageTappedEventCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$_HomeOnComicsPageTappedEvent>
+    implements _$$_HomeOnComicsPageTappedEventCopyWith<$Res> {
+  __$$_HomeOnComicsPageTappedEventCopyWithImpl(
+      _$_HomeOnComicsPageTappedEvent _value,
+      $Res Function(_$_HomeOnComicsPageTappedEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? comics = null,
+  }) {
+    return _then(_$_HomeOnComicsPageTappedEvent(
+      comics: null == comics
+          ? _value._comics
+          : comics // ignore: cast_nullable_to_non_nullable
+              as List<Comic>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_HomeOnComicsPageTappedEvent implements _HomeOnComicsPageTappedEvent {
+  const _$_HomeOnComicsPageTappedEvent({required final List<Comic> comics})
+      : _comics = comics;
+
+  final List<Comic> _comics;
+  @override
+  List<Comic> get comics {
+    if (_comics is EqualUnmodifiableListView) return _comics;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_comics);
+  }
+
+  @override
+  String toString() {
+    return 'HomeEvent.onComicsPageTapped(comics: $comics)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_HomeOnComicsPageTappedEvent &&
+            const DeepCollectionEquality().equals(other._comics, _comics));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_comics));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_HomeOnComicsPageTappedEventCopyWith<_$_HomeOnComicsPageTappedEvent>
+      get copyWith => __$$_HomeOnComicsPageTappedEventCopyWithImpl<
+          _$_HomeOnComicsPageTappedEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onAppStarted,
+    required TResult Function(List<Character> characters)
+        onCharactersPageTapped,
+    required TResult Function(List<Comic> comics) onComicsPageTapped,
+  }) {
+    return onComicsPageTapped(comics);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? onAppStarted,
+    TResult? Function(List<Character> characters)? onCharactersPageTapped,
+    TResult? Function(List<Comic> comics)? onComicsPageTapped,
+  }) {
+    return onComicsPageTapped?.call(comics);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onAppStarted,
+    TResult Function(List<Character> characters)? onCharactersPageTapped,
+    TResult Function(List<Comic> comics)? onComicsPageTapped,
+    required TResult orElse(),
+  }) {
+    if (onComicsPageTapped != null) {
+      return onComicsPageTapped(comics);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_HomeOnAppStartedEvent value) onAppStarted,
+    required TResult Function(_HomeOnCharactersPageTappedEvent value)
+        onCharactersPageTapped,
+    required TResult Function(_HomeOnComicsPageTappedEvent value)
+        onComicsPageTapped,
+  }) {
+    return onComicsPageTapped(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_HomeOnAppStartedEvent value)? onAppStarted,
+    TResult? Function(_HomeOnCharactersPageTappedEvent value)?
+        onCharactersPageTapped,
+    TResult? Function(_HomeOnComicsPageTappedEvent value)? onComicsPageTapped,
+  }) {
+    return onComicsPageTapped?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_HomeOnAppStartedEvent value)? onAppStarted,
+    TResult Function(_HomeOnCharactersPageTappedEvent value)?
+        onCharactersPageTapped,
+    TResult Function(_HomeOnComicsPageTappedEvent value)? onComicsPageTapped,
+    required TResult orElse(),
+  }) {
+    if (onComicsPageTapped != null) {
+      return onComicsPageTapped(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _HomeOnComicsPageTappedEvent implements HomeEvent {
+  const factory _HomeOnComicsPageTappedEvent(
+      {required final List<Comic> comics}) = _$_HomeOnComicsPageTappedEvent;
+
+  List<Comic> get comics;
+  @JsonKey(ignore: true)
+  _$$_HomeOnComicsPageTappedEventCopyWith<_$_HomeOnComicsPageTappedEvent>
       get copyWith => throw _privateConstructorUsedError;
 }
 
