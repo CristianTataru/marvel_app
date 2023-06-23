@@ -1,6 +1,7 @@
 import 'package:html_unescape/html_unescape.dart';
 import 'package:marvel_app/domain/api/marvel_api.dart';
 import 'package:marvel_app/models/api_response_character.dart';
+import 'package:marvel_app/models/api_response_character_comics.dart';
 import 'package:marvel_app/models/api_response_comic.dart';
 import 'package:marvel_app/models/api_response_creator.dart';
 import 'package:marvel_app/models/api_response_series.dart';
@@ -73,5 +74,10 @@ class MarvelRepository {
     ApiResponseCreator response = await marvelApi.getCreators(offset);
     creators = [...creators, ...response.data.results];
     return creators;
+  }
+
+  Future<List<Comic>> getCharacterComics(int characterId, int limit) async {
+    ApiResponseCharacterComic response = await marvelApi.getCharacterComics(characterId, limit);
+    return response.data.results;
   }
 }

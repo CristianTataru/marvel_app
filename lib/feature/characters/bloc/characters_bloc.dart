@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:marvel_app/main.dart';
 import 'package:marvel_app/models/character.dart';
+import 'package:marvel_app/routes/router.gr.dart';
 
 part 'characters_event.dart';
 part 'characters_state.dart';
@@ -13,6 +14,7 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
   CharactersBloc() : super(const _CharactersLoadedState(canLoadMore: true, lastOffset: 0, characters: [])) {
     on<_CharactersOnPageOpenedEvent>(_onCharactersOnPageOpenedEvent);
     on<_CharactersMoreDataLoadingEvent>(_onCharactersMoreDataLoadingEvent);
+    on<_CharactersOnCharacterTappedEvent>(_onCharacterOnCharacterTappedEvent);
   }
 
   FutureOr<void> _onCharactersOnPageOpenedEvent(
@@ -35,5 +37,10 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
             characters: newCharacters));
       },
     );
+  }
+
+  FutureOr<void> _onCharacterOnCharacterTappedEvent(
+      _CharactersOnCharacterTappedEvent event, Emitter<CharactersState> emit) {
+    router.push(CharacterDetailsRoute(character: event.character));
   }
 }

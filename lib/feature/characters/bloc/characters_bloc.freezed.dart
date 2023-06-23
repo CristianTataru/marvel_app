@@ -20,18 +20,21 @@ mixin _$CharactersEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() onPageOpened,
     required TResult Function() onMoreDataLoading,
+    required TResult Function(Character character) onCharacterTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onPageOpened,
     TResult? Function()? onMoreDataLoading,
+    TResult? Function(Character character)? onCharacterTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onPageOpened,
     TResult Function()? onMoreDataLoading,
+    TResult Function(Character character)? onCharacterTapped,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -40,18 +43,24 @@ mixin _$CharactersEvent {
     required TResult Function(_CharactersOnPageOpenedEvent value) onPageOpened,
     required TResult Function(_CharactersMoreDataLoadingEvent value)
         onMoreDataLoading,
+    required TResult Function(_CharactersOnCharacterTappedEvent value)
+        onCharacterTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_CharactersOnPageOpenedEvent value)? onPageOpened,
     TResult? Function(_CharactersMoreDataLoadingEvent value)? onMoreDataLoading,
+    TResult? Function(_CharactersOnCharacterTappedEvent value)?
+        onCharacterTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CharactersOnPageOpenedEvent value)? onPageOpened,
     TResult Function(_CharactersMoreDataLoadingEvent value)? onMoreDataLoading,
+    TResult Function(_CharactersOnCharacterTappedEvent value)?
+        onCharacterTapped,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -118,6 +127,7 @@ class _$_CharactersOnPageOpenedEvent implements _CharactersOnPageOpenedEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() onPageOpened,
     required TResult Function() onMoreDataLoading,
+    required TResult Function(Character character) onCharacterTapped,
   }) {
     return onPageOpened();
   }
@@ -127,6 +137,7 @@ class _$_CharactersOnPageOpenedEvent implements _CharactersOnPageOpenedEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onPageOpened,
     TResult? Function()? onMoreDataLoading,
+    TResult? Function(Character character)? onCharacterTapped,
   }) {
     return onPageOpened?.call();
   }
@@ -136,6 +147,7 @@ class _$_CharactersOnPageOpenedEvent implements _CharactersOnPageOpenedEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onPageOpened,
     TResult Function()? onMoreDataLoading,
+    TResult Function(Character character)? onCharacterTapped,
     required TResult orElse(),
   }) {
     if (onPageOpened != null) {
@@ -150,6 +162,8 @@ class _$_CharactersOnPageOpenedEvent implements _CharactersOnPageOpenedEvent {
     required TResult Function(_CharactersOnPageOpenedEvent value) onPageOpened,
     required TResult Function(_CharactersMoreDataLoadingEvent value)
         onMoreDataLoading,
+    required TResult Function(_CharactersOnCharacterTappedEvent value)
+        onCharacterTapped,
   }) {
     return onPageOpened(this);
   }
@@ -159,6 +173,8 @@ class _$_CharactersOnPageOpenedEvent implements _CharactersOnPageOpenedEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_CharactersOnPageOpenedEvent value)? onPageOpened,
     TResult? Function(_CharactersMoreDataLoadingEvent value)? onMoreDataLoading,
+    TResult? Function(_CharactersOnCharacterTappedEvent value)?
+        onCharacterTapped,
   }) {
     return onPageOpened?.call(this);
   }
@@ -168,6 +184,8 @@ class _$_CharactersOnPageOpenedEvent implements _CharactersOnPageOpenedEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CharactersOnPageOpenedEvent value)? onPageOpened,
     TResult Function(_CharactersMoreDataLoadingEvent value)? onMoreDataLoading,
+    TResult Function(_CharactersOnCharacterTappedEvent value)?
+        onCharacterTapped,
     required TResult orElse(),
   }) {
     if (onPageOpened != null) {
@@ -226,6 +244,7 @@ class _$_CharactersMoreDataLoadingEvent
   TResult when<TResult extends Object?>({
     required TResult Function() onPageOpened,
     required TResult Function() onMoreDataLoading,
+    required TResult Function(Character character) onCharacterTapped,
   }) {
     return onMoreDataLoading();
   }
@@ -235,6 +254,7 @@ class _$_CharactersMoreDataLoadingEvent
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onPageOpened,
     TResult? Function()? onMoreDataLoading,
+    TResult? Function(Character character)? onCharacterTapped,
   }) {
     return onMoreDataLoading?.call();
   }
@@ -244,6 +264,7 @@ class _$_CharactersMoreDataLoadingEvent
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onPageOpened,
     TResult Function()? onMoreDataLoading,
+    TResult Function(Character character)? onCharacterTapped,
     required TResult orElse(),
   }) {
     if (onMoreDataLoading != null) {
@@ -258,6 +279,8 @@ class _$_CharactersMoreDataLoadingEvent
     required TResult Function(_CharactersOnPageOpenedEvent value) onPageOpened,
     required TResult Function(_CharactersMoreDataLoadingEvent value)
         onMoreDataLoading,
+    required TResult Function(_CharactersOnCharacterTappedEvent value)
+        onCharacterTapped,
   }) {
     return onMoreDataLoading(this);
   }
@@ -267,6 +290,8 @@ class _$_CharactersMoreDataLoadingEvent
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_CharactersOnPageOpenedEvent value)? onPageOpened,
     TResult? Function(_CharactersMoreDataLoadingEvent value)? onMoreDataLoading,
+    TResult? Function(_CharactersOnCharacterTappedEvent value)?
+        onCharacterTapped,
   }) {
     return onMoreDataLoading?.call(this);
   }
@@ -276,6 +301,8 @@ class _$_CharactersMoreDataLoadingEvent
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CharactersOnPageOpenedEvent value)? onPageOpened,
     TResult Function(_CharactersMoreDataLoadingEvent value)? onMoreDataLoading,
+    TResult Function(_CharactersOnCharacterTappedEvent value)?
+        onCharacterTapped,
     required TResult orElse(),
   }) {
     if (onMoreDataLoading != null) {
@@ -288,6 +315,169 @@ class _$_CharactersMoreDataLoadingEvent
 abstract class _CharactersMoreDataLoadingEvent implements CharactersEvent {
   const factory _CharactersMoreDataLoadingEvent() =
       _$_CharactersMoreDataLoadingEvent;
+}
+
+/// @nodoc
+abstract class _$$_CharactersOnCharacterTappedEventCopyWith<$Res> {
+  factory _$$_CharactersOnCharacterTappedEventCopyWith(
+          _$_CharactersOnCharacterTappedEvent value,
+          $Res Function(_$_CharactersOnCharacterTappedEvent) then) =
+      __$$_CharactersOnCharacterTappedEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Character character});
+
+  $CharacterCopyWith<$Res> get character;
+}
+
+/// @nodoc
+class __$$_CharactersOnCharacterTappedEventCopyWithImpl<$Res>
+    extends _$CharactersEventCopyWithImpl<$Res,
+        _$_CharactersOnCharacterTappedEvent>
+    implements _$$_CharactersOnCharacterTappedEventCopyWith<$Res> {
+  __$$_CharactersOnCharacterTappedEventCopyWithImpl(
+      _$_CharactersOnCharacterTappedEvent _value,
+      $Res Function(_$_CharactersOnCharacterTappedEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? character = null,
+  }) {
+    return _then(_$_CharactersOnCharacterTappedEvent(
+      character: null == character
+          ? _value.character
+          : character // ignore: cast_nullable_to_non_nullable
+              as Character,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CharacterCopyWith<$Res> get character {
+    return $CharacterCopyWith<$Res>(_value.character, (value) {
+      return _then(_value.copyWith(character: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_CharactersOnCharacterTappedEvent
+    implements _CharactersOnCharacterTappedEvent {
+  const _$_CharactersOnCharacterTappedEvent({required this.character});
+
+  @override
+  final Character character;
+
+  @override
+  String toString() {
+    return 'CharactersEvent.onCharacterTapped(character: $character)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_CharactersOnCharacterTappedEvent &&
+            (identical(other.character, character) ||
+                other.character == character));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, character);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_CharactersOnCharacterTappedEventCopyWith<
+          _$_CharactersOnCharacterTappedEvent>
+      get copyWith => __$$_CharactersOnCharacterTappedEventCopyWithImpl<
+          _$_CharactersOnCharacterTappedEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onPageOpened,
+    required TResult Function() onMoreDataLoading,
+    required TResult Function(Character character) onCharacterTapped,
+  }) {
+    return onCharacterTapped(character);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? onPageOpened,
+    TResult? Function()? onMoreDataLoading,
+    TResult? Function(Character character)? onCharacterTapped,
+  }) {
+    return onCharacterTapped?.call(character);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onPageOpened,
+    TResult Function()? onMoreDataLoading,
+    TResult Function(Character character)? onCharacterTapped,
+    required TResult orElse(),
+  }) {
+    if (onCharacterTapped != null) {
+      return onCharacterTapped(character);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CharactersOnPageOpenedEvent value) onPageOpened,
+    required TResult Function(_CharactersMoreDataLoadingEvent value)
+        onMoreDataLoading,
+    required TResult Function(_CharactersOnCharacterTappedEvent value)
+        onCharacterTapped,
+  }) {
+    return onCharacterTapped(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CharactersOnPageOpenedEvent value)? onPageOpened,
+    TResult? Function(_CharactersMoreDataLoadingEvent value)? onMoreDataLoading,
+    TResult? Function(_CharactersOnCharacterTappedEvent value)?
+        onCharacterTapped,
+  }) {
+    return onCharacterTapped?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CharactersOnPageOpenedEvent value)? onPageOpened,
+    TResult Function(_CharactersMoreDataLoadingEvent value)? onMoreDataLoading,
+    TResult Function(_CharactersOnCharacterTappedEvent value)?
+        onCharacterTapped,
+    required TResult orElse(),
+  }) {
+    if (onCharacterTapped != null) {
+      return onCharacterTapped(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CharactersOnCharacterTappedEvent implements CharactersEvent {
+  const factory _CharactersOnCharacterTappedEvent(
+          {required final Character character}) =
+      _$_CharactersOnCharacterTappedEvent;
+
+  Character get character;
+  @JsonKey(ignore: true)
+  _$$_CharactersOnCharacterTappedEventCopyWith<
+          _$_CharactersOnCharacterTappedEvent>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

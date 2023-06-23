@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:marvel_app/models/api_response_character.dart';
+import 'package:marvel_app/models/api_response_character_comics.dart';
 import 'package:marvel_app/models/api_response_comic.dart';
 import 'package:marvel_app/models/api_response_creator.dart';
 import 'package:marvel_app/models/api_response_series.dart';
@@ -26,4 +27,8 @@ abstract class MarvelApi {
 
   @GET('creators?offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
   Future<ApiResponseCreator> getCreators(@Path('offset') int offset);
+
+  @GET(
+      'characters/{characterId}/comics?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
+  Future<ApiResponseCharacterComic> getCharacterComics(@Path('characterId') int characterId, @Path('limit') int limit);
 }

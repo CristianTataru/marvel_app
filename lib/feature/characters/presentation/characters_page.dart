@@ -97,54 +97,59 @@ class CharacterEntry extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.white),
-              color: const Color.fromARGB(255, 47, 104, 20),
-            ),
-            height: 120,
-            width: 80,
-            child: character.thumbnail.path.contains("image_not_available")
-                ? const Align(
-                    alignment: Alignment.center,
-                    child: Icon(
-                      Icons.person_4,
-                      color: Colors.white,
-                      size: 64,
-                    ),
-                  )
-                : ImageFade(
-                    image: NetworkImage("${character.thumbnail.path}.${character.thumbnail.extension}"),
-                    fit: BoxFit.cover,
-                    loadingBuilder: (context, progress, chunkEvent) => Center(
-                      child: CircularProgressIndicator(
-                        value: progress,
-                        color: Colors.blue,
+      child: GestureDetector(
+        onTap: () {
+          bloc.add(CharactersEvent.onCharacterTapped(character: character));
+        },
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.white),
+                color: const Color.fromARGB(255, 47, 104, 20),
+              ),
+              height: 120,
+              width: 80,
+              child: character.thumbnail.path.contains("image_not_available")
+                  ? const Align(
+                      alignment: Alignment.center,
+                      child: Icon(
+                        Icons.person_4,
+                        color: Colors.white,
+                        size: 64,
+                      ),
+                    )
+                  : ImageFade(
+                      image: NetworkImage("${character.thumbnail.path}.${character.thumbnail.extension}"),
+                      fit: BoxFit.cover,
+                      loadingBuilder: (context, progress, chunkEvent) => Center(
+                        child: CircularProgressIndicator(
+                          value: progress,
+                          color: Colors.blue,
+                        ),
+                      ),
+                      errorBuilder: (context, error) => Container(
+                        color: const Color(0xFF6F6D6A),
+                        alignment: Alignment.center,
+                        child: const Icon(Icons.warning, color: Colors.black26, size: 80.0),
                       ),
                     ),
-                    errorBuilder: (context, error) => Container(
-                      color: const Color(0xFF6F6D6A),
-                      alignment: Alignment.center,
-                      child: const Icon(Icons.warning, color: Colors.black26, size: 80.0),
-                    ),
-                  ),
-          ),
-          const SizedBox(width: 8),
-          Expanded(
-            child: Text(
-              character.name,
-              style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
-              overflow: TextOverflow.ellipsis,
             ),
-          ),
-          const Icon(
-            Icons.chevron_right,
-            color: Colors.grey,
-          )
-        ],
+            const SizedBox(width: 8),
+            Expanded(
+              child: Text(
+                character.name,
+                style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+            const Icon(
+              Icons.chevron_right,
+              color: Colors.grey,
+            )
+          ],
+        ),
       ),
     );
   }
