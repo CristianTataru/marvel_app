@@ -21,6 +21,8 @@ Character _$CharacterFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Character {
   int get id => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
   Thumbnail get thumbnail => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,7 +36,7 @@ abstract class $CharacterCopyWith<$Res> {
   factory $CharacterCopyWith(Character value, $Res Function(Character) then) =
       _$CharacterCopyWithImpl<$Res, Character>;
   @useResult
-  $Res call({int id, Thumbnail thumbnail});
+  $Res call({int id, String name, String description, Thumbnail thumbnail});
 
   $ThumbnailCopyWith<$Res> get thumbnail;
 }
@@ -53,6 +55,8 @@ class _$CharacterCopyWithImpl<$Res, $Val extends Character>
   @override
   $Res call({
     Object? id = null,
+    Object? name = null,
+    Object? description = null,
     Object? thumbnail = null,
   }) {
     return _then(_value.copyWith(
@@ -60,6 +64,14 @@ class _$CharacterCopyWithImpl<$Res, $Val extends Character>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
       thumbnail: null == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
@@ -83,7 +95,7 @@ abstract class _$$_CharacterCopyWith<$Res> implements $CharacterCopyWith<$Res> {
       __$$_CharacterCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, Thumbnail thumbnail});
+  $Res call({int id, String name, String description, Thumbnail thumbnail});
 
   @override
   $ThumbnailCopyWith<$Res> get thumbnail;
@@ -101,6 +113,8 @@ class __$$_CharacterCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? name = null,
+    Object? description = null,
     Object? thumbnail = null,
   }) {
     return _then(_$_Character(
@@ -108,6 +122,14 @@ class __$$_CharacterCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
       thumbnail: null == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
@@ -119,7 +141,11 @@ class __$$_CharacterCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Character implements _Character {
-  const _$_Character({required this.id, required this.thumbnail});
+  const _$_Character(
+      {required this.id,
+      required this.name,
+      required this.description,
+      required this.thumbnail});
 
   factory _$_Character.fromJson(Map<String, dynamic> json) =>
       _$$_CharacterFromJson(json);
@@ -127,11 +153,15 @@ class _$_Character implements _Character {
   @override
   final int id;
   @override
+  final String name;
+  @override
+  final String description;
+  @override
   final Thumbnail thumbnail;
 
   @override
   String toString() {
-    return 'Character(id: $id, thumbnail: $thumbnail)';
+    return 'Character(id: $id, name: $name, description: $description, thumbnail: $thumbnail)';
   }
 
   @override
@@ -140,13 +170,17 @@ class _$_Character implements _Character {
         (other.runtimeType == runtimeType &&
             other is _$_Character &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
             (identical(other.thumbnail, thumbnail) ||
                 other.thumbnail == thumbnail));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, thumbnail);
+  int get hashCode =>
+      Object.hash(runtimeType, id, name, description, thumbnail);
 
   @JsonKey(ignore: true)
   @override
@@ -165,6 +199,8 @@ class _$_Character implements _Character {
 abstract class _Character implements Character {
   const factory _Character(
       {required final int id,
+      required final String name,
+      required final String description,
       required final Thumbnail thumbnail}) = _$_Character;
 
   factory _Character.fromJson(Map<String, dynamic> json) =
@@ -172,6 +208,10 @@ abstract class _Character implements Character {
 
   @override
   int get id;
+  @override
+  String get name;
+  @override
+  String get description;
   @override
   Thumbnail get thumbnail;
   @override

@@ -8,6 +8,8 @@ part 'character.g.dart';
 class Character with _$Character {
   const factory Character({
     required int id,
+    required String name,
+    required String description,
     required Thumbnail thumbnail,
   }) = _Character;
 

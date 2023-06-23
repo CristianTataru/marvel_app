@@ -1,5 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_fade/image_fade.dart';
+import 'package:marvel_app/feature/characters/bloc/characters_bloc.dart';
+import 'package:marvel_app/models/character.dart';
+
+final bloc = CharactersBloc();
 
 @RoutePage()
 class CharactersPage extends StatefulWidget {
@@ -10,8 +16,130 @@ class CharactersPage extends StatefulWidget {
 }
 
 class _CharactersPageState extends State<CharactersPage> {
+  ScrollController scrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    bloc.add(const CharactersEvent.onPageOpened());
+    scrollController.addListener(() {
+      if (scrollController.position.pixels == scrollController.position.maxScrollExtent) {
+        bloc.add(const CharactersEvent.onMoreDataLoading());
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    scrollController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return BlocBuilder<CharactersBloc, CharactersState>(
+      bloc: bloc,
+      builder: (context, charactersState) {
+        return Scaffold(
+          backgroundColor: const Color.fromARGB(255, 9, 54, 92),
+          appBar: AppBar(
+            title: const Text("Characters"),
+            backgroundColor: const Color.fromARGB(255, 6, 33, 54),
+            leading: const BackButton(color: Colors.blue),
+          ),
+          body: Column(
+            children: [
+              Expanded(
+                child: SingleChildScrollView(
+                  controller: scrollController,
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 8),
+                      ...charactersState.map(
+                        loaded: (state) => [
+                          ...state.characters.map((e) => CharacterEntry(e)),
+                          const SizedBox(height: 96),
+                        ],
+                        moreLoading: (state) => [
+                          ...state.characters.map((e) => CharacterEntry(e)),
+                          const SizedBox(
+                            height: 96,
+                            child: Center(
+                              child: SizedBox(height: 40, width: 40, child: CircularProgressIndicator()),
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
+        );
+      },
+    );
+  }
+}
+
+class CharacterEntry extends StatelessWidget {
+  const CharacterEntry(this.character, {super.key});
+
+  final Character character;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.white),
+              color: const Color.fromARGB(255, 47, 104, 20),
+            ),
+            height: 120,
+            width: 80,
+            child: character.thumbnail.path.contains("image_not_available")
+                ? const Align(
+                    alignment: Alignment.center,
+                    child: Icon(
+                      Icons.person_4,
+                      color: Colors.white,
+                      size: 64,
+                    ),
+                  )
+                : ImageFade(
+                    image: NetworkImage("${character.thumbnail.path}.${character.thumbnail.extension}"),
+                    fit: BoxFit.cover,
+                    loadingBuilder: (context, progress, chunkEvent) => Center(
+                      child: CircularProgressIndicator(
+                        value: progress,
+                        color: Colors.blue,
+                      ),
+                    ),
+                    errorBuilder: (context, error) => Container(
+                      color: const Color(0xFF6F6D6A),
+                      alignment: Alignment.center,
+                      child: const Icon(Icons.warning, color: Colors.black26, size: 80.0),
+                    ),
+                  ),
+          ),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Text(
+              character.name,
+              style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+          const Icon(
+            Icons.chevron_right,
+            color: Colors.grey,
+          )
+        ],
+      ),
+    );
   }
 }

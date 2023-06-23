@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                     child: Row(
                       children: [
                         _UserPick(state.characters.first.thumbnail, "Characters", () {
-                          bloc.add(const HomeEvent.onCharactersPageTapped());
+                          bloc.add(HomeEvent.onCharactersPageTapped(characters: state.characters));
                         }),
                         const Spacer(),
                         _UserPick(state.comics[2].thumbnail, "Comics", () {}),

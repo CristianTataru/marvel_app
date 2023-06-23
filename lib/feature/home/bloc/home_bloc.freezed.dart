@@ -19,19 +19,20 @@ mixin _$HomeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onAppStarted,
-    required TResult Function() onCharactersPageTapped,
+    required TResult Function(List<Character> characters)
+        onCharactersPageTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onAppStarted,
-    TResult? Function()? onCharactersPageTapped,
+    TResult? Function(List<Character> characters)? onCharactersPageTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onAppStarted,
-    TResult Function()? onCharactersPageTapped,
+    TResult Function(List<Character> characters)? onCharactersPageTapped,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -115,7 +116,8 @@ class _$_HomeOnAppStartedEvent implements _HomeOnAppStartedEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onAppStarted,
-    required TResult Function() onCharactersPageTapped,
+    required TResult Function(List<Character> characters)
+        onCharactersPageTapped,
   }) {
     return onAppStarted();
   }
@@ -124,7 +126,7 @@ class _$_HomeOnAppStartedEvent implements _HomeOnAppStartedEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onAppStarted,
-    TResult? Function()? onCharactersPageTapped,
+    TResult? Function(List<Character> characters)? onCharactersPageTapped,
   }) {
     return onAppStarted?.call();
   }
@@ -133,7 +135,7 @@ class _$_HomeOnAppStartedEvent implements _HomeOnAppStartedEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onAppStarted,
-    TResult Function()? onCharactersPageTapped,
+    TResult Function(List<Character> characters)? onCharactersPageTapped,
     required TResult orElse(),
   }) {
     if (onAppStarted != null) {
@@ -187,6 +189,8 @@ abstract class _$$_HomeOnCharactersPageTappedEventCopyWith<$Res> {
           _$_HomeOnCharactersPageTappedEvent value,
           $Res Function(_$_HomeOnCharactersPageTappedEvent) then) =
       __$$_HomeOnCharactersPageTappedEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<Character> characters});
 }
 
 /// @nodoc
@@ -197,56 +201,91 @@ class __$$_HomeOnCharactersPageTappedEventCopyWithImpl<$Res>
       _$_HomeOnCharactersPageTappedEvent _value,
       $Res Function(_$_HomeOnCharactersPageTappedEvent) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? characters = null,
+  }) {
+    return _then(_$_HomeOnCharactersPageTappedEvent(
+      characters: null == characters
+          ? _value._characters
+          : characters // ignore: cast_nullable_to_non_nullable
+              as List<Character>,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_HomeOnCharactersPageTappedEvent
     implements _HomeOnCharactersPageTappedEvent {
-  const _$_HomeOnCharactersPageTappedEvent();
+  const _$_HomeOnCharactersPageTappedEvent(
+      {required final List<Character> characters})
+      : _characters = characters;
+
+  final List<Character> _characters;
+  @override
+  List<Character> get characters {
+    if (_characters is EqualUnmodifiableListView) return _characters;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_characters);
+  }
 
   @override
   String toString() {
-    return 'HomeEvent.onCharactersPageTapped()';
+    return 'HomeEvent.onCharactersPageTapped(characters: $characters)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_HomeOnCharactersPageTappedEvent);
+            other is _$_HomeOnCharactersPageTappedEvent &&
+            const DeepCollectionEquality()
+                .equals(other._characters, _characters));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_characters));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_HomeOnCharactersPageTappedEventCopyWith<
+          _$_HomeOnCharactersPageTappedEvent>
+      get copyWith => __$$_HomeOnCharactersPageTappedEventCopyWithImpl<
+          _$_HomeOnCharactersPageTappedEvent>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onAppStarted,
-    required TResult Function() onCharactersPageTapped,
+    required TResult Function(List<Character> characters)
+        onCharactersPageTapped,
   }) {
-    return onCharactersPageTapped();
+    return onCharactersPageTapped(characters);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onAppStarted,
-    TResult? Function()? onCharactersPageTapped,
+    TResult? Function(List<Character> characters)? onCharactersPageTapped,
   }) {
-    return onCharactersPageTapped?.call();
+    return onCharactersPageTapped?.call(characters);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onAppStarted,
-    TResult Function()? onCharactersPageTapped,
+    TResult Function(List<Character> characters)? onCharactersPageTapped,
     required TResult orElse(),
   }) {
     if (onCharactersPageTapped != null) {
-      return onCharactersPageTapped();
+      return onCharactersPageTapped(characters);
     }
     return orElse();
   }
@@ -287,8 +326,15 @@ class _$_HomeOnCharactersPageTappedEvent
 }
 
 abstract class _HomeOnCharactersPageTappedEvent implements HomeEvent {
-  const factory _HomeOnCharactersPageTappedEvent() =
+  const factory _HomeOnCharactersPageTappedEvent(
+          {required final List<Character> characters}) =
       _$_HomeOnCharactersPageTappedEvent;
+
+  List<Character> get characters;
+  @JsonKey(ignore: true)
+  _$$_HomeOnCharactersPageTappedEventCopyWith<
+          _$_HomeOnCharactersPageTappedEvent>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
