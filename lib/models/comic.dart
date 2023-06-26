@@ -10,6 +10,7 @@ class Comic with _$Comic {
     required int id,
     required String title,
     required Thumbnail thumbnail,
+    required String? description,
   }) = _Comic;
 
   factory Comic.fromJson(Map<String, Object?> json) => _$ComicFromJson(json);

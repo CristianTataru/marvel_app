@@ -156,8 +156,7 @@ class TopSection extends StatelessWidget {
                     style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 8),
-                  SizedBox(
-                    height: 128,
+                  Expanded(
                     child: SingleChildScrollView(
                       child: Center(
                         child: Text(

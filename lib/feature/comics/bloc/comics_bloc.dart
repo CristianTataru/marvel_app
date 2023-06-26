@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:marvel_app/main.dart';
 import 'package:marvel_app/models/comic.dart';
+import 'package:marvel_app/routes/router.gr.dart';
 
 part 'comics_event.dart';
 part 'comics_state.dart';
@@ -12,6 +13,7 @@ class ComicsBloc extends Bloc<ComicsEvent, ComicsState> {
   ComicsBloc() : super(const _ComicsLoadedState(canLoadMore: true, lastOffset: 0, comics: [])) {
     on<_ComicsOnPageOpenedEvent>(_onComicsOnPageOpenedEvent);
     on<_ComicsMoreDataLoadingEvent>(_onComicsMoreDataLoadingEvent);
+    on<_ComicOnCharacterTappedEvent>(_onComicOnCharacterTappedEvent);
   }
 
   FutureOr<void> _onComicsOnPageOpenedEvent(_ComicsOnPageOpenedEvent event, Emitter<ComicsState> emit) async {
@@ -34,5 +36,9 @@ class ComicsBloc extends Bloc<ComicsEvent, ComicsState> {
         );
       },
     );
+  }
+
+  FutureOr<void> _onComicOnCharacterTappedEvent(_ComicOnCharacterTappedEvent event, Emitter<ComicsState> emit) {
+    router.push(ComicDetailsRoute(comic: event.comic));
   }
 }

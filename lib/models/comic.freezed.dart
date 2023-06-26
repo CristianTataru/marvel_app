@@ -23,6 +23,7 @@ mixin _$Comic {
   int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   Thumbnail get thumbnail => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +35,7 @@ abstract class $ComicCopyWith<$Res> {
   factory $ComicCopyWith(Comic value, $Res Function(Comic) then) =
       _$ComicCopyWithImpl<$Res, Comic>;
   @useResult
-  $Res call({int id, String title, Thumbnail thumbnail});
+  $Res call({int id, String title, Thumbnail thumbnail, String? description});
 
   $ThumbnailCopyWith<$Res> get thumbnail;
 }
@@ -55,6 +56,7 @@ class _$ComicCopyWithImpl<$Res, $Val extends Comic>
     Object? id = null,
     Object? title = null,
     Object? thumbnail = null,
+    Object? description = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -69,6 +71,10 @@ class _$ComicCopyWithImpl<$Res, $Val extends Comic>
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
               as Thumbnail,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
@@ -87,7 +93,7 @@ abstract class _$$_ComicCopyWith<$Res> implements $ComicCopyWith<$Res> {
       __$$_ComicCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String title, Thumbnail thumbnail});
+  $Res call({int id, String title, Thumbnail thumbnail, String? description});
 
   @override
   $ThumbnailCopyWith<$Res> get thumbnail;
@@ -105,6 +111,7 @@ class __$$_ComicCopyWithImpl<$Res> extends _$ComicCopyWithImpl<$Res, _$_Comic>
     Object? id = null,
     Object? title = null,
     Object? thumbnail = null,
+    Object? description = freezed,
   }) {
     return _then(_$_Comic(
       id: null == id
@@ -119,6 +126,10 @@ class __$$_ComicCopyWithImpl<$Res> extends _$ComicCopyWithImpl<$Res, _$_Comic>
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
               as Thumbnail,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -127,7 +138,10 @@ class __$$_ComicCopyWithImpl<$Res> extends _$ComicCopyWithImpl<$Res, _$_Comic>
 @JsonSerializable()
 class _$_Comic implements _Comic {
   const _$_Comic(
-      {required this.id, required this.title, required this.thumbnail});
+      {required this.id,
+      required this.title,
+      required this.thumbnail,
+      required this.description});
 
   factory _$_Comic.fromJson(Map<String, dynamic> json) =>
       _$$_ComicFromJson(json);
@@ -138,10 +152,12 @@ class _$_Comic implements _Comic {
   final String title;
   @override
   final Thumbnail thumbnail;
+  @override
+  final String? description;
 
   @override
   String toString() {
-    return 'Comic(id: $id, title: $title, thumbnail: $thumbnail)';
+    return 'Comic(id: $id, title: $title, thumbnail: $thumbnail, description: $description)';
   }
 
   @override
@@ -152,12 +168,15 @@ class _$_Comic implements _Comic {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.thumbnail, thumbnail) ||
-                other.thumbnail == thumbnail));
+                other.thumbnail == thumbnail) &&
+            (identical(other.description, description) ||
+                other.description == description));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, thumbnail);
+  int get hashCode =>
+      Object.hash(runtimeType, id, title, thumbnail, description);
 
   @JsonKey(ignore: true)
   @override
@@ -177,7 +196,8 @@ abstract class _Comic implements Comic {
   const factory _Comic(
       {required final int id,
       required final String title,
-      required final Thumbnail thumbnail}) = _$_Comic;
+      required final Thumbnail thumbnail,
+      required final String? description}) = _$_Comic;
 
   factory _Comic.fromJson(Map<String, dynamic> json) = _$_Comic.fromJson;
 
@@ -187,6 +207,8 @@ abstract class _Comic implements Comic {
   String get title;
   @override
   Thumbnail get thumbnail;
+  @override
+  String? get description;
   @override
   @JsonKey(ignore: true)
   _$$_ComicCopyWith<_$_Comic> get copyWith =>

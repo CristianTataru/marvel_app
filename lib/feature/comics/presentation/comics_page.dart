@@ -97,42 +97,47 @@ class ComicsEntry extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Container(
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.white),
-                color: const Color.fromARGB(255, 47, 104, 20),
+      child: GestureDetector(
+        onTap: () {
+          bloc.add(ComicsEvent.onComicTapped(comic: comic));
+        },
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.white),
+                  color: const Color.fromARGB(255, 47, 104, 20),
+                ),
+                height: 120,
+                width: 80,
+                child: comic.thumbnail.path.contains("image_not_available")
+                    ? const Align(
+                        alignment: Alignment.center,
+                        child: Icon(
+                          Icons.book,
+                          color: Colors.white,
+                          size: 64,
+                        ),
+                      )
+                    : MarvelImage(
+                        thumbnailPath: comic.thumbnail.path,
+                        extension: comic.thumbnail.extension,
+                      )),
+            const SizedBox(width: 8),
+            Expanded(
+              child: Text(
+                comic.title,
+                style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+                overflow: TextOverflow.ellipsis,
               ),
-              height: 120,
-              width: 80,
-              child: comic.thumbnail.path.contains("image_not_available")
-                  ? const Align(
-                      alignment: Alignment.center,
-                      child: Icon(
-                        Icons.book,
-                        color: Colors.white,
-                        size: 64,
-                      ),
-                    )
-                  : MarvelImage(
-                      thumbnailPath: comic.thumbnail.path,
-                      extension: comic.thumbnail.extension,
-                    )),
-          const SizedBox(width: 8),
-          Expanded(
-            child: Text(
-              comic.title,
-              style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
-              overflow: TextOverflow.ellipsis,
             ),
-          ),
-          const Icon(
-            Icons.chevron_right,
-            color: Colors.grey,
-          )
-        ],
+            const Icon(
+              Icons.chevron_right,
+              color: Colors.grey,
+            )
+          ],
+        ),
       ),
     );
   }
