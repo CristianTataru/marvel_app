@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:image_fade/image_fade.dart';
 import 'package:marvel_app/feature/series/bloc/series_bloc.dart';
 import 'package:marvel_app/models/series.dart';
+import 'package:marvel_app/widgets/marvel_image.dart';
 
 final bloc = SeriesBloc();
 
@@ -116,20 +116,9 @@ class SeriesEntry extends StatelessWidget {
                       size: 64,
                     ),
                   )
-                : ImageFade(
-                    image: NetworkImage("${series.thumbnail.path}.${series.thumbnail.extension}"),
-                    fit: BoxFit.cover,
-                    loadingBuilder: (context, progress, chunkEvent) => Center(
-                      child: CircularProgressIndicator(
-                        value: progress,
-                        color: Colors.blue,
-                      ),
-                    ),
-                    errorBuilder: (context, error) => Container(
-                      color: const Color(0xFF6F6D6A),
-                      alignment: Alignment.center,
-                      child: const Icon(Icons.warning, color: Colors.black26, size: 80.0),
-                    ),
+                : MarvelImage(
+                    thumbnailPath: series.thumbnail.path,
+                    extension: series.thumbnail.extension,
                   ),
           ),
           const SizedBox(width: 8),

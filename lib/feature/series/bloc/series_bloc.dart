@@ -27,10 +27,13 @@ class SeriesBloc extends Bloc<SeriesEvent, SeriesState> {
         emit(SeriesState.moreLoading(series: series));
         int offset = lastOffset + 20;
         List<Series> newSeries = await marvelRepository.getSeries(offset);
-        emit(SeriesState.loaded(
+        emit(
+          SeriesState.loaded(
             canLoadMore: marvelRepository.seriesTotal > (offset + 20) ? true : false,
             lastOffset: offset,
-            series: newSeries));
+            series: newSeries,
+          ),
+        );
       },
     );
   }

@@ -25,6 +25,8 @@ class CharacterDetailsBloc extends Bloc<CharacterDetailsEvent, CharacterDetailsS
       marvelRepository.getCharacterSeries(event.character.id, 100),
       marvelRepository.getCharacterStories(event.character.id, 100),
     ]);
-    emit(CharacterDetailsState.loaded(characterComics: data[0], characterSeries: data[1], characterStories: data[2]));
+    emit(
+      CharacterDetailsState.loaded(characterComics: data[0], characterSeries: data[1], characterStories: data[2]),
+    );
   }
 }

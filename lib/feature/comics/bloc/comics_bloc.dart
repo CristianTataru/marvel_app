@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:marvel_app/main.dart';
@@ -27,10 +26,12 @@ class ComicsBloc extends Bloc<ComicsEvent, ComicsState> {
         emit(ComicsState.moreLoading(comics: comics));
         int offset = lastOffset + 20;
         List<Comic> newComics = await marvelRepository.getComics(offset);
-        emit(ComicsState.loaded(
-            canLoadMore: marvelRepository.comicsTotal > (offset + 20) ? true : false,
-            lastOffset: offset,
-            comics: newComics));
+        emit(
+          ComicsState.loaded(
+              canLoadMore: marvelRepository.comicsTotal > (offset + 20) ? true : false,
+              lastOffset: offset,
+              comics: newComics),
+        );
       },
     );
   }

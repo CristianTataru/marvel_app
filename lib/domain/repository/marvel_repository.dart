@@ -63,8 +63,13 @@ class MarvelRepository {
       return stories.sublist(0, 20);
     }
     ApiResponseStory response = await marvelApi.getStories(offset);
-    List<Story> htmlStories =
-        response.data.results.map((story) => story.copyWith(title: HtmlUnescape().convert(story.title))).toList();
+    List<Story> htmlStories = response.data.results
+        .map(
+          (story) => story.copyWith(
+            title: HtmlUnescape().convert(story.title),
+          ),
+        )
+        .toList();
     stories = [...stories, ...htmlStories];
     return stories;
   }

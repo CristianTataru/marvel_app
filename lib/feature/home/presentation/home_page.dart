@@ -1,11 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:image_fade/image_fade.dart';
 import 'package:marvel_app/feature/home/bloc/home_bloc.dart';
 import 'package:marvel_app/models/creator.dart';
 import 'package:marvel_app/models/story.dart';
 import 'package:marvel_app/models/thumbnail.dart';
+import 'package:marvel_app/widgets/common.dart';
+import 'package:marvel_app/widgets/marvel_image.dart';
+import 'package:marvel_app/widgets/section_title.dart';
 
 final bloc = HomeBloc();
 
@@ -36,23 +38,7 @@ class _HomePageState extends State<HomePage> {
             title: const Text("Welcome"),
           ),
           body: homeState.map(
-            loading: (state) => Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Row(
-                  children: const [
-                    Spacer(),
-                    SizedBox(
-                      height: 60,
-                      width: 60,
-                      child: CircularProgressIndicator(),
-                    ),
-                    Spacer(),
-                  ],
-                ),
-              ],
-            ),
+            loading: (state) => pageLoadingSpinner,
             loaded: (state) => SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -71,18 +57,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   const SizedBox(height: 24),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16),
-                    child: Text(
-                      "Recommendations",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      textAlign: TextAlign.start,
-                    ),
-                  ),
+                  const SectionTitle(title: "Recommendations", seeAll: false),
                   const SizedBox(
                     height: 16,
                   ),
@@ -107,41 +82,9 @@ class _HomePageState extends State<HomePage> {
                   const SizedBox(
                     height: 8,
                   ),
-                  const Divider(
-                    color: Colors.grey,
-                    indent: 8,
-                    endIndent: 8,
-                  ),
+                  divider,
                   const SizedBox(height: 8),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16, right: 8),
-                    child: Row(
-                      children: [
-                        const Text(
-                          "Stories",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          textAlign: TextAlign.start,
-                        ),
-                        const Spacer(),
-                        Row(
-                          children: const [
-                            Text(
-                              "See all",
-                              style: TextStyle(color: Colors.grey, fontSize: 18),
-                            ),
-                            Icon(
-                              Icons.chevron_right,
-                              color: Colors.grey,
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
+                  const SectionTitle(title: "Stories", seeAll: true),
                   const SizedBox(height: 16),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
@@ -150,41 +93,9 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   const SizedBox(height: 8),
-                  const Divider(
-                    color: Colors.grey,
-                    indent: 8,
-                    endIndent: 8,
-                  ),
+                  divider,
                   const SizedBox(height: 8),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16, right: 8),
-                    child: Row(
-                      children: [
-                        const Text(
-                          "Creators",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          textAlign: TextAlign.start,
-                        ),
-                        const Spacer(),
-                        Row(
-                          children: const [
-                            Text(
-                              "See all",
-                              style: TextStyle(color: Colors.grey, fontSize: 18),
-                            ),
-                            Icon(
-                              Icons.chevron_right,
-                              color: Colors.grey,
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
+                  const SectionTitle(title: "Creators", seeAll: true),
                   CreatorsCarousel(
                     state.creators,
                   )
@@ -215,21 +126,7 @@ class _UserPick extends StatelessWidget {
             decoration: BoxDecoration(border: Border.all(color: Colors.white)),
             height: 136,
             width: 96,
-            child: ImageFade(
-              image: NetworkImage("${thumbnail.path}.${thumbnail.extension}"),
-              fit: BoxFit.cover,
-              loadingBuilder: (context, progress, chunkEvent) => Center(
-                child: CircularProgressIndicator(
-                  value: progress,
-                  color: Colors.blue,
-                ),
-              ),
-              errorBuilder: (context, error) => Container(
-                color: const Color(0xFF6F6D6A),
-                alignment: Alignment.center,
-                child: const Icon(Icons.warning, color: Colors.black26, size: 80.0),
-              ),
-            ),
+            child: MarvelImage(thumbnailPath: thumbnail.path, extension: thumbnail.extension),
           ),
         ),
         const SizedBox(height: 8),
@@ -348,20 +245,9 @@ class CreatorEntry extends StatelessWidget {
                         size: 40,
                       ),
                     )
-                  : ImageFade(
-                      image: NetworkImage("${creator.thumbnail.path}.${creator.thumbnail.extension}"),
-                      fit: BoxFit.cover,
-                      loadingBuilder: (context, progress, chunkEvent) => Center(
-                        child: CircularProgressIndicator(
-                          value: progress,
-                          color: Colors.blue,
-                        ),
-                      ),
-                      errorBuilder: (context, error) => Container(
-                        color: const Color(0xFF6F6D6A),
-                        alignment: Alignment.center,
-                        child: const Icon(Icons.warning, color: Colors.black26, size: 80.0),
-                      ),
+                  : MarvelImage(
+                      thumbnailPath: creator.thumbnail.path,
+                      extension: creator.thumbnail.extension,
                     ),
             ),
             const SizedBox(width: 8),
