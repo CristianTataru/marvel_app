@@ -392,19 +392,25 @@ mixin _$CharacterDetailsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<Comic> characterComics) loaded,
+    required TResult Function(List<Comic> characterComics,
+            List<Series> characterSeries, List<Story> characterStories)
+        loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<Comic> characterComics)? loaded,
+    TResult? Function(List<Comic> characterComics, List<Series> characterSeries,
+            List<Story> characterStories)?
+        loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Comic> characterComics)? loaded,
+    TResult Function(List<Comic> characterComics, List<Series> characterSeries,
+            List<Story> characterStories)?
+        loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -491,7 +497,9 @@ class _$_CharacterDetailsLoadingState implements _CharacterDetailsLoadingState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<Comic> characterComics) loaded,
+    required TResult Function(List<Comic> characterComics,
+            List<Series> characterSeries, List<Story> characterStories)
+        loaded,
   }) {
     return loading();
   }
@@ -500,7 +508,9 @@ class _$_CharacterDetailsLoadingState implements _CharacterDetailsLoadingState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<Comic> characterComics)? loaded,
+    TResult? Function(List<Comic> characterComics, List<Series> characterSeries,
+            List<Story> characterStories)?
+        loaded,
   }) {
     return loading?.call();
   }
@@ -509,7 +519,9 @@ class _$_CharacterDetailsLoadingState implements _CharacterDetailsLoadingState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Comic> characterComics)? loaded,
+    TResult Function(List<Comic> characterComics, List<Series> characterSeries,
+            List<Story> characterStories)?
+        loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -562,7 +574,10 @@ abstract class _$$_CharacterDetailsLoadedStateCopyWith<$Res> {
           $Res Function(_$_CharacterDetailsLoadedState) then) =
       __$$_CharacterDetailsLoadedStateCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Comic> characterComics});
+  $Res call(
+      {List<Comic> characterComics,
+      List<Series> characterSeries,
+      List<Story> characterStories});
 }
 
 /// @nodoc
@@ -579,12 +594,22 @@ class __$$_CharacterDetailsLoadedStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? characterComics = null,
+    Object? characterSeries = null,
+    Object? characterStories = null,
   }) {
     return _then(_$_CharacterDetailsLoadedState(
       characterComics: null == characterComics
           ? _value._characterComics
           : characterComics // ignore: cast_nullable_to_non_nullable
               as List<Comic>,
+      characterSeries: null == characterSeries
+          ? _value._characterSeries
+          : characterSeries // ignore: cast_nullable_to_non_nullable
+              as List<Series>,
+      characterStories: null == characterStories
+          ? _value._characterStories
+          : characterStories // ignore: cast_nullable_to_non_nullable
+              as List<Story>,
     ));
   }
 }
@@ -593,8 +618,12 @@ class __$$_CharacterDetailsLoadedStateCopyWithImpl<$Res>
 
 class _$_CharacterDetailsLoadedState implements _CharacterDetailsLoadedState {
   const _$_CharacterDetailsLoadedState(
-      {required final List<Comic> characterComics})
-      : _characterComics = characterComics;
+      {required final List<Comic> characterComics,
+      required final List<Series> characterSeries,
+      required final List<Story> characterStories})
+      : _characterComics = characterComics,
+        _characterSeries = characterSeries,
+        _characterStories = characterStories;
 
   final List<Comic> _characterComics;
   @override
@@ -604,9 +633,26 @@ class _$_CharacterDetailsLoadedState implements _CharacterDetailsLoadedState {
     return EqualUnmodifiableListView(_characterComics);
   }
 
+  final List<Series> _characterSeries;
+  @override
+  List<Series> get characterSeries {
+    if (_characterSeries is EqualUnmodifiableListView) return _characterSeries;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_characterSeries);
+  }
+
+  final List<Story> _characterStories;
+  @override
+  List<Story> get characterStories {
+    if (_characterStories is EqualUnmodifiableListView)
+      return _characterStories;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_characterStories);
+  }
+
   @override
   String toString() {
-    return 'CharacterDetailsState.loaded(characterComics: $characterComics)';
+    return 'CharacterDetailsState.loaded(characterComics: $characterComics, characterSeries: $characterSeries, characterStories: $characterStories)';
   }
 
   @override
@@ -615,12 +661,19 @@ class _$_CharacterDetailsLoadedState implements _CharacterDetailsLoadedState {
         (other.runtimeType == runtimeType &&
             other is _$_CharacterDetailsLoadedState &&
             const DeepCollectionEquality()
-                .equals(other._characterComics, _characterComics));
+                .equals(other._characterComics, _characterComics) &&
+            const DeepCollectionEquality()
+                .equals(other._characterSeries, _characterSeries) &&
+            const DeepCollectionEquality()
+                .equals(other._characterStories, _characterStories));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_characterComics));
+      runtimeType,
+      const DeepCollectionEquality().hash(_characterComics),
+      const DeepCollectionEquality().hash(_characterSeries),
+      const DeepCollectionEquality().hash(_characterStories));
 
   @JsonKey(ignore: true)
   @override
@@ -633,29 +686,35 @@ class _$_CharacterDetailsLoadedState implements _CharacterDetailsLoadedState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<Comic> characterComics) loaded,
+    required TResult Function(List<Comic> characterComics,
+            List<Series> characterSeries, List<Story> characterStories)
+        loaded,
   }) {
-    return loaded(characterComics);
+    return loaded(characterComics, characterSeries, characterStories);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<Comic> characterComics)? loaded,
+    TResult? Function(List<Comic> characterComics, List<Series> characterSeries,
+            List<Story> characterStories)?
+        loaded,
   }) {
-    return loaded?.call(characterComics);
+    return loaded?.call(characterComics, characterSeries, characterStories);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Comic> characterComics)? loaded,
+    TResult Function(List<Comic> characterComics, List<Series> characterSeries,
+            List<Story> characterStories)?
+        loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(characterComics);
+      return loaded(characterComics, characterSeries, characterStories);
     }
     return orElse();
   }
@@ -694,10 +753,14 @@ class _$_CharacterDetailsLoadedState implements _CharacterDetailsLoadedState {
 
 abstract class _CharacterDetailsLoadedState implements CharacterDetailsState {
   const factory _CharacterDetailsLoadedState(
-          {required final List<Comic> characterComics}) =
+          {required final List<Comic> characterComics,
+          required final List<Series> characterSeries,
+          required final List<Story> characterStories}) =
       _$_CharacterDetailsLoadedState;
 
   List<Comic> get characterComics;
+  List<Series> get characterSeries;
+  List<Story> get characterStories;
   @JsonKey(ignore: true)
   _$$_CharacterDetailsLoadedStateCopyWith<_$_CharacterDetailsLoadedState>
       get copyWith => throw _privateConstructorUsedError;
