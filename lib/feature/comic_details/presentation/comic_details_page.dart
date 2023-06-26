@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_app/feature/comic_details/bloc/comic_details_bloc.dart';
 import 'package:marvel_app/models/character.dart';
 import 'package:marvel_app/models/comic.dart';
+import 'package:marvel_app/models/creator.dart';
+import 'package:marvel_app/models/story.dart';
 import 'package:marvel_app/widgets/common.dart';
 import 'package:marvel_app/widgets/marvel_image.dart';
 import 'package:marvel_app/widgets/section_title.dart';
@@ -65,7 +67,36 @@ class _ComicDetailsPageState extends State<ComicDetailsPage> {
                                 : state.comicCharacters,
                           ),
                           const SizedBox(height: 8),
-                        ]
+                        ],
+                        if (state.comicStories.isNotEmpty) ...[
+                          divider,
+                          const SizedBox(height: 8),
+                          const SectionTitle(
+                            title: "Stories",
+                            seeAll: true,
+                          ),
+                          const SizedBox(height: 8),
+                          StoriesCarousel(
+                            stories:
+                                state.comicStories.length > 5 ? state.comicStories.sublist(0, 5) : state.comicStories,
+                          ),
+                          const SizedBox(height: 8)
+                        ],
+                        if (state.comicCreators.isNotEmpty) ...[
+                          divider,
+                          const SizedBox(height: 8),
+                          const SectionTitle(
+                            title: "Creators",
+                            seeAll: true,
+                          ),
+                          const SizedBox(height: 8),
+                          CreatorsCarousel(
+                            creators: state.comicCreators.length > 5
+                                ? state.comicCreators.sublist(0, 5)
+                                : state.comicCreators,
+                          ),
+                          const SizedBox(height: 8)
+                        ],
                       ],
                     ),
                   ),
@@ -206,6 +237,142 @@ class CharacterEntry extends StatelessWidget {
             const SizedBox(height: 8),
             Text(
               character.name,
+              style: const TextStyle(color: Colors.white),
+              maxLines: 2,
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis,
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class StoriesCarousel extends StatelessWidget {
+  const StoriesCarousel({required this.stories, super.key});
+
+  final List<Story> stories;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 8.0),
+      child: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [...stories.map((story) => StoryEntry(story))],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class StoryEntry extends StatelessWidget {
+  const StoryEntry(this.story, {super.key});
+
+  final Story story;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 16),
+      child: SizedBox(
+        height: 168,
+        width: 96,
+        child: Column(
+          children: [
+            Container(
+              height: 128,
+              width: 96,
+              decoration: BoxDecoration(
+                border: Border.all(width: 1, color: Colors.white),
+                color: const Color.fromARGB(255, 47, 104, 20),
+              ),
+              child: const Align(
+                alignment: Alignment.center,
+                child: Icon(
+                  Icons.menu_book_sharp,
+                  color: Colors.white,
+                  size: 64,
+                ),
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              story.title,
+              style: const TextStyle(color: Colors.white),
+              maxLines: 2,
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis,
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CreatorsCarousel extends StatelessWidget {
+  const CreatorsCarousel({required this.creators, super.key});
+
+  final List<Creator> creators;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 8.0),
+      child: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [...creators.map((creator) => CreatorEntry(creator))],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CreatorEntry extends StatelessWidget {
+  const CreatorEntry(this.creator, {super.key});
+
+  final Creator creator;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 16),
+      child: SizedBox(
+        height: 168,
+        width: 96,
+        child: Column(
+          children: [
+            Container(
+              height: 128,
+              width: 96,
+              decoration: BoxDecoration(
+                border: Border.all(width: 1, color: Colors.white),
+                color: const Color.fromARGB(255, 47, 104, 20),
+              ),
+              child: const Align(
+                alignment: Alignment.center,
+                child: Icon(
+                  Icons.person,
+                  color: Colors.white,
+                  size: 64,
+                ),
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              creator.fullName,
               style: const TextStyle(color: Colors.white),
               maxLines: 2,
               textAlign: TextAlign.center,
