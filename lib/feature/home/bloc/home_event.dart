@@ -8,4 +8,5 @@ class HomeEvent with _$HomeEvent {
   const factory HomeEvent.onComicsPageTapped({required List<Comic> comics}) = _HomeOnComicsPageTappedEvent;
   const factory HomeEvent.onSeriesPageTapped({required List<Series> series}) = _HomeOnSeriesPageTappedEvent;
   const factory HomeEvent.onStoryTapped({required Story story}) = _HomeOnStoryTappedEvent;
+  const factory HomeEvent.onCreatorTapped({required Creator creator}) = _HomeOnCreatorTappedEvent;
 }

@@ -1,0 +1,168 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marvel_app/feature/creator_details/bloc/creator_details_bloc.dart';
+import 'package:marvel_app/models/creator.dart';
+import 'package:marvel_app/widgets/comics_carousel.dart';
+import 'package:marvel_app/widgets/common.dart';
+import 'package:marvel_app/widgets/marvel_image.dart';
+import 'package:marvel_app/widgets/section_title.dart';
+import 'package:marvel_app/widgets/series_carousel.dart';
+
+final bloc = CreatorDetailsBloc();
+
+@RoutePage()
+class CreatorDetailsPage extends StatefulWidget {
+  const CreatorDetailsPage({required this.creator, super.key});
+
+  final Creator creator;
+
+  @override
+  State<CreatorDetailsPage> createState() => _CreatorDetailsPageState();
+}
+
+class _CreatorDetailsPageState extends State<CreatorDetailsPage> {
+  @override
+  void initState() {
+    super.initState();
+    bloc.add(CreatorDetailsEvent.onPageOpened(creator: widget.creator));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<CreatorDetailsBloc, CreatorDetailsState>(
+      bloc: bloc,
+      builder: (context, creatorDetailsState) {
+        return Scaffold(
+          backgroundColor: const Color.fromARGB(255, 9, 54, 92),
+          appBar: AppBar(
+            title: Text(widget.creator.fullName),
+            backgroundColor: const Color.fromARGB(255, 6, 33, 54),
+            leading: const BackButton(color: Colors.blue),
+          ),
+          body: creatorDetailsState.map(
+            loading: (state) => pageLoadingSpinner,
+            loaded: (state) => Column(
+              children: [
+                const SizedBox(height: 16),
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        const SizedBox(height: 8),
+                        TopSection(widget.creator),
+                        const SizedBox(height: 16),
+                        if (state.creatorComics.isNotEmpty) ...[
+                          divider,
+                          const SizedBox(height: 8),
+                          const SectionTitle(
+                            title: "Comics",
+                            seeAll: true,
+                          ),
+                          const SizedBox(height: 8),
+                          ComicsCarousel(
+                            comics: state.creatorComics.length > 5
+                                ? state.creatorComics.sublist(0, 5)
+                                : state.creatorComics,
+                          ),
+                          const SizedBox(height: 8)
+                        ],
+                        if (state.creatorSeries.isNotEmpty) ...[
+                          divider,
+                          const SizedBox(height: 8),
+                          const SectionTitle(
+                            title: "Series",
+                            seeAll: true,
+                          ),
+                          const SizedBox(height: 8),
+                          SeriesCarousel(
+                            series: state.creatorSeries.length > 5
+                                ? state.creatorSeries.sublist(0, 5)
+                                : state.creatorSeries,
+                          ),
+                          const SizedBox(height: 8)
+                        ],
+                        if (state.creatorComics.isNotEmpty) ...[
+                          divider,
+                          const SizedBox(height: 8),
+                          const SectionTitle(
+                            title: "Comics",
+                            seeAll: true,
+                          ),
+                          const SizedBox(height: 8),
+                          ComicsCarousel(
+                            comics: state.creatorComics.length > 5
+                                ? state.creatorComics.sublist(0, 5)
+                                : state.creatorComics,
+                          ),
+                          const SizedBox(height: 8)
+                        ],
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class TopSection extends StatelessWidget {
+  const TopSection(this.creator, {super.key});
+
+  final Creator creator;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      child: SizedBox(
+        height: 160,
+        width: MediaQuery.of(context).size.width,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.white),
+                color: const Color.fromARGB(255, 31, 124, 201),
+              ),
+              height: 160,
+              width: 104,
+              child: creator.thumbnail.path.contains("image_not_available")
+                  ? const Icon(
+                      Icons.person,
+                      color: Colors.white,
+                      size: 64,
+                    )
+                  : MarvelImage(
+                      thumbnailPath: creator.thumbnail.path,
+                      extension: creator.thumbnail.extension,
+                    ),
+            ),
+            const SizedBox(width: 8),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    creator.fullName,
+                    style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    creator.suffix,
+                    style: const TextStyle(color: Colors.grey, fontSize: 18),
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}

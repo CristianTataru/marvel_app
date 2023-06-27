@@ -8,6 +8,9 @@ import 'package:marvel_app/models/api_response_comic_characters.dart';
 import 'package:marvel_app/models/api_response_comic_creators.dart';
 import 'package:marvel_app/models/api_response_comic_stories.dart';
 import 'package:marvel_app/models/api_response_creator.dart';
+import 'package:marvel_app/models/api_response_creator_comics.dart';
+import 'package:marvel_app/models/api_response_creator_series.dart';
+import 'package:marvel_app/models/api_response_creator_stories.dart';
 import 'package:marvel_app/models/api_response_series.dart';
 import 'package:marvel_app/models/api_response_series_characters.dart';
 import 'package:marvel_app/models/api_response_series_comics.dart';
@@ -136,6 +139,27 @@ abstract class MarvelApi {
       'stories/{storyId}/creators?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
   Future<ApiResponseStoryCreators> getStoryCreators(
     @Path('storyId') int seriesId,
+    @Path('limit') int limit,
+  );
+
+  @GET(
+      'creators/{creatorId}/comics?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
+  Future<ApiResponseCreatorComic> getCreatorComics(
+    @Path('creatorId') int creatorId,
+    @Path('limit') int limit,
+  );
+
+  @GET(
+      'creators/{creatorId}/series?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
+  Future<ApiResponseCreatorSeries> getCreatorSeries(
+    @Path('creatorId') int creatorId,
+    @Path('limit') int limit,
+  );
+
+  @GET(
+      'creators/{creatorId}/stories?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
+  Future<ApiResponseCreatorStories> getCreatorStories(
+    @Path('creatorId') int creatorId,
     @Path('limit') int limit,
   );
 }

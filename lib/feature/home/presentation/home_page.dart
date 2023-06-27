@@ -228,47 +228,52 @@ class CreatorEntry extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: SizedBox(
-        width: 144,
-        child: Row(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.white, width: 0.5),
-                color: const Color.fromARGB(255, 47, 104, 20),
-              ),
-              height: 56,
-              width: 40,
-              child: creator.thumbnail.path.contains("image_not_available")
-                  ? const Align(
-                      alignment: Alignment.center,
-                      child: Icon(
-                        Icons.person,
-                        color: Colors.white,
-                        size: 40,
+      child: GestureDetector(
+        onTap: () {
+          bloc.add(HomeEvent.onCreatorTapped(creator: creator));
+        },
+        child: SizedBox(
+          width: 144,
+          child: Row(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.white, width: 0.5),
+                  color: const Color.fromARGB(255, 47, 104, 20),
+                ),
+                height: 56,
+                width: 40,
+                child: creator.thumbnail.path.contains("image_not_available")
+                    ? const Align(
+                        alignment: Alignment.center,
+                        child: Icon(
+                          Icons.person,
+                          color: Colors.white,
+                          size: 40,
+                        ),
+                      )
+                    : MarvelImage(
+                        thumbnailPath: creator.thumbnail.path,
+                        extension: creator.thumbnail.extension,
                       ),
-                    )
-                  : MarvelImage(
-                      thumbnailPath: creator.thumbnail.path,
-                      extension: creator.thumbnail.extension,
-                    ),
-            ),
-            const SizedBox(width: 8),
-            Expanded(
-              child: Text(
-                creator.fullName,
-                style: const TextStyle(color: Colors.white),
-                overflow: TextOverflow.ellipsis,
               ),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.chevron_right,
-                color: Colors.grey,
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  creator.fullName,
+                  style: const TextStyle(color: Colors.white),
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
-            )
-          ],
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.chevron_right,
+                  color: Colors.grey,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

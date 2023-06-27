@@ -23,6 +23,7 @@ mixin _$Creator {
   int get id => throw _privateConstructorUsedError;
   String get fullName => throw _privateConstructorUsedError;
   Thumbnail get thumbnail => throw _privateConstructorUsedError;
+  String get suffix => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +35,7 @@ abstract class $CreatorCopyWith<$Res> {
   factory $CreatorCopyWith(Creator value, $Res Function(Creator) then) =
       _$CreatorCopyWithImpl<$Res, Creator>;
   @useResult
-  $Res call({int id, String fullName, Thumbnail thumbnail});
+  $Res call({int id, String fullName, Thumbnail thumbnail, String suffix});
 
   $ThumbnailCopyWith<$Res> get thumbnail;
 }
@@ -55,6 +56,7 @@ class _$CreatorCopyWithImpl<$Res, $Val extends Creator>
     Object? id = null,
     Object? fullName = null,
     Object? thumbnail = null,
+    Object? suffix = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -69,6 +71,10 @@ class _$CreatorCopyWithImpl<$Res, $Val extends Creator>
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
               as Thumbnail,
+      suffix: null == suffix
+          ? _value.suffix
+          : suffix // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 
@@ -88,7 +94,7 @@ abstract class _$$_CreatorCopyWith<$Res> implements $CreatorCopyWith<$Res> {
       __$$_CreatorCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String fullName, Thumbnail thumbnail});
+  $Res call({int id, String fullName, Thumbnail thumbnail, String suffix});
 
   @override
   $ThumbnailCopyWith<$Res> get thumbnail;
@@ -107,6 +113,7 @@ class __$$_CreatorCopyWithImpl<$Res>
     Object? id = null,
     Object? fullName = null,
     Object? thumbnail = null,
+    Object? suffix = null,
   }) {
     return _then(_$_Creator(
       id: null == id
@@ -121,6 +128,10 @@ class __$$_CreatorCopyWithImpl<$Res>
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
               as Thumbnail,
+      suffix: null == suffix
+          ? _value.suffix
+          : suffix // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -129,7 +140,10 @@ class __$$_CreatorCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Creator implements _Creator {
   const _$_Creator(
-      {required this.id, required this.fullName, required this.thumbnail});
+      {required this.id,
+      required this.fullName,
+      required this.thumbnail,
+      required this.suffix});
 
   factory _$_Creator.fromJson(Map<String, dynamic> json) =>
       _$$_CreatorFromJson(json);
@@ -140,10 +154,12 @@ class _$_Creator implements _Creator {
   final String fullName;
   @override
   final Thumbnail thumbnail;
+  @override
+  final String suffix;
 
   @override
   String toString() {
-    return 'Creator(id: $id, fullName: $fullName, thumbnail: $thumbnail)';
+    return 'Creator(id: $id, fullName: $fullName, thumbnail: $thumbnail, suffix: $suffix)';
   }
 
   @override
@@ -155,12 +171,13 @@ class _$_Creator implements _Creator {
             (identical(other.fullName, fullName) ||
                 other.fullName == fullName) &&
             (identical(other.thumbnail, thumbnail) ||
-                other.thumbnail == thumbnail));
+                other.thumbnail == thumbnail) &&
+            (identical(other.suffix, suffix) || other.suffix == suffix));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, fullName, thumbnail);
+  int get hashCode => Object.hash(runtimeType, id, fullName, thumbnail, suffix);
 
   @JsonKey(ignore: true)
   @override
@@ -180,7 +197,8 @@ abstract class _Creator implements Creator {
   const factory _Creator(
       {required final int id,
       required final String fullName,
-      required final Thumbnail thumbnail}) = _$_Creator;
+      required final Thumbnail thumbnail,
+      required final String suffix}) = _$_Creator;
 
   factory _Creator.fromJson(Map<String, dynamic> json) = _$_Creator.fromJson;
 
@@ -190,6 +208,8 @@ abstract class _Creator implements Creator {
   String get fullName;
   @override
   Thumbnail get thumbnail;
+  @override
+  String get suffix;
   @override
   @JsonKey(ignore: true)
   _$$_CreatorCopyWith<_$_Creator> get copyWith =>

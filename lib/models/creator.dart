@@ -10,6 +10,7 @@ class Creator with _$Creator {
     required int id,
     required String fullName,
     required Thumbnail thumbnail,
+    required String suffix,
   }) = _Creator;
 
   factory Creator.fromJson(Map<String, Object?> json) => _$CreatorFromJson(json);
