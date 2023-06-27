@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_app/feature/series_details/bloc/series_details_bloc.dart';
 import 'package:marvel_app/models/series.dart';
+import 'package:marvel_app/theme/custom_colors.dart';
 import 'package:marvel_app/widgets/characters_caroulsel.dart';
 import 'package:marvel_app/widgets/comics_carousel.dart';
 import 'package:marvel_app/widgets/common.dart';
@@ -36,11 +37,11 @@ class _SeriesDetailsPageState extends State<SeriesDetailsPage> {
       bloc: bloc,
       builder: (context, seriesDetailsState) {
         return Scaffold(
-          backgroundColor: const Color.fromARGB(255, 9, 54, 92),
+          backgroundColor: CustomColors.background,
           appBar: AppBar(
             title: Text(widget.series.title),
-            backgroundColor: const Color.fromARGB(255, 6, 33, 54),
-            leading: const BackButton(color: Colors.blue),
+            backgroundColor: CustomColors.appBar,
+            leading: const BackButton(color: CustomColors.lightBlue),
           ),
           body: seriesDetailsState.map(
             loading: (state) => pageLoadingSpinner,
@@ -144,7 +145,7 @@ class TopSection extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.white),
-                color: const Color.fromARGB(255, 47, 104, 20),
+                color: CustomColors.yellow,
               ),
               height: 160,
               width: 104,

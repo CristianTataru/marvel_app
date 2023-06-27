@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_app/feature/character_details/bloc/character_details_bloc.dart';
 import 'package:marvel_app/models/character.dart';
+import 'package:marvel_app/theme/custom_colors.dart';
 import 'package:marvel_app/widgets/comics_carousel.dart';
 import 'package:marvel_app/widgets/common.dart';
 import 'package:marvel_app/widgets/marvel_image.dart';
@@ -35,11 +36,11 @@ class _CharacterDetailsPageState extends State<CharacterDetailsPage> {
       bloc: bloc,
       builder: (context, characterDetailsState) {
         return Scaffold(
-          backgroundColor: const Color.fromARGB(255, 9, 54, 92),
+          backgroundColor: CustomColors.background,
           appBar: AppBar(
             title: Text(widget.character.name),
-            backgroundColor: const Color.fromARGB(255, 6, 33, 54),
-            leading: const BackButton(color: Colors.blue),
+            backgroundColor: CustomColors.appBar,
+            leading: const BackButton(color: CustomColors.lightBlue),
           ),
           body: characterDetailsState.map(
             loading: (state) => pageLoadingSpinner,
@@ -128,7 +129,7 @@ class TopSection extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.white),
-                color: const Color.fromARGB(255, 47, 104, 20),
+                color: CustomColors.orange,
               ),
               height: 160,
               width: 104,

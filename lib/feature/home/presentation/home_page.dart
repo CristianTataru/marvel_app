@@ -5,6 +5,7 @@ import 'package:marvel_app/feature/home/bloc/home_bloc.dart';
 import 'package:marvel_app/models/creator.dart';
 import 'package:marvel_app/models/story.dart';
 import 'package:marvel_app/models/thumbnail.dart';
+import 'package:marvel_app/theme/custom_colors.dart';
 import 'package:marvel_app/widgets/common.dart';
 import 'package:marvel_app/widgets/marvel_image.dart';
 import 'package:marvel_app/widgets/section_title.dart';
@@ -32,9 +33,9 @@ class _HomePageState extends State<HomePage> {
       bloc: bloc,
       builder: (context, homeState) {
         return Scaffold(
-          backgroundColor: const Color.fromARGB(255, 9, 54, 92),
+          backgroundColor: CustomColors.background,
           appBar: AppBar(
-            backgroundColor: const Color.fromARGB(255, 6, 33, 54),
+            backgroundColor: CustomColors.appBar,
             title: const Text("Welcome"),
           ),
           body: homeState.map(
@@ -157,7 +158,7 @@ class _StoryEntry extends StatelessWidget {
           child: Container(
             height: 136,
             width: 88,
-            color: const Color.fromARGB(255, 31, 124, 201),
+            color: CustomColors.lightBlue,
             child: Padding(
               padding: const EdgeInsets.all(4.0),
               child: Stack(children: [
@@ -165,7 +166,7 @@ class _StoryEntry extends StatelessWidget {
                   alignment: Alignment.center,
                   child: Icon(
                     Icons.menu_book_sharp,
-                    color: Color.fromARGB(255, 16, 66, 107),
+                    color: CustomColors.darkBlue,
                     size: 50,
                   ),
                 ),
@@ -236,25 +237,25 @@ class CreatorEntry extends StatelessWidget {
           width: 144,
           child: Row(
             children: [
-              Container(
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.white, width: 0.5),
-                  color: const Color.fromARGB(255, 47, 104, 20),
-                ),
-                height: 56,
-                width: 40,
+              CircleAvatar(
+                radius: 26,
+                backgroundColor: Colors.white,
                 child: creator.thumbnail.path.contains("image_not_available")
-                    ? const Align(
-                        alignment: Alignment.center,
-                        child: Icon(
-                          Icons.person,
-                          color: Colors.white,
-                          size: 40,
-                        ),
-                      )
-                    : MarvelImage(
-                        thumbnailPath: creator.thumbnail.path,
-                        extension: creator.thumbnail.extension,
+                    ? const CircleAvatar(
+                        radius: 25,
+                        backgroundColor: CustomColors.green,
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: Icon(
+                            Icons.person,
+                            color: Colors.white,
+                            size: 32,
+                          ),
+                        ))
+                    : CircleAvatar(
+                        radius: 25,
+                        backgroundColor: CustomColors.green,
+                        backgroundImage: NetworkImage("${creator.thumbnail.path}.${creator.thumbnail.extension}"),
                       ),
               ),
               const SizedBox(width: 8),

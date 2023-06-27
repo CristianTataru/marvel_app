@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_app/feature/creator_details/bloc/creator_details_bloc.dart';
 import 'package:marvel_app/models/creator.dart';
+import 'package:marvel_app/theme/custom_colors.dart';
 import 'package:marvel_app/widgets/comics_carousel.dart';
 import 'package:marvel_app/widgets/common.dart';
 import 'package:marvel_app/widgets/marvel_image.dart';
 import 'package:marvel_app/widgets/section_title.dart';
 import 'package:marvel_app/widgets/series_carousel.dart';
+import 'package:marvel_app/widgets/stories_carousel.dart';
 
 final bloc = CreatorDetailsBloc();
 
@@ -34,11 +36,11 @@ class _CreatorDetailsPageState extends State<CreatorDetailsPage> {
       bloc: bloc,
       builder: (context, creatorDetailsState) {
         return Scaffold(
-          backgroundColor: const Color.fromARGB(255, 9, 54, 92),
+          backgroundColor: CustomColors.background,
           appBar: AppBar(
             title: Text(widget.creator.fullName),
-            backgroundColor: const Color.fromARGB(255, 6, 33, 54),
-            leading: const BackButton(color: Colors.blue),
+            backgroundColor: CustomColors.appBar,
+            leading: const BackButton(color: CustomColors.lightBlue),
           ),
           body: creatorDetailsState.map(
             loading: (state) => pageLoadingSpinner,
@@ -82,18 +84,18 @@ class _CreatorDetailsPageState extends State<CreatorDetailsPage> {
                           ),
                           const SizedBox(height: 8)
                         ],
-                        if (state.creatorComics.isNotEmpty) ...[
+                        if (state.creatorStories.isNotEmpty) ...[
                           divider,
                           const SizedBox(height: 8),
                           const SectionTitle(
-                            title: "Comics",
+                            title: "Stories",
                             seeAll: true,
                           ),
                           const SizedBox(height: 8),
-                          ComicsCarousel(
-                            comics: state.creatorComics.length > 5
-                                ? state.creatorComics.sublist(0, 5)
-                                : state.creatorComics,
+                          StoriesCarousel(
+                            stories: state.creatorSeries.length > 5
+                                ? state.creatorStories.sublist(0, 5)
+                                : state.creatorStories,
                           ),
                           const SizedBox(height: 8)
                         ],
@@ -128,7 +130,7 @@ class TopSection extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.white),
-                color: const Color.fromARGB(255, 31, 124, 201),
+                color: CustomColors.green,
               ),
               height: 160,
               width: 104,

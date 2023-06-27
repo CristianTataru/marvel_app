@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_app/feature/series/bloc/series_bloc.dart';
 import 'package:marvel_app/models/series.dart';
+import 'package:marvel_app/theme/custom_colors.dart';
 import 'package:marvel_app/widgets/marvel_image.dart';
 
 final bloc = SeriesBloc();
@@ -41,7 +42,7 @@ class _SeriesPageState extends State<SeriesPage> {
       bloc: bloc,
       builder: (context, seriesState) {
         return Scaffold(
-          backgroundColor: const Color.fromARGB(255, 9, 54, 92),
+          backgroundColor: CustomColors.background,
           appBar: AppBar(
             title: Row(
               children: const [
@@ -50,8 +51,8 @@ class _SeriesPageState extends State<SeriesPage> {
                 Icon(Icons.library_books_outlined),
               ],
             ),
-            backgroundColor: const Color.fromARGB(255, 6, 33, 54),
-            leading: const BackButton(color: Colors.blue),
+            backgroundColor: CustomColors.appBar,
+            leading: const BackButton(color: CustomColors.lightBlue),
           ),
           body: Column(
             children: [
@@ -107,7 +108,7 @@ class SeriesEntry extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.white),
-                color: const Color.fromARGB(255, 47, 104, 20),
+                color: CustomColors.yellow,
               ),
               height: 120,
               width: 80,

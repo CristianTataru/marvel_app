@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_app/feature/characters/bloc/characters_bloc.dart';
 import 'package:marvel_app/models/character.dart';
+import 'package:marvel_app/theme/custom_colors.dart';
 import 'package:marvel_app/widgets/common.dart';
 import 'package:marvel_app/widgets/marvel_image.dart';
 
@@ -42,7 +43,7 @@ class _CharactersPageState extends State<CharactersPage> {
       bloc: bloc,
       builder: (context, charactersState) {
         return Scaffold(
-          backgroundColor: const Color.fromARGB(255, 9, 54, 92),
+          backgroundColor: CustomColors.background,
           appBar: AppBar(
             title: Row(
               children: const [
@@ -51,8 +52,8 @@ class _CharactersPageState extends State<CharactersPage> {
                 Icon(Icons.person_4),
               ],
             ),
-            backgroundColor: const Color.fromARGB(255, 6, 33, 54),
-            leading: const BackButton(color: Colors.blue),
+            backgroundColor: CustomColors.appBar,
+            leading: const BackButton(color: CustomColors.lightBlue),
           ),
           body: Column(
             children: [
@@ -106,7 +107,7 @@ class CharacterEntry extends StatelessWidget {
             Container(
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.white),
-                  color: const Color.fromARGB(255, 47, 104, 20),
+                  color: CustomColors.orange,
                 ),
                 height: 120,
                 width: 80,

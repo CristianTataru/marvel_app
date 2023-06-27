@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_app/feature/comic_details/bloc/comic_details_bloc.dart';
 import 'package:marvel_app/models/comic.dart';
+import 'package:marvel_app/theme/custom_colors.dart';
 import 'package:marvel_app/widgets/characters_caroulsel.dart';
 import 'package:marvel_app/widgets/common.dart';
 import 'package:marvel_app/widgets/creators_caroulsel.dart';
@@ -35,11 +36,11 @@ class _ComicDetailsPageState extends State<ComicDetailsPage> {
       bloc: bloc,
       builder: (context, comicDetailsState) {
         return Scaffold(
-          backgroundColor: const Color.fromARGB(255, 9, 54, 92),
+          backgroundColor: CustomColors.background,
           appBar: AppBar(
             title: Text(widget.comic.title),
-            backgroundColor: const Color.fromARGB(255, 6, 33, 54),
-            leading: const BackButton(color: Colors.blue),
+            backgroundColor: CustomColors.appBar,
+            leading: const BackButton(color: CustomColors.lightBlue),
           ),
           body: comicDetailsState.map(
             loading: (state) => pageLoadingSpinner,
@@ -128,7 +129,7 @@ class TopSection extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.white),
-                color: const Color.fromARGB(255, 47, 104, 20),
+                color: CustomColors.purple,
               ),
               height: 160,
               width: 104,
@@ -136,7 +137,7 @@ class TopSection extends StatelessWidget {
                   ? const Align(
                       alignment: Alignment.center,
                       child: Icon(
-                        Icons.person_4,
+                        Icons.book,
                         color: Colors.white,
                         size: 64,
                       ),

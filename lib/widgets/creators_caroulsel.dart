@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:marvel_app/main.dart';
 import 'package:marvel_app/models/creator.dart';
+import 'package:marvel_app/routes/router.gr.dart';
+import 'package:marvel_app/theme/custom_colors.dart';
+import 'package:marvel_app/widgets/marvel_image.dart';
 
 class CreatorsCarousel extends StatelessWidget {
   const CreatorsCarousel({required this.creators, super.key});
@@ -33,36 +37,46 @@ class CreatorEntry extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(right: 16),
-      child: SizedBox(
-        height: 168,
-        width: 96,
-        child: Column(
-          children: [
-            Container(
-              height: 128,
-              width: 96,
-              decoration: BoxDecoration(
-                border: Border.all(width: 1, color: Colors.white),
-                color: const Color.fromARGB(255, 47, 104, 20),
-              ),
-              child: const Align(
-                alignment: Alignment.center,
-                child: Icon(
-                  Icons.person,
-                  color: Colors.white,
-                  size: 64,
+      child: GestureDetector(
+        onTap: () {
+          router.push(CreatorDetailsRoute(creator: creator));
+        },
+        child: SizedBox(
+          height: 168,
+          width: 96,
+          child: Column(
+            children: [
+              CircleAvatar(
+                radius: 52,
+                backgroundColor: Colors.white,
+                child: CircleAvatar(
+                  radius: 47,
+                  backgroundColor: CustomColors.green,
+                  child: creator.thumbnail.path.contains("image_not_available")
+                      ? const Align(
+                          alignment: Alignment.center,
+                          child: Icon(
+                            Icons.person,
+                            color: Colors.white,
+                            size: 40,
+                          ),
+                        )
+                      : MarvelImage(
+                          thumbnailPath: creator.thumbnail.path,
+                          extension: creator.thumbnail.extension,
+                        ),
                 ),
               ),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              creator.fullName,
-              style: const TextStyle(color: Colors.white),
-              maxLines: 2,
-              textAlign: TextAlign.center,
-              overflow: TextOverflow.ellipsis,
-            )
-          ],
+              const SizedBox(height: 8),
+              Text(
+                creator.fullName,
+                style: const TextStyle(color: Colors.white),
+                maxLines: 2,
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
+              )
+            ],
+          ),
         ),
       ),
     );
