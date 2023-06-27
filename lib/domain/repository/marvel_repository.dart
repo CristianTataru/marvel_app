@@ -10,6 +10,10 @@ import 'package:marvel_app/models/api_response_comic_creators.dart';
 import 'package:marvel_app/models/api_response_comic_stories.dart';
 import 'package:marvel_app/models/api_response_creator.dart';
 import 'package:marvel_app/models/api_response_series.dart';
+import 'package:marvel_app/models/api_response_series_characters.dart';
+import 'package:marvel_app/models/api_response_series_comics.dart';
+import 'package:marvel_app/models/api_response_series_creators.dart';
+import 'package:marvel_app/models/api_response_series_stories.dart';
 import 'package:marvel_app/models/api_response_story.dart';
 import 'package:marvel_app/models/character.dart';
 import 'package:marvel_app/models/comic.dart';
@@ -113,6 +117,26 @@ class MarvelRepository {
 
   Future<List<Creator>> getComicCreators(int comicId, int limit) async {
     ApiResponseComicCreators response = await marvelApi.getComicCreators(comicId, limit);
+    return response.data.results;
+  }
+
+  Future<List<Character>> getSeriesCharacters(int seriesId, int limit) async {
+    ApiResponseSeriesCharacters response = await marvelApi.getSeriesCharacters(seriesId, limit);
+    return response.data.results;
+  }
+
+  Future<List<Comic>> getSeriesComics(int seriesId, int limit) async {
+    ApiResponseSeriesComics response = await marvelApi.getSeriesComics(seriesId, limit);
+    return response.data.results;
+  }
+
+  Future<List<Creator>> getSeriesCreators(int seriesId, int limit) async {
+    ApiResponseSeriesCreators response = await marvelApi.getSeriesCreators(seriesId, limit);
+    return response.data.results;
+  }
+
+  Future<List<Story>> getSeriesStories(int seriesId, int limit) async {
+    ApiResponseSeriesStories response = await marvelApi.getSeriesStories(seriesId, limit);
     return response.data.results;
   }
 }

@@ -13,7 +13,7 @@ class ComicsBloc extends Bloc<ComicsEvent, ComicsState> {
   ComicsBloc() : super(const _ComicsLoadedState(canLoadMore: true, lastOffset: 0, comics: [])) {
     on<_ComicsOnPageOpenedEvent>(_onComicsOnPageOpenedEvent);
     on<_ComicsMoreDataLoadingEvent>(_onComicsMoreDataLoadingEvent);
-    on<_ComicOnCharacterTappedEvent>(_onComicOnCharacterTappedEvent);
+    on<_ComicOnComicTappedEvent>(_onComicOnCharacterTappedEvent);
   }
 
   FutureOr<void> _onComicsOnPageOpenedEvent(_ComicsOnPageOpenedEvent event, Emitter<ComicsState> emit) async {
@@ -38,7 +38,7 @@ class ComicsBloc extends Bloc<ComicsEvent, ComicsState> {
     );
   }
 
-  FutureOr<void> _onComicOnCharacterTappedEvent(_ComicOnCharacterTappedEvent event, Emitter<ComicsState> emit) {
+  FutureOr<void> _onComicOnCharacterTappedEvent(_ComicOnComicTappedEvent event, Emitter<ComicsState> emit) {
     router.push(ComicDetailsRoute(comic: event.comic));
   }
 }

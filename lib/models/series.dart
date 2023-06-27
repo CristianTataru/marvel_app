@@ -10,6 +10,7 @@ class Series with _$Series {
     required int id,
     required String title,
     required Thumbnail thumbnail,
+    required String? description,
   }) = _Series;
 
   factory Series.fromJson(Map<String, Object?> json) => _$SeriesFromJson(json);

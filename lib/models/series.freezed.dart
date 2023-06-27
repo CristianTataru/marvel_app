@@ -23,6 +23,7 @@ mixin _$Series {
   int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   Thumbnail get thumbnail => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +35,7 @@ abstract class $SeriesCopyWith<$Res> {
   factory $SeriesCopyWith(Series value, $Res Function(Series) then) =
       _$SeriesCopyWithImpl<$Res, Series>;
   @useResult
-  $Res call({int id, String title, Thumbnail thumbnail});
+  $Res call({int id, String title, Thumbnail thumbnail, String? description});
 
   $ThumbnailCopyWith<$Res> get thumbnail;
 }
@@ -55,6 +56,7 @@ class _$SeriesCopyWithImpl<$Res, $Val extends Series>
     Object? id = null,
     Object? title = null,
     Object? thumbnail = null,
+    Object? description = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -69,6 +71,10 @@ class _$SeriesCopyWithImpl<$Res, $Val extends Series>
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
               as Thumbnail,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
@@ -87,7 +93,7 @@ abstract class _$$_SeriesCopyWith<$Res> implements $SeriesCopyWith<$Res> {
       __$$_SeriesCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String title, Thumbnail thumbnail});
+  $Res call({int id, String title, Thumbnail thumbnail, String? description});
 
   @override
   $ThumbnailCopyWith<$Res> get thumbnail;
@@ -106,6 +112,7 @@ class __$$_SeriesCopyWithImpl<$Res>
     Object? id = null,
     Object? title = null,
     Object? thumbnail = null,
+    Object? description = freezed,
   }) {
     return _then(_$_Series(
       id: null == id
@@ -120,6 +127,10 @@ class __$$_SeriesCopyWithImpl<$Res>
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
               as Thumbnail,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -128,7 +139,10 @@ class __$$_SeriesCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Series implements _Series {
   const _$_Series(
-      {required this.id, required this.title, required this.thumbnail});
+      {required this.id,
+      required this.title,
+      required this.thumbnail,
+      required this.description});
 
   factory _$_Series.fromJson(Map<String, dynamic> json) =>
       _$$_SeriesFromJson(json);
@@ -139,10 +153,12 @@ class _$_Series implements _Series {
   final String title;
   @override
   final Thumbnail thumbnail;
+  @override
+  final String? description;
 
   @override
   String toString() {
-    return 'Series(id: $id, title: $title, thumbnail: $thumbnail)';
+    return 'Series(id: $id, title: $title, thumbnail: $thumbnail, description: $description)';
   }
 
   @override
@@ -153,12 +169,15 @@ class _$_Series implements _Series {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.thumbnail, thumbnail) ||
-                other.thumbnail == thumbnail));
+                other.thumbnail == thumbnail) &&
+            (identical(other.description, description) ||
+                other.description == description));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, thumbnail);
+  int get hashCode =>
+      Object.hash(runtimeType, id, title, thumbnail, description);
 
   @JsonKey(ignore: true)
   @override
@@ -178,7 +197,8 @@ abstract class _Series implements Series {
   const factory _Series(
       {required final int id,
       required final String title,
-      required final Thumbnail thumbnail}) = _$_Series;
+      required final Thumbnail thumbnail,
+      required final String? description}) = _$_Series;
 
   factory _Series.fromJson(Map<String, dynamic> json) = _$_Series.fromJson;
 
@@ -188,6 +208,8 @@ abstract class _Series implements Series {
   String get title;
   @override
   Thumbnail get thumbnail;
+  @override
+  String? get description;
   @override
   @JsonKey(ignore: true)
   _$$_SeriesCopyWith<_$_Series> get copyWith =>

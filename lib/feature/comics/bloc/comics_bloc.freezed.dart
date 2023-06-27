@@ -43,21 +43,21 @@ mixin _$ComicsEvent {
     required TResult Function(_ComicsOnPageOpenedEvent value) onPageOpened,
     required TResult Function(_ComicsMoreDataLoadingEvent value)
         onMoreDataLoading,
-    required TResult Function(_ComicOnCharacterTappedEvent value) onComicTapped,
+    required TResult Function(_ComicOnComicTappedEvent value) onComicTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ComicsOnPageOpenedEvent value)? onPageOpened,
     TResult? Function(_ComicsMoreDataLoadingEvent value)? onMoreDataLoading,
-    TResult? Function(_ComicOnCharacterTappedEvent value)? onComicTapped,
+    TResult? Function(_ComicOnComicTappedEvent value)? onComicTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ComicsOnPageOpenedEvent value)? onPageOpened,
     TResult Function(_ComicsMoreDataLoadingEvent value)? onMoreDataLoading,
-    TResult Function(_ComicOnCharacterTappedEvent value)? onComicTapped,
+    TResult Function(_ComicOnComicTappedEvent value)? onComicTapped,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -157,7 +157,7 @@ class _$_ComicsOnPageOpenedEvent implements _ComicsOnPageOpenedEvent {
     required TResult Function(_ComicsOnPageOpenedEvent value) onPageOpened,
     required TResult Function(_ComicsMoreDataLoadingEvent value)
         onMoreDataLoading,
-    required TResult Function(_ComicOnCharacterTappedEvent value) onComicTapped,
+    required TResult Function(_ComicOnComicTappedEvent value) onComicTapped,
   }) {
     return onPageOpened(this);
   }
@@ -167,7 +167,7 @@ class _$_ComicsOnPageOpenedEvent implements _ComicsOnPageOpenedEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ComicsOnPageOpenedEvent value)? onPageOpened,
     TResult? Function(_ComicsMoreDataLoadingEvent value)? onMoreDataLoading,
-    TResult? Function(_ComicOnCharacterTappedEvent value)? onComicTapped,
+    TResult? Function(_ComicOnComicTappedEvent value)? onComicTapped,
   }) {
     return onPageOpened?.call(this);
   }
@@ -177,7 +177,7 @@ class _$_ComicsOnPageOpenedEvent implements _ComicsOnPageOpenedEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ComicsOnPageOpenedEvent value)? onPageOpened,
     TResult Function(_ComicsMoreDataLoadingEvent value)? onMoreDataLoading,
-    TResult Function(_ComicOnCharacterTappedEvent value)? onComicTapped,
+    TResult Function(_ComicOnComicTappedEvent value)? onComicTapped,
     required TResult orElse(),
   }) {
     if (onPageOpened != null) {
@@ -269,7 +269,7 @@ class _$_ComicsMoreDataLoadingEvent implements _ComicsMoreDataLoadingEvent {
     required TResult Function(_ComicsOnPageOpenedEvent value) onPageOpened,
     required TResult Function(_ComicsMoreDataLoadingEvent value)
         onMoreDataLoading,
-    required TResult Function(_ComicOnCharacterTappedEvent value) onComicTapped,
+    required TResult Function(_ComicOnComicTappedEvent value) onComicTapped,
   }) {
     return onMoreDataLoading(this);
   }
@@ -279,7 +279,7 @@ class _$_ComicsMoreDataLoadingEvent implements _ComicsMoreDataLoadingEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ComicsOnPageOpenedEvent value)? onPageOpened,
     TResult? Function(_ComicsMoreDataLoadingEvent value)? onMoreDataLoading,
-    TResult? Function(_ComicOnCharacterTappedEvent value)? onComicTapped,
+    TResult? Function(_ComicOnComicTappedEvent value)? onComicTapped,
   }) {
     return onMoreDataLoading?.call(this);
   }
@@ -289,7 +289,7 @@ class _$_ComicsMoreDataLoadingEvent implements _ComicsMoreDataLoadingEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ComicsOnPageOpenedEvent value)? onPageOpened,
     TResult Function(_ComicsMoreDataLoadingEvent value)? onMoreDataLoading,
-    TResult Function(_ComicOnCharacterTappedEvent value)? onComicTapped,
+    TResult Function(_ComicOnComicTappedEvent value)? onComicTapped,
     required TResult orElse(),
   }) {
     if (onMoreDataLoading != null) {
@@ -304,11 +304,10 @@ abstract class _ComicsMoreDataLoadingEvent implements ComicsEvent {
 }
 
 /// @nodoc
-abstract class _$$_ComicOnCharacterTappedEventCopyWith<$Res> {
-  factory _$$_ComicOnCharacterTappedEventCopyWith(
-          _$_ComicOnCharacterTappedEvent value,
-          $Res Function(_$_ComicOnCharacterTappedEvent) then) =
-      __$$_ComicOnCharacterTappedEventCopyWithImpl<$Res>;
+abstract class _$$_ComicOnComicTappedEventCopyWith<$Res> {
+  factory _$$_ComicOnComicTappedEventCopyWith(_$_ComicOnComicTappedEvent value,
+          $Res Function(_$_ComicOnComicTappedEvent) then) =
+      __$$_ComicOnComicTappedEventCopyWithImpl<$Res>;
   @useResult
   $Res call({Comic comic});
 
@@ -316,12 +315,11 @@ abstract class _$$_ComicOnCharacterTappedEventCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ComicOnCharacterTappedEventCopyWithImpl<$Res>
-    extends _$ComicsEventCopyWithImpl<$Res, _$_ComicOnCharacterTappedEvent>
-    implements _$$_ComicOnCharacterTappedEventCopyWith<$Res> {
-  __$$_ComicOnCharacterTappedEventCopyWithImpl(
-      _$_ComicOnCharacterTappedEvent _value,
-      $Res Function(_$_ComicOnCharacterTappedEvent) _then)
+class __$$_ComicOnComicTappedEventCopyWithImpl<$Res>
+    extends _$ComicsEventCopyWithImpl<$Res, _$_ComicOnComicTappedEvent>
+    implements _$$_ComicOnComicTappedEventCopyWith<$Res> {
+  __$$_ComicOnComicTappedEventCopyWithImpl(_$_ComicOnComicTappedEvent _value,
+      $Res Function(_$_ComicOnComicTappedEvent) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -329,7 +327,7 @@ class __$$_ComicOnCharacterTappedEventCopyWithImpl<$Res>
   $Res call({
     Object? comic = null,
   }) {
-    return _then(_$_ComicOnCharacterTappedEvent(
+    return _then(_$_ComicOnComicTappedEvent(
       comic: null == comic
           ? _value.comic
           : comic // ignore: cast_nullable_to_non_nullable
@@ -348,8 +346,8 @@ class __$$_ComicOnCharacterTappedEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ComicOnCharacterTappedEvent implements _ComicOnCharacterTappedEvent {
-  const _$_ComicOnCharacterTappedEvent({required this.comic});
+class _$_ComicOnComicTappedEvent implements _ComicOnComicTappedEvent {
+  const _$_ComicOnComicTappedEvent({required this.comic});
 
   @override
   final Comic comic;
@@ -363,7 +361,7 @@ class _$_ComicOnCharacterTappedEvent implements _ComicOnCharacterTappedEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ComicOnCharacterTappedEvent &&
+            other is _$_ComicOnComicTappedEvent &&
             (identical(other.comic, comic) || other.comic == comic));
   }
 
@@ -373,9 +371,10 @@ class _$_ComicOnCharacterTappedEvent implements _ComicOnCharacterTappedEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ComicOnCharacterTappedEventCopyWith<_$_ComicOnCharacterTappedEvent>
-      get copyWith => __$$_ComicOnCharacterTappedEventCopyWithImpl<
-          _$_ComicOnCharacterTappedEvent>(this, _$identity);
+  _$$_ComicOnComicTappedEventCopyWith<_$_ComicOnComicTappedEvent>
+      get copyWith =>
+          __$$_ComicOnComicTappedEventCopyWithImpl<_$_ComicOnComicTappedEvent>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -417,7 +416,7 @@ class _$_ComicOnCharacterTappedEvent implements _ComicOnCharacterTappedEvent {
     required TResult Function(_ComicsOnPageOpenedEvent value) onPageOpened,
     required TResult Function(_ComicsMoreDataLoadingEvent value)
         onMoreDataLoading,
-    required TResult Function(_ComicOnCharacterTappedEvent value) onComicTapped,
+    required TResult Function(_ComicOnComicTappedEvent value) onComicTapped,
   }) {
     return onComicTapped(this);
   }
@@ -427,7 +426,7 @@ class _$_ComicOnCharacterTappedEvent implements _ComicOnCharacterTappedEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ComicsOnPageOpenedEvent value)? onPageOpened,
     TResult? Function(_ComicsMoreDataLoadingEvent value)? onMoreDataLoading,
-    TResult? Function(_ComicOnCharacterTappedEvent value)? onComicTapped,
+    TResult? Function(_ComicOnComicTappedEvent value)? onComicTapped,
   }) {
     return onComicTapped?.call(this);
   }
@@ -437,7 +436,7 @@ class _$_ComicOnCharacterTappedEvent implements _ComicOnCharacterTappedEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ComicsOnPageOpenedEvent value)? onPageOpened,
     TResult Function(_ComicsMoreDataLoadingEvent value)? onMoreDataLoading,
-    TResult Function(_ComicOnCharacterTappedEvent value)? onComicTapped,
+    TResult Function(_ComicOnComicTappedEvent value)? onComicTapped,
     required TResult orElse(),
   }) {
     if (onComicTapped != null) {
@@ -447,13 +446,13 @@ class _$_ComicOnCharacterTappedEvent implements _ComicOnCharacterTappedEvent {
   }
 }
 
-abstract class _ComicOnCharacterTappedEvent implements ComicsEvent {
-  const factory _ComicOnCharacterTappedEvent({required final Comic comic}) =
-      _$_ComicOnCharacterTappedEvent;
+abstract class _ComicOnComicTappedEvent implements ComicsEvent {
+  const factory _ComicOnComicTappedEvent({required final Comic comic}) =
+      _$_ComicOnComicTappedEvent;
 
   Comic get comic;
   @JsonKey(ignore: true)
-  _$$_ComicOnCharacterTappedEventCopyWith<_$_ComicOnCharacterTappedEvent>
+  _$$_ComicOnComicTappedEventCopyWith<_$_ComicOnComicTappedEvent>
       get copyWith => throw _privateConstructorUsedError;
 }
 

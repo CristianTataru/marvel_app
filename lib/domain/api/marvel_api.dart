@@ -9,6 +9,10 @@ import 'package:marvel_app/models/api_response_comic_creators.dart';
 import 'package:marvel_app/models/api_response_comic_stories.dart';
 import 'package:marvel_app/models/api_response_creator.dart';
 import 'package:marvel_app/models/api_response_series.dart';
+import 'package:marvel_app/models/api_response_series_characters.dart';
+import 'package:marvel_app/models/api_response_series_comics.dart';
+import 'package:marvel_app/models/api_response_series_creators.dart';
+import 'package:marvel_app/models/api_response_series_stories.dart';
 import 'package:marvel_app/models/api_response_story.dart';
 import 'package:retrofit/http.dart';
 
@@ -72,6 +76,34 @@ abstract class MarvelApi {
       'comics/{comicId}/creators?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
   Future<ApiResponseComicCreators> getComicCreators(
     @Path('comicId') int comicId,
+    @Path('limit') int limit,
+  );
+
+  @GET(
+      'series/{seriesId}/characters?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
+  Future<ApiResponseSeriesCharacters> getSeriesCharacters(
+    @Path('seriesId') int seriesId,
+    @Path('limit') int limit,
+  );
+
+  @GET(
+      'series/{seriesId}/comics?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
+  Future<ApiResponseSeriesComics> getSeriesComics(
+    @Path('seriesId') int seriesId,
+    @Path('limit') int limit,
+  );
+
+  @GET(
+      'series/{seriesId}/creators?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
+  Future<ApiResponseSeriesCreators> getSeriesCreators(
+    @Path('seriesId') int seriesId,
+    @Path('limit') int limit,
+  );
+
+  @GET(
+      'series/{seriesId}/stories?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
+  Future<ApiResponseSeriesStories> getSeriesStories(
+    @Path('seriesId') int seriesId,
     @Path('limit') int limit,
   );
 }

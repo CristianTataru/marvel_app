@@ -20,18 +20,21 @@ mixin _$SeriesEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() onPageOpened,
     required TResult Function() onMoreDataLoading,
+    required TResult Function(Series series) onSeriesTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onPageOpened,
     TResult? Function()? onMoreDataLoading,
+    TResult? Function(Series series)? onSeriesTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onPageOpened,
     TResult Function()? onMoreDataLoading,
+    TResult Function(Series series)? onSeriesTapped,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -40,18 +43,21 @@ mixin _$SeriesEvent {
     required TResult Function(_SeriesOnPageOpenedEvent value) onPageOpened,
     required TResult Function(_SeriesMoreDataLoadingEvent value)
         onMoreDataLoading,
+    required TResult Function(_SeriesOnSeriesTappedEvent value) onSeriesTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SeriesOnPageOpenedEvent value)? onPageOpened,
     TResult? Function(_SeriesMoreDataLoadingEvent value)? onMoreDataLoading,
+    TResult? Function(_SeriesOnSeriesTappedEvent value)? onSeriesTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SeriesOnPageOpenedEvent value)? onPageOpened,
     TResult Function(_SeriesMoreDataLoadingEvent value)? onMoreDataLoading,
+    TResult Function(_SeriesOnSeriesTappedEvent value)? onSeriesTapped,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -116,6 +122,7 @@ class _$_SeriesOnPageOpenedEvent implements _SeriesOnPageOpenedEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() onPageOpened,
     required TResult Function() onMoreDataLoading,
+    required TResult Function(Series series) onSeriesTapped,
   }) {
     return onPageOpened();
   }
@@ -125,6 +132,7 @@ class _$_SeriesOnPageOpenedEvent implements _SeriesOnPageOpenedEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onPageOpened,
     TResult? Function()? onMoreDataLoading,
+    TResult? Function(Series series)? onSeriesTapped,
   }) {
     return onPageOpened?.call();
   }
@@ -134,6 +142,7 @@ class _$_SeriesOnPageOpenedEvent implements _SeriesOnPageOpenedEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onPageOpened,
     TResult Function()? onMoreDataLoading,
+    TResult Function(Series series)? onSeriesTapped,
     required TResult orElse(),
   }) {
     if (onPageOpened != null) {
@@ -148,6 +157,7 @@ class _$_SeriesOnPageOpenedEvent implements _SeriesOnPageOpenedEvent {
     required TResult Function(_SeriesOnPageOpenedEvent value) onPageOpened,
     required TResult Function(_SeriesMoreDataLoadingEvent value)
         onMoreDataLoading,
+    required TResult Function(_SeriesOnSeriesTappedEvent value) onSeriesTapped,
   }) {
     return onPageOpened(this);
   }
@@ -157,6 +167,7 @@ class _$_SeriesOnPageOpenedEvent implements _SeriesOnPageOpenedEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SeriesOnPageOpenedEvent value)? onPageOpened,
     TResult? Function(_SeriesMoreDataLoadingEvent value)? onMoreDataLoading,
+    TResult? Function(_SeriesOnSeriesTappedEvent value)? onSeriesTapped,
   }) {
     return onPageOpened?.call(this);
   }
@@ -166,6 +177,7 @@ class _$_SeriesOnPageOpenedEvent implements _SeriesOnPageOpenedEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SeriesOnPageOpenedEvent value)? onPageOpened,
     TResult Function(_SeriesMoreDataLoadingEvent value)? onMoreDataLoading,
+    TResult Function(_SeriesOnSeriesTappedEvent value)? onSeriesTapped,
     required TResult orElse(),
   }) {
     if (onPageOpened != null) {
@@ -222,6 +234,7 @@ class _$_SeriesMoreDataLoadingEvent implements _SeriesMoreDataLoadingEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() onPageOpened,
     required TResult Function() onMoreDataLoading,
+    required TResult Function(Series series) onSeriesTapped,
   }) {
     return onMoreDataLoading();
   }
@@ -231,6 +244,7 @@ class _$_SeriesMoreDataLoadingEvent implements _SeriesMoreDataLoadingEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onPageOpened,
     TResult? Function()? onMoreDataLoading,
+    TResult? Function(Series series)? onSeriesTapped,
   }) {
     return onMoreDataLoading?.call();
   }
@@ -240,6 +254,7 @@ class _$_SeriesMoreDataLoadingEvent implements _SeriesMoreDataLoadingEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onPageOpened,
     TResult Function()? onMoreDataLoading,
+    TResult Function(Series series)? onSeriesTapped,
     required TResult orElse(),
   }) {
     if (onMoreDataLoading != null) {
@@ -254,6 +269,7 @@ class _$_SeriesMoreDataLoadingEvent implements _SeriesMoreDataLoadingEvent {
     required TResult Function(_SeriesOnPageOpenedEvent value) onPageOpened,
     required TResult Function(_SeriesMoreDataLoadingEvent value)
         onMoreDataLoading,
+    required TResult Function(_SeriesOnSeriesTappedEvent value) onSeriesTapped,
   }) {
     return onMoreDataLoading(this);
   }
@@ -263,6 +279,7 @@ class _$_SeriesMoreDataLoadingEvent implements _SeriesMoreDataLoadingEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SeriesOnPageOpenedEvent value)? onPageOpened,
     TResult? Function(_SeriesMoreDataLoadingEvent value)? onMoreDataLoading,
+    TResult? Function(_SeriesOnSeriesTappedEvent value)? onSeriesTapped,
   }) {
     return onMoreDataLoading?.call(this);
   }
@@ -272,6 +289,7 @@ class _$_SeriesMoreDataLoadingEvent implements _SeriesMoreDataLoadingEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SeriesOnPageOpenedEvent value)? onPageOpened,
     TResult Function(_SeriesMoreDataLoadingEvent value)? onMoreDataLoading,
+    TResult Function(_SeriesOnSeriesTappedEvent value)? onSeriesTapped,
     required TResult orElse(),
   }) {
     if (onMoreDataLoading != null) {
@@ -283,6 +301,160 @@ class _$_SeriesMoreDataLoadingEvent implements _SeriesMoreDataLoadingEvent {
 
 abstract class _SeriesMoreDataLoadingEvent implements SeriesEvent {
   const factory _SeriesMoreDataLoadingEvent() = _$_SeriesMoreDataLoadingEvent;
+}
+
+/// @nodoc
+abstract class _$$_SeriesOnSeriesTappedEventCopyWith<$Res> {
+  factory _$$_SeriesOnSeriesTappedEventCopyWith(
+          _$_SeriesOnSeriesTappedEvent value,
+          $Res Function(_$_SeriesOnSeriesTappedEvent) then) =
+      __$$_SeriesOnSeriesTappedEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Series series});
+
+  $SeriesCopyWith<$Res> get series;
+}
+
+/// @nodoc
+class __$$_SeriesOnSeriesTappedEventCopyWithImpl<$Res>
+    extends _$SeriesEventCopyWithImpl<$Res, _$_SeriesOnSeriesTappedEvent>
+    implements _$$_SeriesOnSeriesTappedEventCopyWith<$Res> {
+  __$$_SeriesOnSeriesTappedEventCopyWithImpl(
+      _$_SeriesOnSeriesTappedEvent _value,
+      $Res Function(_$_SeriesOnSeriesTappedEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? series = null,
+  }) {
+    return _then(_$_SeriesOnSeriesTappedEvent(
+      series: null == series
+          ? _value.series
+          : series // ignore: cast_nullable_to_non_nullable
+              as Series,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SeriesCopyWith<$Res> get series {
+    return $SeriesCopyWith<$Res>(_value.series, (value) {
+      return _then(_value.copyWith(series: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_SeriesOnSeriesTappedEvent implements _SeriesOnSeriesTappedEvent {
+  const _$_SeriesOnSeriesTappedEvent({required this.series});
+
+  @override
+  final Series series;
+
+  @override
+  String toString() {
+    return 'SeriesEvent.onSeriesTapped(series: $series)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SeriesOnSeriesTappedEvent &&
+            (identical(other.series, series) || other.series == series));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, series);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SeriesOnSeriesTappedEventCopyWith<_$_SeriesOnSeriesTappedEvent>
+      get copyWith => __$$_SeriesOnSeriesTappedEventCopyWithImpl<
+          _$_SeriesOnSeriesTappedEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onPageOpened,
+    required TResult Function() onMoreDataLoading,
+    required TResult Function(Series series) onSeriesTapped,
+  }) {
+    return onSeriesTapped(series);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? onPageOpened,
+    TResult? Function()? onMoreDataLoading,
+    TResult? Function(Series series)? onSeriesTapped,
+  }) {
+    return onSeriesTapped?.call(series);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onPageOpened,
+    TResult Function()? onMoreDataLoading,
+    TResult Function(Series series)? onSeriesTapped,
+    required TResult orElse(),
+  }) {
+    if (onSeriesTapped != null) {
+      return onSeriesTapped(series);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SeriesOnPageOpenedEvent value) onPageOpened,
+    required TResult Function(_SeriesMoreDataLoadingEvent value)
+        onMoreDataLoading,
+    required TResult Function(_SeriesOnSeriesTappedEvent value) onSeriesTapped,
+  }) {
+    return onSeriesTapped(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SeriesOnPageOpenedEvent value)? onPageOpened,
+    TResult? Function(_SeriesMoreDataLoadingEvent value)? onMoreDataLoading,
+    TResult? Function(_SeriesOnSeriesTappedEvent value)? onSeriesTapped,
+  }) {
+    return onSeriesTapped?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SeriesOnPageOpenedEvent value)? onPageOpened,
+    TResult Function(_SeriesMoreDataLoadingEvent value)? onMoreDataLoading,
+    TResult Function(_SeriesOnSeriesTappedEvent value)? onSeriesTapped,
+    required TResult orElse(),
+  }) {
+    if (onSeriesTapped != null) {
+      return onSeriesTapped(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SeriesOnSeriesTappedEvent implements SeriesEvent {
+  const factory _SeriesOnSeriesTappedEvent({required final Series series}) =
+      _$_SeriesOnSeriesTappedEvent;
+
+  Series get series;
+  @JsonKey(ignore: true)
+  _$$_SeriesOnSeriesTappedEventCopyWith<_$_SeriesOnSeriesTappedEvent>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
