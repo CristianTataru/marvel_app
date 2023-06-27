@@ -22,6 +22,7 @@ Story _$StoryFromJson(Map<String, dynamic> json) {
 mixin _$Story {
   int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +34,7 @@ abstract class $StoryCopyWith<$Res> {
   factory $StoryCopyWith(Story value, $Res Function(Story) then) =
       _$StoryCopyWithImpl<$Res, Story>;
   @useResult
-  $Res call({int id, String title});
+  $Res call({int id, String title, String description});
 }
 
 /// @nodoc
@@ -51,6 +52,7 @@ class _$StoryCopyWithImpl<$Res, $Val extends Story>
   $Res call({
     Object? id = null,
     Object? title = null,
+    Object? description = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -60,6 +62,10 @@ class _$StoryCopyWithImpl<$Res, $Val extends Story>
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -71,7 +77,7 @@ abstract class _$$_StoryCopyWith<$Res> implements $StoryCopyWith<$Res> {
       __$$_StoryCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String title});
+  $Res call({int id, String title, String description});
 }
 
 /// @nodoc
@@ -85,6 +91,7 @@ class __$$_StoryCopyWithImpl<$Res> extends _$StoryCopyWithImpl<$Res, _$_Story>
   $Res call({
     Object? id = null,
     Object? title = null,
+    Object? description = null,
   }) {
     return _then(_$_Story(
       id: null == id
@@ -95,6 +102,10 @@ class __$$_StoryCopyWithImpl<$Res> extends _$StoryCopyWithImpl<$Res, _$_Story>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -102,7 +113,8 @@ class __$$_StoryCopyWithImpl<$Res> extends _$StoryCopyWithImpl<$Res, _$_Story>
 /// @nodoc
 @JsonSerializable()
 class _$_Story implements _Story {
-  const _$_Story({required this.id, required this.title});
+  const _$_Story(
+      {required this.id, required this.title, required this.description});
 
   factory _$_Story.fromJson(Map<String, dynamic> json) =>
       _$$_StoryFromJson(json);
@@ -111,10 +123,12 @@ class _$_Story implements _Story {
   final int id;
   @override
   final String title;
+  @override
+  final String description;
 
   @override
   String toString() {
-    return 'Story(id: $id, title: $title)';
+    return 'Story(id: $id, title: $title, description: $description)';
   }
 
   @override
@@ -123,12 +137,14 @@ class _$_Story implements _Story {
         (other.runtimeType == runtimeType &&
             other is _$_Story &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.title, title) || other.title == title));
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.description, description) ||
+                other.description == description));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, title);
+  int get hashCode => Object.hash(runtimeType, id, title, description);
 
   @JsonKey(ignore: true)
   @override
@@ -145,8 +161,10 @@ class _$_Story implements _Story {
 }
 
 abstract class _Story implements Story {
-  const factory _Story({required final int id, required final String title}) =
-      _$_Story;
+  const factory _Story(
+      {required final int id,
+      required final String title,
+      required final String description}) = _$_Story;
 
   factory _Story.fromJson(Map<String, dynamic> json) = _$_Story.fromJson;
 
@@ -154,6 +172,8 @@ abstract class _Story implements Story {
   int get id;
   @override
   String get title;
+  @override
+  String get description;
   @override
   @JsonKey(ignore: true)
   _$$_StoryCopyWith<_$_Story> get copyWith =>

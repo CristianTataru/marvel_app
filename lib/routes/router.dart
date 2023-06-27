@@ -12,5 +12,6 @@ class AppRouter extends $AppRouter {
         AutoRoute(page: CharacterDetailsRoute.page),
         AutoRoute(page: ComicDetailsRoute.page),
         AutoRoute(page: SeriesDetailsRoute.page),
+        AutoRoute(page: StoryDetailsRoute.page),
       ];
 }

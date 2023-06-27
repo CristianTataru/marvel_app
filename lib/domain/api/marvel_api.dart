@@ -14,6 +14,10 @@ import 'package:marvel_app/models/api_response_series_comics.dart';
 import 'package:marvel_app/models/api_response_series_creators.dart';
 import 'package:marvel_app/models/api_response_series_stories.dart';
 import 'package:marvel_app/models/api_response_story.dart';
+import 'package:marvel_app/models/api_response_story_characters.dart';
+import 'package:marvel_app/models/api_response_story_comics.dart';
+import 'package:marvel_app/models/api_response_story_creators.dart';
+import 'package:marvel_app/models/api_response_story_series.dart';
 import 'package:retrofit/http.dart';
 
 part 'marvel_api.g.dart';
@@ -104,6 +108,34 @@ abstract class MarvelApi {
       'series/{seriesId}/stories?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
   Future<ApiResponseSeriesStories> getSeriesStories(
     @Path('seriesId') int seriesId,
+    @Path('limit') int limit,
+  );
+
+  @GET(
+      'stories/{storyId}/characters?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
+  Future<ApiResponseStoryCharacters> getStoryCharacters(
+    @Path('storyId') int seriesId,
+    @Path('limit') int limit,
+  );
+
+  @GET(
+      'stories/{storyId}/comics?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
+  Future<ApiResponseStoryComics> getStoryComics(
+    @Path('storyId') int seriesId,
+    @Path('limit') int limit,
+  );
+
+  @GET(
+      'stories/{storyId}/series?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
+  Future<ApiResponseStorySeries> getStorySeries(
+    @Path('storyId') int seriesId,
+    @Path('limit') int limit,
+  );
+
+  @GET(
+      'stories/{storyId}/creators?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
+  Future<ApiResponseStoryCreators> getStoryCreators(
+    @Path('storyId') int seriesId,
     @Path('limit') int limit,
   );
 }

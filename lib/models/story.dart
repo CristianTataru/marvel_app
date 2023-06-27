@@ -8,6 +8,7 @@ class Story with _$Story {
   const factory Story({
     required int id,
     required String title,
+    required String description,
   }) = _Story;
 
   factory Story.fromJson(Map<String, Object?> json) => _$StoryFromJson(json);

@@ -149,6 +149,9 @@ class _StoryEntry extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: GestureDetector(
+        onTap: () {
+          bloc.add(HomeEvent.onStoryTapped(story: story));
+        },
         child: ClipRRect(
           borderRadius: const BorderRadius.all(Radius.circular(8)),
           child: Container(
