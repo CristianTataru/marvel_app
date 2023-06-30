@@ -57,7 +57,8 @@ class _ComicDetailsPageState extends State<ComicDetailsPage> {
                         divider,
                         const SizedBox(height: 8),
                         if (state.comicCharacters.isNotEmpty) ...[
-                          const SectionTitle(
+                          SectionTitle(
+                            () {},
                             title: "Characters",
                             seeAll: true,
                           ),
@@ -72,7 +73,8 @@ class _ComicDetailsPageState extends State<ComicDetailsPage> {
                         if (state.comicStories.isNotEmpty) ...[
                           divider,
                           const SizedBox(height: 8),
-                          const SectionTitle(
+                          SectionTitle(
+                            () {},
                             title: "Stories",
                             seeAll: true,
                           ),
@@ -86,7 +88,8 @@ class _ComicDetailsPageState extends State<ComicDetailsPage> {
                         if (state.comicCreators.isNotEmpty) ...[
                           divider,
                           const SizedBox(height: 8),
-                          const SectionTitle(
+                          SectionTitle(
+                            () {},
                             title: "Creators",
                             seeAll: true,
                           ),

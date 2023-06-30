@@ -57,7 +57,8 @@ class _CreatorDetailsPageState extends State<CreatorDetailsPage> {
                         if (state.creatorComics.isNotEmpty) ...[
                           divider,
                           const SizedBox(height: 8),
-                          const SectionTitle(
+                          SectionTitle(
+                            () {},
                             title: "Comics",
                             seeAll: true,
                           ),
@@ -72,7 +73,8 @@ class _CreatorDetailsPageState extends State<CreatorDetailsPage> {
                         if (state.creatorSeries.isNotEmpty) ...[
                           divider,
                           const SizedBox(height: 8),
-                          const SectionTitle(
+                          SectionTitle(
+                            () {},
                             title: "Series",
                             seeAll: true,
                           ),
@@ -87,7 +89,8 @@ class _CreatorDetailsPageState extends State<CreatorDetailsPage> {
                         if (state.creatorStories.isNotEmpty) ...[
                           divider,
                           const SizedBox(height: 8),
-                          const SectionTitle(
+                          SectionTitle(
+                            () {},
                             title: "Stories",
                             seeAll: true,
                           ),

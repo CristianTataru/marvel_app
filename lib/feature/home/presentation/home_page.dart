@@ -58,7 +58,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   const SizedBox(height: 24),
-                  const SectionTitle(title: "Recommendations", seeAll: false),
+                  SectionTitle(() {}, title: "Recommendations", seeAll: false),
                   const SizedBox(
                     height: 16,
                   ),
@@ -85,7 +85,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                   divider,
                   const SizedBox(height: 8),
-                  const SectionTitle(title: "Stories", seeAll: true),
+                  SectionTitle(() {
+                    bloc.add(HomeEvent.onSeeAllStoriesTapped(stories: state.stories));
+                  }, title: "Stories", seeAll: true),
                   const SizedBox(height: 16),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
@@ -96,7 +98,11 @@ class _HomePageState extends State<HomePage> {
                   const SizedBox(height: 8),
                   divider,
                   const SizedBox(height: 8),
-                  const SectionTitle(title: "Creators", seeAll: true),
+                  SectionTitle(
+                    () {},
+                    title: "Creators",
+                    seeAll: true,
+                  ),
                   CreatorsCarousel(
                     state.creators,
                   )

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 class SectionTitle extends StatelessWidget {
-  const SectionTitle({required this.title, required this.seeAll, super.key});
+  const SectionTitle(this.onTap, {required this.title, required this.seeAll, super.key});
 
   final String title;
   final bool seeAll;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -23,17 +24,20 @@ class SectionTitle extends StatelessWidget {
           ),
           const Spacer(),
           if (seeAll)
-            Row(
-              children: const [
-                Text(
-                  "See all",
-                  style: TextStyle(color: Colors.grey, fontSize: 18),
-                ),
-                Icon(
-                  Icons.chevron_right,
-                  color: Colors.grey,
-                )
-              ],
+            GestureDetector(
+              onTap: onTap,
+              child: Row(
+                children: const [
+                  Text(
+                    "See all",
+                    style: TextStyle(color: Colors.grey, fontSize: 18),
+                  ),
+                  Icon(
+                    Icons.chevron_right,
+                    color: Colors.grey,
+                  )
+                ],
+              ),
             )
         ],
       ),

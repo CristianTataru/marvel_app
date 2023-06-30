@@ -58,7 +58,8 @@ class _SeriesDetailsPageState extends State<SeriesDetailsPage> {
                         if (state.seriesCharacters.isNotEmpty) ...[
                           divider,
                           const SizedBox(height: 8),
-                          const SectionTitle(
+                          SectionTitle(
+                            () {},
                             title: "Characters",
                             seeAll: true,
                           ),
@@ -73,7 +74,8 @@ class _SeriesDetailsPageState extends State<SeriesDetailsPage> {
                         if (state.seriesComics.isNotEmpty) ...[
                           divider,
                           const SizedBox(height: 8),
-                          const SectionTitle(
+                          SectionTitle(
+                            () {},
                             title: "Comics",
                             seeAll: true,
                           ),
@@ -87,7 +89,8 @@ class _SeriesDetailsPageState extends State<SeriesDetailsPage> {
                         if (state.seriesStories.isNotEmpty) ...[
                           divider,
                           const SizedBox(height: 8),
-                          const SectionTitle(
+                          SectionTitle(
+                            () {},
                             title: "Stories",
                             seeAll: true,
                           ),
@@ -102,7 +105,8 @@ class _SeriesDetailsPageState extends State<SeriesDetailsPage> {
                         if (state.seriesCreators.isNotEmpty) ...[
                           divider,
                           const SizedBox(height: 8),
-                          const SectionTitle(
+                          SectionTitle(
+                            () {},
                             title: "Creators",
                             seeAll: true,
                           ),

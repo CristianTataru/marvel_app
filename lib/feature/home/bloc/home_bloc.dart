@@ -21,6 +21,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<_HomeOnSeriesPageTappedEvent>(_onHomeOnSeriesPageTappedEvent);
     on<_HomeOnStoryTappedEvent>(_onHomeOnStoryTappedEvent);
     on<_HomeOnCreatorTappedEvent>(_onHomeOnCreatorTappedEvent);
+    on<_HomeOnSeeAllStoriesTappedEvent>(_onHomeOnSeeAllStoriesTappedEvent);
   }
 
   FutureOr<void> _onHomeOnAppStartedEvent(_HomeOnAppStartedEvent event, Emitter<HomeState> emit) async {
@@ -61,5 +62,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   FutureOr<void> _onHomeOnCreatorTappedEvent(_HomeOnCreatorTappedEvent event, Emitter<HomeState> emit) {
     router.push(CreatorDetailsRoute(creator: event.creator));
+  }
+
+  FutureOr<void> _onHomeOnSeeAllStoriesTappedEvent(_HomeOnSeeAllStoriesTappedEvent event, Emitter<HomeState> emit) {
+    router.push(const StoriesRoute());
   }
 }
