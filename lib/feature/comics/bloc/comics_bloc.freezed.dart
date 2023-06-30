@@ -18,21 +18,27 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ComicsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onPageOpened,
+    required TResult Function(Character? character, Creator? creator,
+            Series? series, Story? story, bool filtred)
+        onPageOpened,
     required TResult Function() onMoreDataLoading,
     required TResult Function(Comic comic) onComicTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onPageOpened,
+    TResult? Function(Character? character, Creator? creator, Series? series,
+            Story? story, bool filtred)?
+        onPageOpened,
     TResult? Function()? onMoreDataLoading,
     TResult? Function(Comic comic)? onComicTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onPageOpened,
+    TResult Function(Character? character, Creator? creator, Series? series,
+            Story? story, bool filtred)?
+        onPageOpened,
     TResult Function()? onMoreDataLoading,
     TResult Function(Comic comic)? onComicTapped,
     required TResult orElse(),
@@ -86,6 +92,18 @@ abstract class _$$_ComicsOnPageOpenedEventCopyWith<$Res> {
   factory _$$_ComicsOnPageOpenedEventCopyWith(_$_ComicsOnPageOpenedEvent value,
           $Res Function(_$_ComicsOnPageOpenedEvent) then) =
       __$$_ComicsOnPageOpenedEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {Character? character,
+      Creator? creator,
+      Series? series,
+      Story? story,
+      bool filtred});
+
+  $CharacterCopyWith<$Res>? get character;
+  $CreatorCopyWith<$Res>? get creator;
+  $SeriesCopyWith<$Res>? get series;
+  $StoryCopyWith<$Res>? get story;
 }
 
 /// @nodoc
@@ -95,58 +113,176 @@ class __$$_ComicsOnPageOpenedEventCopyWithImpl<$Res>
   __$$_ComicsOnPageOpenedEventCopyWithImpl(_$_ComicsOnPageOpenedEvent _value,
       $Res Function(_$_ComicsOnPageOpenedEvent) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? character = freezed,
+    Object? creator = freezed,
+    Object? series = freezed,
+    Object? story = freezed,
+    Object? filtred = null,
+  }) {
+    return _then(_$_ComicsOnPageOpenedEvent(
+      character: freezed == character
+          ? _value.character
+          : character // ignore: cast_nullable_to_non_nullable
+              as Character?,
+      creator: freezed == creator
+          ? _value.creator
+          : creator // ignore: cast_nullable_to_non_nullable
+              as Creator?,
+      series: freezed == series
+          ? _value.series
+          : series // ignore: cast_nullable_to_non_nullable
+              as Series?,
+      story: freezed == story
+          ? _value.story
+          : story // ignore: cast_nullable_to_non_nullable
+              as Story?,
+      filtred: null == filtred
+          ? _value.filtred
+          : filtred // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CharacterCopyWith<$Res>? get character {
+    if (_value.character == null) {
+      return null;
+    }
+
+    return $CharacterCopyWith<$Res>(_value.character!, (value) {
+      return _then(_value.copyWith(character: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CreatorCopyWith<$Res>? get creator {
+    if (_value.creator == null) {
+      return null;
+    }
+
+    return $CreatorCopyWith<$Res>(_value.creator!, (value) {
+      return _then(_value.copyWith(creator: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SeriesCopyWith<$Res>? get series {
+    if (_value.series == null) {
+      return null;
+    }
+
+    return $SeriesCopyWith<$Res>(_value.series!, (value) {
+      return _then(_value.copyWith(series: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $StoryCopyWith<$Res>? get story {
+    if (_value.story == null) {
+      return null;
+    }
+
+    return $StoryCopyWith<$Res>(_value.story!, (value) {
+      return _then(_value.copyWith(story: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$_ComicsOnPageOpenedEvent implements _ComicsOnPageOpenedEvent {
-  const _$_ComicsOnPageOpenedEvent();
+  const _$_ComicsOnPageOpenedEvent(
+      {required this.character,
+      required this.creator,
+      required this.series,
+      required this.story,
+      required this.filtred});
+
+  @override
+  final Character? character;
+  @override
+  final Creator? creator;
+  @override
+  final Series? series;
+  @override
+  final Story? story;
+  @override
+  final bool filtred;
 
   @override
   String toString() {
-    return 'ComicsEvent.onPageOpened()';
+    return 'ComicsEvent.onPageOpened(character: $character, creator: $creator, series: $series, story: $story, filtred: $filtred)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ComicsOnPageOpenedEvent);
+            other is _$_ComicsOnPageOpenedEvent &&
+            (identical(other.character, character) ||
+                other.character == character) &&
+            (identical(other.creator, creator) || other.creator == creator) &&
+            (identical(other.series, series) || other.series == series) &&
+            (identical(other.story, story) || other.story == story) &&
+            (identical(other.filtred, filtred) || other.filtred == filtred));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, character, creator, series, story, filtred);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ComicsOnPageOpenedEventCopyWith<_$_ComicsOnPageOpenedEvent>
+      get copyWith =>
+          __$$_ComicsOnPageOpenedEventCopyWithImpl<_$_ComicsOnPageOpenedEvent>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onPageOpened,
+    required TResult Function(Character? character, Creator? creator,
+            Series? series, Story? story, bool filtred)
+        onPageOpened,
     required TResult Function() onMoreDataLoading,
     required TResult Function(Comic comic) onComicTapped,
   }) {
-    return onPageOpened();
+    return onPageOpened(character, creator, series, story, filtred);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onPageOpened,
+    TResult? Function(Character? character, Creator? creator, Series? series,
+            Story? story, bool filtred)?
+        onPageOpened,
     TResult? Function()? onMoreDataLoading,
     TResult? Function(Comic comic)? onComicTapped,
   }) {
-    return onPageOpened?.call();
+    return onPageOpened?.call(character, creator, series, story, filtred);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onPageOpened,
+    TResult Function(Character? character, Creator? creator, Series? series,
+            Story? story, bool filtred)?
+        onPageOpened,
     TResult Function()? onMoreDataLoading,
     TResult Function(Comic comic)? onComicTapped,
     required TResult orElse(),
   }) {
     if (onPageOpened != null) {
-      return onPageOpened();
+      return onPageOpened(character, creator, series, story, filtred);
     }
     return orElse();
   }
@@ -188,7 +324,21 @@ class _$_ComicsOnPageOpenedEvent implements _ComicsOnPageOpenedEvent {
 }
 
 abstract class _ComicsOnPageOpenedEvent implements ComicsEvent {
-  const factory _ComicsOnPageOpenedEvent() = _$_ComicsOnPageOpenedEvent;
+  const factory _ComicsOnPageOpenedEvent(
+      {required final Character? character,
+      required final Creator? creator,
+      required final Series? series,
+      required final Story? story,
+      required final bool filtred}) = _$_ComicsOnPageOpenedEvent;
+
+  Character? get character;
+  Creator? get creator;
+  Series? get series;
+  Story? get story;
+  bool get filtred;
+  @JsonKey(ignore: true)
+  _$$_ComicsOnPageOpenedEventCopyWith<_$_ComicsOnPageOpenedEvent>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -232,7 +382,9 @@ class _$_ComicsMoreDataLoadingEvent implements _ComicsMoreDataLoadingEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onPageOpened,
+    required TResult Function(Character? character, Creator? creator,
+            Series? series, Story? story, bool filtred)
+        onPageOpened,
     required TResult Function() onMoreDataLoading,
     required TResult Function(Comic comic) onComicTapped,
   }) {
@@ -242,7 +394,9 @@ class _$_ComicsMoreDataLoadingEvent implements _ComicsMoreDataLoadingEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onPageOpened,
+    TResult? Function(Character? character, Creator? creator, Series? series,
+            Story? story, bool filtred)?
+        onPageOpened,
     TResult? Function()? onMoreDataLoading,
     TResult? Function(Comic comic)? onComicTapped,
   }) {
@@ -252,7 +406,9 @@ class _$_ComicsMoreDataLoadingEvent implements _ComicsMoreDataLoadingEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onPageOpened,
+    TResult Function(Character? character, Creator? creator, Series? series,
+            Story? story, bool filtred)?
+        onPageOpened,
     TResult Function()? onMoreDataLoading,
     TResult Function(Comic comic)? onComicTapped,
     required TResult orElse(),
@@ -379,7 +535,9 @@ class _$_ComicOnComicTappedEvent implements _ComicOnComicTappedEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onPageOpened,
+    required TResult Function(Character? character, Creator? creator,
+            Series? series, Story? story, bool filtred)
+        onPageOpened,
     required TResult Function() onMoreDataLoading,
     required TResult Function(Comic comic) onComicTapped,
   }) {
@@ -389,7 +547,9 @@ class _$_ComicOnComicTappedEvent implements _ComicOnComicTappedEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onPageOpened,
+    TResult? Function(Character? character, Creator? creator, Series? series,
+            Story? story, bool filtred)?
+        onPageOpened,
     TResult? Function()? onMoreDataLoading,
     TResult? Function(Comic comic)? onComicTapped,
   }) {
@@ -399,7 +559,9 @@ class _$_ComicOnComicTappedEvent implements _ComicOnComicTappedEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onPageOpened,
+    TResult Function(Character? character, Creator? creator, Series? series,
+            Story? story, bool filtred)?
+        onPageOpened,
     TResult Function()? onMoreDataLoading,
     TResult Function(Comic comic)? onComicTapped,
     required TResult orElse(),
@@ -458,9 +620,9 @@ abstract class _ComicOnComicTappedEvent implements ComicsEvent {
 
 /// @nodoc
 mixin _$ComicsState {
-  List<Comic> get comics => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() loading,
     required TResult Function(
             bool canLoadMore, int lastOffset, List<Comic> comics)
         loaded,
@@ -469,6 +631,7 @@ mixin _$ComicsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
     TResult? Function(bool canLoadMore, int lastOffset, List<Comic> comics)?
         loaded,
     TResult? Function(List<Comic> comics)? moreLoading,
@@ -476,6 +639,7 @@ mixin _$ComicsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
     TResult Function(bool canLoadMore, int lastOffset, List<Comic> comics)?
         loaded,
     TResult Function(List<Comic> comics)? moreLoading,
@@ -484,26 +648,25 @@ mixin _$ComicsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_ComicsLoadingState value) loading,
     required TResult Function(_ComicsLoadedState value) loaded,
     required TResult Function(_ComicsMoreLoadingState value) moreLoading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ComicsLoadingState value)? loading,
     TResult? Function(_ComicsLoadedState value)? loaded,
     TResult? Function(_ComicsMoreLoadingState value)? moreLoading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ComicsLoadingState value)? loading,
     TResult Function(_ComicsLoadedState value)? loaded,
     TResult Function(_ComicsMoreLoadingState value)? moreLoading,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ComicsStateCopyWith<ComicsState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -512,8 +675,6 @@ abstract class $ComicsStateCopyWith<$Res> {
   factory $ComicsStateCopyWith(
           ComicsState value, $Res Function(ComicsState) then) =
       _$ComicsStateCopyWithImpl<$Res, ComicsState>;
-  @useResult
-  $Res call({List<Comic> comics});
 }
 
 /// @nodoc
@@ -525,28 +686,125 @@ class _$ComicsStateCopyWithImpl<$Res, $Val extends ComicsState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? comics = null,
-  }) {
-    return _then(_value.copyWith(
-      comics: null == comics
-          ? _value.comics
-          : comics // ignore: cast_nullable_to_non_nullable
-              as List<Comic>,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$_ComicsLoadedStateCopyWith<$Res>
-    implements $ComicsStateCopyWith<$Res> {
+abstract class _$$_ComicsLoadingStateCopyWith<$Res> {
+  factory _$$_ComicsLoadingStateCopyWith(_$_ComicsLoadingState value,
+          $Res Function(_$_ComicsLoadingState) then) =
+      __$$_ComicsLoadingStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ComicsLoadingStateCopyWithImpl<$Res>
+    extends _$ComicsStateCopyWithImpl<$Res, _$_ComicsLoadingState>
+    implements _$$_ComicsLoadingStateCopyWith<$Res> {
+  __$$_ComicsLoadingStateCopyWithImpl(
+      _$_ComicsLoadingState _value, $Res Function(_$_ComicsLoadingState) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_ComicsLoadingState implements _ComicsLoadingState {
+  const _$_ComicsLoadingState();
+
+  @override
+  String toString() {
+    return 'ComicsState.loading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ComicsLoadingState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function(
+            bool canLoadMore, int lastOffset, List<Comic> comics)
+        loaded,
+    required TResult Function(List<Comic> comics) moreLoading,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
+    TResult? Function(bool canLoadMore, int lastOffset, List<Comic> comics)?
+        loaded,
+    TResult? Function(List<Comic> comics)? moreLoading,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(bool canLoadMore, int lastOffset, List<Comic> comics)?
+        loaded,
+    TResult Function(List<Comic> comics)? moreLoading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ComicsLoadingState value) loading,
+    required TResult Function(_ComicsLoadedState value) loaded,
+    required TResult Function(_ComicsMoreLoadingState value) moreLoading,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ComicsLoadingState value)? loading,
+    TResult? Function(_ComicsLoadedState value)? loaded,
+    TResult? Function(_ComicsMoreLoadingState value)? moreLoading,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ComicsLoadingState value)? loading,
+    TResult Function(_ComicsLoadedState value)? loaded,
+    TResult Function(_ComicsMoreLoadingState value)? moreLoading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ComicsLoadingState implements ComicsState {
+  const factory _ComicsLoadingState() = _$_ComicsLoadingState;
+}
+
+/// @nodoc
+abstract class _$$_ComicsLoadedStateCopyWith<$Res> {
   factory _$$_ComicsLoadedStateCopyWith(_$_ComicsLoadedState value,
           $Res Function(_$_ComicsLoadedState) then) =
       __$$_ComicsLoadedStateCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({bool canLoadMore, int lastOffset, List<Comic> comics});
 }
@@ -635,6 +893,7 @@ class _$_ComicsLoadedState implements _ComicsLoadedState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() loading,
     required TResult Function(
             bool canLoadMore, int lastOffset, List<Comic> comics)
         loaded,
@@ -646,6 +905,7 @@ class _$_ComicsLoadedState implements _ComicsLoadedState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
     TResult? Function(bool canLoadMore, int lastOffset, List<Comic> comics)?
         loaded,
     TResult? Function(List<Comic> comics)? moreLoading,
@@ -656,6 +916,7 @@ class _$_ComicsLoadedState implements _ComicsLoadedState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
     TResult Function(bool canLoadMore, int lastOffset, List<Comic> comics)?
         loaded,
     TResult Function(List<Comic> comics)? moreLoading,
@@ -670,6 +931,7 @@ class _$_ComicsLoadedState implements _ComicsLoadedState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_ComicsLoadingState value) loading,
     required TResult Function(_ComicsLoadedState value) loaded,
     required TResult Function(_ComicsMoreLoadingState value) moreLoading,
   }) {
@@ -679,6 +941,7 @@ class _$_ComicsLoadedState implements _ComicsLoadedState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ComicsLoadingState value)? loading,
     TResult? Function(_ComicsLoadedState value)? loaded,
     TResult? Function(_ComicsMoreLoadingState value)? moreLoading,
   }) {
@@ -688,6 +951,7 @@ class _$_ComicsLoadedState implements _ComicsLoadedState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ComicsLoadingState value)? loading,
     TResult Function(_ComicsLoadedState value)? loaded,
     TResult Function(_ComicsMoreLoadingState value)? moreLoading,
     required TResult orElse(),
@@ -707,21 +971,17 @@ abstract class _ComicsLoadedState implements ComicsState {
 
   bool get canLoadMore;
   int get lastOffset;
-  @override
   List<Comic> get comics;
-  @override
   @JsonKey(ignore: true)
   _$$_ComicsLoadedStateCopyWith<_$_ComicsLoadedState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ComicsMoreLoadingStateCopyWith<$Res>
-    implements $ComicsStateCopyWith<$Res> {
+abstract class _$$_ComicsMoreLoadingStateCopyWith<$Res> {
   factory _$$_ComicsMoreLoadingStateCopyWith(_$_ComicsMoreLoadingState value,
           $Res Function(_$_ComicsMoreLoadingState) then) =
       __$$_ComicsMoreLoadingStateCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({List<Comic> comics});
 }
@@ -789,6 +1049,7 @@ class _$_ComicsMoreLoadingState implements _ComicsMoreLoadingState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() loading,
     required TResult Function(
             bool canLoadMore, int lastOffset, List<Comic> comics)
         loaded,
@@ -800,6 +1061,7 @@ class _$_ComicsMoreLoadingState implements _ComicsMoreLoadingState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
     TResult? Function(bool canLoadMore, int lastOffset, List<Comic> comics)?
         loaded,
     TResult? Function(List<Comic> comics)? moreLoading,
@@ -810,6 +1072,7 @@ class _$_ComicsMoreLoadingState implements _ComicsMoreLoadingState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
     TResult Function(bool canLoadMore, int lastOffset, List<Comic> comics)?
         loaded,
     TResult Function(List<Comic> comics)? moreLoading,
@@ -824,6 +1087,7 @@ class _$_ComicsMoreLoadingState implements _ComicsMoreLoadingState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_ComicsLoadingState value) loading,
     required TResult Function(_ComicsLoadedState value) loaded,
     required TResult Function(_ComicsMoreLoadingState value) moreLoading,
   }) {
@@ -833,6 +1097,7 @@ class _$_ComicsMoreLoadingState implements _ComicsMoreLoadingState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ComicsLoadingState value)? loading,
     TResult? Function(_ComicsLoadedState value)? loaded,
     TResult? Function(_ComicsMoreLoadingState value)? moreLoading,
   }) {
@@ -842,6 +1107,7 @@ class _$_ComicsMoreLoadingState implements _ComicsMoreLoadingState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ComicsLoadingState value)? loading,
     TResult Function(_ComicsLoadedState value)? loaded,
     TResult Function(_ComicsMoreLoadingState value)? moreLoading,
     required TResult orElse(),
@@ -857,9 +1123,7 @@ abstract class _ComicsMoreLoadingState implements ComicsState {
   const factory _ComicsMoreLoadingState({required final List<Comic> comics}) =
       _$_ComicsMoreLoadingState;
 
-  @override
   List<Comic> get comics;
-  @override
   @JsonKey(ignore: true)
   _$$_ComicsMoreLoadingStateCopyWith<_$_ComicsMoreLoadingState> get copyWith =>
       throw _privateConstructorUsedError;

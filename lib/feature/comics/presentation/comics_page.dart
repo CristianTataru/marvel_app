@@ -2,15 +2,26 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_app/feature/comics/bloc/comics_bloc.dart';
+import 'package:marvel_app/models/character.dart';
 import 'package:marvel_app/models/comic.dart';
+import 'package:marvel_app/models/creator.dart';
+import 'package:marvel_app/models/series.dart';
+import 'package:marvel_app/models/story.dart';
 import 'package:marvel_app/theme/custom_colors.dart';
+import 'package:marvel_app/widgets/common.dart';
 import 'package:marvel_app/widgets/marvel_image.dart';
 
 final bloc = ComicsBloc();
 
 @RoutePage()
 class ComicsPage extends StatefulWidget {
-  const ComicsPage({super.key});
+  const ComicsPage({this.character, this.creator, this.series, this.story, required this.filtered, super.key});
+
+  final Character? character;
+  final Creator? creator;
+  final Series? series;
+  final Story? story;
+  final bool filtered;
 
   @override
   State<ComicsPage> createState() => _ComicsPageState();
@@ -22,7 +33,12 @@ class _ComicsPageState extends State<ComicsPage> {
   @override
   void initState() {
     super.initState();
-    bloc.add(const ComicsEvent.onPageOpened());
+    bloc.add(ComicsEvent.onPageOpened(
+        character: widget.character,
+        creator: widget.creator,
+        series: widget.series,
+        story: widget.story,
+        filtred: widget.filtered));
     scrollController.addListener(() {
       if (scrollController.position.pixels == scrollController.position.maxScrollExtent) {
         bloc.add(const ComicsEvent.onMoreDataLoading());
@@ -63,6 +79,9 @@ class _ComicsPageState extends State<ComicsPage> {
                     children: [
                       const SizedBox(height: 8),
                       ...comicsState.map(
+                        loading: (state) => [
+                          pageLoadingSpinner,
+                        ],
                         loaded: (state) => [
                           ...state.comics.map((e) => ComicsEntry(e)),
                           const SizedBox(height: 96),

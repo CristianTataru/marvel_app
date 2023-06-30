@@ -9,7 +9,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i12;
-import 'package:flutter/material.dart' as _i14;
+import 'package:flutter/material.dart' as _i17;
 import 'package:marvel_app/feature/character_details/presentation/character_details_page.dart'
     as _i5;
 import 'package:marvel_app/feature/characters/presentation/characters_page.dart'
@@ -30,10 +30,10 @@ import 'package:marvel_app/feature/stories/presentation/stories_page.dart'
 import 'package:marvel_app/feature/story_details/presentation/story_details_page.dart'
     as _i8;
 import 'package:marvel_app/models/character.dart' as _i13;
-import 'package:marvel_app/models/comic.dart' as _i15;
-import 'package:marvel_app/models/creator.dart' as _i18;
-import 'package:marvel_app/models/series.dart' as _i16;
-import 'package:marvel_app/models/story.dart' as _i17;
+import 'package:marvel_app/models/comic.dart' as _i18;
+import 'package:marvel_app/models/creator.dart' as _i14;
+import 'package:marvel_app/models/series.dart' as _i15;
+import 'package:marvel_app/models/story.dart' as _i16;
 
 abstract class $AppRouter extends _i12.RootStackRouter {
   $AppRouter({super.navigatorKey});
@@ -53,9 +53,17 @@ abstract class $AppRouter extends _i12.RootStackRouter {
       );
     },
     ComicsRoute.name: (routeData) {
+      final args = routeData.argsAs<ComicsRouteArgs>();
       return _i12.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i3.ComicsPage(),
+        child: _i3.ComicsPage(
+          character: args.character,
+          creator: args.creator,
+          series: args.series,
+          story: args.story,
+          filtered: args.filtered,
+          key: args.key,
+        ),
       );
     },
     SeriesRoute.name: (routeData) {
@@ -159,16 +167,60 @@ class CharactersRoute extends _i12.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.ComicsPage]
-class ComicsRoute extends _i12.PageRouteInfo<void> {
-  const ComicsRoute({List<_i12.PageRouteInfo>? children})
-      : super(
+class ComicsRoute extends _i12.PageRouteInfo<ComicsRouteArgs> {
+  ComicsRoute({
+    _i13.Character? character,
+    _i14.Creator? creator,
+    _i15.Series? series,
+    _i16.Story? story,
+    required bool filtered,
+    _i17.Key? key,
+    List<_i12.PageRouteInfo>? children,
+  }) : super(
           ComicsRoute.name,
+          args: ComicsRouteArgs(
+            character: character,
+            creator: creator,
+            series: series,
+            story: story,
+            filtered: filtered,
+            key: key,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'ComicsRoute';
 
-  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
+  static const _i12.PageInfo<ComicsRouteArgs> page =
+      _i12.PageInfo<ComicsRouteArgs>(name);
+}
+
+class ComicsRouteArgs {
+  const ComicsRouteArgs({
+    this.character,
+    this.creator,
+    this.series,
+    this.story,
+    required this.filtered,
+    this.key,
+  });
+
+  final _i13.Character? character;
+
+  final _i14.Creator? creator;
+
+  final _i15.Series? series;
+
+  final _i16.Story? story;
+
+  final bool filtered;
+
+  final _i17.Key? key;
+
+  @override
+  String toString() {
+    return 'ComicsRouteArgs{character: $character, creator: $creator, series: $series, story: $story, filtered: $filtered, key: $key}';
+  }
 }
 
 /// generated route for
@@ -191,7 +243,7 @@ class CharacterDetailsRoute
     extends _i12.PageRouteInfo<CharacterDetailsRouteArgs> {
   CharacterDetailsRoute({
     required _i13.Character character,
-    _i14.Key? key,
+    _i17.Key? key,
     List<_i12.PageRouteInfo>? children,
   }) : super(
           CharacterDetailsRoute.name,
@@ -216,7 +268,7 @@ class CharacterDetailsRouteArgs {
 
   final _i13.Character character;
 
-  final _i14.Key? key;
+  final _i17.Key? key;
 
   @override
   String toString() {
@@ -228,8 +280,8 @@ class CharacterDetailsRouteArgs {
 /// [_i6.ComicDetailsPage]
 class ComicDetailsRoute extends _i12.PageRouteInfo<ComicDetailsRouteArgs> {
   ComicDetailsRoute({
-    required _i15.Comic comic,
-    _i14.Key? key,
+    required _i18.Comic comic,
+    _i17.Key? key,
     List<_i12.PageRouteInfo>? children,
   }) : super(
           ComicDetailsRoute.name,
@@ -252,9 +304,9 @@ class ComicDetailsRouteArgs {
     this.key,
   });
 
-  final _i15.Comic comic;
+  final _i18.Comic comic;
 
-  final _i14.Key? key;
+  final _i17.Key? key;
 
   @override
   String toString() {
@@ -266,8 +318,8 @@ class ComicDetailsRouteArgs {
 /// [_i7.SeriesDetailsPage]
 class SeriesDetailsRoute extends _i12.PageRouteInfo<SeriesDetailsRouteArgs> {
   SeriesDetailsRoute({
-    required _i16.Series series,
-    _i14.Key? key,
+    required _i15.Series series,
+    _i17.Key? key,
     List<_i12.PageRouteInfo>? children,
   }) : super(
           SeriesDetailsRoute.name,
@@ -290,9 +342,9 @@ class SeriesDetailsRouteArgs {
     this.key,
   });
 
-  final _i16.Series series;
+  final _i15.Series series;
 
-  final _i14.Key? key;
+  final _i17.Key? key;
 
   @override
   String toString() {
@@ -304,8 +356,8 @@ class SeriesDetailsRouteArgs {
 /// [_i8.StoryDetailsPage]
 class StoryDetailsRoute extends _i12.PageRouteInfo<StoryDetailsRouteArgs> {
   StoryDetailsRoute({
-    required _i17.Story story,
-    _i14.Key? key,
+    required _i16.Story story,
+    _i17.Key? key,
     List<_i12.PageRouteInfo>? children,
   }) : super(
           StoryDetailsRoute.name,
@@ -328,9 +380,9 @@ class StoryDetailsRouteArgs {
     this.key,
   });
 
-  final _i17.Story story;
+  final _i16.Story story;
 
-  final _i14.Key? key;
+  final _i17.Key? key;
 
   @override
   String toString() {
@@ -342,8 +394,8 @@ class StoryDetailsRouteArgs {
 /// [_i9.CreatorDetailsPage]
 class CreatorDetailsRoute extends _i12.PageRouteInfo<CreatorDetailsRouteArgs> {
   CreatorDetailsRoute({
-    required _i18.Creator creator,
-    _i14.Key? key,
+    required _i14.Creator creator,
+    _i17.Key? key,
     List<_i12.PageRouteInfo>? children,
   }) : super(
           CreatorDetailsRoute.name,
@@ -366,9 +418,9 @@ class CreatorDetailsRouteArgs {
     this.key,
   });
 
-  final _i18.Creator creator;
+  final _i14.Creator creator;
 
-  final _i14.Key? key;
+  final _i17.Key? key;
 
   @override
   String toString() {

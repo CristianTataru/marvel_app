@@ -58,7 +58,10 @@ class _CharacterDetailsPageState extends State<CharacterDetailsPage> {
                         const SizedBox(height: 8),
                         if (state.characterComics.isNotEmpty)
                           SectionTitle(
-                            () {},
+                            () {
+                              bloc.add(
+                                  CharacterDetailsEvent.onSeeAllCharacterComicsTapped(character: widget.character));
+                            },
                             title: "Comics",
                             seeAll: true,
                           ),

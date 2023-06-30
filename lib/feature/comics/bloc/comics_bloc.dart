@@ -2,7 +2,11 @@ import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:marvel_app/main.dart';
+import 'package:marvel_app/models/character.dart';
 import 'package:marvel_app/models/comic.dart';
+import 'package:marvel_app/models/creator.dart';
+import 'package:marvel_app/models/series.dart';
+import 'package:marvel_app/models/story.dart';
 import 'package:marvel_app/routes/router.gr.dart';
 
 part 'comics_event.dart';
@@ -17,7 +21,18 @@ class ComicsBloc extends Bloc<ComicsEvent, ComicsState> {
   }
 
   FutureOr<void> _onComicsOnPageOpenedEvent(_ComicsOnPageOpenedEvent event, Emitter<ComicsState> emit) async {
-    List<Comic> comics = await marvelRepository.getComics(0);
+    List<Comic> comics = [];
+    if (event.character != null) {
+      emit(const ComicsState.loading());
+      comics = await marvelRepository.getCharacterComics(event.character!.id, 100);
+    }
+    if (event.creator != null) {}
+    if (event.series != null) {}
+    if (event.story != null) {}
+    if (!event.filtred) {
+      comics = await marvelRepository.getComics(0);
+    }
+
     emit(ComicsState.loaded(
         canLoadMore: marvelRepository.comicsTotal > 20 ? true : false, lastOffset: 0, comics: comics));
   }

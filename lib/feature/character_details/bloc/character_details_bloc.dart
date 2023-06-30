@@ -7,6 +7,7 @@ import 'package:marvel_app/models/character.dart';
 import 'package:marvel_app/models/comic.dart';
 import 'package:marvel_app/models/series.dart';
 import 'package:marvel_app/models/story.dart';
+import 'package:marvel_app/routes/router.gr.dart';
 
 part 'character_details_event.dart';
 part 'character_details_state.dart';
@@ -15,6 +16,7 @@ part 'character_details_bloc.freezed.dart';
 class CharacterDetailsBloc extends Bloc<CharacterDetailsEvent, CharacterDetailsState> {
   CharacterDetailsBloc() : super(const _CharacterDetailsLoadingState()) {
     on<_CharacterDetailsOnPageOpenedEvent>(_onCharacterDetailsOnPageOpenedEvent);
+    on<_CharacterDetailsOnSeeAllCharacterComicsTappedEvent>(_onCharacterDetailsOnSeeAllCharacterComicsTappedEvent);
   }
 
   FutureOr<void> _onCharacterDetailsOnPageOpenedEvent(
@@ -28,5 +30,10 @@ class CharacterDetailsBloc extends Bloc<CharacterDetailsEvent, CharacterDetailsS
     emit(
       CharacterDetailsState.loaded(characterComics: data[0], characterSeries: data[1], characterStories: data[2]),
     );
+  }
+
+  FutureOr<void> _onCharacterDetailsOnSeeAllCharacterComicsTappedEvent(
+      _CharacterDetailsOnSeeAllCharacterComicsTappedEvent event, Emitter<CharacterDetailsState> emit) {
+    router.push(ComicsRoute(character: event.character, filtered: true));
   }
 }

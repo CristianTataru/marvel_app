@@ -50,7 +50,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   }
 
   FutureOr<void> _onHomeOnComicsPageTappedEvent(_HomeOnComicsPageTappedEvent event, Emitter<HomeState> emit) {
-    router.push(const ComicsRoute());
+    router.push(ComicsRoute(filtered: false));
   }
 
   FutureOr<void> _onHomeOnSeriesPageTappedEvent(_HomeOnSeriesPageTappedEvent event, Emitter<HomeState> emit) {
