@@ -99,7 +99,9 @@ class _HomePageState extends State<HomePage> {
                   divider,
                   const SizedBox(height: 8),
                   SectionTitle(
-                    () {},
+                    () {
+                      bloc.add(HomeEvent.onSeeAllCreatorsTapped(creators: state.creators));
+                    },
                     title: "Creators",
                     seeAll: true,
                   ),

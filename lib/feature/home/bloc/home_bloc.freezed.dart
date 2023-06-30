@@ -26,6 +26,7 @@ mixin _$HomeEvent {
     required TResult Function(Story story) onStoryTapped,
     required TResult Function(Creator creator) onCreatorTapped,
     required TResult Function(List<Story> stories) onSeeAllStoriesTapped,
+    required TResult Function(List<Creator> creators) onSeeAllCreatorsTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,6 +38,7 @@ mixin _$HomeEvent {
     TResult? Function(Story story)? onStoryTapped,
     TResult? Function(Creator creator)? onCreatorTapped,
     TResult? Function(List<Story> stories)? onSeeAllStoriesTapped,
+    TResult? Function(List<Creator> creators)? onSeeAllCreatorsTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -48,6 +50,7 @@ mixin _$HomeEvent {
     TResult Function(Story story)? onStoryTapped,
     TResult Function(Creator creator)? onCreatorTapped,
     TResult Function(List<Story> stories)? onSeeAllStoriesTapped,
+    TResult Function(List<Creator> creators)? onSeeAllCreatorsTapped,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -64,6 +67,8 @@ mixin _$HomeEvent {
     required TResult Function(_HomeOnCreatorTappedEvent value) onCreatorTapped,
     required TResult Function(_HomeOnSeeAllStoriesTappedEvent value)
         onSeeAllStoriesTapped,
+    required TResult Function(_HomeOnSeeAllCreatorsTappedEvent value)
+        onSeeAllCreatorsTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -77,6 +82,8 @@ mixin _$HomeEvent {
     TResult? Function(_HomeOnCreatorTappedEvent value)? onCreatorTapped,
     TResult? Function(_HomeOnSeeAllStoriesTappedEvent value)?
         onSeeAllStoriesTapped,
+    TResult? Function(_HomeOnSeeAllCreatorsTappedEvent value)?
+        onSeeAllCreatorsTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -90,6 +97,8 @@ mixin _$HomeEvent {
     TResult Function(_HomeOnCreatorTappedEvent value)? onCreatorTapped,
     TResult Function(_HomeOnSeeAllStoriesTappedEvent value)?
         onSeeAllStoriesTapped,
+    TResult Function(_HomeOnSeeAllCreatorsTappedEvent value)?
+        onSeeAllCreatorsTapped,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -158,6 +167,7 @@ class _$_HomeOnAppStartedEvent implements _HomeOnAppStartedEvent {
     required TResult Function(Story story) onStoryTapped,
     required TResult Function(Creator creator) onCreatorTapped,
     required TResult Function(List<Story> stories) onSeeAllStoriesTapped,
+    required TResult Function(List<Creator> creators) onSeeAllCreatorsTapped,
   }) {
     return onAppStarted();
   }
@@ -172,6 +182,7 @@ class _$_HomeOnAppStartedEvent implements _HomeOnAppStartedEvent {
     TResult? Function(Story story)? onStoryTapped,
     TResult? Function(Creator creator)? onCreatorTapped,
     TResult? Function(List<Story> stories)? onSeeAllStoriesTapped,
+    TResult? Function(List<Creator> creators)? onSeeAllCreatorsTapped,
   }) {
     return onAppStarted?.call();
   }
@@ -186,6 +197,7 @@ class _$_HomeOnAppStartedEvent implements _HomeOnAppStartedEvent {
     TResult Function(Story story)? onStoryTapped,
     TResult Function(Creator creator)? onCreatorTapped,
     TResult Function(List<Story> stories)? onSeeAllStoriesTapped,
+    TResult Function(List<Creator> creators)? onSeeAllCreatorsTapped,
     required TResult orElse(),
   }) {
     if (onAppStarted != null) {
@@ -208,6 +220,8 @@ class _$_HomeOnAppStartedEvent implements _HomeOnAppStartedEvent {
     required TResult Function(_HomeOnCreatorTappedEvent value) onCreatorTapped,
     required TResult Function(_HomeOnSeeAllStoriesTappedEvent value)
         onSeeAllStoriesTapped,
+    required TResult Function(_HomeOnSeeAllCreatorsTappedEvent value)
+        onSeeAllCreatorsTapped,
   }) {
     return onAppStarted(this);
   }
@@ -224,6 +238,8 @@ class _$_HomeOnAppStartedEvent implements _HomeOnAppStartedEvent {
     TResult? Function(_HomeOnCreatorTappedEvent value)? onCreatorTapped,
     TResult? Function(_HomeOnSeeAllStoriesTappedEvent value)?
         onSeeAllStoriesTapped,
+    TResult? Function(_HomeOnSeeAllCreatorsTappedEvent value)?
+        onSeeAllCreatorsTapped,
   }) {
     return onAppStarted?.call(this);
   }
@@ -240,6 +256,8 @@ class _$_HomeOnAppStartedEvent implements _HomeOnAppStartedEvent {
     TResult Function(_HomeOnCreatorTappedEvent value)? onCreatorTapped,
     TResult Function(_HomeOnSeeAllStoriesTappedEvent value)?
         onSeeAllStoriesTapped,
+    TResult Function(_HomeOnSeeAllCreatorsTappedEvent value)?
+        onSeeAllCreatorsTapped,
     required TResult orElse(),
   }) {
     if (onAppStarted != null) {
@@ -339,6 +357,7 @@ class _$_HomeOnCharactersPageTappedEvent
     required TResult Function(Story story) onStoryTapped,
     required TResult Function(Creator creator) onCreatorTapped,
     required TResult Function(List<Story> stories) onSeeAllStoriesTapped,
+    required TResult Function(List<Creator> creators) onSeeAllCreatorsTapped,
   }) {
     return onCharactersPageTapped(characters);
   }
@@ -353,6 +372,7 @@ class _$_HomeOnCharactersPageTappedEvent
     TResult? Function(Story story)? onStoryTapped,
     TResult? Function(Creator creator)? onCreatorTapped,
     TResult? Function(List<Story> stories)? onSeeAllStoriesTapped,
+    TResult? Function(List<Creator> creators)? onSeeAllCreatorsTapped,
   }) {
     return onCharactersPageTapped?.call(characters);
   }
@@ -367,6 +387,7 @@ class _$_HomeOnCharactersPageTappedEvent
     TResult Function(Story story)? onStoryTapped,
     TResult Function(Creator creator)? onCreatorTapped,
     TResult Function(List<Story> stories)? onSeeAllStoriesTapped,
+    TResult Function(List<Creator> creators)? onSeeAllCreatorsTapped,
     required TResult orElse(),
   }) {
     if (onCharactersPageTapped != null) {
@@ -389,6 +410,8 @@ class _$_HomeOnCharactersPageTappedEvent
     required TResult Function(_HomeOnCreatorTappedEvent value) onCreatorTapped,
     required TResult Function(_HomeOnSeeAllStoriesTappedEvent value)
         onSeeAllStoriesTapped,
+    required TResult Function(_HomeOnSeeAllCreatorsTappedEvent value)
+        onSeeAllCreatorsTapped,
   }) {
     return onCharactersPageTapped(this);
   }
@@ -405,6 +428,8 @@ class _$_HomeOnCharactersPageTappedEvent
     TResult? Function(_HomeOnCreatorTappedEvent value)? onCreatorTapped,
     TResult? Function(_HomeOnSeeAllStoriesTappedEvent value)?
         onSeeAllStoriesTapped,
+    TResult? Function(_HomeOnSeeAllCreatorsTappedEvent value)?
+        onSeeAllCreatorsTapped,
   }) {
     return onCharactersPageTapped?.call(this);
   }
@@ -421,6 +446,8 @@ class _$_HomeOnCharactersPageTappedEvent
     TResult Function(_HomeOnCreatorTappedEvent value)? onCreatorTapped,
     TResult Function(_HomeOnSeeAllStoriesTappedEvent value)?
         onSeeAllStoriesTapped,
+    TResult Function(_HomeOnSeeAllCreatorsTappedEvent value)?
+        onSeeAllCreatorsTapped,
     required TResult orElse(),
   }) {
     if (onCharactersPageTapped != null) {
@@ -524,6 +551,7 @@ class _$_HomeOnComicsPageTappedEvent implements _HomeOnComicsPageTappedEvent {
     required TResult Function(Story story) onStoryTapped,
     required TResult Function(Creator creator) onCreatorTapped,
     required TResult Function(List<Story> stories) onSeeAllStoriesTapped,
+    required TResult Function(List<Creator> creators) onSeeAllCreatorsTapped,
   }) {
     return onComicsPageTapped(comics);
   }
@@ -538,6 +566,7 @@ class _$_HomeOnComicsPageTappedEvent implements _HomeOnComicsPageTappedEvent {
     TResult? Function(Story story)? onStoryTapped,
     TResult? Function(Creator creator)? onCreatorTapped,
     TResult? Function(List<Story> stories)? onSeeAllStoriesTapped,
+    TResult? Function(List<Creator> creators)? onSeeAllCreatorsTapped,
   }) {
     return onComicsPageTapped?.call(comics);
   }
@@ -552,6 +581,7 @@ class _$_HomeOnComicsPageTappedEvent implements _HomeOnComicsPageTappedEvent {
     TResult Function(Story story)? onStoryTapped,
     TResult Function(Creator creator)? onCreatorTapped,
     TResult Function(List<Story> stories)? onSeeAllStoriesTapped,
+    TResult Function(List<Creator> creators)? onSeeAllCreatorsTapped,
     required TResult orElse(),
   }) {
     if (onComicsPageTapped != null) {
@@ -574,6 +604,8 @@ class _$_HomeOnComicsPageTappedEvent implements _HomeOnComicsPageTappedEvent {
     required TResult Function(_HomeOnCreatorTappedEvent value) onCreatorTapped,
     required TResult Function(_HomeOnSeeAllStoriesTappedEvent value)
         onSeeAllStoriesTapped,
+    required TResult Function(_HomeOnSeeAllCreatorsTappedEvent value)
+        onSeeAllCreatorsTapped,
   }) {
     return onComicsPageTapped(this);
   }
@@ -590,6 +622,8 @@ class _$_HomeOnComicsPageTappedEvent implements _HomeOnComicsPageTappedEvent {
     TResult? Function(_HomeOnCreatorTappedEvent value)? onCreatorTapped,
     TResult? Function(_HomeOnSeeAllStoriesTappedEvent value)?
         onSeeAllStoriesTapped,
+    TResult? Function(_HomeOnSeeAllCreatorsTappedEvent value)?
+        onSeeAllCreatorsTapped,
   }) {
     return onComicsPageTapped?.call(this);
   }
@@ -606,6 +640,8 @@ class _$_HomeOnComicsPageTappedEvent implements _HomeOnComicsPageTappedEvent {
     TResult Function(_HomeOnCreatorTappedEvent value)? onCreatorTapped,
     TResult Function(_HomeOnSeeAllStoriesTappedEvent value)?
         onSeeAllStoriesTapped,
+    TResult Function(_HomeOnSeeAllCreatorsTappedEvent value)?
+        onSeeAllCreatorsTapped,
     required TResult orElse(),
   }) {
     if (onComicsPageTapped != null) {
@@ -707,6 +743,7 @@ class _$_HomeOnSeriesPageTappedEvent implements _HomeOnSeriesPageTappedEvent {
     required TResult Function(Story story) onStoryTapped,
     required TResult Function(Creator creator) onCreatorTapped,
     required TResult Function(List<Story> stories) onSeeAllStoriesTapped,
+    required TResult Function(List<Creator> creators) onSeeAllCreatorsTapped,
   }) {
     return onSeriesPageTapped(series);
   }
@@ -721,6 +758,7 @@ class _$_HomeOnSeriesPageTappedEvent implements _HomeOnSeriesPageTappedEvent {
     TResult? Function(Story story)? onStoryTapped,
     TResult? Function(Creator creator)? onCreatorTapped,
     TResult? Function(List<Story> stories)? onSeeAllStoriesTapped,
+    TResult? Function(List<Creator> creators)? onSeeAllCreatorsTapped,
   }) {
     return onSeriesPageTapped?.call(series);
   }
@@ -735,6 +773,7 @@ class _$_HomeOnSeriesPageTappedEvent implements _HomeOnSeriesPageTappedEvent {
     TResult Function(Story story)? onStoryTapped,
     TResult Function(Creator creator)? onCreatorTapped,
     TResult Function(List<Story> stories)? onSeeAllStoriesTapped,
+    TResult Function(List<Creator> creators)? onSeeAllCreatorsTapped,
     required TResult orElse(),
   }) {
     if (onSeriesPageTapped != null) {
@@ -757,6 +796,8 @@ class _$_HomeOnSeriesPageTappedEvent implements _HomeOnSeriesPageTappedEvent {
     required TResult Function(_HomeOnCreatorTappedEvent value) onCreatorTapped,
     required TResult Function(_HomeOnSeeAllStoriesTappedEvent value)
         onSeeAllStoriesTapped,
+    required TResult Function(_HomeOnSeeAllCreatorsTappedEvent value)
+        onSeeAllCreatorsTapped,
   }) {
     return onSeriesPageTapped(this);
   }
@@ -773,6 +814,8 @@ class _$_HomeOnSeriesPageTappedEvent implements _HomeOnSeriesPageTappedEvent {
     TResult? Function(_HomeOnCreatorTappedEvent value)? onCreatorTapped,
     TResult? Function(_HomeOnSeeAllStoriesTappedEvent value)?
         onSeeAllStoriesTapped,
+    TResult? Function(_HomeOnSeeAllCreatorsTappedEvent value)?
+        onSeeAllCreatorsTapped,
   }) {
     return onSeriesPageTapped?.call(this);
   }
@@ -789,6 +832,8 @@ class _$_HomeOnSeriesPageTappedEvent implements _HomeOnSeriesPageTappedEvent {
     TResult Function(_HomeOnCreatorTappedEvent value)? onCreatorTapped,
     TResult Function(_HomeOnSeeAllStoriesTappedEvent value)?
         onSeeAllStoriesTapped,
+    TResult Function(_HomeOnSeeAllCreatorsTappedEvent value)?
+        onSeeAllCreatorsTapped,
     required TResult orElse(),
   }) {
     if (onSeriesPageTapped != null) {
@@ -891,6 +936,7 @@ class _$_HomeOnStoryTappedEvent implements _HomeOnStoryTappedEvent {
     required TResult Function(Story story) onStoryTapped,
     required TResult Function(Creator creator) onCreatorTapped,
     required TResult Function(List<Story> stories) onSeeAllStoriesTapped,
+    required TResult Function(List<Creator> creators) onSeeAllCreatorsTapped,
   }) {
     return onStoryTapped(story);
   }
@@ -905,6 +951,7 @@ class _$_HomeOnStoryTappedEvent implements _HomeOnStoryTappedEvent {
     TResult? Function(Story story)? onStoryTapped,
     TResult? Function(Creator creator)? onCreatorTapped,
     TResult? Function(List<Story> stories)? onSeeAllStoriesTapped,
+    TResult? Function(List<Creator> creators)? onSeeAllCreatorsTapped,
   }) {
     return onStoryTapped?.call(story);
   }
@@ -919,6 +966,7 @@ class _$_HomeOnStoryTappedEvent implements _HomeOnStoryTappedEvent {
     TResult Function(Story story)? onStoryTapped,
     TResult Function(Creator creator)? onCreatorTapped,
     TResult Function(List<Story> stories)? onSeeAllStoriesTapped,
+    TResult Function(List<Creator> creators)? onSeeAllCreatorsTapped,
     required TResult orElse(),
   }) {
     if (onStoryTapped != null) {
@@ -941,6 +989,8 @@ class _$_HomeOnStoryTappedEvent implements _HomeOnStoryTappedEvent {
     required TResult Function(_HomeOnCreatorTappedEvent value) onCreatorTapped,
     required TResult Function(_HomeOnSeeAllStoriesTappedEvent value)
         onSeeAllStoriesTapped,
+    required TResult Function(_HomeOnSeeAllCreatorsTappedEvent value)
+        onSeeAllCreatorsTapped,
   }) {
     return onStoryTapped(this);
   }
@@ -957,6 +1007,8 @@ class _$_HomeOnStoryTappedEvent implements _HomeOnStoryTappedEvent {
     TResult? Function(_HomeOnCreatorTappedEvent value)? onCreatorTapped,
     TResult? Function(_HomeOnSeeAllStoriesTappedEvent value)?
         onSeeAllStoriesTapped,
+    TResult? Function(_HomeOnSeeAllCreatorsTappedEvent value)?
+        onSeeAllCreatorsTapped,
   }) {
     return onStoryTapped?.call(this);
   }
@@ -973,6 +1025,8 @@ class _$_HomeOnStoryTappedEvent implements _HomeOnStoryTappedEvent {
     TResult Function(_HomeOnCreatorTappedEvent value)? onCreatorTapped,
     TResult Function(_HomeOnSeeAllStoriesTappedEvent value)?
         onSeeAllStoriesTapped,
+    TResult Function(_HomeOnSeeAllCreatorsTappedEvent value)?
+        onSeeAllCreatorsTapped,
     required TResult orElse(),
   }) {
     if (onStoryTapped != null) {
@@ -1076,6 +1130,7 @@ class _$_HomeOnCreatorTappedEvent implements _HomeOnCreatorTappedEvent {
     required TResult Function(Story story) onStoryTapped,
     required TResult Function(Creator creator) onCreatorTapped,
     required TResult Function(List<Story> stories) onSeeAllStoriesTapped,
+    required TResult Function(List<Creator> creators) onSeeAllCreatorsTapped,
   }) {
     return onCreatorTapped(creator);
   }
@@ -1090,6 +1145,7 @@ class _$_HomeOnCreatorTappedEvent implements _HomeOnCreatorTappedEvent {
     TResult? Function(Story story)? onStoryTapped,
     TResult? Function(Creator creator)? onCreatorTapped,
     TResult? Function(List<Story> stories)? onSeeAllStoriesTapped,
+    TResult? Function(List<Creator> creators)? onSeeAllCreatorsTapped,
   }) {
     return onCreatorTapped?.call(creator);
   }
@@ -1104,6 +1160,7 @@ class _$_HomeOnCreatorTappedEvent implements _HomeOnCreatorTappedEvent {
     TResult Function(Story story)? onStoryTapped,
     TResult Function(Creator creator)? onCreatorTapped,
     TResult Function(List<Story> stories)? onSeeAllStoriesTapped,
+    TResult Function(List<Creator> creators)? onSeeAllCreatorsTapped,
     required TResult orElse(),
   }) {
     if (onCreatorTapped != null) {
@@ -1126,6 +1183,8 @@ class _$_HomeOnCreatorTappedEvent implements _HomeOnCreatorTappedEvent {
     required TResult Function(_HomeOnCreatorTappedEvent value) onCreatorTapped,
     required TResult Function(_HomeOnSeeAllStoriesTappedEvent value)
         onSeeAllStoriesTapped,
+    required TResult Function(_HomeOnSeeAllCreatorsTappedEvent value)
+        onSeeAllCreatorsTapped,
   }) {
     return onCreatorTapped(this);
   }
@@ -1142,6 +1201,8 @@ class _$_HomeOnCreatorTappedEvent implements _HomeOnCreatorTappedEvent {
     TResult? Function(_HomeOnCreatorTappedEvent value)? onCreatorTapped,
     TResult? Function(_HomeOnSeeAllStoriesTappedEvent value)?
         onSeeAllStoriesTapped,
+    TResult? Function(_HomeOnSeeAllCreatorsTappedEvent value)?
+        onSeeAllCreatorsTapped,
   }) {
     return onCreatorTapped?.call(this);
   }
@@ -1158,6 +1219,8 @@ class _$_HomeOnCreatorTappedEvent implements _HomeOnCreatorTappedEvent {
     TResult Function(_HomeOnCreatorTappedEvent value)? onCreatorTapped,
     TResult Function(_HomeOnSeeAllStoriesTappedEvent value)?
         onSeeAllStoriesTapped,
+    TResult Function(_HomeOnSeeAllCreatorsTappedEvent value)?
+        onSeeAllCreatorsTapped,
     required TResult orElse(),
   }) {
     if (onCreatorTapped != null) {
@@ -1260,6 +1323,7 @@ class _$_HomeOnSeeAllStoriesTappedEvent
     required TResult Function(Story story) onStoryTapped,
     required TResult Function(Creator creator) onCreatorTapped,
     required TResult Function(List<Story> stories) onSeeAllStoriesTapped,
+    required TResult Function(List<Creator> creators) onSeeAllCreatorsTapped,
   }) {
     return onSeeAllStoriesTapped(stories);
   }
@@ -1274,6 +1338,7 @@ class _$_HomeOnSeeAllStoriesTappedEvent
     TResult? Function(Story story)? onStoryTapped,
     TResult? Function(Creator creator)? onCreatorTapped,
     TResult? Function(List<Story> stories)? onSeeAllStoriesTapped,
+    TResult? Function(List<Creator> creators)? onSeeAllCreatorsTapped,
   }) {
     return onSeeAllStoriesTapped?.call(stories);
   }
@@ -1288,6 +1353,7 @@ class _$_HomeOnSeeAllStoriesTappedEvent
     TResult Function(Story story)? onStoryTapped,
     TResult Function(Creator creator)? onCreatorTapped,
     TResult Function(List<Story> stories)? onSeeAllStoriesTapped,
+    TResult Function(List<Creator> creators)? onSeeAllCreatorsTapped,
     required TResult orElse(),
   }) {
     if (onSeeAllStoriesTapped != null) {
@@ -1310,6 +1376,8 @@ class _$_HomeOnSeeAllStoriesTappedEvent
     required TResult Function(_HomeOnCreatorTappedEvent value) onCreatorTapped,
     required TResult Function(_HomeOnSeeAllStoriesTappedEvent value)
         onSeeAllStoriesTapped,
+    required TResult Function(_HomeOnSeeAllCreatorsTappedEvent value)
+        onSeeAllCreatorsTapped,
   }) {
     return onSeeAllStoriesTapped(this);
   }
@@ -1326,6 +1394,8 @@ class _$_HomeOnSeeAllStoriesTappedEvent
     TResult? Function(_HomeOnCreatorTappedEvent value)? onCreatorTapped,
     TResult? Function(_HomeOnSeeAllStoriesTappedEvent value)?
         onSeeAllStoriesTapped,
+    TResult? Function(_HomeOnSeeAllCreatorsTappedEvent value)?
+        onSeeAllCreatorsTapped,
   }) {
     return onSeeAllStoriesTapped?.call(this);
   }
@@ -1342,6 +1412,8 @@ class _$_HomeOnSeeAllStoriesTappedEvent
     TResult Function(_HomeOnCreatorTappedEvent value)? onCreatorTapped,
     TResult Function(_HomeOnSeeAllStoriesTappedEvent value)?
         onSeeAllStoriesTapped,
+    TResult Function(_HomeOnSeeAllCreatorsTappedEvent value)?
+        onSeeAllCreatorsTapped,
     required TResult orElse(),
   }) {
     if (onSeeAllStoriesTapped != null) {
@@ -1358,6 +1430,203 @@ abstract class _HomeOnSeeAllStoriesTappedEvent implements HomeEvent {
   List<Story> get stories;
   @JsonKey(ignore: true)
   _$$_HomeOnSeeAllStoriesTappedEventCopyWith<_$_HomeOnSeeAllStoriesTappedEvent>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_HomeOnSeeAllCreatorsTappedEventCopyWith<$Res> {
+  factory _$$_HomeOnSeeAllCreatorsTappedEventCopyWith(
+          _$_HomeOnSeeAllCreatorsTappedEvent value,
+          $Res Function(_$_HomeOnSeeAllCreatorsTappedEvent) then) =
+      __$$_HomeOnSeeAllCreatorsTappedEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<Creator> creators});
+}
+
+/// @nodoc
+class __$$_HomeOnSeeAllCreatorsTappedEventCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$_HomeOnSeeAllCreatorsTappedEvent>
+    implements _$$_HomeOnSeeAllCreatorsTappedEventCopyWith<$Res> {
+  __$$_HomeOnSeeAllCreatorsTappedEventCopyWithImpl(
+      _$_HomeOnSeeAllCreatorsTappedEvent _value,
+      $Res Function(_$_HomeOnSeeAllCreatorsTappedEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? creators = null,
+  }) {
+    return _then(_$_HomeOnSeeAllCreatorsTappedEvent(
+      creators: null == creators
+          ? _value._creators
+          : creators // ignore: cast_nullable_to_non_nullable
+              as List<Creator>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_HomeOnSeeAllCreatorsTappedEvent
+    implements _HomeOnSeeAllCreatorsTappedEvent {
+  const _$_HomeOnSeeAllCreatorsTappedEvent(
+      {required final List<Creator> creators})
+      : _creators = creators;
+
+  final List<Creator> _creators;
+  @override
+  List<Creator> get creators {
+    if (_creators is EqualUnmodifiableListView) return _creators;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_creators);
+  }
+
+  @override
+  String toString() {
+    return 'HomeEvent.onSeeAllCreatorsTapped(creators: $creators)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_HomeOnSeeAllCreatorsTappedEvent &&
+            const DeepCollectionEquality().equals(other._creators, _creators));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_creators));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_HomeOnSeeAllCreatorsTappedEventCopyWith<
+          _$_HomeOnSeeAllCreatorsTappedEvent>
+      get copyWith => __$$_HomeOnSeeAllCreatorsTappedEventCopyWithImpl<
+          _$_HomeOnSeeAllCreatorsTappedEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onAppStarted,
+    required TResult Function(List<Character> characters)
+        onCharactersPageTapped,
+    required TResult Function(List<Comic> comics) onComicsPageTapped,
+    required TResult Function(List<Series> series) onSeriesPageTapped,
+    required TResult Function(Story story) onStoryTapped,
+    required TResult Function(Creator creator) onCreatorTapped,
+    required TResult Function(List<Story> stories) onSeeAllStoriesTapped,
+    required TResult Function(List<Creator> creators) onSeeAllCreatorsTapped,
+  }) {
+    return onSeeAllCreatorsTapped(creators);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? onAppStarted,
+    TResult? Function(List<Character> characters)? onCharactersPageTapped,
+    TResult? Function(List<Comic> comics)? onComicsPageTapped,
+    TResult? Function(List<Series> series)? onSeriesPageTapped,
+    TResult? Function(Story story)? onStoryTapped,
+    TResult? Function(Creator creator)? onCreatorTapped,
+    TResult? Function(List<Story> stories)? onSeeAllStoriesTapped,
+    TResult? Function(List<Creator> creators)? onSeeAllCreatorsTapped,
+  }) {
+    return onSeeAllCreatorsTapped?.call(creators);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onAppStarted,
+    TResult Function(List<Character> characters)? onCharactersPageTapped,
+    TResult Function(List<Comic> comics)? onComicsPageTapped,
+    TResult Function(List<Series> series)? onSeriesPageTapped,
+    TResult Function(Story story)? onStoryTapped,
+    TResult Function(Creator creator)? onCreatorTapped,
+    TResult Function(List<Story> stories)? onSeeAllStoriesTapped,
+    TResult Function(List<Creator> creators)? onSeeAllCreatorsTapped,
+    required TResult orElse(),
+  }) {
+    if (onSeeAllCreatorsTapped != null) {
+      return onSeeAllCreatorsTapped(creators);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_HomeOnAppStartedEvent value) onAppStarted,
+    required TResult Function(_HomeOnCharactersPageTappedEvent value)
+        onCharactersPageTapped,
+    required TResult Function(_HomeOnComicsPageTappedEvent value)
+        onComicsPageTapped,
+    required TResult Function(_HomeOnSeriesPageTappedEvent value)
+        onSeriesPageTapped,
+    required TResult Function(_HomeOnStoryTappedEvent value) onStoryTapped,
+    required TResult Function(_HomeOnCreatorTappedEvent value) onCreatorTapped,
+    required TResult Function(_HomeOnSeeAllStoriesTappedEvent value)
+        onSeeAllStoriesTapped,
+    required TResult Function(_HomeOnSeeAllCreatorsTappedEvent value)
+        onSeeAllCreatorsTapped,
+  }) {
+    return onSeeAllCreatorsTapped(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_HomeOnAppStartedEvent value)? onAppStarted,
+    TResult? Function(_HomeOnCharactersPageTappedEvent value)?
+        onCharactersPageTapped,
+    TResult? Function(_HomeOnComicsPageTappedEvent value)? onComicsPageTapped,
+    TResult? Function(_HomeOnSeriesPageTappedEvent value)? onSeriesPageTapped,
+    TResult? Function(_HomeOnStoryTappedEvent value)? onStoryTapped,
+    TResult? Function(_HomeOnCreatorTappedEvent value)? onCreatorTapped,
+    TResult? Function(_HomeOnSeeAllStoriesTappedEvent value)?
+        onSeeAllStoriesTapped,
+    TResult? Function(_HomeOnSeeAllCreatorsTappedEvent value)?
+        onSeeAllCreatorsTapped,
+  }) {
+    return onSeeAllCreatorsTapped?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_HomeOnAppStartedEvent value)? onAppStarted,
+    TResult Function(_HomeOnCharactersPageTappedEvent value)?
+        onCharactersPageTapped,
+    TResult Function(_HomeOnComicsPageTappedEvent value)? onComicsPageTapped,
+    TResult Function(_HomeOnSeriesPageTappedEvent value)? onSeriesPageTapped,
+    TResult Function(_HomeOnStoryTappedEvent value)? onStoryTapped,
+    TResult Function(_HomeOnCreatorTappedEvent value)? onCreatorTapped,
+    TResult Function(_HomeOnSeeAllStoriesTappedEvent value)?
+        onSeeAllStoriesTapped,
+    TResult Function(_HomeOnSeeAllCreatorsTappedEvent value)?
+        onSeeAllCreatorsTapped,
+    required TResult orElse(),
+  }) {
+    if (onSeeAllCreatorsTapped != null) {
+      return onSeeAllCreatorsTapped(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _HomeOnSeeAllCreatorsTappedEvent implements HomeEvent {
+  const factory _HomeOnSeeAllCreatorsTappedEvent(
+          {required final List<Creator> creators}) =
+      _$_HomeOnSeeAllCreatorsTappedEvent;
+
+  List<Creator> get creators;
+  @JsonKey(ignore: true)
+  _$$_HomeOnSeeAllCreatorsTappedEventCopyWith<
+          _$_HomeOnSeeAllCreatorsTappedEvent>
       get copyWith => throw _privateConstructorUsedError;
 }
 
