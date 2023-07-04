@@ -46,15 +46,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   }
 
   FutureOr<void> _onHomeOnCharactersPageTappedEvent(_HomeOnCharactersPageTappedEvent event, Emitter<HomeState> emit) {
-    router.push(const CharactersRoute());
+    router.push(CharactersRoute());
   }
 
   FutureOr<void> _onHomeOnComicsPageTappedEvent(_HomeOnComicsPageTappedEvent event, Emitter<HomeState> emit) {
-    router.push(ComicsRoute(filtered: false));
+    router.push(ComicsRoute());
   }
 
   FutureOr<void> _onHomeOnSeriesPageTappedEvent(_HomeOnSeriesPageTappedEvent event, Emitter<HomeState> emit) {
-    router.push(const SeriesRoute());
+    router.push(SeriesRoute());
   }
 
   FutureOr<void> _onHomeOnStoryTappedEvent(_HomeOnStoryTappedEvent event, Emitter<HomeState> emit) {
@@ -66,10 +66,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   }
 
   FutureOr<void> _onHomeOnSeeAllStoriesTappedEvent(_HomeOnSeeAllStoriesTappedEvent event, Emitter<HomeState> emit) {
-    router.push(const StoriesRoute());
+    router.push(StoriesRoute());
   }
 
   FutureOr<void> _onHomeOnSeeAllCreatorsTappedEvent(_HomeOnSeeAllCreatorsTappedEvent event, Emitter<HomeState> emit) {
-    router.push(const CreatorsRoute());
+    router.push(CreatorsRoute());
   }
 }

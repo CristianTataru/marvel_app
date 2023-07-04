@@ -58,7 +58,9 @@ class _StoryDetailsPageState extends State<StoryDetailsPage> {
                           divider,
                           const SizedBox(height: 8),
                           SectionTitle(
-                            () {},
+                            () {
+                              bloc.add(StoryDetailsEvent.onSeeAllStoryCharactersTapped(story: widget.story));
+                            },
                             title: "Characters",
                             seeAll: true,
                           ),
@@ -74,7 +76,9 @@ class _StoryDetailsPageState extends State<StoryDetailsPage> {
                           divider,
                           const SizedBox(height: 8),
                           SectionTitle(
-                            () {},
+                            () {
+                              bloc.add(StoryDetailsEvent.onSeeAllStoryComicsTapped(story: widget.story));
+                            },
                             title: "Comics",
                             seeAll: true,
                           ),
@@ -88,7 +92,9 @@ class _StoryDetailsPageState extends State<StoryDetailsPage> {
                           divider,
                           const SizedBox(height: 8),
                           SectionTitle(
-                            () {},
+                            () {
+                              bloc.add(StoryDetailsEvent.onSeeAllStorySeriesTapped(story: widget.story));
+                            },
                             title: "Series",
                             seeAll: true,
                           ),
@@ -102,7 +108,9 @@ class _StoryDetailsPageState extends State<StoryDetailsPage> {
                           divider,
                           const SizedBox(height: 8),
                           SectionTitle(
-                            () {},
+                            () {
+                              bloc.add(StoryDetailsEvent.onSeeAllStoryCreatorsTapped(story: widget.story));
+                            },
                             title: "Creators",
                             seeAll: true,
                           ),

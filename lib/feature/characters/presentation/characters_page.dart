@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_app/feature/characters/bloc/characters_bloc.dart';
+import 'package:marvel_app/models/api_filters.dart';
 import 'package:marvel_app/models/character.dart';
 import 'package:marvel_app/theme/custom_colors.dart';
 import 'package:marvel_app/widgets/common.dart';
@@ -11,7 +12,9 @@ final bloc = CharactersBloc();
 
 @RoutePage()
 class CharactersPage extends StatefulWidget {
-  const CharactersPage({super.key});
+  const CharactersPage({super.key, this.filter});
+
+  final ApiFilter? filter;
 
   @override
   State<CharactersPage> createState() => _CharactersPageState();
@@ -23,10 +26,10 @@ class _CharactersPageState extends State<CharactersPage> {
   @override
   void initState() {
     super.initState();
-    bloc.add(const CharactersEvent.onPageOpened());
+    bloc.add(CharactersEvent.onPageOpened(filter: widget.filter));
     scrollController.addListener(() {
       if (scrollController.position.pixels == scrollController.position.maxScrollExtent) {
-        bloc.add(const CharactersEvent.onMoreDataLoading());
+        bloc.add(CharactersEvent.onMoreDataLoading(filter: widget.filter));
       }
     });
   }
@@ -55,32 +58,19 @@ class _CharactersPageState extends State<CharactersPage> {
             backgroundColor: CustomColors.appBar,
             leading: const BackButton(color: CustomColors.lightBlue),
           ),
-          body: Column(
-            children: [
-              Expanded(
-                child: SingleChildScrollView(
-                  controller: scrollController,
-                  child: Column(
-                    children: [
-                      const SizedBox(height: 8),
-                      ...charactersState.map(
-                        loaded: (state) => [
-                          ...state.characters.map((e) => CharacterEntry(e)),
-                          const SizedBox(height: 96),
-                        ],
-                        moreLoading: (state) => [
-                          ...state.characters.map((e) => CharacterEntry(e)),
-                          const SizedBox(
-                            height: 96,
-                            child: loadingSpinner,
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-              )
-            ],
+          body: charactersState.map(
+            loading: (state) => pageLoadingSpinner,
+            loaded: (state) => ListView(
+              characters: state.characters,
+              canLoadMore: state.canLoadMore,
+              filter: widget.filter,
+            ),
+            moreLoading: (state) => ListView(
+              characters: state.characters,
+              canLoadMore: null,
+              showSpinner: true,
+              filter: widget.filter,
+            ),
           ),
         );
       },
@@ -135,6 +125,58 @@ class CharacterEntry extends StatelessWidget {
             )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class ListView extends StatefulWidget {
+  const ListView({super.key, required this.characters, this.showSpinner = false, this.canLoadMore, this.filter});
+
+  final List<Character> characters;
+  final bool showSpinner;
+  final bool? canLoadMore;
+  final ApiFilter? filter;
+
+  @override
+  State<ListView> createState() => _ListViewState();
+}
+
+class _ListViewState extends State<ListView> {
+  ScrollController scrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    scrollController.addListener(() {
+      if (scrollController.position.pixels == scrollController.position.maxScrollExtent && widget.canLoadMore == true) {
+        bloc.add(CharactersEvent.onMoreDataLoading(filter: widget.filter));
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      controller: scrollController,
+      child: Column(
+        children: [
+          const SizedBox(height: 8),
+          ...widget.characters.map((e) => CharacterEntry(e)),
+          if (widget.showSpinner)
+            const SizedBox(
+              height: 96,
+              child: loadingSpinner,
+            )
+          else
+            const SizedBox(height: 96),
+        ],
       ),
     );
   }

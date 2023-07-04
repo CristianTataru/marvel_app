@@ -45,121 +45,138 @@ abstract class MarvelApi {
   Future<ApiResponseCreator> getCreators(@Path('offset') int offset);
 
   @GET(
-      'characters/{characterId}/comics?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
+      'characters/{characterId}/comics?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
   Future<ApiResponseCharacterComic> getCharacterComics(
     @Path('characterId') int characterId,
     @Path('limit') int limit,
+    @Path('offset') int offset,
   );
 
   @GET(
-      'characters/{characterId}/series?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
+      'characters/{characterId}/series?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
   Future<ApiResponseCharacterSeries> getCharacterSeries(
     @Path('characterId') int characterId,
     @Path('limit') int limit,
+    @Path('offset') int offset,
   );
 
   @GET(
-      'characters/{characterId}/stories?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
+      'characters/{characterId}/stories?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
   Future<ApiResponseCharacterStories> getCharacterStories(
     @Path('characterId') int characterId,
     @Path('limit') int limit,
+    @Path('offset') int offset,
   );
 
   @GET(
-      'comics/{comicId}/characters?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
+      'comics/{comicId}/characters?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
   Future<ApiResponseComicCharacters> getComicCharacters(
     @Path('comicId') int comicId,
     @Path('limit') int limit,
+    @Path('offset') int offset,
   );
 
   @GET(
-      'comics/{comicId}/stories?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
+      'comics/{comicId}/stories?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
   Future<ApiResponseComicStories> getComicStories(
     @Path('comicId') int comicId,
     @Path('limit') int limit,
+    @Path('offset') int offset,
   );
 
   @GET(
-      'comics/{comicId}/creators?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
+      'comics/{comicId}/creators?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
   Future<ApiResponseComicCreators> getComicCreators(
     @Path('comicId') int comicId,
     @Path('limit') int limit,
+    @Path('offset') int offset,
   );
 
   @GET(
-      'series/{seriesId}/characters?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
+      'series/{seriesId}/characters?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
   Future<ApiResponseSeriesCharacters> getSeriesCharacters(
     @Path('seriesId') int seriesId,
     @Path('limit') int limit,
+    @Path('offset') int offset,
   );
 
   @GET(
-      'series/{seriesId}/comics?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
+      'series/{seriesId}/comics?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
   Future<ApiResponseSeriesComics> getSeriesComics(
     @Path('seriesId') int seriesId,
     @Path('limit') int limit,
+    @Path('offset') int offset,
   );
 
   @GET(
-      'series/{seriesId}/creators?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
+      'series/{seriesId}/creators?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
   Future<ApiResponseSeriesCreators> getSeriesCreators(
     @Path('seriesId') int seriesId,
     @Path('limit') int limit,
+    @Path('offset') int offset,
   );
 
   @GET(
-      'series/{seriesId}/stories?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
+      'series/{seriesId}/stories?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
   Future<ApiResponseSeriesStories> getSeriesStories(
     @Path('seriesId') int seriesId,
     @Path('limit') int limit,
+    @Path('offset') int offset,
   );
 
   @GET(
-      'stories/{storyId}/characters?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
+      'stories/{storyId}/characters?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
   Future<ApiResponseStoryCharacters> getStoryCharacters(
     @Path('storyId') int seriesId,
     @Path('limit') int limit,
+    @Path('offset') int offset,
   );
 
   @GET(
-      'stories/{storyId}/comics?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
+      'stories/{storyId}/comics?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
   Future<ApiResponseStoryComics> getStoryComics(
     @Path('storyId') int seriesId,
     @Path('limit') int limit,
+    @Path('offset') int offset,
   );
 
   @GET(
-      'stories/{storyId}/series?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
+      'stories/{storyId}/series?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
   Future<ApiResponseStorySeries> getStorySeries(
     @Path('storyId') int seriesId,
     @Path('limit') int limit,
+    @Path('offset') int offset,
   );
 
   @GET(
-      'stories/{storyId}/creators?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
+      'stories/{storyId}/creators?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
   Future<ApiResponseStoryCreators> getStoryCreators(
     @Path('storyId') int seriesId,
     @Path('limit') int limit,
+    @Path('offset') int offset,
   );
 
   @GET(
-      'creators/{creatorId}/comics?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
+      'creators/{creatorId}/comics?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
   Future<ApiResponseCreatorComic> getCreatorComics(
     @Path('creatorId') int creatorId,
     @Path('limit') int limit,
+    @Path('offset') int offset,
   );
 
   @GET(
-      'creators/{creatorId}/series?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
+      'creators/{creatorId}/series?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
   Future<ApiResponseCreatorSeries> getCreatorSeries(
     @Path('creatorId') int creatorId,
     @Path('limit') int limit,
+    @Path('offset') int offset,
   );
 
   @GET(
-      'creators/{creatorId}/stories?limit={limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
+      'creators/{creatorId}/stories?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
   Future<ApiResponseCreatorStories> getCreatorStories(
     @Path('creatorId') int creatorId,
     @Path('limit') int limit,
+    @Path('offset') int offset,
   );
 }

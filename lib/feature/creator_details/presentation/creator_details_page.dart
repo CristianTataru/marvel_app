@@ -58,7 +58,9 @@ class _CreatorDetailsPageState extends State<CreatorDetailsPage> {
                           divider,
                           const SizedBox(height: 8),
                           SectionTitle(
-                            () {},
+                            () {
+                              bloc.add(CreatorDetailsEvent.onSeeAllCreatorComicsTapped(creator: widget.creator));
+                            },
                             title: "Comics",
                             seeAll: true,
                           ),
@@ -74,7 +76,9 @@ class _CreatorDetailsPageState extends State<CreatorDetailsPage> {
                           divider,
                           const SizedBox(height: 8),
                           SectionTitle(
-                            () {},
+                            () {
+                              bloc.add(CreatorDetailsEvent.onSeeAllCreatorSeriesTapped(creator: widget.creator));
+                            },
                             title: "Series",
                             seeAll: true,
                           ),
@@ -90,7 +94,9 @@ class _CreatorDetailsPageState extends State<CreatorDetailsPage> {
                           divider,
                           const SizedBox(height: 8),
                           SectionTitle(
-                            () {},
+                            () {
+                              bloc.add(CreatorDetailsEvent.onSeeAllCreatorStoriesTapped(creator: widget.creator));
+                            },
                             title: "Stories",
                             seeAll: true,
                           ),

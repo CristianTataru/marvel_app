@@ -20,16 +20,28 @@ mixin _$SeriesDetailsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Series series) onPageOpened,
+    required TResult Function(Series series) onSeeAllSeriesCharactersTapped,
+    required TResult Function(Series series) onSeeAllSeriesComicsTapped,
+    required TResult Function(Series series) onSeeAllSeriesStoriesTapped,
+    required TResult Function(Series series) onSeeAllSeriesCreatorsTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Series series)? onPageOpened,
+    TResult? Function(Series series)? onSeeAllSeriesCharactersTapped,
+    TResult? Function(Series series)? onSeeAllSeriesComicsTapped,
+    TResult? Function(Series series)? onSeeAllSeriesStoriesTapped,
+    TResult? Function(Series series)? onSeeAllSeriesCreatorsTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Series series)? onPageOpened,
+    TResult Function(Series series)? onSeeAllSeriesCharactersTapped,
+    TResult Function(Series series)? onSeeAllSeriesComicsTapped,
+    TResult Function(Series series)? onSeeAllSeriesStoriesTapped,
+    TResult Function(Series series)? onSeeAllSeriesCreatorsTapped,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -37,16 +49,44 @@ mixin _$SeriesDetailsEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_SeriesDetailsOnPageOpenedEvent value)
         onPageOpened,
+    required TResult Function(
+            _SeriesDetailsOnSeeAllSeriesCharactersTappedEvent value)
+        onSeeAllSeriesCharactersTapped,
+    required TResult Function(
+            _SeriesDetailsOnSeeAllSeriesComicsTappedEvent value)
+        onSeeAllSeriesComicsTapped,
+    required TResult Function(
+            _SeriesDetailsOnSeeAllSeriesStoriesTappedEvent value)
+        onSeeAllSeriesStoriesTapped,
+    required TResult Function(
+            _SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent value)
+        onSeeAllSeriesCreatorsTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SeriesDetailsOnPageOpenedEvent value)? onPageOpened,
+    TResult? Function(_SeriesDetailsOnSeeAllSeriesCharactersTappedEvent value)?
+        onSeeAllSeriesCharactersTapped,
+    TResult? Function(_SeriesDetailsOnSeeAllSeriesComicsTappedEvent value)?
+        onSeeAllSeriesComicsTapped,
+    TResult? Function(_SeriesDetailsOnSeeAllSeriesStoriesTappedEvent value)?
+        onSeeAllSeriesStoriesTapped,
+    TResult? Function(_SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent value)?
+        onSeeAllSeriesCreatorsTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SeriesDetailsOnPageOpenedEvent value)? onPageOpened,
+    TResult Function(_SeriesDetailsOnSeeAllSeriesCharactersTappedEvent value)?
+        onSeeAllSeriesCharactersTapped,
+    TResult Function(_SeriesDetailsOnSeeAllSeriesComicsTappedEvent value)?
+        onSeeAllSeriesComicsTapped,
+    TResult Function(_SeriesDetailsOnSeeAllSeriesStoriesTappedEvent value)?
+        onSeeAllSeriesStoriesTapped,
+    TResult Function(_SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent value)?
+        onSeeAllSeriesCreatorsTapped,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -174,6 +214,10 @@ class _$_SeriesDetailsOnPageOpenedEvent
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Series series) onPageOpened,
+    required TResult Function(Series series) onSeeAllSeriesCharactersTapped,
+    required TResult Function(Series series) onSeeAllSeriesComicsTapped,
+    required TResult Function(Series series) onSeeAllSeriesStoriesTapped,
+    required TResult Function(Series series) onSeeAllSeriesCreatorsTapped,
   }) {
     return onPageOpened(series);
   }
@@ -182,6 +226,10 @@ class _$_SeriesDetailsOnPageOpenedEvent
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Series series)? onPageOpened,
+    TResult? Function(Series series)? onSeeAllSeriesCharactersTapped,
+    TResult? Function(Series series)? onSeeAllSeriesComicsTapped,
+    TResult? Function(Series series)? onSeeAllSeriesStoriesTapped,
+    TResult? Function(Series series)? onSeeAllSeriesCreatorsTapped,
   }) {
     return onPageOpened?.call(series);
   }
@@ -190,6 +238,10 @@ class _$_SeriesDetailsOnPageOpenedEvent
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Series series)? onPageOpened,
+    TResult Function(Series series)? onSeeAllSeriesCharactersTapped,
+    TResult Function(Series series)? onSeeAllSeriesComicsTapped,
+    TResult Function(Series series)? onSeeAllSeriesStoriesTapped,
+    TResult Function(Series series)? onSeeAllSeriesCreatorsTapped,
     required TResult orElse(),
   }) {
     if (onPageOpened != null) {
@@ -203,6 +255,18 @@ class _$_SeriesDetailsOnPageOpenedEvent
   TResult map<TResult extends Object?>({
     required TResult Function(_SeriesDetailsOnPageOpenedEvent value)
         onPageOpened,
+    required TResult Function(
+            _SeriesDetailsOnSeeAllSeriesCharactersTappedEvent value)
+        onSeeAllSeriesCharactersTapped,
+    required TResult Function(
+            _SeriesDetailsOnSeeAllSeriesComicsTappedEvent value)
+        onSeeAllSeriesComicsTapped,
+    required TResult Function(
+            _SeriesDetailsOnSeeAllSeriesStoriesTappedEvent value)
+        onSeeAllSeriesStoriesTapped,
+    required TResult Function(
+            _SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent value)
+        onSeeAllSeriesCreatorsTapped,
   }) {
     return onPageOpened(this);
   }
@@ -211,6 +275,14 @@ class _$_SeriesDetailsOnPageOpenedEvent
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SeriesDetailsOnPageOpenedEvent value)? onPageOpened,
+    TResult? Function(_SeriesDetailsOnSeeAllSeriesCharactersTappedEvent value)?
+        onSeeAllSeriesCharactersTapped,
+    TResult? Function(_SeriesDetailsOnSeeAllSeriesComicsTappedEvent value)?
+        onSeeAllSeriesComicsTapped,
+    TResult? Function(_SeriesDetailsOnSeeAllSeriesStoriesTappedEvent value)?
+        onSeeAllSeriesStoriesTapped,
+    TResult? Function(_SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent value)?
+        onSeeAllSeriesCreatorsTapped,
   }) {
     return onPageOpened?.call(this);
   }
@@ -219,6 +291,14 @@ class _$_SeriesDetailsOnPageOpenedEvent
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SeriesDetailsOnPageOpenedEvent value)? onPageOpened,
+    TResult Function(_SeriesDetailsOnSeeAllSeriesCharactersTappedEvent value)?
+        onSeeAllSeriesCharactersTapped,
+    TResult Function(_SeriesDetailsOnSeeAllSeriesComicsTappedEvent value)?
+        onSeeAllSeriesComicsTapped,
+    TResult Function(_SeriesDetailsOnSeeAllSeriesStoriesTappedEvent value)?
+        onSeeAllSeriesStoriesTapped,
+    TResult Function(_SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent value)?
+        onSeeAllSeriesCreatorsTapped,
     required TResult orElse(),
   }) {
     if (onPageOpened != null) {
@@ -237,6 +317,762 @@ abstract class _SeriesDetailsOnPageOpenedEvent implements SeriesDetailsEvent {
   @override
   @JsonKey(ignore: true)
   _$$_SeriesDetailsOnPageOpenedEventCopyWith<_$_SeriesDetailsOnPageOpenedEvent>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SeriesDetailsOnSeeAllSeriesCharactersTappedEventCopyWith<
+    $Res> implements $SeriesDetailsEventCopyWith<$Res> {
+  factory _$$_SeriesDetailsOnSeeAllSeriesCharactersTappedEventCopyWith(
+          _$_SeriesDetailsOnSeeAllSeriesCharactersTappedEvent value,
+          $Res Function(_$_SeriesDetailsOnSeeAllSeriesCharactersTappedEvent)
+              then) =
+      __$$_SeriesDetailsOnSeeAllSeriesCharactersTappedEventCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Series series});
+
+  @override
+  $SeriesCopyWith<$Res> get series;
+}
+
+/// @nodoc
+class __$$_SeriesDetailsOnSeeAllSeriesCharactersTappedEventCopyWithImpl<$Res>
+    extends _$SeriesDetailsEventCopyWithImpl<$Res,
+        _$_SeriesDetailsOnSeeAllSeriesCharactersTappedEvent>
+    implements
+        _$$_SeriesDetailsOnSeeAllSeriesCharactersTappedEventCopyWith<$Res> {
+  __$$_SeriesDetailsOnSeeAllSeriesCharactersTappedEventCopyWithImpl(
+      _$_SeriesDetailsOnSeeAllSeriesCharactersTappedEvent _value,
+      $Res Function(_$_SeriesDetailsOnSeeAllSeriesCharactersTappedEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? series = null,
+  }) {
+    return _then(_$_SeriesDetailsOnSeeAllSeriesCharactersTappedEvent(
+      series: null == series
+          ? _value.series
+          : series // ignore: cast_nullable_to_non_nullable
+              as Series,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SeriesDetailsOnSeeAllSeriesCharactersTappedEvent
+    implements _SeriesDetailsOnSeeAllSeriesCharactersTappedEvent {
+  const _$_SeriesDetailsOnSeeAllSeriesCharactersTappedEvent(
+      {required this.series});
+
+  @override
+  final Series series;
+
+  @override
+  String toString() {
+    return 'SeriesDetailsEvent.onSeeAllSeriesCharactersTapped(series: $series)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SeriesDetailsOnSeeAllSeriesCharactersTappedEvent &&
+            (identical(other.series, series) || other.series == series));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, series);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SeriesDetailsOnSeeAllSeriesCharactersTappedEventCopyWith<
+          _$_SeriesDetailsOnSeeAllSeriesCharactersTappedEvent>
+      get copyWith =>
+          __$$_SeriesDetailsOnSeeAllSeriesCharactersTappedEventCopyWithImpl<
+                  _$_SeriesDetailsOnSeeAllSeriesCharactersTappedEvent>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Series series) onPageOpened,
+    required TResult Function(Series series) onSeeAllSeriesCharactersTapped,
+    required TResult Function(Series series) onSeeAllSeriesComicsTapped,
+    required TResult Function(Series series) onSeeAllSeriesStoriesTapped,
+    required TResult Function(Series series) onSeeAllSeriesCreatorsTapped,
+  }) {
+    return onSeeAllSeriesCharactersTapped(series);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Series series)? onPageOpened,
+    TResult? Function(Series series)? onSeeAllSeriesCharactersTapped,
+    TResult? Function(Series series)? onSeeAllSeriesComicsTapped,
+    TResult? Function(Series series)? onSeeAllSeriesStoriesTapped,
+    TResult? Function(Series series)? onSeeAllSeriesCreatorsTapped,
+  }) {
+    return onSeeAllSeriesCharactersTapped?.call(series);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Series series)? onPageOpened,
+    TResult Function(Series series)? onSeeAllSeriesCharactersTapped,
+    TResult Function(Series series)? onSeeAllSeriesComicsTapped,
+    TResult Function(Series series)? onSeeAllSeriesStoriesTapped,
+    TResult Function(Series series)? onSeeAllSeriesCreatorsTapped,
+    required TResult orElse(),
+  }) {
+    if (onSeeAllSeriesCharactersTapped != null) {
+      return onSeeAllSeriesCharactersTapped(series);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SeriesDetailsOnPageOpenedEvent value)
+        onPageOpened,
+    required TResult Function(
+            _SeriesDetailsOnSeeAllSeriesCharactersTappedEvent value)
+        onSeeAllSeriesCharactersTapped,
+    required TResult Function(
+            _SeriesDetailsOnSeeAllSeriesComicsTappedEvent value)
+        onSeeAllSeriesComicsTapped,
+    required TResult Function(
+            _SeriesDetailsOnSeeAllSeriesStoriesTappedEvent value)
+        onSeeAllSeriesStoriesTapped,
+    required TResult Function(
+            _SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent value)
+        onSeeAllSeriesCreatorsTapped,
+  }) {
+    return onSeeAllSeriesCharactersTapped(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SeriesDetailsOnPageOpenedEvent value)? onPageOpened,
+    TResult? Function(_SeriesDetailsOnSeeAllSeriesCharactersTappedEvent value)?
+        onSeeAllSeriesCharactersTapped,
+    TResult? Function(_SeriesDetailsOnSeeAllSeriesComicsTappedEvent value)?
+        onSeeAllSeriesComicsTapped,
+    TResult? Function(_SeriesDetailsOnSeeAllSeriesStoriesTappedEvent value)?
+        onSeeAllSeriesStoriesTapped,
+    TResult? Function(_SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent value)?
+        onSeeAllSeriesCreatorsTapped,
+  }) {
+    return onSeeAllSeriesCharactersTapped?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SeriesDetailsOnPageOpenedEvent value)? onPageOpened,
+    TResult Function(_SeriesDetailsOnSeeAllSeriesCharactersTappedEvent value)?
+        onSeeAllSeriesCharactersTapped,
+    TResult Function(_SeriesDetailsOnSeeAllSeriesComicsTappedEvent value)?
+        onSeeAllSeriesComicsTapped,
+    TResult Function(_SeriesDetailsOnSeeAllSeriesStoriesTappedEvent value)?
+        onSeeAllSeriesStoriesTapped,
+    TResult Function(_SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent value)?
+        onSeeAllSeriesCreatorsTapped,
+    required TResult orElse(),
+  }) {
+    if (onSeeAllSeriesCharactersTapped != null) {
+      return onSeeAllSeriesCharactersTapped(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SeriesDetailsOnSeeAllSeriesCharactersTappedEvent
+    implements SeriesDetailsEvent {
+  const factory _SeriesDetailsOnSeeAllSeriesCharactersTappedEvent(
+          {required final Series series}) =
+      _$_SeriesDetailsOnSeeAllSeriesCharactersTappedEvent;
+
+  @override
+  Series get series;
+  @override
+  @JsonKey(ignore: true)
+  _$$_SeriesDetailsOnSeeAllSeriesCharactersTappedEventCopyWith<
+          _$_SeriesDetailsOnSeeAllSeriesCharactersTappedEvent>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SeriesDetailsOnSeeAllSeriesComicsTappedEventCopyWith<$Res>
+    implements $SeriesDetailsEventCopyWith<$Res> {
+  factory _$$_SeriesDetailsOnSeeAllSeriesComicsTappedEventCopyWith(
+          _$_SeriesDetailsOnSeeAllSeriesComicsTappedEvent value,
+          $Res Function(_$_SeriesDetailsOnSeeAllSeriesComicsTappedEvent) then) =
+      __$$_SeriesDetailsOnSeeAllSeriesComicsTappedEventCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Series series});
+
+  @override
+  $SeriesCopyWith<$Res> get series;
+}
+
+/// @nodoc
+class __$$_SeriesDetailsOnSeeAllSeriesComicsTappedEventCopyWithImpl<$Res>
+    extends _$SeriesDetailsEventCopyWithImpl<$Res,
+        _$_SeriesDetailsOnSeeAllSeriesComicsTappedEvent>
+    implements _$$_SeriesDetailsOnSeeAllSeriesComicsTappedEventCopyWith<$Res> {
+  __$$_SeriesDetailsOnSeeAllSeriesComicsTappedEventCopyWithImpl(
+      _$_SeriesDetailsOnSeeAllSeriesComicsTappedEvent _value,
+      $Res Function(_$_SeriesDetailsOnSeeAllSeriesComicsTappedEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? series = null,
+  }) {
+    return _then(_$_SeriesDetailsOnSeeAllSeriesComicsTappedEvent(
+      series: null == series
+          ? _value.series
+          : series // ignore: cast_nullable_to_non_nullable
+              as Series,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SeriesDetailsOnSeeAllSeriesComicsTappedEvent
+    implements _SeriesDetailsOnSeeAllSeriesComicsTappedEvent {
+  const _$_SeriesDetailsOnSeeAllSeriesComicsTappedEvent({required this.series});
+
+  @override
+  final Series series;
+
+  @override
+  String toString() {
+    return 'SeriesDetailsEvent.onSeeAllSeriesComicsTapped(series: $series)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SeriesDetailsOnSeeAllSeriesComicsTappedEvent &&
+            (identical(other.series, series) || other.series == series));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, series);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SeriesDetailsOnSeeAllSeriesComicsTappedEventCopyWith<
+          _$_SeriesDetailsOnSeeAllSeriesComicsTappedEvent>
+      get copyWith =>
+          __$$_SeriesDetailsOnSeeAllSeriesComicsTappedEventCopyWithImpl<
+                  _$_SeriesDetailsOnSeeAllSeriesComicsTappedEvent>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Series series) onPageOpened,
+    required TResult Function(Series series) onSeeAllSeriesCharactersTapped,
+    required TResult Function(Series series) onSeeAllSeriesComicsTapped,
+    required TResult Function(Series series) onSeeAllSeriesStoriesTapped,
+    required TResult Function(Series series) onSeeAllSeriesCreatorsTapped,
+  }) {
+    return onSeeAllSeriesComicsTapped(series);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Series series)? onPageOpened,
+    TResult? Function(Series series)? onSeeAllSeriesCharactersTapped,
+    TResult? Function(Series series)? onSeeAllSeriesComicsTapped,
+    TResult? Function(Series series)? onSeeAllSeriesStoriesTapped,
+    TResult? Function(Series series)? onSeeAllSeriesCreatorsTapped,
+  }) {
+    return onSeeAllSeriesComicsTapped?.call(series);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Series series)? onPageOpened,
+    TResult Function(Series series)? onSeeAllSeriesCharactersTapped,
+    TResult Function(Series series)? onSeeAllSeriesComicsTapped,
+    TResult Function(Series series)? onSeeAllSeriesStoriesTapped,
+    TResult Function(Series series)? onSeeAllSeriesCreatorsTapped,
+    required TResult orElse(),
+  }) {
+    if (onSeeAllSeriesComicsTapped != null) {
+      return onSeeAllSeriesComicsTapped(series);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SeriesDetailsOnPageOpenedEvent value)
+        onPageOpened,
+    required TResult Function(
+            _SeriesDetailsOnSeeAllSeriesCharactersTappedEvent value)
+        onSeeAllSeriesCharactersTapped,
+    required TResult Function(
+            _SeriesDetailsOnSeeAllSeriesComicsTappedEvent value)
+        onSeeAllSeriesComicsTapped,
+    required TResult Function(
+            _SeriesDetailsOnSeeAllSeriesStoriesTappedEvent value)
+        onSeeAllSeriesStoriesTapped,
+    required TResult Function(
+            _SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent value)
+        onSeeAllSeriesCreatorsTapped,
+  }) {
+    return onSeeAllSeriesComicsTapped(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SeriesDetailsOnPageOpenedEvent value)? onPageOpened,
+    TResult? Function(_SeriesDetailsOnSeeAllSeriesCharactersTappedEvent value)?
+        onSeeAllSeriesCharactersTapped,
+    TResult? Function(_SeriesDetailsOnSeeAllSeriesComicsTappedEvent value)?
+        onSeeAllSeriesComicsTapped,
+    TResult? Function(_SeriesDetailsOnSeeAllSeriesStoriesTappedEvent value)?
+        onSeeAllSeriesStoriesTapped,
+    TResult? Function(_SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent value)?
+        onSeeAllSeriesCreatorsTapped,
+  }) {
+    return onSeeAllSeriesComicsTapped?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SeriesDetailsOnPageOpenedEvent value)? onPageOpened,
+    TResult Function(_SeriesDetailsOnSeeAllSeriesCharactersTappedEvent value)?
+        onSeeAllSeriesCharactersTapped,
+    TResult Function(_SeriesDetailsOnSeeAllSeriesComicsTappedEvent value)?
+        onSeeAllSeriesComicsTapped,
+    TResult Function(_SeriesDetailsOnSeeAllSeriesStoriesTappedEvent value)?
+        onSeeAllSeriesStoriesTapped,
+    TResult Function(_SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent value)?
+        onSeeAllSeriesCreatorsTapped,
+    required TResult orElse(),
+  }) {
+    if (onSeeAllSeriesComicsTapped != null) {
+      return onSeeAllSeriesComicsTapped(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SeriesDetailsOnSeeAllSeriesComicsTappedEvent
+    implements SeriesDetailsEvent {
+  const factory _SeriesDetailsOnSeeAllSeriesComicsTappedEvent(
+          {required final Series series}) =
+      _$_SeriesDetailsOnSeeAllSeriesComicsTappedEvent;
+
+  @override
+  Series get series;
+  @override
+  @JsonKey(ignore: true)
+  _$$_SeriesDetailsOnSeeAllSeriesComicsTappedEventCopyWith<
+          _$_SeriesDetailsOnSeeAllSeriesComicsTappedEvent>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SeriesDetailsOnSeeAllSeriesStoriesTappedEventCopyWith<$Res>
+    implements $SeriesDetailsEventCopyWith<$Res> {
+  factory _$$_SeriesDetailsOnSeeAllSeriesStoriesTappedEventCopyWith(
+          _$_SeriesDetailsOnSeeAllSeriesStoriesTappedEvent value,
+          $Res Function(_$_SeriesDetailsOnSeeAllSeriesStoriesTappedEvent)
+              then) =
+      __$$_SeriesDetailsOnSeeAllSeriesStoriesTappedEventCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Series series});
+
+  @override
+  $SeriesCopyWith<$Res> get series;
+}
+
+/// @nodoc
+class __$$_SeriesDetailsOnSeeAllSeriesStoriesTappedEventCopyWithImpl<$Res>
+    extends _$SeriesDetailsEventCopyWithImpl<$Res,
+        _$_SeriesDetailsOnSeeAllSeriesStoriesTappedEvent>
+    implements _$$_SeriesDetailsOnSeeAllSeriesStoriesTappedEventCopyWith<$Res> {
+  __$$_SeriesDetailsOnSeeAllSeriesStoriesTappedEventCopyWithImpl(
+      _$_SeriesDetailsOnSeeAllSeriesStoriesTappedEvent _value,
+      $Res Function(_$_SeriesDetailsOnSeeAllSeriesStoriesTappedEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? series = null,
+  }) {
+    return _then(_$_SeriesDetailsOnSeeAllSeriesStoriesTappedEvent(
+      series: null == series
+          ? _value.series
+          : series // ignore: cast_nullable_to_non_nullable
+              as Series,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SeriesDetailsOnSeeAllSeriesStoriesTappedEvent
+    implements _SeriesDetailsOnSeeAllSeriesStoriesTappedEvent {
+  const _$_SeriesDetailsOnSeeAllSeriesStoriesTappedEvent(
+      {required this.series});
+
+  @override
+  final Series series;
+
+  @override
+  String toString() {
+    return 'SeriesDetailsEvent.onSeeAllSeriesStoriesTapped(series: $series)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SeriesDetailsOnSeeAllSeriesStoriesTappedEvent &&
+            (identical(other.series, series) || other.series == series));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, series);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SeriesDetailsOnSeeAllSeriesStoriesTappedEventCopyWith<
+          _$_SeriesDetailsOnSeeAllSeriesStoriesTappedEvent>
+      get copyWith =>
+          __$$_SeriesDetailsOnSeeAllSeriesStoriesTappedEventCopyWithImpl<
+                  _$_SeriesDetailsOnSeeAllSeriesStoriesTappedEvent>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Series series) onPageOpened,
+    required TResult Function(Series series) onSeeAllSeriesCharactersTapped,
+    required TResult Function(Series series) onSeeAllSeriesComicsTapped,
+    required TResult Function(Series series) onSeeAllSeriesStoriesTapped,
+    required TResult Function(Series series) onSeeAllSeriesCreatorsTapped,
+  }) {
+    return onSeeAllSeriesStoriesTapped(series);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Series series)? onPageOpened,
+    TResult? Function(Series series)? onSeeAllSeriesCharactersTapped,
+    TResult? Function(Series series)? onSeeAllSeriesComicsTapped,
+    TResult? Function(Series series)? onSeeAllSeriesStoriesTapped,
+    TResult? Function(Series series)? onSeeAllSeriesCreatorsTapped,
+  }) {
+    return onSeeAllSeriesStoriesTapped?.call(series);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Series series)? onPageOpened,
+    TResult Function(Series series)? onSeeAllSeriesCharactersTapped,
+    TResult Function(Series series)? onSeeAllSeriesComicsTapped,
+    TResult Function(Series series)? onSeeAllSeriesStoriesTapped,
+    TResult Function(Series series)? onSeeAllSeriesCreatorsTapped,
+    required TResult orElse(),
+  }) {
+    if (onSeeAllSeriesStoriesTapped != null) {
+      return onSeeAllSeriesStoriesTapped(series);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SeriesDetailsOnPageOpenedEvent value)
+        onPageOpened,
+    required TResult Function(
+            _SeriesDetailsOnSeeAllSeriesCharactersTappedEvent value)
+        onSeeAllSeriesCharactersTapped,
+    required TResult Function(
+            _SeriesDetailsOnSeeAllSeriesComicsTappedEvent value)
+        onSeeAllSeriesComicsTapped,
+    required TResult Function(
+            _SeriesDetailsOnSeeAllSeriesStoriesTappedEvent value)
+        onSeeAllSeriesStoriesTapped,
+    required TResult Function(
+            _SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent value)
+        onSeeAllSeriesCreatorsTapped,
+  }) {
+    return onSeeAllSeriesStoriesTapped(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SeriesDetailsOnPageOpenedEvent value)? onPageOpened,
+    TResult? Function(_SeriesDetailsOnSeeAllSeriesCharactersTappedEvent value)?
+        onSeeAllSeriesCharactersTapped,
+    TResult? Function(_SeriesDetailsOnSeeAllSeriesComicsTappedEvent value)?
+        onSeeAllSeriesComicsTapped,
+    TResult? Function(_SeriesDetailsOnSeeAllSeriesStoriesTappedEvent value)?
+        onSeeAllSeriesStoriesTapped,
+    TResult? Function(_SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent value)?
+        onSeeAllSeriesCreatorsTapped,
+  }) {
+    return onSeeAllSeriesStoriesTapped?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SeriesDetailsOnPageOpenedEvent value)? onPageOpened,
+    TResult Function(_SeriesDetailsOnSeeAllSeriesCharactersTappedEvent value)?
+        onSeeAllSeriesCharactersTapped,
+    TResult Function(_SeriesDetailsOnSeeAllSeriesComicsTappedEvent value)?
+        onSeeAllSeriesComicsTapped,
+    TResult Function(_SeriesDetailsOnSeeAllSeriesStoriesTappedEvent value)?
+        onSeeAllSeriesStoriesTapped,
+    TResult Function(_SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent value)?
+        onSeeAllSeriesCreatorsTapped,
+    required TResult orElse(),
+  }) {
+    if (onSeeAllSeriesStoriesTapped != null) {
+      return onSeeAllSeriesStoriesTapped(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SeriesDetailsOnSeeAllSeriesStoriesTappedEvent
+    implements SeriesDetailsEvent {
+  const factory _SeriesDetailsOnSeeAllSeriesStoriesTappedEvent(
+          {required final Series series}) =
+      _$_SeriesDetailsOnSeeAllSeriesStoriesTappedEvent;
+
+  @override
+  Series get series;
+  @override
+  @JsonKey(ignore: true)
+  _$$_SeriesDetailsOnSeeAllSeriesStoriesTappedEventCopyWith<
+          _$_SeriesDetailsOnSeeAllSeriesStoriesTappedEvent>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SeriesDetailsOnSeeAllSeriesCreatorsTappedEventCopyWith<$Res>
+    implements $SeriesDetailsEventCopyWith<$Res> {
+  factory _$$_SeriesDetailsOnSeeAllSeriesCreatorsTappedEventCopyWith(
+          _$_SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent value,
+          $Res Function(_$_SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent)
+              then) =
+      __$$_SeriesDetailsOnSeeAllSeriesCreatorsTappedEventCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Series series});
+
+  @override
+  $SeriesCopyWith<$Res> get series;
+}
+
+/// @nodoc
+class __$$_SeriesDetailsOnSeeAllSeriesCreatorsTappedEventCopyWithImpl<$Res>
+    extends _$SeriesDetailsEventCopyWithImpl<$Res,
+        _$_SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent>
+    implements
+        _$$_SeriesDetailsOnSeeAllSeriesCreatorsTappedEventCopyWith<$Res> {
+  __$$_SeriesDetailsOnSeeAllSeriesCreatorsTappedEventCopyWithImpl(
+      _$_SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent _value,
+      $Res Function(_$_SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? series = null,
+  }) {
+    return _then(_$_SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent(
+      series: null == series
+          ? _value.series
+          : series // ignore: cast_nullable_to_non_nullable
+              as Series,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent
+    implements _SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent {
+  const _$_SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent(
+      {required this.series});
+
+  @override
+  final Series series;
+
+  @override
+  String toString() {
+    return 'SeriesDetailsEvent.onSeeAllSeriesCreatorsTapped(series: $series)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent &&
+            (identical(other.series, series) || other.series == series));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, series);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SeriesDetailsOnSeeAllSeriesCreatorsTappedEventCopyWith<
+          _$_SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent>
+      get copyWith =>
+          __$$_SeriesDetailsOnSeeAllSeriesCreatorsTappedEventCopyWithImpl<
+                  _$_SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Series series) onPageOpened,
+    required TResult Function(Series series) onSeeAllSeriesCharactersTapped,
+    required TResult Function(Series series) onSeeAllSeriesComicsTapped,
+    required TResult Function(Series series) onSeeAllSeriesStoriesTapped,
+    required TResult Function(Series series) onSeeAllSeriesCreatorsTapped,
+  }) {
+    return onSeeAllSeriesCreatorsTapped(series);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Series series)? onPageOpened,
+    TResult? Function(Series series)? onSeeAllSeriesCharactersTapped,
+    TResult? Function(Series series)? onSeeAllSeriesComicsTapped,
+    TResult? Function(Series series)? onSeeAllSeriesStoriesTapped,
+    TResult? Function(Series series)? onSeeAllSeriesCreatorsTapped,
+  }) {
+    return onSeeAllSeriesCreatorsTapped?.call(series);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Series series)? onPageOpened,
+    TResult Function(Series series)? onSeeAllSeriesCharactersTapped,
+    TResult Function(Series series)? onSeeAllSeriesComicsTapped,
+    TResult Function(Series series)? onSeeAllSeriesStoriesTapped,
+    TResult Function(Series series)? onSeeAllSeriesCreatorsTapped,
+    required TResult orElse(),
+  }) {
+    if (onSeeAllSeriesCreatorsTapped != null) {
+      return onSeeAllSeriesCreatorsTapped(series);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SeriesDetailsOnPageOpenedEvent value)
+        onPageOpened,
+    required TResult Function(
+            _SeriesDetailsOnSeeAllSeriesCharactersTappedEvent value)
+        onSeeAllSeriesCharactersTapped,
+    required TResult Function(
+            _SeriesDetailsOnSeeAllSeriesComicsTappedEvent value)
+        onSeeAllSeriesComicsTapped,
+    required TResult Function(
+            _SeriesDetailsOnSeeAllSeriesStoriesTappedEvent value)
+        onSeeAllSeriesStoriesTapped,
+    required TResult Function(
+            _SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent value)
+        onSeeAllSeriesCreatorsTapped,
+  }) {
+    return onSeeAllSeriesCreatorsTapped(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SeriesDetailsOnPageOpenedEvent value)? onPageOpened,
+    TResult? Function(_SeriesDetailsOnSeeAllSeriesCharactersTappedEvent value)?
+        onSeeAllSeriesCharactersTapped,
+    TResult? Function(_SeriesDetailsOnSeeAllSeriesComicsTappedEvent value)?
+        onSeeAllSeriesComicsTapped,
+    TResult? Function(_SeriesDetailsOnSeeAllSeriesStoriesTappedEvent value)?
+        onSeeAllSeriesStoriesTapped,
+    TResult? Function(_SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent value)?
+        onSeeAllSeriesCreatorsTapped,
+  }) {
+    return onSeeAllSeriesCreatorsTapped?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SeriesDetailsOnPageOpenedEvent value)? onPageOpened,
+    TResult Function(_SeriesDetailsOnSeeAllSeriesCharactersTappedEvent value)?
+        onSeeAllSeriesCharactersTapped,
+    TResult Function(_SeriesDetailsOnSeeAllSeriesComicsTappedEvent value)?
+        onSeeAllSeriesComicsTapped,
+    TResult Function(_SeriesDetailsOnSeeAllSeriesStoriesTappedEvent value)?
+        onSeeAllSeriesStoriesTapped,
+    TResult Function(_SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent value)?
+        onSeeAllSeriesCreatorsTapped,
+    required TResult orElse(),
+  }) {
+    if (onSeeAllSeriesCreatorsTapped != null) {
+      return onSeeAllSeriesCreatorsTapped(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent
+    implements SeriesDetailsEvent {
+  const factory _SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent(
+          {required final Series series}) =
+      _$_SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent;
+
+  @override
+  Series get series;
+  @override
+  @JsonKey(ignore: true)
+  _$$_SeriesDetailsOnSeeAllSeriesCreatorsTappedEventCopyWith<
+          _$_SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent>
       get copyWith => throw _privateConstructorUsedError;
 }
 

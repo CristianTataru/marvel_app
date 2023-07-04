@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:marvel_app/main.dart';
+import 'package:marvel_app/models/api_filters.dart';
 import 'package:marvel_app/models/creator.dart';
 import 'package:marvel_app/routes/router.gr.dart';
 
@@ -16,10 +17,25 @@ class CreatorsBloc extends Bloc<CreatorsEvent, CreatorsState> {
     on<_CreatorsMoreDataLoadingEvent>(_onCreatorsMoreDataLoadingEvent);
     on<_CreatorsOnCreatorTappedEvent>(_onCreatorsOnCreatorTappedEvent);
   }
+
   FutureOr<void> _onCreatorsOnPageOpenedEvent(_CreatorsOnPageOpenedEvent event, Emitter<CreatorsState> emit) async {
-    List<Creator> creators = await marvelRepository.getCreators(0);
+    List<Creator> creators = [];
+    emit(const CreatorsState.loading());
+    if (event.filter != null) {
+      if (event.filter!.comic != null) {
+        creators = await marvelRepository.getComicCreators(event.filter!.comic!.id, 20, 0);
+      }
+      if (event.filter!.series != null) {
+        creators = await marvelRepository.getSeriesCreators(event.filter!.series!.id, 20, 0);
+      }
+      if (event.filter!.story != null) {
+        creators = await marvelRepository.getStoryCreators(event.filter!.story!.id, 20, 0);
+      }
+    } else {
+      creators = await marvelRepository.getCreators(0);
+    }
     emit(CreatorsState.loaded(
-        canLoadMore: marvelRepository.charactersTotal > 20 ? true : false, lastOffset: 0, creators: creators));
+        canLoadMore: marvelRepository.creatorsTotal > 20 ? true : false, lastOffset: 0, creators: creators));
   }
 
   FutureOr<void> _onCreatorsMoreDataLoadingEvent(
@@ -28,9 +44,25 @@ class CreatorsBloc extends Bloc<CreatorsEvent, CreatorsState> {
       loaded: (canLoadMore, lastOffset, creators) async {
         emit(CreatorsState.moreLoading(creators: creators));
         int offset = lastOffset + 20;
-        List<Creator> newCreators = await marvelRepository.getCreators(offset);
+        List<Creator> newCreators = [];
+        if (event.filter != null) {
+          if (event.filter!.comic != null) {
+            newCreators = await marvelRepository.getComicCreators(event.filter!.comic!.id, 20, offset);
+            newCreators = [...creators, ...newCreators];
+          }
+          if (event.filter!.series != null) {
+            newCreators = await marvelRepository.getSeriesCreators(event.filter!.series!.id, 20, offset);
+            newCreators = [...creators, ...newCreators];
+          }
+          if (event.filter!.story != null) {
+            newCreators = await marvelRepository.getStoryCreators(event.filter!.story!.id, 20, offset);
+            newCreators = [...creators, ...newCreators];
+          }
+        } else {
+          newCreators = await marvelRepository.getCreators(offset);
+        }
         emit(CreatorsState.loaded(
-            canLoadMore: marvelRepository.charactersTotal > (offset + 20) ? true : false,
+            canLoadMore: marvelRepository.creatorsTotal > (offset + 20) ? true : false,
             lastOffset: offset,
             creators: newCreators));
       },

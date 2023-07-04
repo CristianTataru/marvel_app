@@ -76,7 +76,10 @@ class _CharacterDetailsPageState extends State<CharacterDetailsPage> {
                           divider,
                           const SizedBox(height: 8),
                           SectionTitle(
-                            () {},
+                            () {
+                              bloc.add(
+                                  CharacterDetailsEvent.onSeeAllCharacterSeriesTapped(character: widget.character));
+                            },
                             title: "Series",
                             seeAll: true,
                           ),
@@ -92,7 +95,10 @@ class _CharacterDetailsPageState extends State<CharacterDetailsPage> {
                           divider,
                           const SizedBox(height: 8),
                           SectionTitle(
-                            () {},
+                            () {
+                              bloc.add(
+                                  CharacterDetailsEvent.onSeeAllCharacterStoriesTapped(character: widget.character));
+                            },
                             title: "Stories",
                             seeAll: true,
                           ),

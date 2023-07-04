@@ -3,7 +3,6 @@ import 'package:marvel_app/main.dart';
 import 'package:marvel_app/models/creator.dart';
 import 'package:marvel_app/routes/router.gr.dart';
 import 'package:marvel_app/theme/custom_colors.dart';
-import 'package:marvel_app/widgets/marvel_image.dart';
 
 class CreatorsCarousel extends StatelessWidget {
   const CreatorsCarousel({required this.creators, super.key});
@@ -49,23 +48,24 @@ class CreatorEntry extends StatelessWidget {
               CircleAvatar(
                 radius: 52,
                 backgroundColor: Colors.white,
-                child: CircleAvatar(
-                  radius: 47,
-                  backgroundColor: CustomColors.green,
-                  child: creator.thumbnail.path.contains("image_not_available")
-                      ? const Align(
+                child: creator.thumbnail.path.contains("image_not_available")
+                    ? const CircleAvatar(
+                        radius: 47,
+                        backgroundColor: CustomColors.green,
+                        child: Align(
                           alignment: Alignment.center,
                           child: Icon(
                             Icons.person,
                             color: Colors.white,
-                            size: 40,
+                            size: 64,
                           ),
-                        )
-                      : MarvelImage(
-                          thumbnailPath: creator.thumbnail.path,
-                          extension: creator.thumbnail.extension,
                         ),
-                ),
+                      )
+                    : CircleAvatar(
+                        radius: 47,
+                        backgroundColor: CustomColors.green,
+                        backgroundImage: NetworkImage("${creator.thumbnail.path}.${creator.thumbnail.extension}"),
+                      ),
               ),
               const SizedBox(height: 8),
               Text(

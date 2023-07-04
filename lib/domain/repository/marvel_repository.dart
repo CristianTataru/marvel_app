@@ -41,42 +41,45 @@ class MarvelRepository {
   int charactersTotal = 0;
   int comicsTotal = 0;
   int seriesTotal = 0;
+  int storiesTotal = 0;
+  int creatorsTotal = 0;
 
   Future<List<Character>> getCharacters(int offset) async {
+    ApiResponseCharacter response = await marvelApi.getCharacters(offset);
+    charactersTotal = response.data.total;
     if (characters.isNotEmpty && offset == 0) {
       return characters.sublist(0, 20);
     }
-    ApiResponseCharacter response = await marvelApi.getCharacters(offset);
-    charactersTotal = response.data.total;
     characters = [...characters, ...response.data.results];
     return characters;
   }
 
   Future<List<Comic>> getComics(int offset) async {
+    ApiResponseComic response = await marvelApi.getComics(offset);
+    comicsTotal = response.data.total;
     if (comics.isNotEmpty && offset == 0) {
       return comics.sublist(0, 20);
     }
-    ApiResponseComic response = await marvelApi.getComics(offset);
-    comicsTotal = response.data.total;
     comics = [...comics, ...response.data.results];
     return comics;
   }
 
   Future<List<Series>> getSeries(int offset) async {
+    ApiResponseSeries response = await marvelApi.getSeries(offset);
+    seriesTotal = response.data.total;
     if (series.isNotEmpty && offset == 0) {
       return series.sublist(0, 20);
     }
-    ApiResponseSeries response = await marvelApi.getSeries(offset);
-    seriesTotal = response.data.total;
     series = [...series, ...response.data.results];
     return series;
   }
 
   Future<List<Story>> getStories(int offset) async {
+    ApiResponseStory response = await marvelApi.getStories(offset);
+    storiesTotal = response.data.total;
     if (stories.isNotEmpty && offset == 0) {
       return stories.sublist(0, 20);
     }
-    ApiResponseStory response = await marvelApi.getStories(offset);
     List<Story> htmlStories = response.data.results
         .map(
           (story) => story.copyWith(
@@ -84,101 +87,120 @@ class MarvelRepository {
           ),
         )
         .toList();
+
     stories = [...stories, ...htmlStories];
     return stories;
   }
 
   Future<List<Creator>> getCreators(int offset) async {
+    ApiResponseCreator response = await marvelApi.getCreators(offset);
+    creatorsTotal = response.data.total;
     if (creators.isNotEmpty && offset == 0) {
       return creators.sublist(0, 20);
     }
-    ApiResponseCreator response = await marvelApi.getCreators(offset);
     creators = [...creators, ...response.data.results];
     return creators;
   }
 
-  Future<List<Comic>> getCharacterComics(int characterId, int limit) async {
-    ApiResponseCharacterComic response = await marvelApi.getCharacterComics(characterId, limit);
+  Future<List<Comic>> getCharacterComics(int characterId, int limit, int offset) async {
+    ApiResponseCharacterComic response = await marvelApi.getCharacterComics(characterId, limit, offset);
+    comicsTotal = response.data.total;
     return response.data.results;
   }
 
-  Future<List<Series>> getCharacterSeries(int characterId, int limit) async {
-    ApiResponseCharacterSeries response = await marvelApi.getCharacterSeries(characterId, limit);
+  Future<List<Series>> getCharacterSeries(int characterId, int limit, int offset) async {
+    ApiResponseCharacterSeries response = await marvelApi.getCharacterSeries(characterId, limit, offset);
+    seriesTotal = response.data.total;
     return response.data.results;
   }
 
-  Future<List<Story>> getCharacterStories(int characterId, int limit) async {
-    ApiResponseCharacterStories response = await marvelApi.getCharacterStories(characterId, limit);
+  Future<List<Story>> getCharacterStories(int characterId, int limit, int offset) async {
+    ApiResponseCharacterStories response = await marvelApi.getCharacterStories(characterId, limit, offset);
+    storiesTotal = response.data.total;
     return response.data.results;
   }
 
-  Future<List<Character>> getComicCharacters(int comicId, int limit) async {
-    ApiResponseComicCharacters response = await marvelApi.getComicCharacters(comicId, limit);
+  Future<List<Character>> getComicCharacters(int comicId, int limit, int offset) async {
+    ApiResponseComicCharacters response = await marvelApi.getComicCharacters(comicId, limit, offset);
+    charactersTotal = response.data.total;
     return response.data.results;
   }
 
-  Future<List<Story>> getComicStories(int comicId, int limit) async {
-    ApiResponseComicStories response = await marvelApi.getComicStories(comicId, limit);
+  Future<List<Story>> getComicStories(int comicId, int limit, int offset) async {
+    ApiResponseComicStories response = await marvelApi.getComicStories(comicId, limit, offset);
+    storiesTotal = response.data.total;
     return response.data.results;
   }
 
-  Future<List<Creator>> getComicCreators(int comicId, int limit) async {
-    ApiResponseComicCreators response = await marvelApi.getComicCreators(comicId, limit);
+  Future<List<Creator>> getComicCreators(int comicId, int limit, int offset) async {
+    ApiResponseComicCreators response = await marvelApi.getComicCreators(comicId, limit, offset);
+    creatorsTotal = response.data.total;
     return response.data.results;
   }
 
-  Future<List<Character>> getSeriesCharacters(int seriesId, int limit) async {
-    ApiResponseSeriesCharacters response = await marvelApi.getSeriesCharacters(seriesId, limit);
+  Future<List<Character>> getSeriesCharacters(int seriesId, int limit, int offset) async {
+    ApiResponseSeriesCharacters response = await marvelApi.getSeriesCharacters(seriesId, limit, offset);
+    charactersTotal = response.data.total;
     return response.data.results;
   }
 
-  Future<List<Comic>> getSeriesComics(int seriesId, int limit) async {
-    ApiResponseSeriesComics response = await marvelApi.getSeriesComics(seriesId, limit);
+  Future<List<Comic>> getSeriesComics(int seriesId, int limit, int offset) async {
+    ApiResponseSeriesComics response = await marvelApi.getSeriesComics(seriesId, limit, offset);
+    comicsTotal = response.data.total;
     return response.data.results;
   }
 
-  Future<List<Creator>> getSeriesCreators(int seriesId, int limit) async {
-    ApiResponseSeriesCreators response = await marvelApi.getSeriesCreators(seriesId, limit);
+  Future<List<Creator>> getSeriesCreators(int seriesId, int limit, int offset) async {
+    ApiResponseSeriesCreators response = await marvelApi.getSeriesCreators(seriesId, limit, offset);
+    creatorsTotal = response.data.total;
     return response.data.results;
   }
 
-  Future<List<Story>> getSeriesStories(int seriesId, int limit) async {
-    ApiResponseSeriesStories response = await marvelApi.getSeriesStories(seriesId, limit);
+  Future<List<Story>> getSeriesStories(int seriesId, int limit, int offset) async {
+    ApiResponseSeriesStories response = await marvelApi.getSeriesStories(seriesId, limit, offset);
+    storiesTotal = response.data.total;
     return response.data.results;
   }
 
-  Future<List<Character>> getStoryCharacters(int storyId, int limit) async {
-    ApiResponseStoryCharacters response = await marvelApi.getStoryCharacters(storyId, limit);
+  Future<List<Character>> getStoryCharacters(int storyId, int limit, int offset) async {
+    ApiResponseStoryCharacters response = await marvelApi.getStoryCharacters(storyId, limit, offset);
+    charactersTotal = response.data.total;
     return response.data.results;
   }
 
-  Future<List<Comic>> getStoryComics(int storyId, int limit) async {
-    ApiResponseStoryComics response = await marvelApi.getStoryComics(storyId, limit);
+  Future<List<Comic>> getStoryComics(int storyId, int limit, int offset) async {
+    ApiResponseStoryComics response = await marvelApi.getStoryComics(storyId, limit, offset);
+    comicsTotal = response.data.total;
     return response.data.results;
   }
 
-  Future<List<Series>> getStorySeries(int storyId, int limit) async {
-    ApiResponseStorySeries response = await marvelApi.getStorySeries(storyId, limit);
+  Future<List<Series>> getStorySeries(int storyId, int limit, int offset) async {
+    ApiResponseStorySeries response = await marvelApi.getStorySeries(storyId, limit, offset);
+    seriesTotal = response.data.total;
     return response.data.results;
   }
 
-  Future<List<Creator>> getStoryCreators(int storyId, int limit) async {
-    ApiResponseStoryCreators response = await marvelApi.getStoryCreators(storyId, limit);
+  Future<List<Creator>> getStoryCreators(int storyId, int limit, int offset) async {
+    ApiResponseStoryCreators response = await marvelApi.getStoryCreators(storyId, limit, offset);
+    creatorsTotal = response.data.total;
     return response.data.results;
   }
 
-  Future<List<Comic>> getCreatorComics(int creatorId, int limit) async {
-    ApiResponseCreatorComic response = await marvelApi.getCreatorComics(creatorId, limit);
+  Future<List<Comic>> getCreatorComics(int creatorId, int limit, int offset) async {
+    ApiResponseCreatorComic response = await marvelApi.getCreatorComics(creatorId, limit, offset);
+    comicsTotal = response.data.total;
     return response.data.results;
   }
 
-  Future<List<Series>> getCreatorSeries(int creatorId, int limit) async {
-    ApiResponseCreatorSeries response = await marvelApi.getCreatorSeries(creatorId, limit);
+  Future<List<Series>> getCreatorSeries(int creatorId, int limit, int offset) async {
+    ApiResponseCreatorSeries response = await marvelApi.getCreatorSeries(creatorId, limit, offset);
+    seriesTotal = response.data.total;
     return response.data.results;
   }
 
-  Future<List<Story>> getCreatorStories(int creatorId, int limit) async {
-    ApiResponseCreatorStories response = await marvelApi.getCreatorStories(creatorId, limit);
+  Future<List<Story>> getCreatorStories(int creatorId, int limit, int offset) async {
+    ApiResponseCreatorStories response = await marvelApi.getCreatorStories(creatorId, limit, offset);
+    storiesTotal = response.data.total;
     return response.data.results;
   }
 }

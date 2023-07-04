@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:marvel_app/main.dart';
+import 'package:marvel_app/models/api_filters.dart';
 import 'package:marvel_app/models/character.dart';
 import 'package:marvel_app/models/comic.dart';
 import 'package:marvel_app/models/series.dart';
@@ -17,15 +18,17 @@ class CharacterDetailsBloc extends Bloc<CharacterDetailsEvent, CharacterDetailsS
   CharacterDetailsBloc() : super(const _CharacterDetailsLoadingState()) {
     on<_CharacterDetailsOnPageOpenedEvent>(_onCharacterDetailsOnPageOpenedEvent);
     on<_CharacterDetailsOnSeeAllCharacterComicsTappedEvent>(_onCharacterDetailsOnSeeAllCharacterComicsTappedEvent);
+    on<_CharacterDetailsOnSeeAllCharacterStoriesTappedEvent>(_onCharacterDetailsOnSeeAllCharacterStoriesTappedEvent);
+    on<_CharacterDetailsOnSeeAllCharacterSeriesTappedEvent>(_onCharacterDetailsOnSeeAllCharacterSeriesTappedEvent);
   }
 
   FutureOr<void> _onCharacterDetailsOnPageOpenedEvent(
       _CharacterDetailsOnPageOpenedEvent event, Emitter<CharacterDetailsState> emit) async {
     emit(const CharacterDetailsState.loading());
     List<dynamic> data = await Future.wait([
-      marvelRepository.getCharacterComics(event.character.id, 100),
-      marvelRepository.getCharacterSeries(event.character.id, 100),
-      marvelRepository.getCharacterStories(event.character.id, 100),
+      marvelRepository.getCharacterComics(event.character.id, 20, 0),
+      marvelRepository.getCharacterSeries(event.character.id, 20, 0),
+      marvelRepository.getCharacterStories(event.character.id, 20, 0),
     ]);
     emit(
       CharacterDetailsState.loaded(characterComics: data[0], characterSeries: data[1], characterStories: data[2]),
@@ -34,6 +37,16 @@ class CharacterDetailsBloc extends Bloc<CharacterDetailsEvent, CharacterDetailsS
 
   FutureOr<void> _onCharacterDetailsOnSeeAllCharacterComicsTappedEvent(
       _CharacterDetailsOnSeeAllCharacterComicsTappedEvent event, Emitter<CharacterDetailsState> emit) {
-    router.push(ComicsRoute(character: event.character, filtered: true));
+    router.push(ComicsRoute(filter: ApiFilter(character: event.character)));
+  }
+
+  FutureOr<void> _onCharacterDetailsOnSeeAllCharacterStoriesTappedEvent(
+      _CharacterDetailsOnSeeAllCharacterStoriesTappedEvent event, Emitter<CharacterDetailsState> emit) {
+    router.push(StoriesRoute(filter: ApiFilter(character: event.character)));
+  }
+
+  FutureOr<void> _onCharacterDetailsOnSeeAllCharacterSeriesTappedEvent(
+      _CharacterDetailsOnSeeAllCharacterSeriesTappedEvent event, Emitter<CharacterDetailsState> emit) {
+    router.push(SeriesRoute(filter: ApiFilter(character: event.character)));
   }
 }

@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_app/feature/creators/bloc/creators_bloc.dart';
+import 'package:marvel_app/models/api_filters.dart';
 import 'package:marvel_app/models/creator.dart';
 import 'package:marvel_app/theme/custom_colors.dart';
 import 'package:marvel_app/widgets/common.dart';
@@ -10,7 +11,9 @@ final bloc = CreatorsBloc();
 
 @RoutePage()
 class CreatorsPage extends StatefulWidget {
-  const CreatorsPage({super.key});
+  const CreatorsPage({super.key, this.filter});
+
+  final ApiFilter? filter;
 
   @override
   State<CreatorsPage> createState() => _CreatorsPageState();
@@ -22,12 +25,7 @@ class _CreatorsPageState extends State<CreatorsPage> {
   @override
   void initState() {
     super.initState();
-    bloc.add(const CreatorsEvent.onPageOpened());
-    scrollController.addListener(() {
-      if (scrollController.position.pixels == scrollController.position.maxScrollExtent) {
-        bloc.add(const CreatorsEvent.onMoreDataLoading());
-      }
-    });
+    bloc.add(CreatorsEvent.onPageOpened(filter: widget.filter));
   }
 
   @override
@@ -54,32 +52,19 @@ class _CreatorsPageState extends State<CreatorsPage> {
             backgroundColor: CustomColors.appBar,
             leading: const BackButton(color: CustomColors.lightBlue),
           ),
-          body: Column(
-            children: [
-              Expanded(
-                child: SingleChildScrollView(
-                  controller: scrollController,
-                  child: Column(
-                    children: [
-                      const SizedBox(height: 8),
-                      ...creatorsState.map(
-                        loaded: (state) => [
-                          ...state.creators.map((e) => CreatorEntry(e)),
-                          const SizedBox(height: 96),
-                        ],
-                        moreLoading: (state) => [
-                          ...state.creators.map((e) => CreatorEntry(e)),
-                          const SizedBox(
-                            height: 96,
-                            child: loadingSpinner,
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-              )
-            ],
+          body: creatorsState.map(
+            loading: (state) => pageLoadingSpinner,
+            loaded: (state) => ListView(
+              creators: state.creators,
+              canLoadMore: state.canLoadMore,
+              filter: widget.filter,
+            ),
+            moreLoading: (state) => ListView(
+              creators: state.creators,
+              canLoadMore: null,
+              showSpinner: true,
+              filter: widget.filter,
+            ),
           ),
         );
       },
@@ -140,6 +125,58 @@ class CreatorEntry extends StatelessWidget {
             )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class ListView extends StatefulWidget {
+  const ListView({super.key, required this.creators, this.showSpinner = false, this.canLoadMore, this.filter});
+
+  final List<Creator> creators;
+  final bool showSpinner;
+  final bool? canLoadMore;
+  final ApiFilter? filter;
+
+  @override
+  State<ListView> createState() => _ListViewState();
+}
+
+class _ListViewState extends State<ListView> {
+  ScrollController scrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    scrollController.addListener(() {
+      if (scrollController.position.pixels == scrollController.position.maxScrollExtent && widget.canLoadMore == true) {
+        bloc.add(CreatorsEvent.onMoreDataLoading(filter: widget.filter));
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      controller: scrollController,
+      child: Column(
+        children: [
+          const SizedBox(height: 8),
+          ...widget.creators.map((e) => CreatorEntry(e)),
+          if (widget.showSpinner)
+            const SizedBox(
+              height: 96,
+              child: loadingSpinner,
+            )
+          else
+            const SizedBox(height: 96),
+        ],
       ),
     );
   }

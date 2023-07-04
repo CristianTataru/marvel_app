@@ -20,16 +20,25 @@ mixin _$CreatorDetailsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Creator creator) onPageOpened,
+    required TResult Function(Creator creator) onSeeAllCreatorComicsTapped,
+    required TResult Function(Creator creator) onSeeAllCreatorSeriesTapped,
+    required TResult Function(Creator creator) onSeeAllCreatorStoriesTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Creator creator)? onPageOpened,
+    TResult? Function(Creator creator)? onSeeAllCreatorComicsTapped,
+    TResult? Function(Creator creator)? onSeeAllCreatorSeriesTapped,
+    TResult? Function(Creator creator)? onSeeAllCreatorStoriesTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Creator creator)? onPageOpened,
+    TResult Function(Creator creator)? onSeeAllCreatorComicsTapped,
+    TResult Function(Creator creator)? onSeeAllCreatorSeriesTapped,
+    TResult Function(Creator creator)? onSeeAllCreatorStoriesTapped,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -37,16 +46,37 @@ mixin _$CreatorDetailsEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_CreatorDetailsOnPageOpenedEvent value)
         onPageOpened,
+    required TResult Function(
+            _CreatorDetailsOnSeeAllCreatorComicsTappedEvent value)
+        onSeeAllCreatorComicsTapped,
+    required TResult Function(
+            _CreatorDetailsOnSeeAllCreatorSeriesTappedEvent value)
+        onSeeAllCreatorSeriesTapped,
+    required TResult Function(
+            _CreatorDetailsOnSeeAllCreatorStoriesTappedEvent value)
+        onSeeAllCreatorStoriesTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_CreatorDetailsOnPageOpenedEvent value)? onPageOpened,
+    TResult? Function(_CreatorDetailsOnSeeAllCreatorComicsTappedEvent value)?
+        onSeeAllCreatorComicsTapped,
+    TResult? Function(_CreatorDetailsOnSeeAllCreatorSeriesTappedEvent value)?
+        onSeeAllCreatorSeriesTapped,
+    TResult? Function(_CreatorDetailsOnSeeAllCreatorStoriesTappedEvent value)?
+        onSeeAllCreatorStoriesTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CreatorDetailsOnPageOpenedEvent value)? onPageOpened,
+    TResult Function(_CreatorDetailsOnSeeAllCreatorComicsTappedEvent value)?
+        onSeeAllCreatorComicsTapped,
+    TResult Function(_CreatorDetailsOnSeeAllCreatorSeriesTappedEvent value)?
+        onSeeAllCreatorSeriesTapped,
+    TResult Function(_CreatorDetailsOnSeeAllCreatorStoriesTappedEvent value)?
+        onSeeAllCreatorStoriesTapped,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -175,6 +205,9 @@ class _$_CreatorDetailsOnPageOpenedEvent
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Creator creator) onPageOpened,
+    required TResult Function(Creator creator) onSeeAllCreatorComicsTapped,
+    required TResult Function(Creator creator) onSeeAllCreatorSeriesTapped,
+    required TResult Function(Creator creator) onSeeAllCreatorStoriesTapped,
   }) {
     return onPageOpened(creator);
   }
@@ -183,6 +216,9 @@ class _$_CreatorDetailsOnPageOpenedEvent
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Creator creator)? onPageOpened,
+    TResult? Function(Creator creator)? onSeeAllCreatorComicsTapped,
+    TResult? Function(Creator creator)? onSeeAllCreatorSeriesTapped,
+    TResult? Function(Creator creator)? onSeeAllCreatorStoriesTapped,
   }) {
     return onPageOpened?.call(creator);
   }
@@ -191,6 +227,9 @@ class _$_CreatorDetailsOnPageOpenedEvent
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Creator creator)? onPageOpened,
+    TResult Function(Creator creator)? onSeeAllCreatorComicsTapped,
+    TResult Function(Creator creator)? onSeeAllCreatorSeriesTapped,
+    TResult Function(Creator creator)? onSeeAllCreatorStoriesTapped,
     required TResult orElse(),
   }) {
     if (onPageOpened != null) {
@@ -204,6 +243,15 @@ class _$_CreatorDetailsOnPageOpenedEvent
   TResult map<TResult extends Object?>({
     required TResult Function(_CreatorDetailsOnPageOpenedEvent value)
         onPageOpened,
+    required TResult Function(
+            _CreatorDetailsOnSeeAllCreatorComicsTappedEvent value)
+        onSeeAllCreatorComicsTapped,
+    required TResult Function(
+            _CreatorDetailsOnSeeAllCreatorSeriesTappedEvent value)
+        onSeeAllCreatorSeriesTapped,
+    required TResult Function(
+            _CreatorDetailsOnSeeAllCreatorStoriesTappedEvent value)
+        onSeeAllCreatorStoriesTapped,
   }) {
     return onPageOpened(this);
   }
@@ -212,6 +260,12 @@ class _$_CreatorDetailsOnPageOpenedEvent
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_CreatorDetailsOnPageOpenedEvent value)? onPageOpened,
+    TResult? Function(_CreatorDetailsOnSeeAllCreatorComicsTappedEvent value)?
+        onSeeAllCreatorComicsTapped,
+    TResult? Function(_CreatorDetailsOnSeeAllCreatorSeriesTappedEvent value)?
+        onSeeAllCreatorSeriesTapped,
+    TResult? Function(_CreatorDetailsOnSeeAllCreatorStoriesTappedEvent value)?
+        onSeeAllCreatorStoriesTapped,
   }) {
     return onPageOpened?.call(this);
   }
@@ -220,6 +274,12 @@ class _$_CreatorDetailsOnPageOpenedEvent
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CreatorDetailsOnPageOpenedEvent value)? onPageOpened,
+    TResult Function(_CreatorDetailsOnSeeAllCreatorComicsTappedEvent value)?
+        onSeeAllCreatorComicsTapped,
+    TResult Function(_CreatorDetailsOnSeeAllCreatorSeriesTappedEvent value)?
+        onSeeAllCreatorSeriesTapped,
+    TResult Function(_CreatorDetailsOnSeeAllCreatorStoriesTappedEvent value)?
+        onSeeAllCreatorStoriesTapped,
     required TResult orElse(),
   }) {
     if (onPageOpened != null) {
@@ -239,6 +299,546 @@ abstract class _CreatorDetailsOnPageOpenedEvent implements CreatorDetailsEvent {
   @JsonKey(ignore: true)
   _$$_CreatorDetailsOnPageOpenedEventCopyWith<
           _$_CreatorDetailsOnPageOpenedEvent>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_CreatorDetailsOnSeeAllCreatorComicsTappedEventCopyWith<$Res>
+    implements $CreatorDetailsEventCopyWith<$Res> {
+  factory _$$_CreatorDetailsOnSeeAllCreatorComicsTappedEventCopyWith(
+          _$_CreatorDetailsOnSeeAllCreatorComicsTappedEvent value,
+          $Res Function(_$_CreatorDetailsOnSeeAllCreatorComicsTappedEvent)
+              then) =
+      __$$_CreatorDetailsOnSeeAllCreatorComicsTappedEventCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Creator creator});
+
+  @override
+  $CreatorCopyWith<$Res> get creator;
+}
+
+/// @nodoc
+class __$$_CreatorDetailsOnSeeAllCreatorComicsTappedEventCopyWithImpl<$Res>
+    extends _$CreatorDetailsEventCopyWithImpl<$Res,
+        _$_CreatorDetailsOnSeeAllCreatorComicsTappedEvent>
+    implements
+        _$$_CreatorDetailsOnSeeAllCreatorComicsTappedEventCopyWith<$Res> {
+  __$$_CreatorDetailsOnSeeAllCreatorComicsTappedEventCopyWithImpl(
+      _$_CreatorDetailsOnSeeAllCreatorComicsTappedEvent _value,
+      $Res Function(_$_CreatorDetailsOnSeeAllCreatorComicsTappedEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? creator = null,
+  }) {
+    return _then(_$_CreatorDetailsOnSeeAllCreatorComicsTappedEvent(
+      creator: null == creator
+          ? _value.creator
+          : creator // ignore: cast_nullable_to_non_nullable
+              as Creator,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_CreatorDetailsOnSeeAllCreatorComicsTappedEvent
+    implements _CreatorDetailsOnSeeAllCreatorComicsTappedEvent {
+  const _$_CreatorDetailsOnSeeAllCreatorComicsTappedEvent(
+      {required this.creator});
+
+  @override
+  final Creator creator;
+
+  @override
+  String toString() {
+    return 'CreatorDetailsEvent.onSeeAllCreatorComicsTapped(creator: $creator)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_CreatorDetailsOnSeeAllCreatorComicsTappedEvent &&
+            (identical(other.creator, creator) || other.creator == creator));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, creator);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_CreatorDetailsOnSeeAllCreatorComicsTappedEventCopyWith<
+          _$_CreatorDetailsOnSeeAllCreatorComicsTappedEvent>
+      get copyWith =>
+          __$$_CreatorDetailsOnSeeAllCreatorComicsTappedEventCopyWithImpl<
+                  _$_CreatorDetailsOnSeeAllCreatorComicsTappedEvent>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Creator creator) onPageOpened,
+    required TResult Function(Creator creator) onSeeAllCreatorComicsTapped,
+    required TResult Function(Creator creator) onSeeAllCreatorSeriesTapped,
+    required TResult Function(Creator creator) onSeeAllCreatorStoriesTapped,
+  }) {
+    return onSeeAllCreatorComicsTapped(creator);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Creator creator)? onPageOpened,
+    TResult? Function(Creator creator)? onSeeAllCreatorComicsTapped,
+    TResult? Function(Creator creator)? onSeeAllCreatorSeriesTapped,
+    TResult? Function(Creator creator)? onSeeAllCreatorStoriesTapped,
+  }) {
+    return onSeeAllCreatorComicsTapped?.call(creator);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Creator creator)? onPageOpened,
+    TResult Function(Creator creator)? onSeeAllCreatorComicsTapped,
+    TResult Function(Creator creator)? onSeeAllCreatorSeriesTapped,
+    TResult Function(Creator creator)? onSeeAllCreatorStoriesTapped,
+    required TResult orElse(),
+  }) {
+    if (onSeeAllCreatorComicsTapped != null) {
+      return onSeeAllCreatorComicsTapped(creator);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CreatorDetailsOnPageOpenedEvent value)
+        onPageOpened,
+    required TResult Function(
+            _CreatorDetailsOnSeeAllCreatorComicsTappedEvent value)
+        onSeeAllCreatorComicsTapped,
+    required TResult Function(
+            _CreatorDetailsOnSeeAllCreatorSeriesTappedEvent value)
+        onSeeAllCreatorSeriesTapped,
+    required TResult Function(
+            _CreatorDetailsOnSeeAllCreatorStoriesTappedEvent value)
+        onSeeAllCreatorStoriesTapped,
+  }) {
+    return onSeeAllCreatorComicsTapped(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CreatorDetailsOnPageOpenedEvent value)? onPageOpened,
+    TResult? Function(_CreatorDetailsOnSeeAllCreatorComicsTappedEvent value)?
+        onSeeAllCreatorComicsTapped,
+    TResult? Function(_CreatorDetailsOnSeeAllCreatorSeriesTappedEvent value)?
+        onSeeAllCreatorSeriesTapped,
+    TResult? Function(_CreatorDetailsOnSeeAllCreatorStoriesTappedEvent value)?
+        onSeeAllCreatorStoriesTapped,
+  }) {
+    return onSeeAllCreatorComicsTapped?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CreatorDetailsOnPageOpenedEvent value)? onPageOpened,
+    TResult Function(_CreatorDetailsOnSeeAllCreatorComicsTappedEvent value)?
+        onSeeAllCreatorComicsTapped,
+    TResult Function(_CreatorDetailsOnSeeAllCreatorSeriesTappedEvent value)?
+        onSeeAllCreatorSeriesTapped,
+    TResult Function(_CreatorDetailsOnSeeAllCreatorStoriesTappedEvent value)?
+        onSeeAllCreatorStoriesTapped,
+    required TResult orElse(),
+  }) {
+    if (onSeeAllCreatorComicsTapped != null) {
+      return onSeeAllCreatorComicsTapped(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CreatorDetailsOnSeeAllCreatorComicsTappedEvent
+    implements CreatorDetailsEvent {
+  const factory _CreatorDetailsOnSeeAllCreatorComicsTappedEvent(
+          {required final Creator creator}) =
+      _$_CreatorDetailsOnSeeAllCreatorComicsTappedEvent;
+
+  @override
+  Creator get creator;
+  @override
+  @JsonKey(ignore: true)
+  _$$_CreatorDetailsOnSeeAllCreatorComicsTappedEventCopyWith<
+          _$_CreatorDetailsOnSeeAllCreatorComicsTappedEvent>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_CreatorDetailsOnSeeAllCreatorSeriesTappedEventCopyWith<$Res>
+    implements $CreatorDetailsEventCopyWith<$Res> {
+  factory _$$_CreatorDetailsOnSeeAllCreatorSeriesTappedEventCopyWith(
+          _$_CreatorDetailsOnSeeAllCreatorSeriesTappedEvent value,
+          $Res Function(_$_CreatorDetailsOnSeeAllCreatorSeriesTappedEvent)
+              then) =
+      __$$_CreatorDetailsOnSeeAllCreatorSeriesTappedEventCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Creator creator});
+
+  @override
+  $CreatorCopyWith<$Res> get creator;
+}
+
+/// @nodoc
+class __$$_CreatorDetailsOnSeeAllCreatorSeriesTappedEventCopyWithImpl<$Res>
+    extends _$CreatorDetailsEventCopyWithImpl<$Res,
+        _$_CreatorDetailsOnSeeAllCreatorSeriesTappedEvent>
+    implements
+        _$$_CreatorDetailsOnSeeAllCreatorSeriesTappedEventCopyWith<$Res> {
+  __$$_CreatorDetailsOnSeeAllCreatorSeriesTappedEventCopyWithImpl(
+      _$_CreatorDetailsOnSeeAllCreatorSeriesTappedEvent _value,
+      $Res Function(_$_CreatorDetailsOnSeeAllCreatorSeriesTappedEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? creator = null,
+  }) {
+    return _then(_$_CreatorDetailsOnSeeAllCreatorSeriesTappedEvent(
+      creator: null == creator
+          ? _value.creator
+          : creator // ignore: cast_nullable_to_non_nullable
+              as Creator,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_CreatorDetailsOnSeeAllCreatorSeriesTappedEvent
+    implements _CreatorDetailsOnSeeAllCreatorSeriesTappedEvent {
+  const _$_CreatorDetailsOnSeeAllCreatorSeriesTappedEvent(
+      {required this.creator});
+
+  @override
+  final Creator creator;
+
+  @override
+  String toString() {
+    return 'CreatorDetailsEvent.onSeeAllCreatorSeriesTapped(creator: $creator)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_CreatorDetailsOnSeeAllCreatorSeriesTappedEvent &&
+            (identical(other.creator, creator) || other.creator == creator));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, creator);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_CreatorDetailsOnSeeAllCreatorSeriesTappedEventCopyWith<
+          _$_CreatorDetailsOnSeeAllCreatorSeriesTappedEvent>
+      get copyWith =>
+          __$$_CreatorDetailsOnSeeAllCreatorSeriesTappedEventCopyWithImpl<
+                  _$_CreatorDetailsOnSeeAllCreatorSeriesTappedEvent>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Creator creator) onPageOpened,
+    required TResult Function(Creator creator) onSeeAllCreatorComicsTapped,
+    required TResult Function(Creator creator) onSeeAllCreatorSeriesTapped,
+    required TResult Function(Creator creator) onSeeAllCreatorStoriesTapped,
+  }) {
+    return onSeeAllCreatorSeriesTapped(creator);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Creator creator)? onPageOpened,
+    TResult? Function(Creator creator)? onSeeAllCreatorComicsTapped,
+    TResult? Function(Creator creator)? onSeeAllCreatorSeriesTapped,
+    TResult? Function(Creator creator)? onSeeAllCreatorStoriesTapped,
+  }) {
+    return onSeeAllCreatorSeriesTapped?.call(creator);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Creator creator)? onPageOpened,
+    TResult Function(Creator creator)? onSeeAllCreatorComicsTapped,
+    TResult Function(Creator creator)? onSeeAllCreatorSeriesTapped,
+    TResult Function(Creator creator)? onSeeAllCreatorStoriesTapped,
+    required TResult orElse(),
+  }) {
+    if (onSeeAllCreatorSeriesTapped != null) {
+      return onSeeAllCreatorSeriesTapped(creator);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CreatorDetailsOnPageOpenedEvent value)
+        onPageOpened,
+    required TResult Function(
+            _CreatorDetailsOnSeeAllCreatorComicsTappedEvent value)
+        onSeeAllCreatorComicsTapped,
+    required TResult Function(
+            _CreatorDetailsOnSeeAllCreatorSeriesTappedEvent value)
+        onSeeAllCreatorSeriesTapped,
+    required TResult Function(
+            _CreatorDetailsOnSeeAllCreatorStoriesTappedEvent value)
+        onSeeAllCreatorStoriesTapped,
+  }) {
+    return onSeeAllCreatorSeriesTapped(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CreatorDetailsOnPageOpenedEvent value)? onPageOpened,
+    TResult? Function(_CreatorDetailsOnSeeAllCreatorComicsTappedEvent value)?
+        onSeeAllCreatorComicsTapped,
+    TResult? Function(_CreatorDetailsOnSeeAllCreatorSeriesTappedEvent value)?
+        onSeeAllCreatorSeriesTapped,
+    TResult? Function(_CreatorDetailsOnSeeAllCreatorStoriesTappedEvent value)?
+        onSeeAllCreatorStoriesTapped,
+  }) {
+    return onSeeAllCreatorSeriesTapped?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CreatorDetailsOnPageOpenedEvent value)? onPageOpened,
+    TResult Function(_CreatorDetailsOnSeeAllCreatorComicsTappedEvent value)?
+        onSeeAllCreatorComicsTapped,
+    TResult Function(_CreatorDetailsOnSeeAllCreatorSeriesTappedEvent value)?
+        onSeeAllCreatorSeriesTapped,
+    TResult Function(_CreatorDetailsOnSeeAllCreatorStoriesTappedEvent value)?
+        onSeeAllCreatorStoriesTapped,
+    required TResult orElse(),
+  }) {
+    if (onSeeAllCreatorSeriesTapped != null) {
+      return onSeeAllCreatorSeriesTapped(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CreatorDetailsOnSeeAllCreatorSeriesTappedEvent
+    implements CreatorDetailsEvent {
+  const factory _CreatorDetailsOnSeeAllCreatorSeriesTappedEvent(
+          {required final Creator creator}) =
+      _$_CreatorDetailsOnSeeAllCreatorSeriesTappedEvent;
+
+  @override
+  Creator get creator;
+  @override
+  @JsonKey(ignore: true)
+  _$$_CreatorDetailsOnSeeAllCreatorSeriesTappedEventCopyWith<
+          _$_CreatorDetailsOnSeeAllCreatorSeriesTappedEvent>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_CreatorDetailsOnSeeAllCreatorStoriesTappedEventCopyWith<$Res>
+    implements $CreatorDetailsEventCopyWith<$Res> {
+  factory _$$_CreatorDetailsOnSeeAllCreatorStoriesTappedEventCopyWith(
+          _$_CreatorDetailsOnSeeAllCreatorStoriesTappedEvent value,
+          $Res Function(_$_CreatorDetailsOnSeeAllCreatorStoriesTappedEvent)
+              then) =
+      __$$_CreatorDetailsOnSeeAllCreatorStoriesTappedEventCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Creator creator});
+
+  @override
+  $CreatorCopyWith<$Res> get creator;
+}
+
+/// @nodoc
+class __$$_CreatorDetailsOnSeeAllCreatorStoriesTappedEventCopyWithImpl<$Res>
+    extends _$CreatorDetailsEventCopyWithImpl<$Res,
+        _$_CreatorDetailsOnSeeAllCreatorStoriesTappedEvent>
+    implements
+        _$$_CreatorDetailsOnSeeAllCreatorStoriesTappedEventCopyWith<$Res> {
+  __$$_CreatorDetailsOnSeeAllCreatorStoriesTappedEventCopyWithImpl(
+      _$_CreatorDetailsOnSeeAllCreatorStoriesTappedEvent _value,
+      $Res Function(_$_CreatorDetailsOnSeeAllCreatorStoriesTappedEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? creator = null,
+  }) {
+    return _then(_$_CreatorDetailsOnSeeAllCreatorStoriesTappedEvent(
+      creator: null == creator
+          ? _value.creator
+          : creator // ignore: cast_nullable_to_non_nullable
+              as Creator,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_CreatorDetailsOnSeeAllCreatorStoriesTappedEvent
+    implements _CreatorDetailsOnSeeAllCreatorStoriesTappedEvent {
+  const _$_CreatorDetailsOnSeeAllCreatorStoriesTappedEvent(
+      {required this.creator});
+
+  @override
+  final Creator creator;
+
+  @override
+  String toString() {
+    return 'CreatorDetailsEvent.onSeeAllCreatorStoriesTapped(creator: $creator)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_CreatorDetailsOnSeeAllCreatorStoriesTappedEvent &&
+            (identical(other.creator, creator) || other.creator == creator));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, creator);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_CreatorDetailsOnSeeAllCreatorStoriesTappedEventCopyWith<
+          _$_CreatorDetailsOnSeeAllCreatorStoriesTappedEvent>
+      get copyWith =>
+          __$$_CreatorDetailsOnSeeAllCreatorStoriesTappedEventCopyWithImpl<
+                  _$_CreatorDetailsOnSeeAllCreatorStoriesTappedEvent>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Creator creator) onPageOpened,
+    required TResult Function(Creator creator) onSeeAllCreatorComicsTapped,
+    required TResult Function(Creator creator) onSeeAllCreatorSeriesTapped,
+    required TResult Function(Creator creator) onSeeAllCreatorStoriesTapped,
+  }) {
+    return onSeeAllCreatorStoriesTapped(creator);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Creator creator)? onPageOpened,
+    TResult? Function(Creator creator)? onSeeAllCreatorComicsTapped,
+    TResult? Function(Creator creator)? onSeeAllCreatorSeriesTapped,
+    TResult? Function(Creator creator)? onSeeAllCreatorStoriesTapped,
+  }) {
+    return onSeeAllCreatorStoriesTapped?.call(creator);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Creator creator)? onPageOpened,
+    TResult Function(Creator creator)? onSeeAllCreatorComicsTapped,
+    TResult Function(Creator creator)? onSeeAllCreatorSeriesTapped,
+    TResult Function(Creator creator)? onSeeAllCreatorStoriesTapped,
+    required TResult orElse(),
+  }) {
+    if (onSeeAllCreatorStoriesTapped != null) {
+      return onSeeAllCreatorStoriesTapped(creator);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CreatorDetailsOnPageOpenedEvent value)
+        onPageOpened,
+    required TResult Function(
+            _CreatorDetailsOnSeeAllCreatorComicsTappedEvent value)
+        onSeeAllCreatorComicsTapped,
+    required TResult Function(
+            _CreatorDetailsOnSeeAllCreatorSeriesTappedEvent value)
+        onSeeAllCreatorSeriesTapped,
+    required TResult Function(
+            _CreatorDetailsOnSeeAllCreatorStoriesTappedEvent value)
+        onSeeAllCreatorStoriesTapped,
+  }) {
+    return onSeeAllCreatorStoriesTapped(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CreatorDetailsOnPageOpenedEvent value)? onPageOpened,
+    TResult? Function(_CreatorDetailsOnSeeAllCreatorComicsTappedEvent value)?
+        onSeeAllCreatorComicsTapped,
+    TResult? Function(_CreatorDetailsOnSeeAllCreatorSeriesTappedEvent value)?
+        onSeeAllCreatorSeriesTapped,
+    TResult? Function(_CreatorDetailsOnSeeAllCreatorStoriesTappedEvent value)?
+        onSeeAllCreatorStoriesTapped,
+  }) {
+    return onSeeAllCreatorStoriesTapped?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CreatorDetailsOnPageOpenedEvent value)? onPageOpened,
+    TResult Function(_CreatorDetailsOnSeeAllCreatorComicsTappedEvent value)?
+        onSeeAllCreatorComicsTapped,
+    TResult Function(_CreatorDetailsOnSeeAllCreatorSeriesTappedEvent value)?
+        onSeeAllCreatorSeriesTapped,
+    TResult Function(_CreatorDetailsOnSeeAllCreatorStoriesTappedEvent value)?
+        onSeeAllCreatorStoriesTapped,
+    required TResult orElse(),
+  }) {
+    if (onSeeAllCreatorStoriesTapped != null) {
+      return onSeeAllCreatorStoriesTapped(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CreatorDetailsOnSeeAllCreatorStoriesTappedEvent
+    implements CreatorDetailsEvent {
+  const factory _CreatorDetailsOnSeeAllCreatorStoriesTappedEvent(
+          {required final Creator creator}) =
+      _$_CreatorDetailsOnSeeAllCreatorStoriesTappedEvent;
+
+  @override
+  Creator get creator;
+  @override
+  @JsonKey(ignore: true)
+  _$$_CreatorDetailsOnSeeAllCreatorStoriesTappedEventCopyWith<
+          _$_CreatorDetailsOnSeeAllCreatorStoriesTappedEvent>
       get copyWith => throw _privateConstructorUsedError;
 }
 

@@ -6,4 +6,8 @@ class CharacterDetailsEvent with _$CharacterDetailsEvent {
   const factory CharacterDetailsEvent.onComicTapped({required Comic comic}) = _CharacterDetailsOnComicTappedEvent;
   const factory CharacterDetailsEvent.onSeeAllCharacterComicsTapped({required Character character}) =
       _CharacterDetailsOnSeeAllCharacterComicsTappedEvent;
+  const factory CharacterDetailsEvent.onSeeAllCharacterStoriesTapped({required Character character}) =
+      _CharacterDetailsOnSeeAllCharacterStoriesTappedEvent;
+  const factory CharacterDetailsEvent.onSeeAllCharacterSeriesTapped({required Character character}) =
+      _CharacterDetailsOnSeeAllCharacterSeriesTappedEvent;
 }

@@ -2,6 +2,7 @@ part of 'series_bloc.dart';
 
 @freezed
 class SeriesState with _$SeriesState {
+  const factory SeriesState.loading() = _SeriesLoadingState;
   const factory SeriesState.loaded({
     required bool canLoadMore,
     required int lastOffset,

@@ -22,6 +22,10 @@ mixin _$CharacterDetailsEvent {
     required TResult Function(Comic comic) onComicTapped,
     required TResult Function(Character character)
         onSeeAllCharacterComicsTapped,
+    required TResult Function(Character character)
+        onSeeAllCharacterStoriesTapped,
+    required TResult Function(Character character)
+        onSeeAllCharacterSeriesTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,6 +33,8 @@ mixin _$CharacterDetailsEvent {
     TResult? Function(Character character)? onPageOpened,
     TResult? Function(Comic comic)? onComicTapped,
     TResult? Function(Character character)? onSeeAllCharacterComicsTapped,
+    TResult? Function(Character character)? onSeeAllCharacterStoriesTapped,
+    TResult? Function(Character character)? onSeeAllCharacterSeriesTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +42,8 @@ mixin _$CharacterDetailsEvent {
     TResult Function(Character character)? onPageOpened,
     TResult Function(Comic comic)? onComicTapped,
     TResult Function(Character character)? onSeeAllCharacterComicsTapped,
+    TResult Function(Character character)? onSeeAllCharacterStoriesTapped,
+    TResult Function(Character character)? onSeeAllCharacterSeriesTapped,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,6 +56,12 @@ mixin _$CharacterDetailsEvent {
     required TResult Function(
             _CharacterDetailsOnSeeAllCharacterComicsTappedEvent value)
         onSeeAllCharacterComicsTapped,
+    required TResult Function(
+            _CharacterDetailsOnSeeAllCharacterStoriesTappedEvent value)
+        onSeeAllCharacterStoriesTapped,
+    required TResult Function(
+            _CharacterDetailsOnSeeAllCharacterSeriesTappedEvent value)
+        onSeeAllCharacterSeriesTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +71,12 @@ mixin _$CharacterDetailsEvent {
     TResult? Function(
             _CharacterDetailsOnSeeAllCharacterComicsTappedEvent value)?
         onSeeAllCharacterComicsTapped,
+    TResult? Function(
+            _CharacterDetailsOnSeeAllCharacterStoriesTappedEvent value)?
+        onSeeAllCharacterStoriesTapped,
+    TResult? Function(
+            _CharacterDetailsOnSeeAllCharacterSeriesTappedEvent value)?
+        onSeeAllCharacterSeriesTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +85,11 @@ mixin _$CharacterDetailsEvent {
     TResult Function(_CharacterDetailsOnComicTappedEvent value)? onComicTapped,
     TResult Function(_CharacterDetailsOnSeeAllCharacterComicsTappedEvent value)?
         onSeeAllCharacterComicsTapped,
+    TResult Function(
+            _CharacterDetailsOnSeeAllCharacterStoriesTappedEvent value)?
+        onSeeAllCharacterStoriesTapped,
+    TResult Function(_CharacterDetailsOnSeeAllCharacterSeriesTappedEvent value)?
+        onSeeAllCharacterSeriesTapped,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -174,6 +199,10 @@ class _$_CharacterDetailsOnPageOpenedEvent
     required TResult Function(Comic comic) onComicTapped,
     required TResult Function(Character character)
         onSeeAllCharacterComicsTapped,
+    required TResult Function(Character character)
+        onSeeAllCharacterStoriesTapped,
+    required TResult Function(Character character)
+        onSeeAllCharacterSeriesTapped,
   }) {
     return onPageOpened(character);
   }
@@ -184,6 +213,8 @@ class _$_CharacterDetailsOnPageOpenedEvent
     TResult? Function(Character character)? onPageOpened,
     TResult? Function(Comic comic)? onComicTapped,
     TResult? Function(Character character)? onSeeAllCharacterComicsTapped,
+    TResult? Function(Character character)? onSeeAllCharacterStoriesTapped,
+    TResult? Function(Character character)? onSeeAllCharacterSeriesTapped,
   }) {
     return onPageOpened?.call(character);
   }
@@ -194,6 +225,8 @@ class _$_CharacterDetailsOnPageOpenedEvent
     TResult Function(Character character)? onPageOpened,
     TResult Function(Comic comic)? onComicTapped,
     TResult Function(Character character)? onSeeAllCharacterComicsTapped,
+    TResult Function(Character character)? onSeeAllCharacterStoriesTapped,
+    TResult Function(Character character)? onSeeAllCharacterSeriesTapped,
     required TResult orElse(),
   }) {
     if (onPageOpened != null) {
@@ -212,6 +245,12 @@ class _$_CharacterDetailsOnPageOpenedEvent
     required TResult Function(
             _CharacterDetailsOnSeeAllCharacterComicsTappedEvent value)
         onSeeAllCharacterComicsTapped,
+    required TResult Function(
+            _CharacterDetailsOnSeeAllCharacterStoriesTappedEvent value)
+        onSeeAllCharacterStoriesTapped,
+    required TResult Function(
+            _CharacterDetailsOnSeeAllCharacterSeriesTappedEvent value)
+        onSeeAllCharacterSeriesTapped,
   }) {
     return onPageOpened(this);
   }
@@ -224,6 +263,12 @@ class _$_CharacterDetailsOnPageOpenedEvent
     TResult? Function(
             _CharacterDetailsOnSeeAllCharacterComicsTappedEvent value)?
         onSeeAllCharacterComicsTapped,
+    TResult? Function(
+            _CharacterDetailsOnSeeAllCharacterStoriesTappedEvent value)?
+        onSeeAllCharacterStoriesTapped,
+    TResult? Function(
+            _CharacterDetailsOnSeeAllCharacterSeriesTappedEvent value)?
+        onSeeAllCharacterSeriesTapped,
   }) {
     return onPageOpened?.call(this);
   }
@@ -235,6 +280,11 @@ class _$_CharacterDetailsOnPageOpenedEvent
     TResult Function(_CharacterDetailsOnComicTappedEvent value)? onComicTapped,
     TResult Function(_CharacterDetailsOnSeeAllCharacterComicsTappedEvent value)?
         onSeeAllCharacterComicsTapped,
+    TResult Function(
+            _CharacterDetailsOnSeeAllCharacterStoriesTappedEvent value)?
+        onSeeAllCharacterStoriesTapped,
+    TResult Function(_CharacterDetailsOnSeeAllCharacterSeriesTappedEvent value)?
+        onSeeAllCharacterSeriesTapped,
     required TResult orElse(),
   }) {
     if (onPageOpened != null) {
@@ -341,6 +391,10 @@ class _$_CharacterDetailsOnComicTappedEvent
     required TResult Function(Comic comic) onComicTapped,
     required TResult Function(Character character)
         onSeeAllCharacterComicsTapped,
+    required TResult Function(Character character)
+        onSeeAllCharacterStoriesTapped,
+    required TResult Function(Character character)
+        onSeeAllCharacterSeriesTapped,
   }) {
     return onComicTapped(comic);
   }
@@ -351,6 +405,8 @@ class _$_CharacterDetailsOnComicTappedEvent
     TResult? Function(Character character)? onPageOpened,
     TResult? Function(Comic comic)? onComicTapped,
     TResult? Function(Character character)? onSeeAllCharacterComicsTapped,
+    TResult? Function(Character character)? onSeeAllCharacterStoriesTapped,
+    TResult? Function(Character character)? onSeeAllCharacterSeriesTapped,
   }) {
     return onComicTapped?.call(comic);
   }
@@ -361,6 +417,8 @@ class _$_CharacterDetailsOnComicTappedEvent
     TResult Function(Character character)? onPageOpened,
     TResult Function(Comic comic)? onComicTapped,
     TResult Function(Character character)? onSeeAllCharacterComicsTapped,
+    TResult Function(Character character)? onSeeAllCharacterStoriesTapped,
+    TResult Function(Character character)? onSeeAllCharacterSeriesTapped,
     required TResult orElse(),
   }) {
     if (onComicTapped != null) {
@@ -379,6 +437,12 @@ class _$_CharacterDetailsOnComicTappedEvent
     required TResult Function(
             _CharacterDetailsOnSeeAllCharacterComicsTappedEvent value)
         onSeeAllCharacterComicsTapped,
+    required TResult Function(
+            _CharacterDetailsOnSeeAllCharacterStoriesTappedEvent value)
+        onSeeAllCharacterStoriesTapped,
+    required TResult Function(
+            _CharacterDetailsOnSeeAllCharacterSeriesTappedEvent value)
+        onSeeAllCharacterSeriesTapped,
   }) {
     return onComicTapped(this);
   }
@@ -391,6 +455,12 @@ class _$_CharacterDetailsOnComicTappedEvent
     TResult? Function(
             _CharacterDetailsOnSeeAllCharacterComicsTappedEvent value)?
         onSeeAllCharacterComicsTapped,
+    TResult? Function(
+            _CharacterDetailsOnSeeAllCharacterStoriesTappedEvent value)?
+        onSeeAllCharacterStoriesTapped,
+    TResult? Function(
+            _CharacterDetailsOnSeeAllCharacterSeriesTappedEvent value)?
+        onSeeAllCharacterSeriesTapped,
   }) {
     return onComicTapped?.call(this);
   }
@@ -402,6 +472,11 @@ class _$_CharacterDetailsOnComicTappedEvent
     TResult Function(_CharacterDetailsOnComicTappedEvent value)? onComicTapped,
     TResult Function(_CharacterDetailsOnSeeAllCharacterComicsTappedEvent value)?
         onSeeAllCharacterComicsTapped,
+    TResult Function(
+            _CharacterDetailsOnSeeAllCharacterStoriesTappedEvent value)?
+        onSeeAllCharacterStoriesTapped,
+    TResult Function(_CharacterDetailsOnSeeAllCharacterSeriesTappedEvent value)?
+        onSeeAllCharacterSeriesTapped,
     required TResult orElse(),
   }) {
     if (onComicTapped != null) {
@@ -515,6 +590,10 @@ class _$_CharacterDetailsOnSeeAllCharacterComicsTappedEvent
     required TResult Function(Comic comic) onComicTapped,
     required TResult Function(Character character)
         onSeeAllCharacterComicsTapped,
+    required TResult Function(Character character)
+        onSeeAllCharacterStoriesTapped,
+    required TResult Function(Character character)
+        onSeeAllCharacterSeriesTapped,
   }) {
     return onSeeAllCharacterComicsTapped(character);
   }
@@ -525,6 +604,8 @@ class _$_CharacterDetailsOnSeeAllCharacterComicsTappedEvent
     TResult? Function(Character character)? onPageOpened,
     TResult? Function(Comic comic)? onComicTapped,
     TResult? Function(Character character)? onSeeAllCharacterComicsTapped,
+    TResult? Function(Character character)? onSeeAllCharacterStoriesTapped,
+    TResult? Function(Character character)? onSeeAllCharacterSeriesTapped,
   }) {
     return onSeeAllCharacterComicsTapped?.call(character);
   }
@@ -535,6 +616,8 @@ class _$_CharacterDetailsOnSeeAllCharacterComicsTappedEvent
     TResult Function(Character character)? onPageOpened,
     TResult Function(Comic comic)? onComicTapped,
     TResult Function(Character character)? onSeeAllCharacterComicsTapped,
+    TResult Function(Character character)? onSeeAllCharacterStoriesTapped,
+    TResult Function(Character character)? onSeeAllCharacterSeriesTapped,
     required TResult orElse(),
   }) {
     if (onSeeAllCharacterComicsTapped != null) {
@@ -553,6 +636,12 @@ class _$_CharacterDetailsOnSeeAllCharacterComicsTappedEvent
     required TResult Function(
             _CharacterDetailsOnSeeAllCharacterComicsTappedEvent value)
         onSeeAllCharacterComicsTapped,
+    required TResult Function(
+            _CharacterDetailsOnSeeAllCharacterStoriesTappedEvent value)
+        onSeeAllCharacterStoriesTapped,
+    required TResult Function(
+            _CharacterDetailsOnSeeAllCharacterSeriesTappedEvent value)
+        onSeeAllCharacterSeriesTapped,
   }) {
     return onSeeAllCharacterComicsTapped(this);
   }
@@ -565,6 +654,12 @@ class _$_CharacterDetailsOnSeeAllCharacterComicsTappedEvent
     TResult? Function(
             _CharacterDetailsOnSeeAllCharacterComicsTappedEvent value)?
         onSeeAllCharacterComicsTapped,
+    TResult? Function(
+            _CharacterDetailsOnSeeAllCharacterStoriesTappedEvent value)?
+        onSeeAllCharacterStoriesTapped,
+    TResult? Function(
+            _CharacterDetailsOnSeeAllCharacterSeriesTappedEvent value)?
+        onSeeAllCharacterSeriesTapped,
   }) {
     return onSeeAllCharacterComicsTapped?.call(this);
   }
@@ -576,6 +671,11 @@ class _$_CharacterDetailsOnSeeAllCharacterComicsTappedEvent
     TResult Function(_CharacterDetailsOnComicTappedEvent value)? onComicTapped,
     TResult Function(_CharacterDetailsOnSeeAllCharacterComicsTappedEvent value)?
         onSeeAllCharacterComicsTapped,
+    TResult Function(
+            _CharacterDetailsOnSeeAllCharacterStoriesTappedEvent value)?
+        onSeeAllCharacterStoriesTapped,
+    TResult Function(_CharacterDetailsOnSeeAllCharacterSeriesTappedEvent value)?
+        onSeeAllCharacterSeriesTapped,
     required TResult orElse(),
   }) {
     if (onSeeAllCharacterComicsTapped != null) {
@@ -595,6 +695,407 @@ abstract class _CharacterDetailsOnSeeAllCharacterComicsTappedEvent
   @JsonKey(ignore: true)
   _$$_CharacterDetailsOnSeeAllCharacterComicsTappedEventCopyWith<
           _$_CharacterDetailsOnSeeAllCharacterComicsTappedEvent>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_CharacterDetailsOnSeeAllCharacterStoriesTappedEventCopyWith<
+    $Res> {
+  factory _$$_CharacterDetailsOnSeeAllCharacterStoriesTappedEventCopyWith(
+          _$_CharacterDetailsOnSeeAllCharacterStoriesTappedEvent value,
+          $Res Function(_$_CharacterDetailsOnSeeAllCharacterStoriesTappedEvent)
+              then) =
+      __$$_CharacterDetailsOnSeeAllCharacterStoriesTappedEventCopyWithImpl<
+          $Res>;
+  @useResult
+  $Res call({Character character});
+
+  $CharacterCopyWith<$Res> get character;
+}
+
+/// @nodoc
+class __$$_CharacterDetailsOnSeeAllCharacterStoriesTappedEventCopyWithImpl<$Res>
+    extends _$CharacterDetailsEventCopyWithImpl<$Res,
+        _$_CharacterDetailsOnSeeAllCharacterStoriesTappedEvent>
+    implements
+        _$$_CharacterDetailsOnSeeAllCharacterStoriesTappedEventCopyWith<$Res> {
+  __$$_CharacterDetailsOnSeeAllCharacterStoriesTappedEventCopyWithImpl(
+      _$_CharacterDetailsOnSeeAllCharacterStoriesTappedEvent _value,
+      $Res Function(_$_CharacterDetailsOnSeeAllCharacterStoriesTappedEvent)
+          _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? character = null,
+  }) {
+    return _then(_$_CharacterDetailsOnSeeAllCharacterStoriesTappedEvent(
+      character: null == character
+          ? _value.character
+          : character // ignore: cast_nullable_to_non_nullable
+              as Character,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CharacterCopyWith<$Res> get character {
+    return $CharacterCopyWith<$Res>(_value.character, (value) {
+      return _then(_value.copyWith(character: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_CharacterDetailsOnSeeAllCharacterStoriesTappedEvent
+    implements _CharacterDetailsOnSeeAllCharacterStoriesTappedEvent {
+  const _$_CharacterDetailsOnSeeAllCharacterStoriesTappedEvent(
+      {required this.character});
+
+  @override
+  final Character character;
+
+  @override
+  String toString() {
+    return 'CharacterDetailsEvent.onSeeAllCharacterStoriesTapped(character: $character)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_CharacterDetailsOnSeeAllCharacterStoriesTappedEvent &&
+            (identical(other.character, character) ||
+                other.character == character));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, character);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_CharacterDetailsOnSeeAllCharacterStoriesTappedEventCopyWith<
+          _$_CharacterDetailsOnSeeAllCharacterStoriesTappedEvent>
+      get copyWith =>
+          __$$_CharacterDetailsOnSeeAllCharacterStoriesTappedEventCopyWithImpl<
+                  _$_CharacterDetailsOnSeeAllCharacterStoriesTappedEvent>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Character character) onPageOpened,
+    required TResult Function(Comic comic) onComicTapped,
+    required TResult Function(Character character)
+        onSeeAllCharacterComicsTapped,
+    required TResult Function(Character character)
+        onSeeAllCharacterStoriesTapped,
+    required TResult Function(Character character)
+        onSeeAllCharacterSeriesTapped,
+  }) {
+    return onSeeAllCharacterStoriesTapped(character);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Character character)? onPageOpened,
+    TResult? Function(Comic comic)? onComicTapped,
+    TResult? Function(Character character)? onSeeAllCharacterComicsTapped,
+    TResult? Function(Character character)? onSeeAllCharacterStoriesTapped,
+    TResult? Function(Character character)? onSeeAllCharacterSeriesTapped,
+  }) {
+    return onSeeAllCharacterStoriesTapped?.call(character);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Character character)? onPageOpened,
+    TResult Function(Comic comic)? onComicTapped,
+    TResult Function(Character character)? onSeeAllCharacterComicsTapped,
+    TResult Function(Character character)? onSeeAllCharacterStoriesTapped,
+    TResult Function(Character character)? onSeeAllCharacterSeriesTapped,
+    required TResult orElse(),
+  }) {
+    if (onSeeAllCharacterStoriesTapped != null) {
+      return onSeeAllCharacterStoriesTapped(character);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CharacterDetailsOnPageOpenedEvent value)
+        onPageOpened,
+    required TResult Function(_CharacterDetailsOnComicTappedEvent value)
+        onComicTapped,
+    required TResult Function(
+            _CharacterDetailsOnSeeAllCharacterComicsTappedEvent value)
+        onSeeAllCharacterComicsTapped,
+    required TResult Function(
+            _CharacterDetailsOnSeeAllCharacterStoriesTappedEvent value)
+        onSeeAllCharacterStoriesTapped,
+    required TResult Function(
+            _CharacterDetailsOnSeeAllCharacterSeriesTappedEvent value)
+        onSeeAllCharacterSeriesTapped,
+  }) {
+    return onSeeAllCharacterStoriesTapped(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CharacterDetailsOnPageOpenedEvent value)? onPageOpened,
+    TResult? Function(_CharacterDetailsOnComicTappedEvent value)? onComicTapped,
+    TResult? Function(
+            _CharacterDetailsOnSeeAllCharacterComicsTappedEvent value)?
+        onSeeAllCharacterComicsTapped,
+    TResult? Function(
+            _CharacterDetailsOnSeeAllCharacterStoriesTappedEvent value)?
+        onSeeAllCharacterStoriesTapped,
+    TResult? Function(
+            _CharacterDetailsOnSeeAllCharacterSeriesTappedEvent value)?
+        onSeeAllCharacterSeriesTapped,
+  }) {
+    return onSeeAllCharacterStoriesTapped?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CharacterDetailsOnPageOpenedEvent value)? onPageOpened,
+    TResult Function(_CharacterDetailsOnComicTappedEvent value)? onComicTapped,
+    TResult Function(_CharacterDetailsOnSeeAllCharacterComicsTappedEvent value)?
+        onSeeAllCharacterComicsTapped,
+    TResult Function(
+            _CharacterDetailsOnSeeAllCharacterStoriesTappedEvent value)?
+        onSeeAllCharacterStoriesTapped,
+    TResult Function(_CharacterDetailsOnSeeAllCharacterSeriesTappedEvent value)?
+        onSeeAllCharacterSeriesTapped,
+    required TResult orElse(),
+  }) {
+    if (onSeeAllCharacterStoriesTapped != null) {
+      return onSeeAllCharacterStoriesTapped(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CharacterDetailsOnSeeAllCharacterStoriesTappedEvent
+    implements CharacterDetailsEvent {
+  const factory _CharacterDetailsOnSeeAllCharacterStoriesTappedEvent(
+          {required final Character character}) =
+      _$_CharacterDetailsOnSeeAllCharacterStoriesTappedEvent;
+
+  Character get character;
+  @JsonKey(ignore: true)
+  _$$_CharacterDetailsOnSeeAllCharacterStoriesTappedEventCopyWith<
+          _$_CharacterDetailsOnSeeAllCharacterStoriesTappedEvent>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_CharacterDetailsOnSeeAllCharacterSeriesTappedEventCopyWith<
+    $Res> {
+  factory _$$_CharacterDetailsOnSeeAllCharacterSeriesTappedEventCopyWith(
+          _$_CharacterDetailsOnSeeAllCharacterSeriesTappedEvent value,
+          $Res Function(_$_CharacterDetailsOnSeeAllCharacterSeriesTappedEvent)
+              then) =
+      __$$_CharacterDetailsOnSeeAllCharacterSeriesTappedEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Character character});
+
+  $CharacterCopyWith<$Res> get character;
+}
+
+/// @nodoc
+class __$$_CharacterDetailsOnSeeAllCharacterSeriesTappedEventCopyWithImpl<$Res>
+    extends _$CharacterDetailsEventCopyWithImpl<$Res,
+        _$_CharacterDetailsOnSeeAllCharacterSeriesTappedEvent>
+    implements
+        _$$_CharacterDetailsOnSeeAllCharacterSeriesTappedEventCopyWith<$Res> {
+  __$$_CharacterDetailsOnSeeAllCharacterSeriesTappedEventCopyWithImpl(
+      _$_CharacterDetailsOnSeeAllCharacterSeriesTappedEvent _value,
+      $Res Function(_$_CharacterDetailsOnSeeAllCharacterSeriesTappedEvent)
+          _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? character = null,
+  }) {
+    return _then(_$_CharacterDetailsOnSeeAllCharacterSeriesTappedEvent(
+      character: null == character
+          ? _value.character
+          : character // ignore: cast_nullable_to_non_nullable
+              as Character,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CharacterCopyWith<$Res> get character {
+    return $CharacterCopyWith<$Res>(_value.character, (value) {
+      return _then(_value.copyWith(character: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_CharacterDetailsOnSeeAllCharacterSeriesTappedEvent
+    implements _CharacterDetailsOnSeeAllCharacterSeriesTappedEvent {
+  const _$_CharacterDetailsOnSeeAllCharacterSeriesTappedEvent(
+      {required this.character});
+
+  @override
+  final Character character;
+
+  @override
+  String toString() {
+    return 'CharacterDetailsEvent.onSeeAllCharacterSeriesTapped(character: $character)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_CharacterDetailsOnSeeAllCharacterSeriesTappedEvent &&
+            (identical(other.character, character) ||
+                other.character == character));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, character);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_CharacterDetailsOnSeeAllCharacterSeriesTappedEventCopyWith<
+          _$_CharacterDetailsOnSeeAllCharacterSeriesTappedEvent>
+      get copyWith =>
+          __$$_CharacterDetailsOnSeeAllCharacterSeriesTappedEventCopyWithImpl<
+                  _$_CharacterDetailsOnSeeAllCharacterSeriesTappedEvent>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Character character) onPageOpened,
+    required TResult Function(Comic comic) onComicTapped,
+    required TResult Function(Character character)
+        onSeeAllCharacterComicsTapped,
+    required TResult Function(Character character)
+        onSeeAllCharacterStoriesTapped,
+    required TResult Function(Character character)
+        onSeeAllCharacterSeriesTapped,
+  }) {
+    return onSeeAllCharacterSeriesTapped(character);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Character character)? onPageOpened,
+    TResult? Function(Comic comic)? onComicTapped,
+    TResult? Function(Character character)? onSeeAllCharacterComicsTapped,
+    TResult? Function(Character character)? onSeeAllCharacterStoriesTapped,
+    TResult? Function(Character character)? onSeeAllCharacterSeriesTapped,
+  }) {
+    return onSeeAllCharacterSeriesTapped?.call(character);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Character character)? onPageOpened,
+    TResult Function(Comic comic)? onComicTapped,
+    TResult Function(Character character)? onSeeAllCharacterComicsTapped,
+    TResult Function(Character character)? onSeeAllCharacterStoriesTapped,
+    TResult Function(Character character)? onSeeAllCharacterSeriesTapped,
+    required TResult orElse(),
+  }) {
+    if (onSeeAllCharacterSeriesTapped != null) {
+      return onSeeAllCharacterSeriesTapped(character);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CharacterDetailsOnPageOpenedEvent value)
+        onPageOpened,
+    required TResult Function(_CharacterDetailsOnComicTappedEvent value)
+        onComicTapped,
+    required TResult Function(
+            _CharacterDetailsOnSeeAllCharacterComicsTappedEvent value)
+        onSeeAllCharacterComicsTapped,
+    required TResult Function(
+            _CharacterDetailsOnSeeAllCharacterStoriesTappedEvent value)
+        onSeeAllCharacterStoriesTapped,
+    required TResult Function(
+            _CharacterDetailsOnSeeAllCharacterSeriesTappedEvent value)
+        onSeeAllCharacterSeriesTapped,
+  }) {
+    return onSeeAllCharacterSeriesTapped(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CharacterDetailsOnPageOpenedEvent value)? onPageOpened,
+    TResult? Function(_CharacterDetailsOnComicTappedEvent value)? onComicTapped,
+    TResult? Function(
+            _CharacterDetailsOnSeeAllCharacterComicsTappedEvent value)?
+        onSeeAllCharacterComicsTapped,
+    TResult? Function(
+            _CharacterDetailsOnSeeAllCharacterStoriesTappedEvent value)?
+        onSeeAllCharacterStoriesTapped,
+    TResult? Function(
+            _CharacterDetailsOnSeeAllCharacterSeriesTappedEvent value)?
+        onSeeAllCharacterSeriesTapped,
+  }) {
+    return onSeeAllCharacterSeriesTapped?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CharacterDetailsOnPageOpenedEvent value)? onPageOpened,
+    TResult Function(_CharacterDetailsOnComicTappedEvent value)? onComicTapped,
+    TResult Function(_CharacterDetailsOnSeeAllCharacterComicsTappedEvent value)?
+        onSeeAllCharacterComicsTapped,
+    TResult Function(
+            _CharacterDetailsOnSeeAllCharacterStoriesTappedEvent value)?
+        onSeeAllCharacterStoriesTapped,
+    TResult Function(_CharacterDetailsOnSeeAllCharacterSeriesTappedEvent value)?
+        onSeeAllCharacterSeriesTapped,
+    required TResult orElse(),
+  }) {
+    if (onSeeAllCharacterSeriesTapped != null) {
+      return onSeeAllCharacterSeriesTapped(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CharacterDetailsOnSeeAllCharacterSeriesTappedEvent
+    implements CharacterDetailsEvent {
+  const factory _CharacterDetailsOnSeeAllCharacterSeriesTappedEvent(
+          {required final Character character}) =
+      _$_CharacterDetailsOnSeeAllCharacterSeriesTappedEvent;
+
+  Character get character;
+  @JsonKey(ignore: true)
+  _$$_CharacterDetailsOnSeeAllCharacterSeriesTappedEventCopyWith<
+          _$_CharacterDetailsOnSeeAllCharacterSeriesTappedEvent>
       get copyWith => throw _privateConstructorUsedError;
 }
 

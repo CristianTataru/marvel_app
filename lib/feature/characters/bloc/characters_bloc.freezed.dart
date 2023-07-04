@@ -18,22 +18,22 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CharactersEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onPageOpened,
-    required TResult Function() onMoreDataLoading,
+    required TResult Function(ApiFilter? filter) onPageOpened,
+    required TResult Function(ApiFilter? filter) onMoreDataLoading,
     required TResult Function(Character character) onCharacterTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onPageOpened,
-    TResult? Function()? onMoreDataLoading,
+    TResult? Function(ApiFilter? filter)? onPageOpened,
+    TResult? Function(ApiFilter? filter)? onMoreDataLoading,
     TResult? Function(Character character)? onCharacterTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onPageOpened,
-    TResult Function()? onMoreDataLoading,
+    TResult Function(ApiFilter? filter)? onPageOpened,
+    TResult Function(ApiFilter? filter)? onMoreDataLoading,
     TResult Function(Character character)? onCharacterTapped,
     required TResult orElse(),
   }) =>
@@ -90,6 +90,8 @@ abstract class _$$_CharactersOnPageOpenedEventCopyWith<$Res> {
           _$_CharactersOnPageOpenedEvent value,
           $Res Function(_$_CharactersOnPageOpenedEvent) then) =
       __$$_CharactersOnPageOpenedEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ApiFilter? filter});
 }
 
 /// @nodoc
@@ -100,58 +102,82 @@ class __$$_CharactersOnPageOpenedEventCopyWithImpl<$Res>
       _$_CharactersOnPageOpenedEvent _value,
       $Res Function(_$_CharactersOnPageOpenedEvent) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? filter = freezed,
+  }) {
+    return _then(_$_CharactersOnPageOpenedEvent(
+      filter: freezed == filter
+          ? _value.filter
+          : filter // ignore: cast_nullable_to_non_nullable
+              as ApiFilter?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_CharactersOnPageOpenedEvent implements _CharactersOnPageOpenedEvent {
-  const _$_CharactersOnPageOpenedEvent();
+  const _$_CharactersOnPageOpenedEvent({required this.filter});
+
+  @override
+  final ApiFilter? filter;
 
   @override
   String toString() {
-    return 'CharactersEvent.onPageOpened()';
+    return 'CharactersEvent.onPageOpened(filter: $filter)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CharactersOnPageOpenedEvent);
+            other is _$_CharactersOnPageOpenedEvent &&
+            (identical(other.filter, filter) || other.filter == filter));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, filter);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_CharactersOnPageOpenedEventCopyWith<_$_CharactersOnPageOpenedEvent>
+      get copyWith => __$$_CharactersOnPageOpenedEventCopyWithImpl<
+          _$_CharactersOnPageOpenedEvent>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onPageOpened,
-    required TResult Function() onMoreDataLoading,
+    required TResult Function(ApiFilter? filter) onPageOpened,
+    required TResult Function(ApiFilter? filter) onMoreDataLoading,
     required TResult Function(Character character) onCharacterTapped,
   }) {
-    return onPageOpened();
+    return onPageOpened(filter);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onPageOpened,
-    TResult? Function()? onMoreDataLoading,
+    TResult? Function(ApiFilter? filter)? onPageOpened,
+    TResult? Function(ApiFilter? filter)? onMoreDataLoading,
     TResult? Function(Character character)? onCharacterTapped,
   }) {
-    return onPageOpened?.call();
+    return onPageOpened?.call(filter);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onPageOpened,
-    TResult Function()? onMoreDataLoading,
+    TResult Function(ApiFilter? filter)? onPageOpened,
+    TResult Function(ApiFilter? filter)? onMoreDataLoading,
     TResult Function(Character character)? onCharacterTapped,
     required TResult orElse(),
   }) {
     if (onPageOpened != null) {
-      return onPageOpened();
+      return onPageOpened(filter);
     }
     return orElse();
   }
@@ -196,7 +222,13 @@ class _$_CharactersOnPageOpenedEvent implements _CharactersOnPageOpenedEvent {
 }
 
 abstract class _CharactersOnPageOpenedEvent implements CharactersEvent {
-  const factory _CharactersOnPageOpenedEvent() = _$_CharactersOnPageOpenedEvent;
+  const factory _CharactersOnPageOpenedEvent(
+      {required final ApiFilter? filter}) = _$_CharactersOnPageOpenedEvent;
+
+  ApiFilter? get filter;
+  @JsonKey(ignore: true)
+  _$$_CharactersOnPageOpenedEventCopyWith<_$_CharactersOnPageOpenedEvent>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -205,6 +237,8 @@ abstract class _$$_CharactersMoreDataLoadingEventCopyWith<$Res> {
           _$_CharactersMoreDataLoadingEvent value,
           $Res Function(_$_CharactersMoreDataLoadingEvent) then) =
       __$$_CharactersMoreDataLoadingEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ApiFilter? filter});
 }
 
 /// @nodoc
@@ -216,59 +250,83 @@ class __$$_CharactersMoreDataLoadingEventCopyWithImpl<$Res>
       _$_CharactersMoreDataLoadingEvent _value,
       $Res Function(_$_CharactersMoreDataLoadingEvent) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? filter = freezed,
+  }) {
+    return _then(_$_CharactersMoreDataLoadingEvent(
+      filter: freezed == filter
+          ? _value.filter
+          : filter // ignore: cast_nullable_to_non_nullable
+              as ApiFilter?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_CharactersMoreDataLoadingEvent
     implements _CharactersMoreDataLoadingEvent {
-  const _$_CharactersMoreDataLoadingEvent();
+  const _$_CharactersMoreDataLoadingEvent({required this.filter});
+
+  @override
+  final ApiFilter? filter;
 
   @override
   String toString() {
-    return 'CharactersEvent.onMoreDataLoading()';
+    return 'CharactersEvent.onMoreDataLoading(filter: $filter)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CharactersMoreDataLoadingEvent);
+            other is _$_CharactersMoreDataLoadingEvent &&
+            (identical(other.filter, filter) || other.filter == filter));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, filter);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_CharactersMoreDataLoadingEventCopyWith<_$_CharactersMoreDataLoadingEvent>
+      get copyWith => __$$_CharactersMoreDataLoadingEventCopyWithImpl<
+          _$_CharactersMoreDataLoadingEvent>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onPageOpened,
-    required TResult Function() onMoreDataLoading,
+    required TResult Function(ApiFilter? filter) onPageOpened,
+    required TResult Function(ApiFilter? filter) onMoreDataLoading,
     required TResult Function(Character character) onCharacterTapped,
   }) {
-    return onMoreDataLoading();
+    return onMoreDataLoading(filter);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onPageOpened,
-    TResult? Function()? onMoreDataLoading,
+    TResult? Function(ApiFilter? filter)? onPageOpened,
+    TResult? Function(ApiFilter? filter)? onMoreDataLoading,
     TResult? Function(Character character)? onCharacterTapped,
   }) {
-    return onMoreDataLoading?.call();
+    return onMoreDataLoading?.call(filter);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onPageOpened,
-    TResult Function()? onMoreDataLoading,
+    TResult Function(ApiFilter? filter)? onPageOpened,
+    TResult Function(ApiFilter? filter)? onMoreDataLoading,
     TResult Function(Character character)? onCharacterTapped,
     required TResult orElse(),
   }) {
     if (onMoreDataLoading != null) {
-      return onMoreDataLoading();
+      return onMoreDataLoading(filter);
     }
     return orElse();
   }
@@ -313,8 +371,13 @@ class _$_CharactersMoreDataLoadingEvent
 }
 
 abstract class _CharactersMoreDataLoadingEvent implements CharactersEvent {
-  const factory _CharactersMoreDataLoadingEvent() =
-      _$_CharactersMoreDataLoadingEvent;
+  const factory _CharactersMoreDataLoadingEvent(
+      {required final ApiFilter? filter}) = _$_CharactersMoreDataLoadingEvent;
+
+  ApiFilter? get filter;
+  @JsonKey(ignore: true)
+  _$$_CharactersMoreDataLoadingEventCopyWith<_$_CharactersMoreDataLoadingEvent>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -398,8 +461,8 @@ class _$_CharactersOnCharacterTappedEvent
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onPageOpened,
-    required TResult Function() onMoreDataLoading,
+    required TResult Function(ApiFilter? filter) onPageOpened,
+    required TResult Function(ApiFilter? filter) onMoreDataLoading,
     required TResult Function(Character character) onCharacterTapped,
   }) {
     return onCharacterTapped(character);
@@ -408,8 +471,8 @@ class _$_CharactersOnCharacterTappedEvent
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onPageOpened,
-    TResult? Function()? onMoreDataLoading,
+    TResult? Function(ApiFilter? filter)? onPageOpened,
+    TResult? Function(ApiFilter? filter)? onMoreDataLoading,
     TResult? Function(Character character)? onCharacterTapped,
   }) {
     return onCharacterTapped?.call(character);
@@ -418,8 +481,8 @@ class _$_CharactersOnCharacterTappedEvent
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onPageOpened,
-    TResult Function()? onMoreDataLoading,
+    TResult Function(ApiFilter? filter)? onPageOpened,
+    TResult Function(ApiFilter? filter)? onMoreDataLoading,
     TResult Function(Character character)? onCharacterTapped,
     required TResult orElse(),
   }) {
@@ -482,9 +545,9 @@ abstract class _CharactersOnCharacterTappedEvent implements CharactersEvent {
 
 /// @nodoc
 mixin _$CharactersState {
-  List<Character> get characters => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() loading,
     required TResult Function(
             bool canLoadMore, int lastOffset, List<Character> characters)
         loaded,
@@ -493,6 +556,7 @@ mixin _$CharactersState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
     TResult? Function(
             bool canLoadMore, int lastOffset, List<Character> characters)?
         loaded,
@@ -501,6 +565,7 @@ mixin _$CharactersState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
     TResult Function(
             bool canLoadMore, int lastOffset, List<Character> characters)?
         loaded,
@@ -510,26 +575,25 @@ mixin _$CharactersState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_CharactersLoadingState value) loading,
     required TResult Function(_CharactersLoadedState value) loaded,
     required TResult Function(_CharactersMoreLoadingState value) moreLoading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CharactersLoadingState value)? loading,
     TResult? Function(_CharactersLoadedState value)? loaded,
     TResult? Function(_CharactersMoreLoadingState value)? moreLoading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CharactersLoadingState value)? loading,
     TResult Function(_CharactersLoadedState value)? loaded,
     TResult Function(_CharactersMoreLoadingState value)? moreLoading,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $CharactersStateCopyWith<CharactersState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -538,8 +602,6 @@ abstract class $CharactersStateCopyWith<$Res> {
   factory $CharactersStateCopyWith(
           CharactersState value, $Res Function(CharactersState) then) =
       _$CharactersStateCopyWithImpl<$Res, CharactersState>;
-  @useResult
-  $Res call({List<Character> characters});
 }
 
 /// @nodoc
@@ -551,28 +613,128 @@ class _$CharactersStateCopyWithImpl<$Res, $Val extends CharactersState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? characters = null,
-  }) {
-    return _then(_value.copyWith(
-      characters: null == characters
-          ? _value.characters
-          : characters // ignore: cast_nullable_to_non_nullable
-              as List<Character>,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$_CharactersLoadedStateCopyWith<$Res>
-    implements $CharactersStateCopyWith<$Res> {
+abstract class _$$_CharactersLoadingStateCopyWith<$Res> {
+  factory _$$_CharactersLoadingStateCopyWith(_$_CharactersLoadingState value,
+          $Res Function(_$_CharactersLoadingState) then) =
+      __$$_CharactersLoadingStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_CharactersLoadingStateCopyWithImpl<$Res>
+    extends _$CharactersStateCopyWithImpl<$Res, _$_CharactersLoadingState>
+    implements _$$_CharactersLoadingStateCopyWith<$Res> {
+  __$$_CharactersLoadingStateCopyWithImpl(_$_CharactersLoadingState _value,
+      $Res Function(_$_CharactersLoadingState) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_CharactersLoadingState implements _CharactersLoadingState {
+  const _$_CharactersLoadingState();
+
+  @override
+  String toString() {
+    return 'CharactersState.loading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_CharactersLoadingState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function(
+            bool canLoadMore, int lastOffset, List<Character> characters)
+        loaded,
+    required TResult Function(List<Character> characters) moreLoading,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
+    TResult? Function(
+            bool canLoadMore, int lastOffset, List<Character> characters)?
+        loaded,
+    TResult? Function(List<Character> characters)? moreLoading,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(
+            bool canLoadMore, int lastOffset, List<Character> characters)?
+        loaded,
+    TResult Function(List<Character> characters)? moreLoading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CharactersLoadingState value) loading,
+    required TResult Function(_CharactersLoadedState value) loaded,
+    required TResult Function(_CharactersMoreLoadingState value) moreLoading,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CharactersLoadingState value)? loading,
+    TResult? Function(_CharactersLoadedState value)? loaded,
+    TResult? Function(_CharactersMoreLoadingState value)? moreLoading,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CharactersLoadingState value)? loading,
+    TResult Function(_CharactersLoadedState value)? loaded,
+    TResult Function(_CharactersMoreLoadingState value)? moreLoading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CharactersLoadingState implements CharactersState {
+  const factory _CharactersLoadingState() = _$_CharactersLoadingState;
+}
+
+/// @nodoc
+abstract class _$$_CharactersLoadedStateCopyWith<$Res> {
   factory _$$_CharactersLoadedStateCopyWith(_$_CharactersLoadedState value,
           $Res Function(_$_CharactersLoadedState) then) =
       __$$_CharactersLoadedStateCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({bool canLoadMore, int lastOffset, List<Character> characters});
 }
@@ -662,6 +824,7 @@ class _$_CharactersLoadedState implements _CharactersLoadedState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() loading,
     required TResult Function(
             bool canLoadMore, int lastOffset, List<Character> characters)
         loaded,
@@ -673,6 +836,7 @@ class _$_CharactersLoadedState implements _CharactersLoadedState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
     TResult? Function(
             bool canLoadMore, int lastOffset, List<Character> characters)?
         loaded,
@@ -684,6 +848,7 @@ class _$_CharactersLoadedState implements _CharactersLoadedState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
     TResult Function(
             bool canLoadMore, int lastOffset, List<Character> characters)?
         loaded,
@@ -699,6 +864,7 @@ class _$_CharactersLoadedState implements _CharactersLoadedState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_CharactersLoadingState value) loading,
     required TResult Function(_CharactersLoadedState value) loaded,
     required TResult Function(_CharactersMoreLoadingState value) moreLoading,
   }) {
@@ -708,6 +874,7 @@ class _$_CharactersLoadedState implements _CharactersLoadedState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CharactersLoadingState value)? loading,
     TResult? Function(_CharactersLoadedState value)? loaded,
     TResult? Function(_CharactersMoreLoadingState value)? moreLoading,
   }) {
@@ -717,6 +884,7 @@ class _$_CharactersLoadedState implements _CharactersLoadedState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CharactersLoadingState value)? loading,
     TResult Function(_CharactersLoadedState value)? loaded,
     TResult Function(_CharactersMoreLoadingState value)? moreLoading,
     required TResult orElse(),
@@ -736,22 +904,18 @@ abstract class _CharactersLoadedState implements CharactersState {
 
   bool get canLoadMore;
   int get lastOffset;
-  @override
   List<Character> get characters;
-  @override
   @JsonKey(ignore: true)
   _$$_CharactersLoadedStateCopyWith<_$_CharactersLoadedState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_CharactersMoreLoadingStateCopyWith<$Res>
-    implements $CharactersStateCopyWith<$Res> {
+abstract class _$$_CharactersMoreLoadingStateCopyWith<$Res> {
   factory _$$_CharactersMoreLoadingStateCopyWith(
           _$_CharactersMoreLoadingState value,
           $Res Function(_$_CharactersMoreLoadingState) then) =
       __$$_CharactersMoreLoadingStateCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({List<Character> characters});
 }
@@ -822,6 +986,7 @@ class _$_CharactersMoreLoadingState implements _CharactersMoreLoadingState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() loading,
     required TResult Function(
             bool canLoadMore, int lastOffset, List<Character> characters)
         loaded,
@@ -833,6 +998,7 @@ class _$_CharactersMoreLoadingState implements _CharactersMoreLoadingState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
     TResult? Function(
             bool canLoadMore, int lastOffset, List<Character> characters)?
         loaded,
@@ -844,6 +1010,7 @@ class _$_CharactersMoreLoadingState implements _CharactersMoreLoadingState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
     TResult Function(
             bool canLoadMore, int lastOffset, List<Character> characters)?
         loaded,
@@ -859,6 +1026,7 @@ class _$_CharactersMoreLoadingState implements _CharactersMoreLoadingState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_CharactersLoadingState value) loading,
     required TResult Function(_CharactersLoadedState value) loaded,
     required TResult Function(_CharactersMoreLoadingState value) moreLoading,
   }) {
@@ -868,6 +1036,7 @@ class _$_CharactersMoreLoadingState implements _CharactersMoreLoadingState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CharactersLoadingState value)? loading,
     TResult? Function(_CharactersLoadedState value)? loaded,
     TResult? Function(_CharactersMoreLoadingState value)? moreLoading,
   }) {
@@ -877,6 +1046,7 @@ class _$_CharactersMoreLoadingState implements _CharactersMoreLoadingState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CharactersLoadingState value)? loading,
     TResult Function(_CharactersLoadedState value)? loaded,
     TResult Function(_CharactersMoreLoadingState value)? moreLoading,
     required TResult orElse(),
@@ -893,9 +1063,7 @@ abstract class _CharactersMoreLoadingState implements CharactersState {
           {required final List<Character> characters}) =
       _$_CharactersMoreLoadingState;
 
-  @override
   List<Character> get characters;
-  @override
   @JsonKey(ignore: true)
   _$$_CharactersMoreLoadingStateCopyWith<_$_CharactersMoreLoadingState>
       get copyWith => throw _privateConstructorUsedError;

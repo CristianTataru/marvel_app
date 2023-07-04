@@ -2,11 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_app/feature/comics/bloc/comics_bloc.dart';
-import 'package:marvel_app/models/character.dart';
+import 'package:marvel_app/models/api_filters.dart';
 import 'package:marvel_app/models/comic.dart';
-import 'package:marvel_app/models/creator.dart';
-import 'package:marvel_app/models/series.dart';
-import 'package:marvel_app/models/story.dart';
 import 'package:marvel_app/theme/custom_colors.dart';
 import 'package:marvel_app/widgets/common.dart';
 import 'package:marvel_app/widgets/marvel_image.dart';
@@ -15,41 +12,19 @@ final bloc = ComicsBloc();
 
 @RoutePage()
 class ComicsPage extends StatefulWidget {
-  const ComicsPage({this.character, this.creator, this.series, this.story, required this.filtered, super.key});
+  const ComicsPage({super.key, this.filter});
 
-  final Character? character;
-  final Creator? creator;
-  final Series? series;
-  final Story? story;
-  final bool filtered;
+  final ApiFilter? filter;
 
   @override
   State<ComicsPage> createState() => _ComicsPageState();
 }
 
 class _ComicsPageState extends State<ComicsPage> {
-  ScrollController scrollController = ScrollController();
-
   @override
   void initState() {
     super.initState();
-    bloc.add(ComicsEvent.onPageOpened(
-        character: widget.character,
-        creator: widget.creator,
-        series: widget.series,
-        story: widget.story,
-        filtred: widget.filtered));
-    scrollController.addListener(() {
-      if (scrollController.position.pixels == scrollController.position.maxScrollExtent) {
-        bloc.add(const ComicsEvent.onMoreDataLoading());
-      }
-    });
-  }
-
-  @override
-  void dispose() {
-    scrollController.dispose();
-    super.dispose();
+    bloc.add(ComicsEvent.onPageOpened(filter: widget.filter));
   }
 
   @override
@@ -70,37 +45,19 @@ class _ComicsPageState extends State<ComicsPage> {
             backgroundColor: CustomColors.appBar,
             leading: const BackButton(color: CustomColors.lightBlue),
           ),
-          body: Column(
-            children: [
-              Expanded(
-                child: SingleChildScrollView(
-                  controller: scrollController,
-                  child: Column(
-                    children: [
-                      const SizedBox(height: 8),
-                      ...comicsState.map(
-                        loading: (state) => [
-                          pageLoadingSpinner,
-                        ],
-                        loaded: (state) => [
-                          ...state.comics.map((e) => ComicsEntry(e)),
-                          const SizedBox(height: 96),
-                        ],
-                        moreLoading: (state) => [
-                          ...state.comics.map((e) => ComicsEntry(e)),
-                          const SizedBox(
-                            height: 96,
-                            child: Center(
-                              child: SizedBox(height: 40, width: 40, child: CircularProgressIndicator()),
-                            ),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-              )
-            ],
+          body: comicsState.map(
+            loading: (state) => pageLoadingSpinner,
+            loaded: (state) => ListView(
+              comics: state.comics,
+              canLoadMore: state.canLoadMore,
+              filter: widget.filter,
+            ),
+            moreLoading: (state) => ListView(
+              comics: state.comics,
+              canLoadMore: null,
+              showSpinner: true,
+              filter: widget.filter,
+            ),
           ),
         );
       },
@@ -158,6 +115,58 @@ class ComicsEntry extends StatelessWidget {
             )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class ListView extends StatefulWidget {
+  const ListView({super.key, required this.comics, this.showSpinner = false, this.canLoadMore, this.filter});
+
+  final List<Comic> comics;
+  final bool showSpinner;
+  final bool? canLoadMore;
+  final ApiFilter? filter;
+
+  @override
+  State<ListView> createState() => _ListViewState();
+}
+
+class _ListViewState extends State<ListView> {
+  ScrollController scrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    scrollController.addListener(() {
+      if (scrollController.position.pixels == scrollController.position.maxScrollExtent && widget.canLoadMore == true) {
+        bloc.add(ComicsEvent.onMoreDataLoading(filter: widget.filter));
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      controller: scrollController,
+      child: Column(
+        children: [
+          const SizedBox(height: 8),
+          ...widget.comics.map((e) => ComicsEntry(e)),
+          if (widget.showSpinner)
+            const SizedBox(
+              height: 96,
+              child: loadingSpinner,
+            )
+          else
+            const SizedBox(height: 96),
+        ],
       ),
     );
   }

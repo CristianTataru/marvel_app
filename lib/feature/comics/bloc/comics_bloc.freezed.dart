@@ -18,28 +18,22 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ComicsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Character? character, Creator? creator,
-            Series? series, Story? story, bool filtred)
-        onPageOpened,
-    required TResult Function() onMoreDataLoading,
+    required TResult Function(ApiFilter? filter) onPageOpened,
+    required TResult Function(ApiFilter? filter) onMoreDataLoading,
     required TResult Function(Comic comic) onComicTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Character? character, Creator? creator, Series? series,
-            Story? story, bool filtred)?
-        onPageOpened,
-    TResult? Function()? onMoreDataLoading,
+    TResult? Function(ApiFilter? filter)? onPageOpened,
+    TResult? Function(ApiFilter? filter)? onMoreDataLoading,
     TResult? Function(Comic comic)? onComicTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Character? character, Creator? creator, Series? series,
-            Story? story, bool filtred)?
-        onPageOpened,
-    TResult Function()? onMoreDataLoading,
+    TResult Function(ApiFilter? filter)? onPageOpened,
+    TResult Function(ApiFilter? filter)? onMoreDataLoading,
     TResult Function(Comic comic)? onComicTapped,
     required TResult orElse(),
   }) =>
@@ -93,17 +87,7 @@ abstract class _$$_ComicsOnPageOpenedEventCopyWith<$Res> {
           $Res Function(_$_ComicsOnPageOpenedEvent) then) =
       __$$_ComicsOnPageOpenedEventCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {Character? character,
-      Creator? creator,
-      Series? series,
-      Story? story,
-      bool filtred});
-
-  $CharacterCopyWith<$Res>? get character;
-  $CreatorCopyWith<$Res>? get creator;
-  $SeriesCopyWith<$Res>? get series;
-  $StoryCopyWith<$Res>? get story;
+  $Res call({ApiFilter? filter});
 }
 
 /// @nodoc
@@ -117,109 +101,28 @@ class __$$_ComicsOnPageOpenedEventCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? character = freezed,
-    Object? creator = freezed,
-    Object? series = freezed,
-    Object? story = freezed,
-    Object? filtred = null,
+    Object? filter = freezed,
   }) {
     return _then(_$_ComicsOnPageOpenedEvent(
-      character: freezed == character
-          ? _value.character
-          : character // ignore: cast_nullable_to_non_nullable
-              as Character?,
-      creator: freezed == creator
-          ? _value.creator
-          : creator // ignore: cast_nullable_to_non_nullable
-              as Creator?,
-      series: freezed == series
-          ? _value.series
-          : series // ignore: cast_nullable_to_non_nullable
-              as Series?,
-      story: freezed == story
-          ? _value.story
-          : story // ignore: cast_nullable_to_non_nullable
-              as Story?,
-      filtred: null == filtred
-          ? _value.filtred
-          : filtred // ignore: cast_nullable_to_non_nullable
-              as bool,
+      filter: freezed == filter
+          ? _value.filter
+          : filter // ignore: cast_nullable_to_non_nullable
+              as ApiFilter?,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $CharacterCopyWith<$Res>? get character {
-    if (_value.character == null) {
-      return null;
-    }
-
-    return $CharacterCopyWith<$Res>(_value.character!, (value) {
-      return _then(_value.copyWith(character: value));
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $CreatorCopyWith<$Res>? get creator {
-    if (_value.creator == null) {
-      return null;
-    }
-
-    return $CreatorCopyWith<$Res>(_value.creator!, (value) {
-      return _then(_value.copyWith(creator: value));
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $SeriesCopyWith<$Res>? get series {
-    if (_value.series == null) {
-      return null;
-    }
-
-    return $SeriesCopyWith<$Res>(_value.series!, (value) {
-      return _then(_value.copyWith(series: value));
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $StoryCopyWith<$Res>? get story {
-    if (_value.story == null) {
-      return null;
-    }
-
-    return $StoryCopyWith<$Res>(_value.story!, (value) {
-      return _then(_value.copyWith(story: value));
-    });
   }
 }
 
 /// @nodoc
 
 class _$_ComicsOnPageOpenedEvent implements _ComicsOnPageOpenedEvent {
-  const _$_ComicsOnPageOpenedEvent(
-      {required this.character,
-      required this.creator,
-      required this.series,
-      required this.story,
-      required this.filtred});
+  const _$_ComicsOnPageOpenedEvent({required this.filter});
 
   @override
-  final Character? character;
-  @override
-  final Creator? creator;
-  @override
-  final Series? series;
-  @override
-  final Story? story;
-  @override
-  final bool filtred;
+  final ApiFilter? filter;
 
   @override
   String toString() {
-    return 'ComicsEvent.onPageOpened(character: $character, creator: $creator, series: $series, story: $story, filtred: $filtred)';
+    return 'ComicsEvent.onPageOpened(filter: $filter)';
   }
 
   @override
@@ -227,17 +130,11 @@ class _$_ComicsOnPageOpenedEvent implements _ComicsOnPageOpenedEvent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ComicsOnPageOpenedEvent &&
-            (identical(other.character, character) ||
-                other.character == character) &&
-            (identical(other.creator, creator) || other.creator == creator) &&
-            (identical(other.series, series) || other.series == series) &&
-            (identical(other.story, story) || other.story == story) &&
-            (identical(other.filtred, filtred) || other.filtred == filtred));
+            (identical(other.filter, filter) || other.filter == filter));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, character, creator, series, story, filtred);
+  int get hashCode => Object.hash(runtimeType, filter);
 
   @JsonKey(ignore: true)
   @override
@@ -250,39 +147,33 @@ class _$_ComicsOnPageOpenedEvent implements _ComicsOnPageOpenedEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Character? character, Creator? creator,
-            Series? series, Story? story, bool filtred)
-        onPageOpened,
-    required TResult Function() onMoreDataLoading,
+    required TResult Function(ApiFilter? filter) onPageOpened,
+    required TResult Function(ApiFilter? filter) onMoreDataLoading,
     required TResult Function(Comic comic) onComicTapped,
   }) {
-    return onPageOpened(character, creator, series, story, filtred);
+    return onPageOpened(filter);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Character? character, Creator? creator, Series? series,
-            Story? story, bool filtred)?
-        onPageOpened,
-    TResult? Function()? onMoreDataLoading,
+    TResult? Function(ApiFilter? filter)? onPageOpened,
+    TResult? Function(ApiFilter? filter)? onMoreDataLoading,
     TResult? Function(Comic comic)? onComicTapped,
   }) {
-    return onPageOpened?.call(character, creator, series, story, filtred);
+    return onPageOpened?.call(filter);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Character? character, Creator? creator, Series? series,
-            Story? story, bool filtred)?
-        onPageOpened,
-    TResult Function()? onMoreDataLoading,
+    TResult Function(ApiFilter? filter)? onPageOpened,
+    TResult Function(ApiFilter? filter)? onMoreDataLoading,
     TResult Function(Comic comic)? onComicTapped,
     required TResult orElse(),
   }) {
     if (onPageOpened != null) {
-      return onPageOpened(character, creator, series, story, filtred);
+      return onPageOpened(filter);
     }
     return orElse();
   }
@@ -324,18 +215,10 @@ class _$_ComicsOnPageOpenedEvent implements _ComicsOnPageOpenedEvent {
 }
 
 abstract class _ComicsOnPageOpenedEvent implements ComicsEvent {
-  const factory _ComicsOnPageOpenedEvent(
-      {required final Character? character,
-      required final Creator? creator,
-      required final Series? series,
-      required final Story? story,
-      required final bool filtred}) = _$_ComicsOnPageOpenedEvent;
+  const factory _ComicsOnPageOpenedEvent({required final ApiFilter? filter}) =
+      _$_ComicsOnPageOpenedEvent;
 
-  Character? get character;
-  Creator? get creator;
-  Series? get series;
-  Story? get story;
-  bool get filtred;
+  ApiFilter? get filter;
   @JsonKey(ignore: true)
   _$$_ComicsOnPageOpenedEventCopyWith<_$_ComicsOnPageOpenedEvent>
       get copyWith => throw _privateConstructorUsedError;
@@ -347,6 +230,8 @@ abstract class _$$_ComicsMoreDataLoadingEventCopyWith<$Res> {
           _$_ComicsMoreDataLoadingEvent value,
           $Res Function(_$_ComicsMoreDataLoadingEvent) then) =
       __$$_ComicsMoreDataLoadingEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ApiFilter? filter});
 }
 
 /// @nodoc
@@ -357,64 +242,82 @@ class __$$_ComicsMoreDataLoadingEventCopyWithImpl<$Res>
       _$_ComicsMoreDataLoadingEvent _value,
       $Res Function(_$_ComicsMoreDataLoadingEvent) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? filter = freezed,
+  }) {
+    return _then(_$_ComicsMoreDataLoadingEvent(
+      filter: freezed == filter
+          ? _value.filter
+          : filter // ignore: cast_nullable_to_non_nullable
+              as ApiFilter?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_ComicsMoreDataLoadingEvent implements _ComicsMoreDataLoadingEvent {
-  const _$_ComicsMoreDataLoadingEvent();
+  const _$_ComicsMoreDataLoadingEvent({required this.filter});
+
+  @override
+  final ApiFilter? filter;
 
   @override
   String toString() {
-    return 'ComicsEvent.onMoreDataLoading()';
+    return 'ComicsEvent.onMoreDataLoading(filter: $filter)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ComicsMoreDataLoadingEvent);
+            other is _$_ComicsMoreDataLoadingEvent &&
+            (identical(other.filter, filter) || other.filter == filter));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, filter);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ComicsMoreDataLoadingEventCopyWith<_$_ComicsMoreDataLoadingEvent>
+      get copyWith => __$$_ComicsMoreDataLoadingEventCopyWithImpl<
+          _$_ComicsMoreDataLoadingEvent>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Character? character, Creator? creator,
-            Series? series, Story? story, bool filtred)
-        onPageOpened,
-    required TResult Function() onMoreDataLoading,
+    required TResult Function(ApiFilter? filter) onPageOpened,
+    required TResult Function(ApiFilter? filter) onMoreDataLoading,
     required TResult Function(Comic comic) onComicTapped,
   }) {
-    return onMoreDataLoading();
+    return onMoreDataLoading(filter);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Character? character, Creator? creator, Series? series,
-            Story? story, bool filtred)?
-        onPageOpened,
-    TResult? Function()? onMoreDataLoading,
+    TResult? Function(ApiFilter? filter)? onPageOpened,
+    TResult? Function(ApiFilter? filter)? onMoreDataLoading,
     TResult? Function(Comic comic)? onComicTapped,
   }) {
-    return onMoreDataLoading?.call();
+    return onMoreDataLoading?.call(filter);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Character? character, Creator? creator, Series? series,
-            Story? story, bool filtred)?
-        onPageOpened,
-    TResult Function()? onMoreDataLoading,
+    TResult Function(ApiFilter? filter)? onPageOpened,
+    TResult Function(ApiFilter? filter)? onMoreDataLoading,
     TResult Function(Comic comic)? onComicTapped,
     required TResult orElse(),
   }) {
     if (onMoreDataLoading != null) {
-      return onMoreDataLoading();
+      return onMoreDataLoading(filter);
     }
     return orElse();
   }
@@ -456,7 +359,13 @@ class _$_ComicsMoreDataLoadingEvent implements _ComicsMoreDataLoadingEvent {
 }
 
 abstract class _ComicsMoreDataLoadingEvent implements ComicsEvent {
-  const factory _ComicsMoreDataLoadingEvent() = _$_ComicsMoreDataLoadingEvent;
+  const factory _ComicsMoreDataLoadingEvent(
+      {required final ApiFilter? filter}) = _$_ComicsMoreDataLoadingEvent;
+
+  ApiFilter? get filter;
+  @JsonKey(ignore: true)
+  _$$_ComicsMoreDataLoadingEventCopyWith<_$_ComicsMoreDataLoadingEvent>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -535,10 +444,8 @@ class _$_ComicOnComicTappedEvent implements _ComicOnComicTappedEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Character? character, Creator? creator,
-            Series? series, Story? story, bool filtred)
-        onPageOpened,
-    required TResult Function() onMoreDataLoading,
+    required TResult Function(ApiFilter? filter) onPageOpened,
+    required TResult Function(ApiFilter? filter) onMoreDataLoading,
     required TResult Function(Comic comic) onComicTapped,
   }) {
     return onComicTapped(comic);
@@ -547,10 +454,8 @@ class _$_ComicOnComicTappedEvent implements _ComicOnComicTappedEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Character? character, Creator? creator, Series? series,
-            Story? story, bool filtred)?
-        onPageOpened,
-    TResult? Function()? onMoreDataLoading,
+    TResult? Function(ApiFilter? filter)? onPageOpened,
+    TResult? Function(ApiFilter? filter)? onMoreDataLoading,
     TResult? Function(Comic comic)? onComicTapped,
   }) {
     return onComicTapped?.call(comic);
@@ -559,10 +464,8 @@ class _$_ComicOnComicTappedEvent implements _ComicOnComicTappedEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Character? character, Creator? creator, Series? series,
-            Story? story, bool filtred)?
-        onPageOpened,
-    TResult Function()? onMoreDataLoading,
+    TResult Function(ApiFilter? filter)? onPageOpened,
+    TResult Function(ApiFilter? filter)? onMoreDataLoading,
     TResult Function(Comic comic)? onComicTapped,
     required TResult orElse(),
   }) {

@@ -2,6 +2,7 @@ part of 'characters_bloc.dart';
 
 @freezed
 class CharactersState with _$CharactersState {
+  const factory CharactersState.loading() = _CharactersLoadingState;
   const factory CharactersState.loaded({
     required bool canLoadMore,
     required int lastOffset,

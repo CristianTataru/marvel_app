@@ -159,6 +159,7 @@ class _MarvelApi implements MarvelApi {
   Future<ApiResponseCharacterComic> getCharacterComics(
     int characterId,
     int limit,
+    int offset,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -172,7 +173,7 @@ class _MarvelApi implements MarvelApi {
     )
             .compose(
               _dio.options,
-              'characters/${characterId}/comics?limit=${limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
+              'characters/${characterId}/comics?limit=${limit}&offset=${offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -189,6 +190,7 @@ class _MarvelApi implements MarvelApi {
   Future<ApiResponseCharacterSeries> getCharacterSeries(
     int characterId,
     int limit,
+    int offset,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -202,7 +204,7 @@ class _MarvelApi implements MarvelApi {
     )
             .compose(
               _dio.options,
-              'characters/${characterId}/series?limit=${limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
+              'characters/${characterId}/series?limit=${limit}&offset=${offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -219,6 +221,7 @@ class _MarvelApi implements MarvelApi {
   Future<ApiResponseCharacterStories> getCharacterStories(
     int characterId,
     int limit,
+    int offset,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -232,7 +235,7 @@ class _MarvelApi implements MarvelApi {
     )
             .compose(
               _dio.options,
-              'characters/${characterId}/stories?limit=${limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
+              'characters/${characterId}/stories?limit=${limit}&offset=${offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -249,6 +252,7 @@ class _MarvelApi implements MarvelApi {
   Future<ApiResponseComicCharacters> getComicCharacters(
     int comicId,
     int limit,
+    int offset,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -262,7 +266,7 @@ class _MarvelApi implements MarvelApi {
     )
             .compose(
               _dio.options,
-              'comics/${comicId}/characters?limit=${limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
+              'comics/${comicId}/characters?limit=${limit}&offset=${offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -279,6 +283,7 @@ class _MarvelApi implements MarvelApi {
   Future<ApiResponseComicStories> getComicStories(
     int comicId,
     int limit,
+    int offset,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -292,7 +297,7 @@ class _MarvelApi implements MarvelApi {
     )
             .compose(
               _dio.options,
-              'comics/${comicId}/stories?limit=${limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
+              'comics/${comicId}/stories?limit=${limit}&offset=${offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -309,6 +314,7 @@ class _MarvelApi implements MarvelApi {
   Future<ApiResponseComicCreators> getComicCreators(
     int comicId,
     int limit,
+    int offset,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -322,7 +328,7 @@ class _MarvelApi implements MarvelApi {
     )
             .compose(
               _dio.options,
-              'comics/${comicId}/creators?limit=${limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
+              'comics/${comicId}/creators?limit=${limit}&offset=${offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -339,6 +345,7 @@ class _MarvelApi implements MarvelApi {
   Future<ApiResponseSeriesCharacters> getSeriesCharacters(
     int seriesId,
     int limit,
+    int offset,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -352,7 +359,7 @@ class _MarvelApi implements MarvelApi {
     )
             .compose(
               _dio.options,
-              'series/${seriesId}/characters?limit=${limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
+              'series/${seriesId}/characters?limit=${limit}&offset=${offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -369,6 +376,7 @@ class _MarvelApi implements MarvelApi {
   Future<ApiResponseSeriesComics> getSeriesComics(
     int seriesId,
     int limit,
+    int offset,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -382,7 +390,7 @@ class _MarvelApi implements MarvelApi {
     )
             .compose(
               _dio.options,
-              'series/${seriesId}/comics?limit=${limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
+              'series/${seriesId}/comics?limit=${limit}&offset=${offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -399,6 +407,7 @@ class _MarvelApi implements MarvelApi {
   Future<ApiResponseSeriesCreators> getSeriesCreators(
     int seriesId,
     int limit,
+    int offset,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -412,7 +421,7 @@ class _MarvelApi implements MarvelApi {
     )
             .compose(
               _dio.options,
-              'series/${seriesId}/creators?limit=${limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
+              'series/${seriesId}/creators?limit=${limit}&offset=${offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -429,6 +438,7 @@ class _MarvelApi implements MarvelApi {
   Future<ApiResponseSeriesStories> getSeriesStories(
     int seriesId,
     int limit,
+    int offset,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -442,7 +452,7 @@ class _MarvelApi implements MarvelApi {
     )
             .compose(
               _dio.options,
-              'series/${seriesId}/stories?limit=${limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
+              'series/${seriesId}/stories?limit=${limit}&offset=${offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -459,6 +469,7 @@ class _MarvelApi implements MarvelApi {
   Future<ApiResponseStoryCharacters> getStoryCharacters(
     int seriesId,
     int limit,
+    int offset,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -472,7 +483,7 @@ class _MarvelApi implements MarvelApi {
     )
             .compose(
               _dio.options,
-              'stories/${seriesId}/characters?limit=${limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
+              'stories/${seriesId}/characters?limit=${limit}&offset=${offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -489,6 +500,7 @@ class _MarvelApi implements MarvelApi {
   Future<ApiResponseStoryComics> getStoryComics(
     int seriesId,
     int limit,
+    int offset,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -502,7 +514,7 @@ class _MarvelApi implements MarvelApi {
     )
             .compose(
               _dio.options,
-              'stories/${seriesId}/comics?limit=${limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
+              'stories/${seriesId}/comics?limit=${limit}&offset=${offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -519,6 +531,7 @@ class _MarvelApi implements MarvelApi {
   Future<ApiResponseStorySeries> getStorySeries(
     int seriesId,
     int limit,
+    int offset,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -532,7 +545,7 @@ class _MarvelApi implements MarvelApi {
     )
             .compose(
               _dio.options,
-              'stories/${seriesId}/series?limit=${limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
+              'stories/${seriesId}/series?limit=${limit}&offset=${offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -549,6 +562,7 @@ class _MarvelApi implements MarvelApi {
   Future<ApiResponseStoryCreators> getStoryCreators(
     int seriesId,
     int limit,
+    int offset,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -562,7 +576,7 @@ class _MarvelApi implements MarvelApi {
     )
             .compose(
               _dio.options,
-              'stories/${seriesId}/creators?limit=${limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
+              'stories/${seriesId}/creators?limit=${limit}&offset=${offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -579,6 +593,7 @@ class _MarvelApi implements MarvelApi {
   Future<ApiResponseCreatorComic> getCreatorComics(
     int creatorId,
     int limit,
+    int offset,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -592,7 +607,7 @@ class _MarvelApi implements MarvelApi {
     )
             .compose(
               _dio.options,
-              'creators/${creatorId}/comics?limit=${limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
+              'creators/${creatorId}/comics?limit=${limit}&offset=${offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -609,6 +624,7 @@ class _MarvelApi implements MarvelApi {
   Future<ApiResponseCreatorSeries> getCreatorSeries(
     int creatorId,
     int limit,
+    int offset,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -622,7 +638,7 @@ class _MarvelApi implements MarvelApi {
     )
             .compose(
               _dio.options,
-              'creators/${creatorId}/series?limit=${limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
+              'creators/${creatorId}/series?limit=${limit}&offset=${offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -639,6 +655,7 @@ class _MarvelApi implements MarvelApi {
   Future<ApiResponseCreatorStories> getCreatorStories(
     int creatorId,
     int limit,
+    int offset,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -652,7 +669,7 @@ class _MarvelApi implements MarvelApi {
     )
             .compose(
               _dio.options,
-              'creators/${creatorId}/stories?limit=${limit}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
+              'creators/${creatorId}/stories?limit=${limit}&offset=${offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d',
               queryParameters: queryParameters,
               data: _data,
             )

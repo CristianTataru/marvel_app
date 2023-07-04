@@ -18,22 +18,22 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SeriesEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onPageOpened,
-    required TResult Function() onMoreDataLoading,
+    required TResult Function(ApiFilter? filter) onPageOpened,
+    required TResult Function(ApiFilter? filter) onMoreDataLoading,
     required TResult Function(Series series) onSeriesTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onPageOpened,
-    TResult? Function()? onMoreDataLoading,
+    TResult? Function(ApiFilter? filter)? onPageOpened,
+    TResult? Function(ApiFilter? filter)? onMoreDataLoading,
     TResult? Function(Series series)? onSeriesTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onPageOpened,
-    TResult Function()? onMoreDataLoading,
+    TResult Function(ApiFilter? filter)? onPageOpened,
+    TResult Function(ApiFilter? filter)? onMoreDataLoading,
     TResult Function(Series series)? onSeriesTapped,
     required TResult orElse(),
   }) =>
@@ -86,6 +86,8 @@ abstract class _$$_SeriesOnPageOpenedEventCopyWith<$Res> {
   factory _$$_SeriesOnPageOpenedEventCopyWith(_$_SeriesOnPageOpenedEvent value,
           $Res Function(_$_SeriesOnPageOpenedEvent) then) =
       __$$_SeriesOnPageOpenedEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ApiFilter? filter});
 }
 
 /// @nodoc
@@ -95,58 +97,83 @@ class __$$_SeriesOnPageOpenedEventCopyWithImpl<$Res>
   __$$_SeriesOnPageOpenedEventCopyWithImpl(_$_SeriesOnPageOpenedEvent _value,
       $Res Function(_$_SeriesOnPageOpenedEvent) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? filter = freezed,
+  }) {
+    return _then(_$_SeriesOnPageOpenedEvent(
+      filter: freezed == filter
+          ? _value.filter
+          : filter // ignore: cast_nullable_to_non_nullable
+              as ApiFilter?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_SeriesOnPageOpenedEvent implements _SeriesOnPageOpenedEvent {
-  const _$_SeriesOnPageOpenedEvent();
+  const _$_SeriesOnPageOpenedEvent({required this.filter});
+
+  @override
+  final ApiFilter? filter;
 
   @override
   String toString() {
-    return 'SeriesEvent.onPageOpened()';
+    return 'SeriesEvent.onPageOpened(filter: $filter)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SeriesOnPageOpenedEvent);
+            other is _$_SeriesOnPageOpenedEvent &&
+            (identical(other.filter, filter) || other.filter == filter));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, filter);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SeriesOnPageOpenedEventCopyWith<_$_SeriesOnPageOpenedEvent>
+      get copyWith =>
+          __$$_SeriesOnPageOpenedEventCopyWithImpl<_$_SeriesOnPageOpenedEvent>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onPageOpened,
-    required TResult Function() onMoreDataLoading,
+    required TResult Function(ApiFilter? filter) onPageOpened,
+    required TResult Function(ApiFilter? filter) onMoreDataLoading,
     required TResult Function(Series series) onSeriesTapped,
   }) {
-    return onPageOpened();
+    return onPageOpened(filter);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onPageOpened,
-    TResult? Function()? onMoreDataLoading,
+    TResult? Function(ApiFilter? filter)? onPageOpened,
+    TResult? Function(ApiFilter? filter)? onMoreDataLoading,
     TResult? Function(Series series)? onSeriesTapped,
   }) {
-    return onPageOpened?.call();
+    return onPageOpened?.call(filter);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onPageOpened,
-    TResult Function()? onMoreDataLoading,
+    TResult Function(ApiFilter? filter)? onPageOpened,
+    TResult Function(ApiFilter? filter)? onMoreDataLoading,
     TResult Function(Series series)? onSeriesTapped,
     required TResult orElse(),
   }) {
     if (onPageOpened != null) {
-      return onPageOpened();
+      return onPageOpened(filter);
     }
     return orElse();
   }
@@ -188,7 +215,13 @@ class _$_SeriesOnPageOpenedEvent implements _SeriesOnPageOpenedEvent {
 }
 
 abstract class _SeriesOnPageOpenedEvent implements SeriesEvent {
-  const factory _SeriesOnPageOpenedEvent() = _$_SeriesOnPageOpenedEvent;
+  const factory _SeriesOnPageOpenedEvent({required final ApiFilter? filter}) =
+      _$_SeriesOnPageOpenedEvent;
+
+  ApiFilter? get filter;
+  @JsonKey(ignore: true)
+  _$$_SeriesOnPageOpenedEventCopyWith<_$_SeriesOnPageOpenedEvent>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -197,6 +230,8 @@ abstract class _$$_SeriesMoreDataLoadingEventCopyWith<$Res> {
           _$_SeriesMoreDataLoadingEvent value,
           $Res Function(_$_SeriesMoreDataLoadingEvent) then) =
       __$$_SeriesMoreDataLoadingEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ApiFilter? filter});
 }
 
 /// @nodoc
@@ -207,58 +242,82 @@ class __$$_SeriesMoreDataLoadingEventCopyWithImpl<$Res>
       _$_SeriesMoreDataLoadingEvent _value,
       $Res Function(_$_SeriesMoreDataLoadingEvent) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? filter = freezed,
+  }) {
+    return _then(_$_SeriesMoreDataLoadingEvent(
+      filter: freezed == filter
+          ? _value.filter
+          : filter // ignore: cast_nullable_to_non_nullable
+              as ApiFilter?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_SeriesMoreDataLoadingEvent implements _SeriesMoreDataLoadingEvent {
-  const _$_SeriesMoreDataLoadingEvent();
+  const _$_SeriesMoreDataLoadingEvent({required this.filter});
+
+  @override
+  final ApiFilter? filter;
 
   @override
   String toString() {
-    return 'SeriesEvent.onMoreDataLoading()';
+    return 'SeriesEvent.onMoreDataLoading(filter: $filter)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SeriesMoreDataLoadingEvent);
+            other is _$_SeriesMoreDataLoadingEvent &&
+            (identical(other.filter, filter) || other.filter == filter));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, filter);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SeriesMoreDataLoadingEventCopyWith<_$_SeriesMoreDataLoadingEvent>
+      get copyWith => __$$_SeriesMoreDataLoadingEventCopyWithImpl<
+          _$_SeriesMoreDataLoadingEvent>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onPageOpened,
-    required TResult Function() onMoreDataLoading,
+    required TResult Function(ApiFilter? filter) onPageOpened,
+    required TResult Function(ApiFilter? filter) onMoreDataLoading,
     required TResult Function(Series series) onSeriesTapped,
   }) {
-    return onMoreDataLoading();
+    return onMoreDataLoading(filter);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onPageOpened,
-    TResult? Function()? onMoreDataLoading,
+    TResult? Function(ApiFilter? filter)? onPageOpened,
+    TResult? Function(ApiFilter? filter)? onMoreDataLoading,
     TResult? Function(Series series)? onSeriesTapped,
   }) {
-    return onMoreDataLoading?.call();
+    return onMoreDataLoading?.call(filter);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onPageOpened,
-    TResult Function()? onMoreDataLoading,
+    TResult Function(ApiFilter? filter)? onPageOpened,
+    TResult Function(ApiFilter? filter)? onMoreDataLoading,
     TResult Function(Series series)? onSeriesTapped,
     required TResult orElse(),
   }) {
     if (onMoreDataLoading != null) {
-      return onMoreDataLoading();
+      return onMoreDataLoading(filter);
     }
     return orElse();
   }
@@ -300,7 +359,13 @@ class _$_SeriesMoreDataLoadingEvent implements _SeriesMoreDataLoadingEvent {
 }
 
 abstract class _SeriesMoreDataLoadingEvent implements SeriesEvent {
-  const factory _SeriesMoreDataLoadingEvent() = _$_SeriesMoreDataLoadingEvent;
+  const factory _SeriesMoreDataLoadingEvent(
+      {required final ApiFilter? filter}) = _$_SeriesMoreDataLoadingEvent;
+
+  ApiFilter? get filter;
+  @JsonKey(ignore: true)
+  _$$_SeriesMoreDataLoadingEventCopyWith<_$_SeriesMoreDataLoadingEvent>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -380,8 +445,8 @@ class _$_SeriesOnSeriesTappedEvent implements _SeriesOnSeriesTappedEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onPageOpened,
-    required TResult Function() onMoreDataLoading,
+    required TResult Function(ApiFilter? filter) onPageOpened,
+    required TResult Function(ApiFilter? filter) onMoreDataLoading,
     required TResult Function(Series series) onSeriesTapped,
   }) {
     return onSeriesTapped(series);
@@ -390,8 +455,8 @@ class _$_SeriesOnSeriesTappedEvent implements _SeriesOnSeriesTappedEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onPageOpened,
-    TResult? Function()? onMoreDataLoading,
+    TResult? Function(ApiFilter? filter)? onPageOpened,
+    TResult? Function(ApiFilter? filter)? onMoreDataLoading,
     TResult? Function(Series series)? onSeriesTapped,
   }) {
     return onSeriesTapped?.call(series);
@@ -400,8 +465,8 @@ class _$_SeriesOnSeriesTappedEvent implements _SeriesOnSeriesTappedEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onPageOpened,
-    TResult Function()? onMoreDataLoading,
+    TResult Function(ApiFilter? filter)? onPageOpened,
+    TResult Function(ApiFilter? filter)? onMoreDataLoading,
     TResult Function(Series series)? onSeriesTapped,
     required TResult orElse(),
   }) {
@@ -459,9 +524,9 @@ abstract class _SeriesOnSeriesTappedEvent implements SeriesEvent {
 
 /// @nodoc
 mixin _$SeriesState {
-  List<Series> get series => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() loading,
     required TResult Function(
             bool canLoadMore, int lastOffset, List<Series> series)
         loaded,
@@ -470,6 +535,7 @@ mixin _$SeriesState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
     TResult? Function(bool canLoadMore, int lastOffset, List<Series> series)?
         loaded,
     TResult? Function(List<Series> series)? moreLoading,
@@ -477,6 +543,7 @@ mixin _$SeriesState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
     TResult Function(bool canLoadMore, int lastOffset, List<Series> series)?
         loaded,
     TResult Function(List<Series> series)? moreLoading,
@@ -485,26 +552,25 @@ mixin _$SeriesState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_SeriesLoadingState value) loading,
     required TResult Function(_SeriesLoadedState value) loaded,
     required TResult Function(_SeriesMoreLoadingState value) moreLoading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SeriesLoadingState value)? loading,
     TResult? Function(_SeriesLoadedState value)? loaded,
     TResult? Function(_SeriesMoreLoadingState value)? moreLoading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SeriesLoadingState value)? loading,
     TResult Function(_SeriesLoadedState value)? loaded,
     TResult Function(_SeriesMoreLoadingState value)? moreLoading,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $SeriesStateCopyWith<SeriesState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -513,8 +579,6 @@ abstract class $SeriesStateCopyWith<$Res> {
   factory $SeriesStateCopyWith(
           SeriesState value, $Res Function(SeriesState) then) =
       _$SeriesStateCopyWithImpl<$Res, SeriesState>;
-  @useResult
-  $Res call({List<Series> series});
 }
 
 /// @nodoc
@@ -526,28 +590,125 @@ class _$SeriesStateCopyWithImpl<$Res, $Val extends SeriesState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? series = null,
-  }) {
-    return _then(_value.copyWith(
-      series: null == series
-          ? _value.series
-          : series // ignore: cast_nullable_to_non_nullable
-              as List<Series>,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$_SeriesLoadedStateCopyWith<$Res>
-    implements $SeriesStateCopyWith<$Res> {
+abstract class _$$_SeriesLoadingStateCopyWith<$Res> {
+  factory _$$_SeriesLoadingStateCopyWith(_$_SeriesLoadingState value,
+          $Res Function(_$_SeriesLoadingState) then) =
+      __$$_SeriesLoadingStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SeriesLoadingStateCopyWithImpl<$Res>
+    extends _$SeriesStateCopyWithImpl<$Res, _$_SeriesLoadingState>
+    implements _$$_SeriesLoadingStateCopyWith<$Res> {
+  __$$_SeriesLoadingStateCopyWithImpl(
+      _$_SeriesLoadingState _value, $Res Function(_$_SeriesLoadingState) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_SeriesLoadingState implements _SeriesLoadingState {
+  const _$_SeriesLoadingState();
+
+  @override
+  String toString() {
+    return 'SeriesState.loading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SeriesLoadingState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function(
+            bool canLoadMore, int lastOffset, List<Series> series)
+        loaded,
+    required TResult Function(List<Series> series) moreLoading,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
+    TResult? Function(bool canLoadMore, int lastOffset, List<Series> series)?
+        loaded,
+    TResult? Function(List<Series> series)? moreLoading,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(bool canLoadMore, int lastOffset, List<Series> series)?
+        loaded,
+    TResult Function(List<Series> series)? moreLoading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SeriesLoadingState value) loading,
+    required TResult Function(_SeriesLoadedState value) loaded,
+    required TResult Function(_SeriesMoreLoadingState value) moreLoading,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SeriesLoadingState value)? loading,
+    TResult? Function(_SeriesLoadedState value)? loaded,
+    TResult? Function(_SeriesMoreLoadingState value)? moreLoading,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SeriesLoadingState value)? loading,
+    TResult Function(_SeriesLoadedState value)? loaded,
+    TResult Function(_SeriesMoreLoadingState value)? moreLoading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SeriesLoadingState implements SeriesState {
+  const factory _SeriesLoadingState() = _$_SeriesLoadingState;
+}
+
+/// @nodoc
+abstract class _$$_SeriesLoadedStateCopyWith<$Res> {
   factory _$$_SeriesLoadedStateCopyWith(_$_SeriesLoadedState value,
           $Res Function(_$_SeriesLoadedState) then) =
       __$$_SeriesLoadedStateCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({bool canLoadMore, int lastOffset, List<Series> series});
 }
@@ -636,6 +797,7 @@ class _$_SeriesLoadedState implements _SeriesLoadedState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() loading,
     required TResult Function(
             bool canLoadMore, int lastOffset, List<Series> series)
         loaded,
@@ -647,6 +809,7 @@ class _$_SeriesLoadedState implements _SeriesLoadedState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
     TResult? Function(bool canLoadMore, int lastOffset, List<Series> series)?
         loaded,
     TResult? Function(List<Series> series)? moreLoading,
@@ -657,6 +820,7 @@ class _$_SeriesLoadedState implements _SeriesLoadedState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
     TResult Function(bool canLoadMore, int lastOffset, List<Series> series)?
         loaded,
     TResult Function(List<Series> series)? moreLoading,
@@ -671,6 +835,7 @@ class _$_SeriesLoadedState implements _SeriesLoadedState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_SeriesLoadingState value) loading,
     required TResult Function(_SeriesLoadedState value) loaded,
     required TResult Function(_SeriesMoreLoadingState value) moreLoading,
   }) {
@@ -680,6 +845,7 @@ class _$_SeriesLoadedState implements _SeriesLoadedState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SeriesLoadingState value)? loading,
     TResult? Function(_SeriesLoadedState value)? loaded,
     TResult? Function(_SeriesMoreLoadingState value)? moreLoading,
   }) {
@@ -689,6 +855,7 @@ class _$_SeriesLoadedState implements _SeriesLoadedState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SeriesLoadingState value)? loading,
     TResult Function(_SeriesLoadedState value)? loaded,
     TResult Function(_SeriesMoreLoadingState value)? moreLoading,
     required TResult orElse(),
@@ -708,21 +875,17 @@ abstract class _SeriesLoadedState implements SeriesState {
 
   bool get canLoadMore;
   int get lastOffset;
-  @override
   List<Series> get series;
-  @override
   @JsonKey(ignore: true)
   _$$_SeriesLoadedStateCopyWith<_$_SeriesLoadedState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_SeriesMoreLoadingStateCopyWith<$Res>
-    implements $SeriesStateCopyWith<$Res> {
+abstract class _$$_SeriesMoreLoadingStateCopyWith<$Res> {
   factory _$$_SeriesMoreLoadingStateCopyWith(_$_SeriesMoreLoadingState value,
           $Res Function(_$_SeriesMoreLoadingState) then) =
       __$$_SeriesMoreLoadingStateCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({List<Series> series});
 }
@@ -790,6 +953,7 @@ class _$_SeriesMoreLoadingState implements _SeriesMoreLoadingState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() loading,
     required TResult Function(
             bool canLoadMore, int lastOffset, List<Series> series)
         loaded,
@@ -801,6 +965,7 @@ class _$_SeriesMoreLoadingState implements _SeriesMoreLoadingState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
     TResult? Function(bool canLoadMore, int lastOffset, List<Series> series)?
         loaded,
     TResult? Function(List<Series> series)? moreLoading,
@@ -811,6 +976,7 @@ class _$_SeriesMoreLoadingState implements _SeriesMoreLoadingState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
     TResult Function(bool canLoadMore, int lastOffset, List<Series> series)?
         loaded,
     TResult Function(List<Series> series)? moreLoading,
@@ -825,6 +991,7 @@ class _$_SeriesMoreLoadingState implements _SeriesMoreLoadingState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_SeriesLoadingState value) loading,
     required TResult Function(_SeriesLoadedState value) loaded,
     required TResult Function(_SeriesMoreLoadingState value) moreLoading,
   }) {
@@ -834,6 +1001,7 @@ class _$_SeriesMoreLoadingState implements _SeriesMoreLoadingState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SeriesLoadingState value)? loading,
     TResult? Function(_SeriesLoadedState value)? loaded,
     TResult? Function(_SeriesMoreLoadingState value)? moreLoading,
   }) {
@@ -843,6 +1011,7 @@ class _$_SeriesMoreLoadingState implements _SeriesMoreLoadingState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SeriesLoadingState value)? loading,
     TResult Function(_SeriesLoadedState value)? loaded,
     TResult Function(_SeriesMoreLoadingState value)? moreLoading,
     required TResult orElse(),
@@ -858,9 +1027,7 @@ abstract class _SeriesMoreLoadingState implements SeriesState {
   const factory _SeriesMoreLoadingState({required final List<Series> series}) =
       _$_SeriesMoreLoadingState;
 
-  @override
   List<Series> get series;
-  @override
   @JsonKey(ignore: true)
   _$$_SeriesMoreLoadingStateCopyWith<_$_SeriesMoreLoadingState> get copyWith =>
       throw _privateConstructorUsedError;

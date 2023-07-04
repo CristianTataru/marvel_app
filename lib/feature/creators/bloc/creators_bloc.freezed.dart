@@ -18,22 +18,22 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CreatorsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onPageOpened,
-    required TResult Function() onMoreDataLoading,
+    required TResult Function(ApiFilter? filter) onPageOpened,
+    required TResult Function(ApiFilter? filter) onMoreDataLoading,
     required TResult Function(Creator creator) onCreatorTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onPageOpened,
-    TResult? Function()? onMoreDataLoading,
+    TResult? Function(ApiFilter? filter)? onPageOpened,
+    TResult? Function(ApiFilter? filter)? onMoreDataLoading,
     TResult? Function(Creator creator)? onCreatorTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onPageOpened,
-    TResult Function()? onMoreDataLoading,
+    TResult Function(ApiFilter? filter)? onPageOpened,
+    TResult Function(ApiFilter? filter)? onMoreDataLoading,
     TResult Function(Creator creator)? onCreatorTapped,
     required TResult orElse(),
   }) =>
@@ -88,6 +88,8 @@ abstract class _$$_CreatorsOnPageOpenedEventCopyWith<$Res> {
           _$_CreatorsOnPageOpenedEvent value,
           $Res Function(_$_CreatorsOnPageOpenedEvent) then) =
       __$$_CreatorsOnPageOpenedEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ApiFilter? filter});
 }
 
 /// @nodoc
@@ -98,58 +100,82 @@ class __$$_CreatorsOnPageOpenedEventCopyWithImpl<$Res>
       _$_CreatorsOnPageOpenedEvent _value,
       $Res Function(_$_CreatorsOnPageOpenedEvent) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? filter = freezed,
+  }) {
+    return _then(_$_CreatorsOnPageOpenedEvent(
+      filter: freezed == filter
+          ? _value.filter
+          : filter // ignore: cast_nullable_to_non_nullable
+              as ApiFilter?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_CreatorsOnPageOpenedEvent implements _CreatorsOnPageOpenedEvent {
-  const _$_CreatorsOnPageOpenedEvent();
+  const _$_CreatorsOnPageOpenedEvent({required this.filter});
+
+  @override
+  final ApiFilter? filter;
 
   @override
   String toString() {
-    return 'CreatorsEvent.onPageOpened()';
+    return 'CreatorsEvent.onPageOpened(filter: $filter)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CreatorsOnPageOpenedEvent);
+            other is _$_CreatorsOnPageOpenedEvent &&
+            (identical(other.filter, filter) || other.filter == filter));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, filter);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_CreatorsOnPageOpenedEventCopyWith<_$_CreatorsOnPageOpenedEvent>
+      get copyWith => __$$_CreatorsOnPageOpenedEventCopyWithImpl<
+          _$_CreatorsOnPageOpenedEvent>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onPageOpened,
-    required TResult Function() onMoreDataLoading,
+    required TResult Function(ApiFilter? filter) onPageOpened,
+    required TResult Function(ApiFilter? filter) onMoreDataLoading,
     required TResult Function(Creator creator) onCreatorTapped,
   }) {
-    return onPageOpened();
+    return onPageOpened(filter);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onPageOpened,
-    TResult? Function()? onMoreDataLoading,
+    TResult? Function(ApiFilter? filter)? onPageOpened,
+    TResult? Function(ApiFilter? filter)? onMoreDataLoading,
     TResult? Function(Creator creator)? onCreatorTapped,
   }) {
-    return onPageOpened?.call();
+    return onPageOpened?.call(filter);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onPageOpened,
-    TResult Function()? onMoreDataLoading,
+    TResult Function(ApiFilter? filter)? onPageOpened,
+    TResult Function(ApiFilter? filter)? onMoreDataLoading,
     TResult Function(Creator creator)? onCreatorTapped,
     required TResult orElse(),
   }) {
     if (onPageOpened != null) {
-      return onPageOpened();
+      return onPageOpened(filter);
     }
     return orElse();
   }
@@ -192,7 +218,13 @@ class _$_CreatorsOnPageOpenedEvent implements _CreatorsOnPageOpenedEvent {
 }
 
 abstract class _CreatorsOnPageOpenedEvent implements CreatorsEvent {
-  const factory _CreatorsOnPageOpenedEvent() = _$_CreatorsOnPageOpenedEvent;
+  const factory _CreatorsOnPageOpenedEvent({required final ApiFilter? filter}) =
+      _$_CreatorsOnPageOpenedEvent;
+
+  ApiFilter? get filter;
+  @JsonKey(ignore: true)
+  _$$_CreatorsOnPageOpenedEventCopyWith<_$_CreatorsOnPageOpenedEvent>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -201,6 +233,8 @@ abstract class _$$_CreatorsMoreDataLoadingEventCopyWith<$Res> {
           _$_CreatorsMoreDataLoadingEvent value,
           $Res Function(_$_CreatorsMoreDataLoadingEvent) then) =
       __$$_CreatorsMoreDataLoadingEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ApiFilter? filter});
 }
 
 /// @nodoc
@@ -211,58 +245,82 @@ class __$$_CreatorsMoreDataLoadingEventCopyWithImpl<$Res>
       _$_CreatorsMoreDataLoadingEvent _value,
       $Res Function(_$_CreatorsMoreDataLoadingEvent) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? filter = freezed,
+  }) {
+    return _then(_$_CreatorsMoreDataLoadingEvent(
+      filter: freezed == filter
+          ? _value.filter
+          : filter // ignore: cast_nullable_to_non_nullable
+              as ApiFilter?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_CreatorsMoreDataLoadingEvent implements _CreatorsMoreDataLoadingEvent {
-  const _$_CreatorsMoreDataLoadingEvent();
+  const _$_CreatorsMoreDataLoadingEvent({required this.filter});
+
+  @override
+  final ApiFilter? filter;
 
   @override
   String toString() {
-    return 'CreatorsEvent.onMoreDataLoading()';
+    return 'CreatorsEvent.onMoreDataLoading(filter: $filter)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CreatorsMoreDataLoadingEvent);
+            other is _$_CreatorsMoreDataLoadingEvent &&
+            (identical(other.filter, filter) || other.filter == filter));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, filter);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_CreatorsMoreDataLoadingEventCopyWith<_$_CreatorsMoreDataLoadingEvent>
+      get copyWith => __$$_CreatorsMoreDataLoadingEventCopyWithImpl<
+          _$_CreatorsMoreDataLoadingEvent>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onPageOpened,
-    required TResult Function() onMoreDataLoading,
+    required TResult Function(ApiFilter? filter) onPageOpened,
+    required TResult Function(ApiFilter? filter) onMoreDataLoading,
     required TResult Function(Creator creator) onCreatorTapped,
   }) {
-    return onMoreDataLoading();
+    return onMoreDataLoading(filter);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onPageOpened,
-    TResult? Function()? onMoreDataLoading,
+    TResult? Function(ApiFilter? filter)? onPageOpened,
+    TResult? Function(ApiFilter? filter)? onMoreDataLoading,
     TResult? Function(Creator creator)? onCreatorTapped,
   }) {
-    return onMoreDataLoading?.call();
+    return onMoreDataLoading?.call(filter);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onPageOpened,
-    TResult Function()? onMoreDataLoading,
+    TResult Function(ApiFilter? filter)? onPageOpened,
+    TResult Function(ApiFilter? filter)? onMoreDataLoading,
     TResult Function(Creator creator)? onCreatorTapped,
     required TResult orElse(),
   }) {
     if (onMoreDataLoading != null) {
-      return onMoreDataLoading();
+      return onMoreDataLoading(filter);
     }
     return orElse();
   }
@@ -305,8 +363,13 @@ class _$_CreatorsMoreDataLoadingEvent implements _CreatorsMoreDataLoadingEvent {
 }
 
 abstract class _CreatorsMoreDataLoadingEvent implements CreatorsEvent {
-  const factory _CreatorsMoreDataLoadingEvent() =
-      _$_CreatorsMoreDataLoadingEvent;
+  const factory _CreatorsMoreDataLoadingEvent(
+      {required final ApiFilter? filter}) = _$_CreatorsMoreDataLoadingEvent;
+
+  ApiFilter? get filter;
+  @JsonKey(ignore: true)
+  _$$_CreatorsMoreDataLoadingEventCopyWith<_$_CreatorsMoreDataLoadingEvent>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -386,8 +449,8 @@ class _$_CreatorsOnCreatorTappedEvent implements _CreatorsOnCreatorTappedEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onPageOpened,
-    required TResult Function() onMoreDataLoading,
+    required TResult Function(ApiFilter? filter) onPageOpened,
+    required TResult Function(ApiFilter? filter) onMoreDataLoading,
     required TResult Function(Creator creator) onCreatorTapped,
   }) {
     return onCreatorTapped(creator);
@@ -396,8 +459,8 @@ class _$_CreatorsOnCreatorTappedEvent implements _CreatorsOnCreatorTappedEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onPageOpened,
-    TResult? Function()? onMoreDataLoading,
+    TResult? Function(ApiFilter? filter)? onPageOpened,
+    TResult? Function(ApiFilter? filter)? onMoreDataLoading,
     TResult? Function(Creator creator)? onCreatorTapped,
   }) {
     return onCreatorTapped?.call(creator);
@@ -406,8 +469,8 @@ class _$_CreatorsOnCreatorTappedEvent implements _CreatorsOnCreatorTappedEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onPageOpened,
-    TResult Function()? onMoreDataLoading,
+    TResult Function(ApiFilter? filter)? onPageOpened,
+    TResult Function(ApiFilter? filter)? onMoreDataLoading,
     TResult Function(Creator creator)? onCreatorTapped,
     required TResult orElse(),
   }) {
@@ -466,9 +529,9 @@ abstract class _CreatorsOnCreatorTappedEvent implements CreatorsEvent {
 
 /// @nodoc
 mixin _$CreatorsState {
-  List<Creator> get creators => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() loading,
     required TResult Function(
             bool canLoadMore, int lastOffset, List<Creator> creators)
         loaded,
@@ -477,6 +540,7 @@ mixin _$CreatorsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
     TResult? Function(bool canLoadMore, int lastOffset, List<Creator> creators)?
         loaded,
     TResult? Function(List<Creator> creators)? moreLoading,
@@ -484,6 +548,7 @@ mixin _$CreatorsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
     TResult Function(bool canLoadMore, int lastOffset, List<Creator> creators)?
         loaded,
     TResult Function(List<Creator> creators)? moreLoading,
@@ -492,26 +557,25 @@ mixin _$CreatorsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_CreatorsLoadingState value) loading,
     required TResult Function(_CreatorsLoadedState value) loaded,
     required TResult Function(_CreatorsMoreLoadingState value) moreLoading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CreatorsLoadingState value)? loading,
     TResult? Function(_CreatorsLoadedState value)? loaded,
     TResult? Function(_CreatorsMoreLoadingState value)? moreLoading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CreatorsLoadingState value)? loading,
     TResult Function(_CreatorsLoadedState value)? loaded,
     TResult Function(_CreatorsMoreLoadingState value)? moreLoading,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $CreatorsStateCopyWith<CreatorsState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -520,8 +584,6 @@ abstract class $CreatorsStateCopyWith<$Res> {
   factory $CreatorsStateCopyWith(
           CreatorsState value, $Res Function(CreatorsState) then) =
       _$CreatorsStateCopyWithImpl<$Res, CreatorsState>;
-  @useResult
-  $Res call({List<Creator> creators});
 }
 
 /// @nodoc
@@ -533,28 +595,125 @@ class _$CreatorsStateCopyWithImpl<$Res, $Val extends CreatorsState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? creators = null,
-  }) {
-    return _then(_value.copyWith(
-      creators: null == creators
-          ? _value.creators
-          : creators // ignore: cast_nullable_to_non_nullable
-              as List<Creator>,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$_CreatorsLoadedStateCopyWith<$Res>
-    implements $CreatorsStateCopyWith<$Res> {
+abstract class _$$_CreatorsLoadingStateCopyWith<$Res> {
+  factory _$$_CreatorsLoadingStateCopyWith(_$_CreatorsLoadingState value,
+          $Res Function(_$_CreatorsLoadingState) then) =
+      __$$_CreatorsLoadingStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_CreatorsLoadingStateCopyWithImpl<$Res>
+    extends _$CreatorsStateCopyWithImpl<$Res, _$_CreatorsLoadingState>
+    implements _$$_CreatorsLoadingStateCopyWith<$Res> {
+  __$$_CreatorsLoadingStateCopyWithImpl(_$_CreatorsLoadingState _value,
+      $Res Function(_$_CreatorsLoadingState) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_CreatorsLoadingState implements _CreatorsLoadingState {
+  const _$_CreatorsLoadingState();
+
+  @override
+  String toString() {
+    return 'CreatorsState.loading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_CreatorsLoadingState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function(
+            bool canLoadMore, int lastOffset, List<Creator> creators)
+        loaded,
+    required TResult Function(List<Creator> creators) moreLoading,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
+    TResult? Function(bool canLoadMore, int lastOffset, List<Creator> creators)?
+        loaded,
+    TResult? Function(List<Creator> creators)? moreLoading,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(bool canLoadMore, int lastOffset, List<Creator> creators)?
+        loaded,
+    TResult Function(List<Creator> creators)? moreLoading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CreatorsLoadingState value) loading,
+    required TResult Function(_CreatorsLoadedState value) loaded,
+    required TResult Function(_CreatorsMoreLoadingState value) moreLoading,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CreatorsLoadingState value)? loading,
+    TResult? Function(_CreatorsLoadedState value)? loaded,
+    TResult? Function(_CreatorsMoreLoadingState value)? moreLoading,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CreatorsLoadingState value)? loading,
+    TResult Function(_CreatorsLoadedState value)? loaded,
+    TResult Function(_CreatorsMoreLoadingState value)? moreLoading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CreatorsLoadingState implements CreatorsState {
+  const factory _CreatorsLoadingState() = _$_CreatorsLoadingState;
+}
+
+/// @nodoc
+abstract class _$$_CreatorsLoadedStateCopyWith<$Res> {
   factory _$$_CreatorsLoadedStateCopyWith(_$_CreatorsLoadedState value,
           $Res Function(_$_CreatorsLoadedState) then) =
       __$$_CreatorsLoadedStateCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({bool canLoadMore, int lastOffset, List<Creator> creators});
 }
@@ -643,6 +802,7 @@ class _$_CreatorsLoadedState implements _CreatorsLoadedState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() loading,
     required TResult Function(
             bool canLoadMore, int lastOffset, List<Creator> creators)
         loaded,
@@ -654,6 +814,7 @@ class _$_CreatorsLoadedState implements _CreatorsLoadedState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
     TResult? Function(bool canLoadMore, int lastOffset, List<Creator> creators)?
         loaded,
     TResult? Function(List<Creator> creators)? moreLoading,
@@ -664,6 +825,7 @@ class _$_CreatorsLoadedState implements _CreatorsLoadedState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
     TResult Function(bool canLoadMore, int lastOffset, List<Creator> creators)?
         loaded,
     TResult Function(List<Creator> creators)? moreLoading,
@@ -678,6 +840,7 @@ class _$_CreatorsLoadedState implements _CreatorsLoadedState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_CreatorsLoadingState value) loading,
     required TResult Function(_CreatorsLoadedState value) loaded,
     required TResult Function(_CreatorsMoreLoadingState value) moreLoading,
   }) {
@@ -687,6 +850,7 @@ class _$_CreatorsLoadedState implements _CreatorsLoadedState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CreatorsLoadingState value)? loading,
     TResult? Function(_CreatorsLoadedState value)? loaded,
     TResult? Function(_CreatorsMoreLoadingState value)? moreLoading,
   }) {
@@ -696,6 +860,7 @@ class _$_CreatorsLoadedState implements _CreatorsLoadedState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CreatorsLoadingState value)? loading,
     TResult Function(_CreatorsLoadedState value)? loaded,
     TResult Function(_CreatorsMoreLoadingState value)? moreLoading,
     required TResult orElse(),
@@ -715,22 +880,18 @@ abstract class _CreatorsLoadedState implements CreatorsState {
 
   bool get canLoadMore;
   int get lastOffset;
-  @override
   List<Creator> get creators;
-  @override
   @JsonKey(ignore: true)
   _$$_CreatorsLoadedStateCopyWith<_$_CreatorsLoadedState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_CreatorsMoreLoadingStateCopyWith<$Res>
-    implements $CreatorsStateCopyWith<$Res> {
+abstract class _$$_CreatorsMoreLoadingStateCopyWith<$Res> {
   factory _$$_CreatorsMoreLoadingStateCopyWith(
           _$_CreatorsMoreLoadingState value,
           $Res Function(_$_CreatorsMoreLoadingState) then) =
       __$$_CreatorsMoreLoadingStateCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({List<Creator> creators});
 }
@@ -798,6 +959,7 @@ class _$_CreatorsMoreLoadingState implements _CreatorsMoreLoadingState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() loading,
     required TResult Function(
             bool canLoadMore, int lastOffset, List<Creator> creators)
         loaded,
@@ -809,6 +971,7 @@ class _$_CreatorsMoreLoadingState implements _CreatorsMoreLoadingState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
     TResult? Function(bool canLoadMore, int lastOffset, List<Creator> creators)?
         loaded,
     TResult? Function(List<Creator> creators)? moreLoading,
@@ -819,6 +982,7 @@ class _$_CreatorsMoreLoadingState implements _CreatorsMoreLoadingState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
     TResult Function(bool canLoadMore, int lastOffset, List<Creator> creators)?
         loaded,
     TResult Function(List<Creator> creators)? moreLoading,
@@ -833,6 +997,7 @@ class _$_CreatorsMoreLoadingState implements _CreatorsMoreLoadingState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_CreatorsLoadingState value) loading,
     required TResult Function(_CreatorsLoadedState value) loaded,
     required TResult Function(_CreatorsMoreLoadingState value) moreLoading,
   }) {
@@ -842,6 +1007,7 @@ class _$_CreatorsMoreLoadingState implements _CreatorsMoreLoadingState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CreatorsLoadingState value)? loading,
     TResult? Function(_CreatorsLoadedState value)? loaded,
     TResult? Function(_CreatorsMoreLoadingState value)? moreLoading,
   }) {
@@ -851,6 +1017,7 @@ class _$_CreatorsMoreLoadingState implements _CreatorsMoreLoadingState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CreatorsLoadingState value)? loading,
     TResult Function(_CreatorsLoadedState value)? loaded,
     TResult Function(_CreatorsMoreLoadingState value)? moreLoading,
     required TResult orElse(),
@@ -866,9 +1033,7 @@ abstract class _CreatorsMoreLoadingState implements CreatorsState {
   const factory _CreatorsMoreLoadingState(
       {required final List<Creator> creators}) = _$_CreatorsMoreLoadingState;
 
-  @override
   List<Creator> get creators;
-  @override
   @JsonKey(ignore: true)
   _$$_CreatorsMoreLoadingStateCopyWith<_$_CreatorsMoreLoadingState>
       get copyWith => throw _privateConstructorUsedError;

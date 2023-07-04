@@ -54,11 +54,13 @@ class _ComicDetailsPageState extends State<ComicDetailsPage> {
                         const SizedBox(height: 8),
                         TopSection(widget.comic),
                         const SizedBox(height: 16),
-                        divider,
-                        const SizedBox(height: 8),
                         if (state.comicCharacters.isNotEmpty) ...[
+                          divider,
+                          const SizedBox(height: 8),
                           SectionTitle(
-                            () {},
+                            () {
+                              bloc.add(ComicDetailsEvent.onSeeAllComicCharactersTapped(comic: widget.comic));
+                            },
                             title: "Characters",
                             seeAll: true,
                           ),
@@ -74,7 +76,9 @@ class _ComicDetailsPageState extends State<ComicDetailsPage> {
                           divider,
                           const SizedBox(height: 8),
                           SectionTitle(
-                            () {},
+                            () {
+                              bloc.add(ComicDetailsEvent.onSeeAllComicStoriesTapped(comic: widget.comic));
+                            },
                             title: "Stories",
                             seeAll: true,
                           ),
@@ -89,7 +93,9 @@ class _ComicDetailsPageState extends State<ComicDetailsPage> {
                           divider,
                           const SizedBox(height: 8),
                           SectionTitle(
-                            () {},
+                            () {
+                              bloc.add(ComicDetailsEvent.onSeeAllComicCreatorsTapped(comic: widget.comic));
+                            },
                             title: "Creators",
                             seeAll: true,
                           ),

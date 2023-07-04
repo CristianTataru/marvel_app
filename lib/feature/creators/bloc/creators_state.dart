@@ -2,6 +2,7 @@ part of 'creators_bloc.dart';
 
 @freezed
 class CreatorsState with _$CreatorsState {
+  const factory CreatorsState.loading() = _CreatorsLoadingState;
   const factory CreatorsState.loaded({
     required bool canLoadMore,
     required int lastOffset,
