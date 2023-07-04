@@ -19,6 +19,7 @@ dependencies:
   image_fade: ^0.6.2
   html_unescape: ^2.0.0
   auto_route: ^7.4.0
+  mocktail: ^0.3.0
 
 dev_dependencies:
   flutter_test:
