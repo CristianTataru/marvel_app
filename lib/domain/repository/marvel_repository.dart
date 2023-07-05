@@ -47,7 +47,7 @@ class MarvelRepository {
   Future<List<Character>> getCharacters(int offset) async {
     ApiResponseCharacter response = await marvelApi.getCharacters(offset);
     charactersTotal = response.data.total;
-    if (characters.isNotEmpty && offset == 0) {
+    if (characters.isNotEmpty && offset == 0 && characters.length > 20) {
       return characters.sublist(0, 20);
     }
     characters = [...characters, ...response.data.results];
@@ -57,7 +57,7 @@ class MarvelRepository {
   Future<List<Comic>> getComics(int offset) async {
     ApiResponseComic response = await marvelApi.getComics(offset);
     comicsTotal = response.data.total;
-    if (comics.isNotEmpty && offset == 0) {
+    if (comics.isNotEmpty && offset == 0 && comics.length > 20) {
       return comics.sublist(0, 20);
     }
     comics = [...comics, ...response.data.results];
@@ -67,7 +67,7 @@ class MarvelRepository {
   Future<List<Series>> getSeries(int offset) async {
     ApiResponseSeries response = await marvelApi.getSeries(offset);
     seriesTotal = response.data.total;
-    if (series.isNotEmpty && offset == 0) {
+    if (series.isNotEmpty && offset == 0 && series.length > 20) {
       return series.sublist(0, 20);
     }
     series = [...series, ...response.data.results];
@@ -77,7 +77,7 @@ class MarvelRepository {
   Future<List<Story>> getStories(int offset) async {
     ApiResponseStory response = await marvelApi.getStories(offset);
     storiesTotal = response.data.total;
-    if (stories.isNotEmpty && offset == 0) {
+    if (stories.isNotEmpty && offset == 0 && stories.length > 20) {
       return stories.sublist(0, 20);
     }
     List<Story> htmlStories = response.data.results
@@ -95,7 +95,7 @@ class MarvelRepository {
   Future<List<Creator>> getCreators(int offset) async {
     ApiResponseCreator response = await marvelApi.getCreators(offset);
     creatorsTotal = response.data.total;
-    if (creators.isNotEmpty && offset == 0) {
+    if (creators.isNotEmpty && offset == 0 && creators.length > 20) {
       return creators.sublist(0, 20);
     }
     creators = [...creators, ...response.data.results];

@@ -1,0 +1,118 @@
+{
+    "code": 200,
+    "status": "Ok",
+    "copyright": "© 2023 MARVEL",
+    "attributionText": "Data provided by Marvel. © 2023 MARVEL",
+    "attributionHTML": "<a href=\"http://marvel.com\">Data provided by Marvel. © 2023 MARVEL</a>",
+    "etag": "79b39bd05225790fab4bc715e11d56d8f778985e",
+    "data": {
+        "offset": 0,
+        "limit": 20,
+        "total": 1,
+        "count": 1,
+        "results": [
+            {
+                "id": 22378,
+                "title": "A Green and Tender Place",
+                "description": "X-Factor learns that the Legacy Virus has come to Genosha and one of the mutates with the disease escapes.",
+                "resourceURI": "http://gateway.marvel.com/v1/public/stories/22378",
+                "type": "story",
+                "modified": "1969-12-31T19:00:00-0500",
+                "thumbnail": null,
+                "creators": {
+                    "available": 7,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/22378/creators",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/3634",
+                            "name": "Buzz",
+                            "role": "penciller"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/13152",
+                            "name": "Joe Quesada",
+                            "role": "penciller"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/3572",
+                            "name": "Kelly Corvese",
+                            "role": "editor"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/375",
+                            "name": "Bob Harras",
+                            "role": "editor"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/435",
+                            "name": "Al Milgrom",
+                            "role": "inker"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/1066",
+                            "name": "Tom Smith",
+                            "role": "colorist"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/350",
+                            "name": "Richard Starkings",
+                            "role": "letterer"
+                        }
+                    ],
+                    "returned": 7
+                },
+                "characters": {
+                    "available": 3,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/22378/characters",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009499",
+                            "name": "Polaris"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009524",
+                            "name": "Quicksilver"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009726",
+                            "name": "X-Men"
+                        }
+                    ],
+                    "returned": 3
+                },
+                "series": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/22378/series",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/2098",
+                            "name": "X-Factor (1986 - 1998)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "comics": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/22378/comics",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/12313",
+                            "name": "X-Factor (1986) #90"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "events": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/22378/events",
+                    "items": [],
+                    "returned": 0
+                },
+                "originalIssue": {
+                    "resourceURI": "http://gateway.marvel.com/v1/public/comics/12313",
+                    "name": "X-Factor (1986) #90"
+                }
+            }
+        ]
+    }
+}

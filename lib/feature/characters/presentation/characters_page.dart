@@ -88,6 +88,7 @@ class CharacterEntry extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: GestureDetector(
+        key: const Key('characterEntryTapKey'),
         onTap: () {
           bloc.add(CharactersEvent.onCharacterTapped(character: character));
         },
@@ -164,6 +165,7 @@ class _ListViewState extends State<ListView> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      key: const Key('charactersPageScrollKey'),
       controller: scrollController,
       child: Column(
         children: [

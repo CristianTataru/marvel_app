@@ -1,0 +1,134 @@
+{
+    "code": 200,
+    "status": "Ok",
+    "copyright": "© 2023 MARVEL",
+    "attributionText": "Data provided by Marvel. © 2023 MARVEL",
+    "attributionHTML": "<a href=\"http://marvel.com\">Data provided by Marvel. © 2023 MARVEL</a>",
+    "etag": "684b1bec3cf24ebf3cc4ff18326288751d345f3f",
+    "data": {
+        "offset": 0,
+        "limit": 20,
+        "total": 2,
+        "count": 2,
+        "results": [
+            {
+                "id": 183698,
+                "title": "cover from Marvel Previews (2017)",
+                "description": "",
+                "resourceURI": "http://gateway.marvel.com/v1/public/stories/183698",
+                "type": "cover",
+                "modified": "2019-08-09T09:14:53-0400",
+                "thumbnail": null,
+                "creators": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/183698/creators",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/10021",
+                            "name": "Jim Nausedas",
+                            "role": "editor"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "characters": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/183698/characters",
+                    "items": [],
+                    "returned": 0
+                },
+                "series": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/183698/series",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/23665",
+                            "name": "Marvel Previews (2017 - Present)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "comics": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/183698/comics",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/82967",
+                            "name": "Marvel Previews (2017)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "events": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/183698/events",
+                    "items": [],
+                    "returned": 0
+                },
+                "originalIssue": {
+                    "resourceURI": "http://gateway.marvel.com/v1/public/comics/82967",
+                    "name": "Marvel Previews (2017)"
+                }
+            },
+            {
+                "id": 183699,
+                "title": "story from Marvel Previews (2017)",
+                "description": "",
+                "resourceURI": "http://gateway.marvel.com/v1/public/stories/183699",
+                "type": "story",
+                "modified": "2019-08-09T09:14:53-0400",
+                "thumbnail": null,
+                "creators": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/183699/creators",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/10021",
+                            "name": "Jim Nausedas",
+                            "role": "editor"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "characters": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/183699/characters",
+                    "items": [],
+                    "returned": 0
+                },
+                "series": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/183699/series",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/23665",
+                            "name": "Marvel Previews (2017 - Present)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "comics": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/183699/comics",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/82967",
+                            "name": "Marvel Previews (2017)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "events": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/183699/events",
+                    "items": [],
+                    "returned": 0
+                },
+                "originalIssue": {
+                    "resourceURI": "http://gateway.marvel.com/v1/public/comics/82967",
+                    "name": "Marvel Previews (2017)"
+                }
+            }
+        ]
+    }
+}

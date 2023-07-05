@@ -1,0 +1,468 @@
+{
+    "code": 200,
+    "status": "Ok",
+    "copyright": "© 2023 MARVEL",
+    "attributionText": "Data provided by Marvel. © 2023 MARVEL",
+    "attributionHTML": "<a href=\"http://marvel.com\">Data provided by Marvel. © 2023 MARVEL</a>",
+    "etag": "e21acdf806de72d50936a58a46f88b44f8612c6a",
+    "data": {
+        "offset": 0,
+        "limit": 20,
+        "total": 1,
+        "count": 1,
+        "results": [
+            {
+                "id": 2098,
+                "title": "X-Factor (1986 - 1998)",
+                "description": "Whether it's the reunited original X-Men rescuing trouble young mutants or Havok's irreverent government task force trying to make a difference, expect the unexpected when it comes to X-Factor! Features some of acclaimed writer Peter David's most celebrated work.",
+                "resourceURI": "http://gateway.marvel.com/v1/public/series/2098",
+                "urls": [
+                    {
+                        "type": "detail",
+                        "url": "http://marvel.com/comics/series/2098/x-factor_1986_-_1998?utm_campaign=apiRef&utm_source=00ee96560cac21670b4f2de5366c8424"
+                    }
+                ],
+                "startYear": 1986,
+                "endYear": 1998,
+                "rating": "",
+                "type": "",
+                "modified": "2015-04-06T12:32:20-0400",
+                "thumbnail": {
+                    "path": "http://i.annihil.us/u/prod/marvel/i/mg/5/a0/513114e90b0ee",
+                    "extension": "jpg"
+                },
+                "creators": {
+                    "available": 98,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/series/2098/creators",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/3634",
+                            "name": "Buzz",
+                            "role": "penciller"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/356",
+                            "name": "Roger Cruz",
+                            "role": "penciller"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/2077",
+                            "name": "Hilary Barta",
+                            "role": "inker"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/972",
+                            "name": "Kevin Conrad",
+                            "role": "inker"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/3633",
+                            "name": "Chris Batista",
+                            "role": "penciler"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/3593",
+                            "name": "Eric Battle",
+                            "role": "penciler"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/1279",
+                            "name": "Jon Bogdanove",
+                            "role": "penciler"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/3580",
+                            "name": "Paul Borges",
+                            "role": "penciler"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/1298",
+                            "name": "June Brigman",
+                            "role": "penciler"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/1216",
+                            "name": "Rich Buckler",
+                            "role": "penciler"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/105",
+                            "name": "Sal Buscema",
+                            "role": "penciler"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/3626",
+                            "name": "Pat Brosseau",
+                            "role": "letterer"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/3632",
+                            "name": "Lois Buhalis",
+                            "role": "letterer"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/9555",
+                            "name": "Toby Cypress",
+                            "role": "letterer"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/1909",
+                            "name": "Steve Buccellato",
+                            "role": "colorist"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/44",
+                            "name": "Chris Claremont",
+                            "role": "writer"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/121",
+                            "name": "Peter David",
+                            "role": "writer"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/9565",
+                            "name": "Tom Defalco",
+                            "role": "writer"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/3572",
+                            "name": "Kelly Corvese",
+                            "role": "editor"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/1881",
+                            "name": "Don Daley",
+                            "role": "editor"
+                        }
+                    ],
+                    "returned": 20
+                },
+                "characters": {
+                    "available": 109,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/series/2098/characters",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009156",
+                            "name": "Apocalypse"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009159",
+                            "name": "Archangel"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009160",
+                            "name": "Arclight"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009163",
+                            "name": "Aurora"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009164",
+                            "name": "Avalanche"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009168",
+                            "name": "Banshee"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009596",
+                            "name": "Banshee (Theresa Rourke)"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009171",
+                            "name": "Bastion"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009175",
+                            "name": "Beast"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009182",
+                            "name": "Bishop"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009186",
+                            "name": "Black Knight (Sir Percy of Scandia)"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009199",
+                            "name": "Blob"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009200",
+                            "name": "Blockbuster"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010366",
+                            "name": "Boom Boom"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009205",
+                            "name": "Boomer"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009214",
+                            "name": "Cable"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009216",
+                            "name": "Caliban"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009219",
+                            "name": "Cannonball"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009220",
+                            "name": "Captain America"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009733",
+                            "name": "Charles Xavier"
+                        }
+                    ],
+                    "returned": 20
+                },
+                "stories": {
+                    "available": 526,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/series/2098/stories",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/22083",
+                            "name": "X-FACTOR (1986) #1",
+                            "type": "cover"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/22084",
+                            "name": "Third Genesis",
+                            "type": "interiorStory"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/22085",
+                            "name": "Cover #22085",
+                            "type": "cover"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/22086",
+                            "name": "Fallen Angel!",
+                            "type": "interiorStory"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/22087",
+                            "name": "Their Darkest Battle...Their Greatest Loss.",
+                            "type": "cover"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/22088",
+                            "name": "Mahapralaya",
+                            "type": "interiorStory"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/22089",
+                            "name": "I Am Haven",
+                            "type": "pinup"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/22090",
+                            "name": "Afterlives",
+                            "type": "cover"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/22091",
+                            "name": "Afterlives",
+                            "type": "interiorStory"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/22092",
+                            "name": "Ambushed!",
+                            "type": "cover"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/22093",
+                            "name": "The Polaris Plot!",
+                            "type": "interiorStory"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/22094",
+                            "name": "Reunions Most Deadly!",
+                            "type": "cover"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/22095",
+                            "name": "Friends and Family",
+                            "type": "interiorStory"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/22096",
+                            "name": "The Evil Within!",
+                            "type": "cover"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/22097",
+                            "name": "Malicious Intent!",
+                            "type": "interiorStory"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/22098",
+                            "name": "Final Sacrifice",
+                            "type": "cover"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/22099",
+                            "name": "Final Sacrifice",
+                            "type": "interiorStory"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/22100",
+                            "name": "Phalanx Covenant: Life Signs Part 1",
+                            "type": "cover"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/22101",
+                            "name": "Phalanx Covenant: Life Signs Part 1",
+                            "type": "interiorStory"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/22102",
+                            "name": "X-Teams Unite",
+                            "type": "pinup"
+                        }
+                    ],
+                    "returned": 20
+                },
+                "comics": {
+                    "available": 149,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/series/2098/comics",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/12174",
+                            "name": "X-Factor (1986) #1"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/12235",
+                            "name": "X-Factor (1986) #2"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/12246",
+                            "name": "X-Factor (1986) #3"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/12257",
+                            "name": "X-Factor (1986) #4"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/12268",
+                            "name": "X-Factor (1986) #5"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/12279",
+                            "name": "X-Factor (1986) #6"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/12290",
+                            "name": "X-Factor (1986) #7"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/12301",
+                            "name": "X-Factor (1986) #8"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/12312",
+                            "name": "X-Factor (1986) #9"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/12175",
+                            "name": "X-Factor (1986) #10"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/12186",
+                            "name": "X-Factor (1986) #11"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/12197",
+                            "name": "X-Factor (1986) #12"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/12208",
+                            "name": "X-Factor (1986) #13"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/12219",
+                            "name": "X-Factor (1986) #14"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/12230",
+                            "name": "X-Factor (1986) #15"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/12231",
+                            "name": "X-Factor (1986) #16"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/12232",
+                            "name": "X-Factor (1986) #17"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/12233",
+                            "name": "X-Factor (1986) #18"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/12234",
+                            "name": "X-Factor (1986) #19"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/12236",
+                            "name": "X-Factor (1986) #20"
+                        }
+                    ],
+                    "returned": 20
+                },
+                "events": {
+                    "available": 7,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/series/2098/events",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/events/116",
+                            "name": "Acts of Vengeance!"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/events/248",
+                            "name": "Fall of the Mutants"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/events/249",
+                            "name": "Fatal Attractions"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/events/252",
+                            "name": "Inferno"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/events/263",
+                            "name": "Mutant Massacre"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/events/154",
+                            "name": "Onslaught"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/events/280",
+                            "name": "X-Tinction Agenda"
+                        }
+                    ],
+                    "returned": 7
+                },
+                "next": {
+                    "resourceURI": "http://gateway.marvel.com/v1/public/series/762",
+                    "name": "Madrox (2004 - 2005)"
+                },
+                "previous": {
+                    "resourceURI": "http://gateway.marvel.com/v1/public/series/2258",
+                    "name": "Uncanny X-Men (1963 - 2011)"
+                }
+            }
+        ]
+    }
+}

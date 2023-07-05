@@ -1,0 +1,288 @@
+{
+    "code": 200,
+    "status": "Ok",
+    "copyright": "© 2023 MARVEL",
+    "attributionText": "Data provided by Marvel. © 2023 MARVEL",
+    "attributionHTML": "<a href=\"http://marvel.com\">Data provided by Marvel. © 2023 MARVEL</a>",
+    "etag": "af60316f6797bdc16c9c0125c2a5174bd361e4e6",
+    "data": {
+        "offset": 0,
+        "limit": 20,
+        "total": 1,
+        "count": 1,
+        "results": [
+            {
+                "id": 10021,
+                "firstName": "Jim",
+                "middleName": "",
+                "lastName": "Nausedas",
+                "suffix": "",
+                "fullName": "Jim Nausedas",
+                "modified": "2013-03-15T14:20:37-0400",
+                "thumbnail": {
+                    "path": "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available",
+                    "extension": "jpg"
+                },
+                "resourceURI": "http://gateway.marvel.com/v1/public/creators/10021",
+                "comics": {
+                    "available": 16,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/creators/10021/comics",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/24440",
+                            "name": "Amazing Spider-Man Family (2008) #8"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/50398",
+                            "name": "Avengers 24.Now by Ross Poster (2014) #1"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/48137",
+                            "name": "AVENGERS A.I. POSTER (2013) #1"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/50681",
+                            "name": "EDGE OF SPIDER-VERSE/AVENGERS: TIME RUNS OUT MINI-POSTER (2014) #1"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/50403",
+                            "name": "FANTASTIC FOUR 1 BY ROSS POSTER (2014) #1"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/48140",
+                            "name": "INFINITY POSTER (2013) #1"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/82967",
+                            "name": "Marvel Previews (2017)"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/82970",
+                            "name": "Marvel Previews (2017)"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/24145",
+                            "name": "New Avengers (2004) #53"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/24146",
+                            "name": "New Avengers (2004) #53 (BACHALO VARIANT)"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/22910",
+                            "name": "Nova (2007) #20"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/50701",
+                            "name": "ORIGINAL SIN 3.1/ORIGINAL SIN 5.1 MINI-POSTER (2014) #1"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/48159",
+                            "name": "PSYLOCKE BY MANARA POSTER (2013) #1"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/50408",
+                            "name": "SHE-HULK 1 BY PULIDO POSTER (2014) #1"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/48161",
+                            "name": "SUPERIOR CARNAGE POSTER (2013) #1"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/50412",
+                            "name": "WOLVERINE 1 BY STEGMAN POSTER (2014) #1"
+                        }
+                    ],
+                    "returned": 16
+                },
+                "series": {
+                    "available": 14,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/creators/10021/series",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/5376",
+                            "name": "Amazing Spider-Man Family (2008 - 2009)"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/18839",
+                            "name": "Avengers 24.Now by Ross Poster (2014)"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/18215",
+                            "name": "AVENGERS A.I. POSTER (2013)"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/18976",
+                            "name": "EDGE OF SPIDER-VERSE/AVENGERS: TIME RUNS OUT MINI-POSTER (2014)"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/18842",
+                            "name": "FANTASTIC FOUR 1 BY ROSS POSTER (2014)"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/18218",
+                            "name": "INFINITY POSTER (2013)"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/23665",
+                            "name": "Marvel Previews (2017 - Present)"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/753",
+                            "name": "New Avengers (2004 - 2010)"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/2504",
+                            "name": "Nova (2007 - 2010)"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/18985",
+                            "name": "ORIGINAL SIN 3.1/ORIGINAL SIN 5.1 MINI-POSTER (2014)"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/18237",
+                            "name": "PSYLOCKE BY MANARA POSTER (2013)"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/18847",
+                            "name": "SHE-HULK 1 BY PULIDO POSTER (2014)"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/18239",
+                            "name": "SUPERIOR CARNAGE POSTER (2013)"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/18851",
+                            "name": "WOLVERINE 1 BY STEGMAN POSTER (2014)"
+                        }
+                    ],
+                    "returned": 14
+                },
+                "stories": {
+                    "available": 157,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/creators/10021/stories",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/50866",
+                            "name": "Interior #50866",
+                            "type": "interiorStory"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/53505",
+                            "name": "New Avengers (2004) #53",
+                            "type": "cover"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/53506",
+                            "name": "Dark Reign 6 of 8",
+                            "type": "interiorStory"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/53507",
+                            "name": "Dark Reign 6 of 8",
+                            "type": "cover"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/53508",
+                            "name": "Dark Reign 6 of 8",
+                            "type": "interiorStory"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/53974",
+                            "name": "Interior #53974",
+                            "type": "interiorStory"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/60311",
+                            "name": "Cover #60311",
+                            "type": "cover"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/108485",
+                            "name": "cover from Avengers a.I. Poster (2013)",
+                            "type": "cover"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/108486",
+                            "name": "story from Avengers a.I. Poster (2013)",
+                            "type": "interiorStory"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/108487",
+                            "name": "cover from Avengers a.I. Poster (2013)",
+                            "type": "cover"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/108488",
+                            "name": "story from Avengers a.I. Poster (2013)",
+                            "type": "interiorStory"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/108491",
+                            "name": "cover from Infinity Poster (2013)",
+                            "type": "cover"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/108492",
+                            "name": "story from Infinity Poster (2013)",
+                            "type": "interiorStory"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/108493",
+                            "name": "cover from Infinity Poster (2013)",
+                            "type": "cover"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/108494",
+                            "name": "story from Infinity Poster (2013)",
+                            "type": "interiorStory"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/108529",
+                            "name": "cover from Psylocke by Manara Poster (2013)",
+                            "type": "cover"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/108530",
+                            "name": "story from Psylocke by Manara Poster (2013)",
+                            "type": "interiorStory"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/108531",
+                            "name": "cover from Psylocke by Manara Poster (2013)",
+                            "type": "cover"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/108532",
+                            "name": "story from Psylocke by Manara Poster (2013)",
+                            "type": "interiorStory"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/108533",
+                            "name": "cover from Superior Carnage Poster (2013)",
+                            "type": "cover"
+                        }
+                    ],
+                    "returned": 20
+                },
+                "events": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/creators/10021/events",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/events/318",
+                            "name": "Dark Reign"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "urls": [
+                    {
+                        "type": "detail",
+                        "url": "http://marvel.com/comics/creators/10021/jim_nausedas?utm_campaign=apiRef&utm_source=00ee96560cac21670b4f2de5366c8424"
+                    }
+                ]
+            }
+        ]
+    }
+}

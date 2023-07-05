@@ -41,6 +41,7 @@ class _HomePageState extends State<HomePage> {
           body: homeState.map(
             loading: (state) => pageLoadingSpinner,
             loaded: (state) => SingleChildScrollView(
+              key: const Key('homePageScrollKey'),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -66,15 +67,15 @@ class _HomePageState extends State<HomePage> {
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Row(
                       children: [
-                        _UserPick(state.characters.first.thumbnail, "Characters", () {
+                        UserPick(state.characters.first.thumbnail, "Characters", () {
                           bloc.add(HomeEvent.onCharactersPageTapped(characters: state.characters));
                         }),
                         const Spacer(),
-                        _UserPick(state.comics[2].thumbnail, "Comics", () {
+                        UserPick(state.comics[2].thumbnail, "Comics", () {
                           bloc.add(HomeEvent.onComicsPageTapped(comics: state.comics));
                         }),
                         const Spacer(),
-                        _UserPick(state.series[2].thumbnail, "Series", () {
+                        UserPick(state.series[2].thumbnail, "Series", () {
                           bloc.add(HomeEvent.onSeriesPageTapped(series: state.series));
                         }),
                       ],
@@ -92,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
-                      children: [...state.stories.map((story) => _StoryEntry(story))],
+                      children: [...state.stories.map((story) => StoryEntry(story))],
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -118,8 +119,8 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class _UserPick extends StatelessWidget {
-  const _UserPick(this.thumbnail, this.sectionTitile, this.onTap);
+class UserPick extends StatelessWidget {
+  const UserPick(this.thumbnail, this.sectionTitile, this.onTap, {super.key});
 
   final Thumbnail thumbnail;
   final String sectionTitile;
@@ -148,8 +149,8 @@ class _UserPick extends StatelessWidget {
   }
 }
 
-class _StoryEntry extends StatelessWidget {
-  const _StoryEntry(this.story);
+class StoryEntry extends StatelessWidget {
+  const StoryEntry(this.story, {super.key});
 
   final Story story;
 

@@ -1,0 +1,614 @@
+{
+    "code": 200,
+    "status": "Ok",
+    "copyright": "© 2023 MARVEL",
+    "attributionText": "Data provided by Marvel. © 2023 MARVEL",
+    "attributionHTML": "<a href=\"http://marvel.com\">Data provided by Marvel. © 2023 MARVEL</a>",
+    "etag": "51d7c25bca0e12e5f1a72030ef86d4d0bb88c09d",
+    "data": {
+        "offset": 20,
+        "limit": 10,
+        "total": 30,
+        "count": 10,
+        "results": [
+            {
+                "id": 31,
+                "title": "Featuring the birth of an unlikely hero and the early adventures that paved the way for the mega-popular media icon that Spider-",
+                "description": "",
+                "resourceURI": "http://gateway.marvel.com/v1/public/stories/31",
+                "type": "story",
+                "modified": "1969-12-31T19:00:00-0500",
+                "thumbnail": null,
+                "creators": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/31/creators",
+                    "items": [],
+                    "returned": 0
+                },
+                "characters": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/31/characters",
+                    "items": [],
+                    "returned": 0
+                },
+                "series": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/31/series",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/30",
+                            "name": "ESSENTIAL SPIDER-MAN VOL. 1 TPB (1999)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "comics": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/31/comics",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/967",
+                            "name": "ESSENTIAL SPIDER-MAN VOL. 1 TPB (Trade Paperback)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "events": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/31/events",
+                    "items": [],
+                    "returned": 0
+                },
+                "originalIssue": {
+                    "resourceURI": "http://gateway.marvel.com/v1/public/comics/967",
+                    "name": "ESSENTIAL SPIDER-MAN VOL. 1 TPB (Trade Paperback)"
+                }
+            },
+            {
+                "id": 32,
+                "title": "Spider-Man's earliest adventures continue with classic stories featuring the Vulture, Dr. Octopus, Mysterio and the Shocker.",
+                "description": "",
+                "resourceURI": "http://gateway.marvel.com/v1/public/stories/32",
+                "type": "story",
+                "modified": "1969-12-31T19:00:00-0500",
+                "thumbnail": null,
+                "creators": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/32/creators",
+                    "items": [],
+                    "returned": 0
+                },
+                "characters": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/32/characters",
+                    "items": [],
+                    "returned": 0
+                },
+                "series": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/32/series",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/31",
+                            "name": "ESSENTIAL SPIDER-MAN VOL. 3 TPB (1999)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "comics": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/32/comics",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/969",
+                            "name": "ESSENTIAL SPIDER-MAN VOL. 3 TPB (Trade Paperback)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "events": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/32/events",
+                    "items": [],
+                    "returned": 0
+                },
+                "originalIssue": {
+                    "resourceURI": "http://gateway.marvel.com/v1/public/comics/969",
+                    "name": "ESSENTIAL SPIDER-MAN VOL. 3 TPB (Trade Paperback)"
+                }
+            },
+            {
+                "id": 33,
+                "title": "In this volume, Peter faces some of his greatest challenges and his most harrowing foes such as Doc Ock and the Kingpin. Featuri",
+                "description": "",
+                "resourceURI": "http://gateway.marvel.com/v1/public/stories/33",
+                "type": "story",
+                "modified": "1969-12-31T19:00:00-0500",
+                "thumbnail": null,
+                "creators": {
+                    "available": 4,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/33/creators",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/1612",
+                            "name": "John Buscema",
+                            "role": "penciller"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/389",
+                            "name": "Jim Mooney",
+                            "role": "penciller"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/13196",
+                            "name": "John Romita Jr.",
+                            "role": "penciller"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/30",
+                            "name": "Stan Lee",
+                            "role": "writer"
+                        }
+                    ],
+                    "returned": 4
+                },
+                "characters": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/33/characters",
+                    "items": [],
+                    "returned": 0
+                },
+                "series": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/33/series",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/32",
+                            "name": "Essential Spider-Man Vol. IV (1999)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "comics": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/33/comics",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/970",
+                            "name": "Essential Spider-Man Vol. IV (Trade Paperback)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "events": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/33/events",
+                    "items": [],
+                    "returned": 0
+                },
+                "originalIssue": {
+                    "resourceURI": "http://gateway.marvel.com/v1/public/comics/970",
+                    "name": "Essential Spider-Man Vol. IV (Trade Paperback)"
+                }
+            },
+            {
+                "id": 34,
+                "title": "Spider-Man's earliest adventures continue with tales to surprise and delight. Appearances by Iceman, Morbius, the Prowler, Green",
+                "description": "",
+                "resourceURI": "http://gateway.marvel.com/v1/public/stories/34",
+                "type": "story",
+                "modified": "1969-12-31T19:00:00-0500",
+                "thumbnail": null,
+                "creators": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/34/creators",
+                    "items": [],
+                    "returned": 0
+                },
+                "characters": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/34/characters",
+                    "items": [],
+                    "returned": 0
+                },
+                "series": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/34/series",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/33",
+                            "name": "ESSENTIAL SPIDER-MAN VOL. 5 TPB (1999)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "comics": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/34/comics",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/971",
+                            "name": "ESSENTIAL SPIDER-MAN VOL. 5 TPB (Trade Paperback)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "events": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/34/events",
+                    "items": [],
+                    "returned": 0
+                },
+                "originalIssue": {
+                    "resourceURI": "http://gateway.marvel.com/v1/public/comics/971",
+                    "name": "ESSENTIAL SPIDER-MAN VOL. 5 TPB (Trade Paperback)"
+                }
+            },
+            {
+                "id": 35,
+                "title": "Telepathic teacher Charles Xavier assembles his first recruits Ñ Cyclops, Angel, Iceman, Beast and Marvel Girl Ñ and trains them",
+                "description": "",
+                "resourceURI": "http://gateway.marvel.com/v1/public/stories/35",
+                "type": "story",
+                "modified": "1969-12-31T19:00:00-0500",
+                "thumbnail": null,
+                "creators": {
+                    "available": 4,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/35/creators",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/196",
+                            "name": "Jack Kirby",
+                            "role": "penciller"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/956",
+                            "name": "Werner Roth",
+                            "role": "penciller"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/30",
+                            "name": "Stan Lee",
+                            "role": "writer"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/2909",
+                            "name": "Roy Thomas",
+                            "role": "writer"
+                        }
+                    ],
+                    "returned": 4
+                },
+                "characters": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/35/characters",
+                    "items": [],
+                    "returned": 0
+                },
+                "series": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/35/series",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/34",
+                            "name": "Essential Uncanny X-Men Vol. 1 (1999)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "comics": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/35/comics",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/972",
+                            "name": "Essential Uncanny X-Men Vol. 1 (Trade Paperback)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "events": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/35/events",
+                    "items": [],
+                    "returned": 0
+                },
+                "originalIssue": {
+                    "resourceURI": "http://gateway.marvel.com/v1/public/comics/972",
+                    "name": "Essential Uncanny X-Men Vol. 1 (Trade Paperback)"
+                }
+            },
+            {
+                "id": 36,
+                "title": "Experience Wolverine's battle to keep the feral berserker within in check, while trying to be the best there is at what he does.",
+                "description": "",
+                "resourceURI": "http://gateway.marvel.com/v1/public/stories/36",
+                "type": "story",
+                "modified": "1969-12-31T19:00:00-0500",
+                "thumbnail": null,
+                "creators": {
+                    "available": 5,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/36/creators",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/1612",
+                            "name": "John Buscema",
+                            "role": "penciller"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/26",
+                            "name": "Bill Sienkiewicz",
+                            "role": "penciller"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/44",
+                            "name": "Chris Claremont",
+                            "role": "writer"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/121",
+                            "name": "Peter David",
+                            "role": "writer"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/1178",
+                            "name": "Archie Goodwin",
+                            "role": "writer"
+                        }
+                    ],
+                    "returned": 5
+                },
+                "characters": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/36/characters",
+                    "items": [],
+                    "returned": 0
+                },
+                "series": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/36/series",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/35",
+                            "name": "Essential Wolverine Vol. I (1999)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "comics": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/36/comics",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/973",
+                            "name": "Essential Wolverine Vol. I (Trade Paperback)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "events": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/36/events",
+                    "items": [],
+                    "returned": 0
+                },
+                "originalIssue": {
+                    "resourceURI": "http://gateway.marvel.com/v1/public/comics/973",
+                    "name": "Essential Wolverine Vol. I (Trade Paperback)"
+                }
+            },
+            {
+                "id": 37,
+                "title": "Forever locked in struggle to keep his berserker fury in check, Logan is a man without a past on a never-ending journey to uncov",
+                "description": "",
+                "resourceURI": "http://gateway.marvel.com/v1/public/stories/37",
+                "type": "story",
+                "modified": "1969-12-31T19:00:00-0500",
+                "thumbnail": null,
+                "creators": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/37/creators",
+                    "items": [],
+                    "returned": 0
+                },
+                "characters": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/37/characters",
+                    "items": [],
+                    "returned": 0
+                },
+                "series": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/37/series",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/36",
+                            "name": "ESSENTIAL WOLVERINE VOL. 2 TPB (1999)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "comics": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/37/comics",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/974",
+                            "name": "ESSENTIAL WOLVERINE VOL. 2 TPB (Trade Paperback)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "events": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/37/events",
+                    "items": [],
+                    "returned": 0
+                },
+                "originalIssue": {
+                    "resourceURI": "http://gateway.marvel.com/v1/public/comics/974",
+                    "name": "ESSENTIAL WOLVERINE VOL. 2 TPB (Trade Paperback)"
+                }
+            },
+            {
+                "id": 38,
+                "title": "This volume continues the stories of the enigmatic Wolverine Ñ gifted with heightened senses, a healing factor and razor-sharp c",
+                "description": "",
+                "resourceURI": "http://gateway.marvel.com/v1/public/stories/38",
+                "type": "story",
+                "modified": "1969-12-31T19:00:00-0500",
+                "thumbnail": null,
+                "creators": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/38/creators",
+                    "items": [],
+                    "returned": 0
+                },
+                "characters": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/38/characters",
+                    "items": [],
+                    "returned": 0
+                },
+                "series": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/38/series",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/37",
+                            "name": "ESSENTIAL WOLVERINE VOL. 3 TPB (1999)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "comics": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/38/comics",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/975",
+                            "name": "ESSENTIAL WOLVERINE VOL. 3 TPB (Trade Paperback)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "events": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/38/events",
+                    "items": [],
+                    "returned": 0
+                },
+                "originalIssue": {
+                    "resourceURI": "http://gateway.marvel.com/v1/public/comics/975",
+                    "name": "ESSENTIAL WOLVERINE VOL. 3 TPB (Trade Paperback)"
+                }
+            },
+            {
+                "id": 39,
+                "title": "Relive the second generation of X-Men, fighting villains like the Juggernaut and Magneto, and discover the human within the hero",
+                "description": "",
+                "resourceURI": "http://gateway.marvel.com/v1/public/stories/39",
+                "type": "story",
+                "modified": "1969-12-31T19:00:00-0500",
+                "thumbnail": null,
+                "creators": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/39/creators",
+                    "items": [],
+                    "returned": 0
+                },
+                "characters": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/39/characters",
+                    "items": [],
+                    "returned": 0
+                },
+                "series": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/39/series",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/38",
+                            "name": "ESSENTIAL X-MEN VOL. 1 TPB (1999)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "comics": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/39/comics",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/976",
+                            "name": "ESSENTIAL X-MEN VOL. 1 TPB (Trade Paperback)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "events": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/39/events",
+                    "items": [],
+                    "returned": 0
+                },
+                "originalIssue": {
+                    "resourceURI": "http://gateway.marvel.com/v1/public/comics/976",
+                    "name": "ESSENTIAL X-MEN VOL. 1 TPB (Trade Paperback)"
+                }
+            },
+            {
+                "id": 40,
+                "title": "Ever-expanding their ranks, the Children of the Atom combat the evils threatening both mutants and humans Ñ like the Brotherhood",
+                "description": "",
+                "resourceURI": "http://gateway.marvel.com/v1/public/stories/40",
+                "type": "story",
+                "modified": "1969-12-31T19:00:00-0500",
+                "thumbnail": null,
+                "creators": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/40/creators",
+                    "items": [],
+                    "returned": 0
+                },
+                "characters": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/40/characters",
+                    "items": [],
+                    "returned": 0
+                },
+                "series": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/40/series",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/39",
+                            "name": "ESSENTIAL X-MEN VOL. 2 TPB (1999)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "comics": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/40/comics",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/977",
+                            "name": "ESSENTIAL X-MEN VOL. 2 TPB (Trade Paperback)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "events": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/40/events",
+                    "items": [],
+                    "returned": 0
+                },
+                "originalIssue": {
+                    "resourceURI": "http://gateway.marvel.com/v1/public/comics/977",
+                    "name": "ESSENTIAL X-MEN VOL. 2 TPB (Trade Paperback)"
+                }
+            }
+        ]
+    }
+}

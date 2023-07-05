@@ -82,6 +82,7 @@ class CreatorEntry extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: GestureDetector(
+        key: const Key('creatorEntryTapKey'),
         onTap: () {
           bloc.add(CreatorsEvent.onCreatorTapped(creator: creator));
         },
@@ -164,6 +165,7 @@ class _ListViewState extends State<ListView> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      key: const Key('creatorsPageScrollKey'),
       controller: scrollController,
       child: Column(
         children: [

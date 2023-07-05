@@ -1,0 +1,154 @@
+{
+    "code": 200,
+    "status": "Ok",
+    "copyright": "© 2023 MARVEL",
+    "attributionText": "Data provided by Marvel. © 2023 MARVEL",
+    "attributionHTML": "<a href=\"http://marvel.com\">Data provided by Marvel. © 2023 MARVEL</a>",
+    "etag": "f5355888a1573c3d45c04860d97e10a31d4d8d15",
+    "data": {
+        "offset": 0,
+        "limit": 20,
+        "total": 2,
+        "count": 2,
+        "results": [
+            {
+                "id": 174028,
+                "title": "cover from Amazing Spider-Man 2099 Omega (2019) #1",
+                "description": "",
+                "resourceURI": "http://gateway.marvel.com/v1/public/stories/174028",
+                "type": "cover",
+                "modified": "2019-05-30T09:05:54-0400",
+                "thumbnail": null,
+                "creators": {
+                    "available": 3,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/174028/creators",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/5933",
+                            "name": "Patrick Gleason",
+                            "role": "penciler (cover)"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/4300",
+                            "name": "Nick Lowe",
+                            "role": "editor"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/12991",
+                            "name": "Rachelle Rosenberg",
+                            "role": "colorist (cover)"
+                        }
+                    ],
+                    "returned": 3
+                },
+                "characters": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/174028/characters",
+                    "items": [],
+                    "returned": 0
+                },
+                "series": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/174028/series",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/27981",
+                            "name": "2099 Omega (2019)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "comics": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/174028/comics",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/78504",
+                            "name": "2099 Omega (2019) #1"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "events": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/174028/events",
+                    "items": [],
+                    "returned": 0
+                },
+                "originalIssue": {
+                    "resourceURI": "http://gateway.marvel.com/v1/public/comics/78504",
+                    "name": "2099 Omega (2019) #1"
+                }
+            },
+            {
+                "id": 174029,
+                "title": "story from Amazing Spider-Man 2099 Omega (2019) #1",
+                "description": "",
+                "resourceURI": "http://gateway.marvel.com/v1/public/stories/174029",
+                "type": "story",
+                "modified": "2019-12-12T10:55:01-0500",
+                "thumbnail": null,
+                "creators": {
+                    "available": 3,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/174029/creators",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/4300",
+                            "name": "Nick Lowe",
+                            "role": "editor"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/12369",
+                            "name": "Gerardo Sandoval",
+                            "role": "penciller"
+                        },
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/creators/11434",
+                            "name": "Nick Spencer",
+                            "role": "writer"
+                        }
+                    ],
+                    "returned": 3
+                },
+                "characters": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/174029/characters",
+                    "items": [],
+                    "returned": 0
+                },
+                "series": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/174029/series",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/27981",
+                            "name": "2099 Omega (2019)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "comics": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/174029/comics",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/78504",
+                            "name": "2099 Omega (2019) #1"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "events": {
+                    "available": 0,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/stories/174029/events",
+                    "items": [],
+                    "returned": 0
+                },
+                "originalIssue": {
+                    "resourceURI": "http://gateway.marvel.com/v1/public/comics/78504",
+                    "name": "2099 Omega (2019) #1"
+                }
+            }
+        ]
+    }
+}
