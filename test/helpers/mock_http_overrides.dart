@@ -5,8 +5,6 @@ import 'dart:io';
 import 'package:mocktail/mocktail.dart';
 
 class MockHttpOverrides extends HttpOverrides {
-  MockHttpOverrides();
-
   @override
   HttpClient createHttpClient(SecurityContext? context) => _createHttpClient();
 }
@@ -26,6 +24,13 @@ class _MockHttpClientRequest extends Mock implements HttpClientRequest {}
 class _MockHttpClientResponse extends Mock implements HttpClientResponse {}
 
 class _MockHttpHeaders extends Mock implements HttpHeaders {}
+
+// T mockNetworkImages<T>(T Function() body) {
+//   return HttpOverrides.runZoned(
+//     body,
+//     createHttpClient: (_) => _createHttpClient(),
+//   );
+// }
 
 HttpClient _createHttpClient() {
   final client = _MockHttpClient();
