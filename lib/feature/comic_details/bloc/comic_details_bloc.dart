@@ -2,12 +2,13 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:marvel_app/main.dart';
+import 'package:marvel_app/domain/repository/marvel_repository.dart';
 import 'package:marvel_app/models/api_filters.dart';
 import 'package:marvel_app/models/character.dart';
 import 'package:marvel_app/models/comic.dart';
 import 'package:marvel_app/models/creator.dart';
 import 'package:marvel_app/models/story.dart';
+import 'package:marvel_app/routes/router.dart';
 import 'package:marvel_app/routes/router.gr.dart';
 
 part 'comic_details_event.dart';
@@ -15,12 +16,15 @@ part 'comic_details_state.dart';
 part 'comic_details_bloc.freezed.dart';
 
 class ComicDetailsBloc extends Bloc<ComicDetailsEvent, ComicDetailsState> {
-  ComicDetailsBloc() : super(const _ComicDetailsLoadingState()) {
+  ComicDetailsBloc(this.marvelRepository, this.router) : super(const _ComicDetailsLoadingState()) {
     on<_ComicDetailsOnPageOpenedEvent>(_onComicDetailsOnPageOpenedEvent);
     on<_ComicDetailsOnSeeAllComicCharactersTappedEvent>(_onComicDetailsOnSeeAllComicCharactersTappedEvent);
     on<_ComicDetailsOnSeeAllComicStoriesTappedEvent>(_onComicDetailsOnSeeAllComicStoriesTappedEvent);
     on<_ComicDetailsOnSeeAllComicCreatorsTappedEvent>(_onComicDetailsOnSeeAllComicCreatorsTappedEvent);
   }
+
+  final MarvelRepository marvelRepository;
+  final AppRouter router;
 
   FutureOr<void> _onComicDetailsOnPageOpenedEvent(
       _ComicDetailsOnPageOpenedEvent event, Emitter<ComicDetailsState> emit) async {

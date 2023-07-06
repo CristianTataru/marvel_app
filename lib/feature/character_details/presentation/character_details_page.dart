@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_app/feature/character_details/bloc/character_details_bloc.dart';
+import 'package:marvel_app/main.dart';
 import 'package:marvel_app/models/character.dart';
 import 'package:marvel_app/theme/custom_colors.dart';
 import 'package:marvel_app/widgets/comics_carousel.dart';
@@ -11,7 +12,7 @@ import 'package:marvel_app/widgets/section_title.dart';
 import 'package:marvel_app/widgets/series_carousel.dart';
 import 'package:marvel_app/widgets/stories_carousel.dart';
 
-final bloc = CharacterDetailsBloc();
+final bloc = CharacterDetailsBloc(marvelRepository, router);
 
 @RoutePage()
 class CharacterDetailsPage extends StatefulWidget {

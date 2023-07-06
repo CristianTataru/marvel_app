@@ -2,9 +2,10 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:marvel_app/main.dart';
+import 'package:marvel_app/domain/repository/marvel_repository.dart';
 import 'package:marvel_app/models/api_filters.dart';
 import 'package:marvel_app/models/character.dart';
+import 'package:marvel_app/routes/router.dart';
 import 'package:marvel_app/routes/router.gr.dart';
 
 part 'characters_event.dart';
@@ -12,11 +13,15 @@ part 'characters_state.dart';
 part 'characters_bloc.freezed.dart';
 
 class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
-  CharactersBloc() : super(const _CharactersLoadedState(canLoadMore: true, lastOffset: 0, characters: [])) {
+  CharactersBloc(this.marvelRepository, this.router)
+      : super(const _CharactersLoadedState(canLoadMore: true, lastOffset: 0, characters: [])) {
     on<_CharactersOnPageOpenedEvent>(_onCharactersOnPageOpenedEvent);
     on<_CharactersMoreDataLoadingEvent>(_onCharactersMoreDataLoadingEvent);
     on<_CharactersOnCharacterTappedEvent>(_onCharacterOnCharacterTappedEvent);
   }
+
+  final MarvelRepository marvelRepository;
+  final AppRouter router;
 
   FutureOr<void> _onCharactersOnPageOpenedEvent(
       _CharactersOnPageOpenedEvent event, Emitter<CharactersState> emit) async {
