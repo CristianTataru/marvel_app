@@ -67,7 +67,7 @@ void main() {
       expect: null,
       verify: (bloc) {
         final verifiedData = verify(() => mockAppRouter.push(captureAny()));
-        verifiedData.called(2);
+        verifiedData.called(1);
         expect((verifiedData.captured.first as ComicsRoute).args!.filter!.character, StubData.stubCharacter);
       },
     );
