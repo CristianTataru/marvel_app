@@ -20,6 +20,8 @@ dependencies:
   html_unescape: ^2.0.0
   auto_route: ^7.4.0
   mocktail: ^0.3.0
+  network_image_mock: ^2.0.1
+  mockito: ^5.2.0
 
 dev_dependencies:
   flutter_test:
