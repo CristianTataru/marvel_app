@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_app/feature/series_details/bloc/series_details_bloc.dart';
+import 'package:marvel_app/main.dart';
 import 'package:marvel_app/models/series.dart';
 import 'package:marvel_app/theme/custom_colors.dart';
 import 'package:marvel_app/widgets/characters_caroulsel.dart';
@@ -12,7 +13,7 @@ import 'package:marvel_app/widgets/marvel_image.dart';
 import 'package:marvel_app/widgets/section_title.dart';
 import 'package:marvel_app/widgets/stories_carousel.dart';
 
-final bloc = SeriesDetailsBloc();
+final bloc = SeriesDetailsBloc(marvelRepository, router);
 
 @RoutePage()
 class SeriesDetailsPage extends StatefulWidget {

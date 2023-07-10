@@ -2,9 +2,11 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:marvel_app/main.dart';
+import 'package:marvel_app/domain/repository/marvel_repository.dart';
 import 'package:marvel_app/models/api_filters.dart';
+import 'package:marvel_app/models/api_response_story.dart';
 import 'package:marvel_app/models/story.dart';
+import 'package:marvel_app/routes/router.dart';
 import 'package:marvel_app/routes/router.gr.dart';
 
 part 'stories_event.dart';
@@ -12,33 +14,37 @@ part 'stories_state.dart';
 part 'stories_bloc.freezed.dart';
 
 class StoriesBloc extends Bloc<StoriesEvent, StoriesState> {
-  StoriesBloc() : super(const _StoriesLoadedState(canLoadMore: true, lastOffset: 0, stories: [])) {
+  StoriesBloc(this.marvelRepository, this.router)
+      : super(const _StoriesLoadedState(canLoadMore: true, lastOffset: 0, stories: [])) {
     on<_StoriesOnPageOpenedEvent>(_onStoriesOnPageOpenedEvent);
     on<_StoriesMoreDataLoadingEvent>(_onStoriesMoreDataLoadingEvent);
     on<_StoriesOnStoryTappedEvent>(_onStoriesOnStoryTappedEvent);
   }
 
+  final MarvelRepository marvelRepository;
+  final AppRouter router;
+
   FutureOr<void> _onStoriesOnPageOpenedEvent(_StoriesOnPageOpenedEvent event, Emitter<StoriesState> emit) async {
-    List<Story> stories = [];
+    late ApiResponseStory response;
     emit(const StoriesState.loading());
     if (event.filter != null) {
       if (event.filter!.character != null) {
-        stories = await marvelRepository.getCharacterStories(event.filter!.character!.id, 20, 0);
+        response = await marvelRepository.getCharacterStories(event.filter!.character!.id, 20, 0);
       }
       if (event.filter!.comic != null) {
-        stories = await marvelRepository.getComicStories(event.filter!.comic!.id, 20, 0);
+        response = await marvelRepository.getComicStories(event.filter!.comic!.id, 20, 0);
       }
       if (event.filter!.series != null) {
-        stories = await marvelRepository.getSeriesStories(event.filter!.series!.id, 20, 0);
+        response = await marvelRepository.getSeriesStories(event.filter!.series!.id, 20, 0);
       }
       if (event.filter!.creator != null) {
-        stories = await marvelRepository.getCreatorStories(event.filter!.creator!.id, 20, 0);
+        response = await marvelRepository.getCreatorStories(event.filter!.creator!.id, 20, 0);
       }
     } else {
-      stories = await marvelRepository.getStories(0);
+      response = await marvelRepository.getStories(0);
     }
     emit(StoriesState.loaded(
-        canLoadMore: marvelRepository.storiesTotal > 20 ? true : false, lastOffset: 0, stories: stories));
+        canLoadMore: response.data.total > 20 ? true : false, lastOffset: 0, stories: response.data.results));
   }
 
   FutureOr<void> _onStoriesMoreDataLoadingEvent(_StoriesMoreDataLoadingEvent event, Emitter<StoriesState> emit) async {
@@ -46,31 +52,27 @@ class StoriesBloc extends Bloc<StoriesEvent, StoriesState> {
       loaded: (canLoadMore, lastOffset, stories) async {
         emit(StoriesState.moreLoading(stories: stories));
         int offset = lastOffset + 20;
-        List<Story> newStories = [];
+        late ApiResponseStory response;
         if (event.filter != null) {
           if (event.filter!.character != null) {
-            newStories = await marvelRepository.getCharacterStories(event.filter!.character!.id, 20, offset);
-            newStories = [...stories, ...newStories];
+            response = await marvelRepository.getCharacterStories(event.filter!.character!.id, 20, offset);
           }
           if (event.filter!.comic != null) {
-            newStories = await marvelRepository.getComicStories(event.filter!.comic!.id, 20, offset);
-            newStories = [...stories, ...newStories];
+            response = await marvelRepository.getComicStories(event.filter!.comic!.id, 20, offset);
           }
           if (event.filter!.series != null) {
-            newStories = await marvelRepository.getSeriesStories(event.filter!.series!.id, 20, offset);
-            newStories = [...stories, ...newStories];
+            response = await marvelRepository.getSeriesStories(event.filter!.series!.id, 20, offset);
           }
           if (event.filter!.creator != null) {
-            newStories = await marvelRepository.getCreatorStories(event.filter!.creator!.id, 20, offset);
-            newStories = [...stories, ...newStories];
+            response = await marvelRepository.getCreatorStories(event.filter!.creator!.id, 20, offset);
           }
         } else {
-          newStories = await marvelRepository.getStories(offset);
+          response = await marvelRepository.getStories(offset);
         }
         emit(StoriesState.loaded(
-            canLoadMore: marvelRepository.storiesTotal > (offset + 20) ? true : false,
+            canLoadMore: response.data.total > (offset + 20) ? true : false,
             lastOffset: offset,
-            stories: newStories));
+            stories: [...stories, ...response.data.results]));
       },
     );
   }

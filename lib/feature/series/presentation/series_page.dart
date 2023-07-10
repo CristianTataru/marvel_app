@@ -2,13 +2,14 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_app/feature/series/bloc/series_bloc.dart';
+import 'package:marvel_app/main.dart';
 import 'package:marvel_app/models/api_filters.dart';
 import 'package:marvel_app/models/series.dart';
 import 'package:marvel_app/theme/custom_colors.dart';
 import 'package:marvel_app/widgets/common.dart';
 import 'package:marvel_app/widgets/marvel_image.dart';
 
-final bloc = SeriesBloc();
+final bloc = SeriesBloc(marvelRepository, router);
 
 @RoutePage()
 class SeriesPage extends StatefulWidget {
@@ -35,8 +36,8 @@ class _SeriesPageState extends State<SeriesPage> {
         return Scaffold(
           backgroundColor: CustomColors.background,
           appBar: AppBar(
-            title: Row(
-              children: const [
+            title: const Row(
+              children: [
                 Text("Series"),
                 Spacer(),
                 Icon(Icons.library_books_outlined),

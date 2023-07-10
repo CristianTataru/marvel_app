@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:marvel_app/domain/repository/marvel_repository.dart';
 import 'package:marvel_app/models/api_filters.dart';
+import 'package:marvel_app/models/api_response_character.dart';
 import 'package:marvel_app/models/character.dart';
 import 'package:marvel_app/routes/router.dart';
 import 'package:marvel_app/routes/router.gr.dart';
@@ -25,23 +26,23 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
 
   FutureOr<void> _onCharactersOnPageOpenedEvent(
       _CharactersOnPageOpenedEvent event, Emitter<CharactersState> emit) async {
-    List<Character> characters = [];
+    late ApiResponseCharacter response;
     emit(const CharactersState.loading());
     if (event.filter != null) {
       if (event.filter!.comic != null) {
-        characters = await marvelRepository.getComicCharacters(event.filter!.comic!.id, 20, 0);
+        response = await marvelRepository.getComicCharacters(event.filter!.comic!.id, 20, 0);
       }
       if (event.filter!.series != null) {
-        characters = await marvelRepository.getSeriesCharacters(event.filter!.series!.id, 20, 0);
+        response = await marvelRepository.getSeriesCharacters(event.filter!.series!.id, 20, 0);
       }
       if (event.filter!.story != null) {
-        characters = await marvelRepository.getStoryCharacters(event.filter!.story!.id, 20, 0);
+        response = await marvelRepository.getStoryCharacters(event.filter!.story!.id, 20, 0);
       }
     } else {
-      characters = await marvelRepository.getCharacters(0);
+      response = await marvelRepository.getCharacters(0);
     }
     emit(CharactersState.loaded(
-        canLoadMore: marvelRepository.charactersTotal > 20 ? true : false, lastOffset: 0, characters: characters));
+        canLoadMore: response.data.total > 20 ? true : false, lastOffset: 0, characters: response.data.results));
   }
 
   FutureOr<void> _onCharactersMoreDataLoadingEvent(
@@ -50,27 +51,24 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
       loaded: (canLoadMore, lastOffset, characters) async {
         emit(CharactersState.moreLoading(characters: characters));
         int offset = lastOffset + 20;
-        List<Character> newCharacters = [];
+        late ApiResponseCharacter response;
         if (event.filter != null) {
           if (event.filter!.comic != null) {
-            newCharacters = await marvelRepository.getComicCharacters(event.filter!.comic!.id, 20, offset);
-            newCharacters = [...characters, ...newCharacters];
+            response = await marvelRepository.getComicCharacters(event.filter!.comic!.id, 20, offset);
           }
           if (event.filter!.series != null) {
-            newCharacters = await marvelRepository.getSeriesCharacters(event.filter!.series!.id, 20, offset);
-            newCharacters = [...characters, ...newCharacters];
+            response = await marvelRepository.getSeriesCharacters(event.filter!.series!.id, 20, offset);
           }
           if (event.filter!.story != null) {
-            newCharacters = await marvelRepository.getStoryCharacters(event.filter!.story!.id, 20, offset);
-            newCharacters = [...characters, ...newCharacters];
+            response = await marvelRepository.getStoryCharacters(event.filter!.story!.id, 20, offset);
           }
         } else {
-          newCharacters = await marvelRepository.getCharacters(offset);
+          response = await marvelRepository.getCharacters(offset);
         }
         emit(CharactersState.loaded(
-            canLoadMore: marvelRepository.charactersTotal > (offset + 20) ? true : false,
+            canLoadMore: response.data.total > (offset + 20) ? true : false,
             lastOffset: offset,
-            characters: newCharacters));
+            characters: [...characters, ...response.data.results]));
       },
     );
   }

@@ -1,26 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:marvel_app/models/api_response_character.dart';
-import 'package:marvel_app/models/api_response_character_comics.dart';
-import 'package:marvel_app/models/api_response_character_series.dart';
-import 'package:marvel_app/models/api_response_character_stories.dart';
 import 'package:marvel_app/models/api_response_comic.dart';
-import 'package:marvel_app/models/api_response_comic_characters.dart';
-import 'package:marvel_app/models/api_response_comic_creators.dart';
-import 'package:marvel_app/models/api_response_comic_stories.dart';
 import 'package:marvel_app/models/api_response_creator.dart';
-import 'package:marvel_app/models/api_response_creator_comics.dart';
-import 'package:marvel_app/models/api_response_creator_series.dart';
-import 'package:marvel_app/models/api_response_creator_stories.dart';
 import 'package:marvel_app/models/api_response_series.dart';
-import 'package:marvel_app/models/api_response_series_characters.dart';
-import 'package:marvel_app/models/api_response_series_comics.dart';
-import 'package:marvel_app/models/api_response_series_creators.dart';
-import 'package:marvel_app/models/api_response_series_stories.dart';
 import 'package:marvel_app/models/api_response_story.dart';
-import 'package:marvel_app/models/api_response_story_characters.dart';
-import 'package:marvel_app/models/api_response_story_comics.dart';
-import 'package:marvel_app/models/api_response_story_creators.dart';
-import 'package:marvel_app/models/api_response_story_series.dart';
 import 'package:retrofit/http.dart';
 
 part 'marvel_api.g.dart';
@@ -46,7 +29,7 @@ abstract class MarvelApi {
 
   @GET(
       'characters/{characterId}/comics?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
-  Future<ApiResponseCharacterComic> getCharacterComics(
+  Future<ApiResponseComic> getCharacterComics(
     @Path('characterId') int characterId,
     @Path('limit') int limit,
     @Path('offset') int offset,
@@ -54,7 +37,7 @@ abstract class MarvelApi {
 
   @GET(
       'characters/{characterId}/series?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
-  Future<ApiResponseCharacterSeries> getCharacterSeries(
+  Future<ApiResponseSeries> getCharacterSeries(
     @Path('characterId') int characterId,
     @Path('limit') int limit,
     @Path('offset') int offset,
@@ -62,7 +45,7 @@ abstract class MarvelApi {
 
   @GET(
       'characters/{characterId}/stories?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
-  Future<ApiResponseCharacterStories> getCharacterStories(
+  Future<ApiResponseStory> getCharacterStories(
     @Path('characterId') int characterId,
     @Path('limit') int limit,
     @Path('offset') int offset,
@@ -70,7 +53,7 @@ abstract class MarvelApi {
 
   @GET(
       'comics/{comicId}/characters?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
-  Future<ApiResponseComicCharacters> getComicCharacters(
+  Future<ApiResponseCharacter> getComicCharacters(
     @Path('comicId') int comicId,
     @Path('limit') int limit,
     @Path('offset') int offset,
@@ -78,7 +61,7 @@ abstract class MarvelApi {
 
   @GET(
       'comics/{comicId}/stories?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
-  Future<ApiResponseComicStories> getComicStories(
+  Future<ApiResponseStory> getComicStories(
     @Path('comicId') int comicId,
     @Path('limit') int limit,
     @Path('offset') int offset,
@@ -86,7 +69,7 @@ abstract class MarvelApi {
 
   @GET(
       'comics/{comicId}/creators?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
-  Future<ApiResponseComicCreators> getComicCreators(
+  Future<ApiResponseCreator> getComicCreators(
     @Path('comicId') int comicId,
     @Path('limit') int limit,
     @Path('offset') int offset,
@@ -94,7 +77,7 @@ abstract class MarvelApi {
 
   @GET(
       'series/{seriesId}/characters?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
-  Future<ApiResponseSeriesCharacters> getSeriesCharacters(
+  Future<ApiResponseCharacter> getSeriesCharacters(
     @Path('seriesId') int seriesId,
     @Path('limit') int limit,
     @Path('offset') int offset,
@@ -102,7 +85,7 @@ abstract class MarvelApi {
 
   @GET(
       'series/{seriesId}/comics?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
-  Future<ApiResponseSeriesComics> getSeriesComics(
+  Future<ApiResponseComic> getSeriesComics(
     @Path('seriesId') int seriesId,
     @Path('limit') int limit,
     @Path('offset') int offset,
@@ -110,7 +93,7 @@ abstract class MarvelApi {
 
   @GET(
       'series/{seriesId}/creators?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
-  Future<ApiResponseSeriesCreators> getSeriesCreators(
+  Future<ApiResponseCreator> getSeriesCreators(
     @Path('seriesId') int seriesId,
     @Path('limit') int limit,
     @Path('offset') int offset,
@@ -118,7 +101,7 @@ abstract class MarvelApi {
 
   @GET(
       'series/{seriesId}/stories?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
-  Future<ApiResponseSeriesStories> getSeriesStories(
+  Future<ApiResponseStory> getSeriesStories(
     @Path('seriesId') int seriesId,
     @Path('limit') int limit,
     @Path('offset') int offset,
@@ -126,7 +109,7 @@ abstract class MarvelApi {
 
   @GET(
       'stories/{storyId}/characters?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
-  Future<ApiResponseStoryCharacters> getStoryCharacters(
+  Future<ApiResponseCharacter> getStoryCharacters(
     @Path('storyId') int seriesId,
     @Path('limit') int limit,
     @Path('offset') int offset,
@@ -134,7 +117,7 @@ abstract class MarvelApi {
 
   @GET(
       'stories/{storyId}/comics?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
-  Future<ApiResponseStoryComics> getStoryComics(
+  Future<ApiResponseComic> getStoryComics(
     @Path('storyId') int seriesId,
     @Path('limit') int limit,
     @Path('offset') int offset,
@@ -142,7 +125,7 @@ abstract class MarvelApi {
 
   @GET(
       'stories/{storyId}/series?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
-  Future<ApiResponseStorySeries> getStorySeries(
+  Future<ApiResponseSeries> getStorySeries(
     @Path('storyId') int seriesId,
     @Path('limit') int limit,
     @Path('offset') int offset,
@@ -150,7 +133,7 @@ abstract class MarvelApi {
 
   @GET(
       'stories/{storyId}/creators?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
-  Future<ApiResponseStoryCreators> getStoryCreators(
+  Future<ApiResponseCreator> getStoryCreators(
     @Path('storyId') int seriesId,
     @Path('limit') int limit,
     @Path('offset') int offset,
@@ -158,7 +141,7 @@ abstract class MarvelApi {
 
   @GET(
       'creators/{creatorId}/comics?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
-  Future<ApiResponseCreatorComic> getCreatorComics(
+  Future<ApiResponseComic> getCreatorComics(
     @Path('creatorId') int creatorId,
     @Path('limit') int limit,
     @Path('offset') int offset,
@@ -166,7 +149,7 @@ abstract class MarvelApi {
 
   @GET(
       'creators/{creatorId}/series?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
-  Future<ApiResponseCreatorSeries> getCreatorSeries(
+  Future<ApiResponseSeries> getCreatorSeries(
     @Path('creatorId') int creatorId,
     @Path('limit') int limit,
     @Path('offset') int offset,
@@ -174,7 +157,7 @@ abstract class MarvelApi {
 
   @GET(
       'creators/{creatorId}/stories?limit={limit}&offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')
-  Future<ApiResponseCreatorStories> getCreatorStories(
+  Future<ApiResponseStory> getCreatorStories(
     @Path('creatorId') int creatorId,
     @Path('limit') int limit,
     @Path('offset') int offset,

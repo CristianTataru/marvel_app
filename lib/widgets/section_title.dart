@@ -26,8 +26,8 @@ class SectionTitle extends StatelessWidget {
           if (seeAll)
             GestureDetector(
               onTap: onTap,
-              child: Row(
-                children: const [
+              child: const Row(
+                children: [
                   Text(
                     "See all",
                     style: TextStyle(color: Colors.grey, fontSize: 18),

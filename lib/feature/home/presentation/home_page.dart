@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_app/feature/home/bloc/home_bloc.dart';
+import 'package:marvel_app/main.dart';
 import 'package:marvel_app/models/creator.dart';
 import 'package:marvel_app/models/story.dart';
 import 'package:marvel_app/models/thumbnail.dart';
@@ -10,7 +11,7 @@ import 'package:marvel_app/widgets/common.dart';
 import 'package:marvel_app/widgets/marvel_image.dart';
 import 'package:marvel_app/widgets/section_title.dart';
 
-final bloc = HomeBloc();
+final bloc = HomeBloc(marvelRepository, router);
 
 @RoutePage()
 class HomePage extends StatefulWidget {

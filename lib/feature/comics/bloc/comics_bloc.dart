@@ -1,9 +1,11 @@
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:marvel_app/main.dart';
+import 'package:marvel_app/domain/repository/marvel_repository.dart';
 import 'package:marvel_app/models/api_filters.dart';
+import 'package:marvel_app/models/api_response_comic.dart';
 import 'package:marvel_app/models/comic.dart';
+import 'package:marvel_app/routes/router.dart';
 import 'package:marvel_app/routes/router.gr.dart';
 
 part 'comics_event.dart';
@@ -11,33 +13,37 @@ part 'comics_state.dart';
 part 'comics_bloc.freezed.dart';
 
 class ComicsBloc extends Bloc<ComicsEvent, ComicsState> {
-  ComicsBloc() : super(const _ComicsLoadedState(canLoadMore: true, lastOffset: 0, comics: [])) {
+  ComicsBloc(this.marvelRepository, this.router)
+      : super(const _ComicsLoadedState(canLoadMore: true, lastOffset: 0, comics: [])) {
     on<_ComicsOnPageOpenedEvent>(_onComicsOnPageOpenedEvent);
     on<_ComicsMoreDataLoadingEvent>(_onComicsMoreDataLoadingEvent);
     on<_ComicOnComicTappedEvent>(_onComicOnComicTappedEvent);
   }
 
+  final MarvelRepository marvelRepository;
+  final AppRouter router;
+
   FutureOr<void> _onComicsOnPageOpenedEvent(_ComicsOnPageOpenedEvent event, Emitter<ComicsState> emit) async {
-    List<Comic> comics = [];
+    late ApiResponseComic response;
     emit(const ComicsState.loading());
     if (event.filter != null) {
       if (event.filter!.character != null) {
-        comics = await marvelRepository.getCharacterComics(event.filter!.character!.id, 20, 0);
+        response = await marvelRepository.getCharacterComics(event.filter!.character!.id, 20, 0);
       }
       if (event.filter!.creator != null) {
-        comics = await marvelRepository.getCreatorComics(event.filter!.creator!.id, 20, 0);
+        response = await marvelRepository.getCreatorComics(event.filter!.creator!.id, 20, 0);
       }
       if (event.filter!.series != null) {
-        comics = await marvelRepository.getSeriesComics(event.filter!.series!.id, 20, 0);
+        response = await marvelRepository.getSeriesComics(event.filter!.series!.id, 20, 0);
       }
       if (event.filter!.story != null) {
-        comics = await marvelRepository.getStoryComics(event.filter!.story!.id, 20, 0);
+        response = await marvelRepository.getStoryComics(event.filter!.story!.id, 20, 0);
       }
     } else {
-      comics = await marvelRepository.getComics(0);
+      response = await marvelRepository.getComics(0);
     }
     emit(ComicsState.loaded(
-        canLoadMore: marvelRepository.comicsTotal > 20 ? true : false, lastOffset: 0, comics: comics));
+        canLoadMore: response.data.total > 20 ? true : false, lastOffset: 0, comics: response.data.results));
   }
 
   FutureOr<void> _onComicsMoreDataLoadingEvent(_ComicsMoreDataLoadingEvent event, Emitter<ComicsState> emit) async {
@@ -45,33 +51,29 @@ class ComicsBloc extends Bloc<ComicsEvent, ComicsState> {
       loaded: (canLoadMore, lastOffset, comics) async {
         emit(ComicsState.moreLoading(comics: comics));
         int offset = lastOffset + 20;
-        List<Comic> newComics = [];
+        late ApiResponseComic response;
         if (event.filter != null) {
           if (event.filter!.character != null) {
-            newComics = await marvelRepository.getCharacterComics(event.filter!.character!.id, 20, offset);
-            newComics = [...comics, ...newComics];
+            response = await marvelRepository.getCharacterComics(event.filter!.character!.id, 20, offset);
           }
           if (event.filter!.creator != null) {
-            newComics = await marvelRepository.getCreatorComics(event.filter!.creator!.id, 20, offset);
-            newComics = [...comics, ...newComics];
+            response = await marvelRepository.getCreatorComics(event.filter!.creator!.id, 20, offset);
           }
           if (event.filter!.series != null) {
-            newComics = await marvelRepository.getSeriesComics(event.filter!.series!.id, 20, offset);
-            newComics = [...comics, ...newComics];
+            response = await marvelRepository.getSeriesComics(event.filter!.series!.id, 20, offset);
           }
           if (event.filter!.story != null) {
-            newComics = await marvelRepository.getStoryComics(event.filter!.story!.id, 20, offset);
-            newComics = [...comics, ...newComics];
+            response = await marvelRepository.getStoryComics(event.filter!.story!.id, 20, offset);
           }
         }
         if (event.filter == null) {
-          newComics = await marvelRepository.getComics(offset);
+          response = await marvelRepository.getComics(offset);
         }
         emit(
           ComicsState.loaded(
-              canLoadMore: marvelRepository.comicsTotal > (offset + 20) ? true : false,
+              canLoadMore: response.data.total > (offset + 20) ? true : false,
               lastOffset: offset,
-              comics: newComics),
+              comics: [...comics, ...response.data.results]),
         );
       },
     );

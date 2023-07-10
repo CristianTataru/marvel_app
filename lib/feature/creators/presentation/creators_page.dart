@@ -2,12 +2,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_app/feature/creators/bloc/creators_bloc.dart';
+import 'package:marvel_app/main.dart';
 import 'package:marvel_app/models/api_filters.dart';
 import 'package:marvel_app/models/creator.dart';
 import 'package:marvel_app/theme/custom_colors.dart';
 import 'package:marvel_app/widgets/common.dart';
 
-final bloc = CreatorsBloc();
+final bloc = CreatorsBloc(marvelRepository, router);
 
 @RoutePage()
 class CreatorsPage extends StatefulWidget {
@@ -42,8 +43,8 @@ class _CreatorsPageState extends State<CreatorsPage> {
         return Scaffold(
           backgroundColor: CustomColors.background,
           appBar: AppBar(
-            title: Row(
-              children: const [
+            title: const Row(
+              children: [
                 Text("Creators"),
                 Spacer(),
                 Icon(Icons.person),

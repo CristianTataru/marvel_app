@@ -156,7 +156,7 @@ class _MarvelApi implements MarvelApi {
   }
 
   @override
-  Future<ApiResponseCharacterComic> getCharacterComics(
+  Future<ApiResponseComic> getCharacterComics(
     int characterId,
     int limit,
     int offset,
@@ -165,8 +165,8 @@ class _MarvelApi implements MarvelApi {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponseCharacterComic>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<ApiResponseComic>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -182,12 +182,12 @@ class _MarvelApi implements MarvelApi {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponseCharacterComic.fromJson(_result.data!);
+    final value = ApiResponseComic.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<ApiResponseCharacterSeries> getCharacterSeries(
+  Future<ApiResponseSeries> getCharacterSeries(
     int characterId,
     int limit,
     int offset,
@@ -196,8 +196,8 @@ class _MarvelApi implements MarvelApi {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponseCharacterSeries>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<ApiResponseSeries>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -213,12 +213,12 @@ class _MarvelApi implements MarvelApi {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponseCharacterSeries.fromJson(_result.data!);
+    final value = ApiResponseSeries.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<ApiResponseCharacterStories> getCharacterStories(
+  Future<ApiResponseStory> getCharacterStories(
     int characterId,
     int limit,
     int offset,
@@ -227,8 +227,8 @@ class _MarvelApi implements MarvelApi {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponseCharacterStories>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<ApiResponseStory>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -244,12 +244,12 @@ class _MarvelApi implements MarvelApi {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponseCharacterStories.fromJson(_result.data!);
+    final value = ApiResponseStory.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<ApiResponseComicCharacters> getComicCharacters(
+  Future<ApiResponseCharacter> getComicCharacters(
     int comicId,
     int limit,
     int offset,
@@ -259,7 +259,7 @@ class _MarvelApi implements MarvelApi {
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponseComicCharacters>(Options(
+        _setStreamType<ApiResponseCharacter>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -275,12 +275,12 @@ class _MarvelApi implements MarvelApi {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponseComicCharacters.fromJson(_result.data!);
+    final value = ApiResponseCharacter.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<ApiResponseComicStories> getComicStories(
+  Future<ApiResponseStory> getComicStories(
     int comicId,
     int limit,
     int offset,
@@ -289,8 +289,8 @@ class _MarvelApi implements MarvelApi {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponseComicStories>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<ApiResponseStory>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -306,12 +306,12 @@ class _MarvelApi implements MarvelApi {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponseComicStories.fromJson(_result.data!);
+    final value = ApiResponseStory.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<ApiResponseComicCreators> getComicCreators(
+  Future<ApiResponseCreator> getComicCreators(
     int comicId,
     int limit,
     int offset,
@@ -320,8 +320,8 @@ class _MarvelApi implements MarvelApi {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponseComicCreators>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<ApiResponseCreator>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -337,12 +337,12 @@ class _MarvelApi implements MarvelApi {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponseComicCreators.fromJson(_result.data!);
+    final value = ApiResponseCreator.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<ApiResponseSeriesCharacters> getSeriesCharacters(
+  Future<ApiResponseCharacter> getSeriesCharacters(
     int seriesId,
     int limit,
     int offset,
@@ -352,7 +352,7 @@ class _MarvelApi implements MarvelApi {
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponseSeriesCharacters>(Options(
+        _setStreamType<ApiResponseCharacter>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -368,12 +368,12 @@ class _MarvelApi implements MarvelApi {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponseSeriesCharacters.fromJson(_result.data!);
+    final value = ApiResponseCharacter.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<ApiResponseSeriesComics> getSeriesComics(
+  Future<ApiResponseComic> getSeriesComics(
     int seriesId,
     int limit,
     int offset,
@@ -382,8 +382,8 @@ class _MarvelApi implements MarvelApi {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponseSeriesComics>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<ApiResponseComic>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -399,12 +399,12 @@ class _MarvelApi implements MarvelApi {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponseSeriesComics.fromJson(_result.data!);
+    final value = ApiResponseComic.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<ApiResponseSeriesCreators> getSeriesCreators(
+  Future<ApiResponseCreator> getSeriesCreators(
     int seriesId,
     int limit,
     int offset,
@@ -413,8 +413,8 @@ class _MarvelApi implements MarvelApi {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponseSeriesCreators>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<ApiResponseCreator>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -430,12 +430,12 @@ class _MarvelApi implements MarvelApi {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponseSeriesCreators.fromJson(_result.data!);
+    final value = ApiResponseCreator.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<ApiResponseSeriesStories> getSeriesStories(
+  Future<ApiResponseStory> getSeriesStories(
     int seriesId,
     int limit,
     int offset,
@@ -444,8 +444,8 @@ class _MarvelApi implements MarvelApi {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponseSeriesStories>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<ApiResponseStory>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -461,12 +461,12 @@ class _MarvelApi implements MarvelApi {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponseSeriesStories.fromJson(_result.data!);
+    final value = ApiResponseStory.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<ApiResponseStoryCharacters> getStoryCharacters(
+  Future<ApiResponseCharacter> getStoryCharacters(
     int seriesId,
     int limit,
     int offset,
@@ -476,7 +476,7 @@ class _MarvelApi implements MarvelApi {
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponseStoryCharacters>(Options(
+        _setStreamType<ApiResponseCharacter>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -492,12 +492,12 @@ class _MarvelApi implements MarvelApi {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponseStoryCharacters.fromJson(_result.data!);
+    final value = ApiResponseCharacter.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<ApiResponseStoryComics> getStoryComics(
+  Future<ApiResponseComic> getStoryComics(
     int seriesId,
     int limit,
     int offset,
@@ -506,8 +506,8 @@ class _MarvelApi implements MarvelApi {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponseStoryComics>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<ApiResponseComic>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -523,12 +523,12 @@ class _MarvelApi implements MarvelApi {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponseStoryComics.fromJson(_result.data!);
+    final value = ApiResponseComic.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<ApiResponseStorySeries> getStorySeries(
+  Future<ApiResponseSeries> getStorySeries(
     int seriesId,
     int limit,
     int offset,
@@ -537,8 +537,8 @@ class _MarvelApi implements MarvelApi {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponseStorySeries>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<ApiResponseSeries>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -554,12 +554,12 @@ class _MarvelApi implements MarvelApi {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponseStorySeries.fromJson(_result.data!);
+    final value = ApiResponseSeries.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<ApiResponseStoryCreators> getStoryCreators(
+  Future<ApiResponseCreator> getStoryCreators(
     int seriesId,
     int limit,
     int offset,
@@ -568,8 +568,8 @@ class _MarvelApi implements MarvelApi {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponseStoryCreators>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<ApiResponseCreator>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -585,12 +585,12 @@ class _MarvelApi implements MarvelApi {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponseStoryCreators.fromJson(_result.data!);
+    final value = ApiResponseCreator.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<ApiResponseCreatorComic> getCreatorComics(
+  Future<ApiResponseComic> getCreatorComics(
     int creatorId,
     int limit,
     int offset,
@@ -599,8 +599,8 @@ class _MarvelApi implements MarvelApi {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponseCreatorComic>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<ApiResponseComic>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -616,12 +616,12 @@ class _MarvelApi implements MarvelApi {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponseCreatorComic.fromJson(_result.data!);
+    final value = ApiResponseComic.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<ApiResponseCreatorSeries> getCreatorSeries(
+  Future<ApiResponseSeries> getCreatorSeries(
     int creatorId,
     int limit,
     int offset,
@@ -630,8 +630,8 @@ class _MarvelApi implements MarvelApi {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponseCreatorSeries>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<ApiResponseSeries>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -647,12 +647,12 @@ class _MarvelApi implements MarvelApi {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponseCreatorSeries.fromJson(_result.data!);
+    final value = ApiResponseSeries.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<ApiResponseCreatorStories> getCreatorStories(
+  Future<ApiResponseStory> getCreatorStories(
     int creatorId,
     int limit,
     int offset,
@@ -661,8 +661,8 @@ class _MarvelApi implements MarvelApi {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponseCreatorStories>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<ApiResponseStory>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -678,7 +678,7 @@ class _MarvelApi implements MarvelApi {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponseCreatorStories.fromJson(_result.data!);
+    final value = ApiResponseStory.fromJson(_result.data!);
     return value;
   }
 

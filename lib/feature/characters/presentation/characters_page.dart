@@ -49,8 +49,8 @@ class _CharactersPageState extends State<CharactersPage> {
         return Scaffold(
           backgroundColor: CustomColors.background,
           appBar: AppBar(
-            title: Row(
-              children: const [
+            title: const Row(
+              children: [
                 Text("Characters"),
                 Spacer(),
                 Icon(Icons.person_4),

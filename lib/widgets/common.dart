@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 //page loading spiner:
-final pageLoadingSpinner = Column(
+const pageLoadingSpinner = Column(
   crossAxisAlignment: CrossAxisAlignment.stretch,
   mainAxisAlignment: MainAxisAlignment.center,
   children: [
     Row(
-      children: const [
+      children: [
         Spacer(),
         SizedBox(
           height: 60,

@@ -4,6 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:marvel_app/domain/repository/marvel_repository.dart';
 import 'package:marvel_app/models/api_filters.dart';
+import 'package:marvel_app/models/api_response_character.dart';
+import 'package:marvel_app/models/api_response_creator.dart';
+import 'package:marvel_app/models/api_response_story.dart';
 import 'package:marvel_app/models/character.dart';
 import 'package:marvel_app/models/comic.dart';
 import 'package:marvel_app/models/creator.dart';
@@ -35,7 +38,11 @@ class ComicDetailsBloc extends Bloc<ComicDetailsEvent, ComicDetailsState> {
       marvelRepository.getComicCreators(event.comic.id, 20, 0),
     ]);
     emit(
-      ComicDetailsState.loaded(comicCharacters: data[0], comicStories: data[1], comicCreators: data[2]),
+      ComicDetailsState.loaded(
+        comicCharacters: (data[0] as ApiResponseCharacter).data.results,
+        comicStories: (data[1] as ApiResponseStory).data.results,
+        comicCreators: (data[2] as ApiResponseCreator).data.results,
+      ),
     );
   }
 

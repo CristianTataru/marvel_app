@@ -1,12 +1,18 @@
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:marvel_app/main.dart';
+import 'package:marvel_app/domain/repository/marvel_repository.dart';
+import 'package:marvel_app/models/api_response_character.dart';
+import 'package:marvel_app/models/api_response_comic.dart';
+import 'package:marvel_app/models/api_response_creator.dart';
+import 'package:marvel_app/models/api_response_series.dart';
+import 'package:marvel_app/models/api_response_story.dart';
 import 'package:marvel_app/models/character.dart';
 import 'package:marvel_app/models/comic.dart';
 import 'package:marvel_app/models/creator.dart';
 import 'package:marvel_app/models/series.dart';
 import 'package:marvel_app/models/story.dart';
+import 'package:marvel_app/routes/router.dart';
 import 'package:marvel_app/routes/router.gr.dart';
 
 part 'home_event.dart';
@@ -14,7 +20,7 @@ part 'home_state.dart';
 part 'home_bloc.freezed.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  HomeBloc() : super(const _HomeLoadingState()) {
+  HomeBloc(this.marvelRepository, this.router) : super(const _HomeLoadingState()) {
     on<_HomeOnAppStartedEvent>(_onHomeOnAppStartedEvent);
     on<_HomeOnCharactersPageTappedEvent>(_onHomeOnCharactersPageTappedEvent);
     on<_HomeOnComicsPageTappedEvent>(_onHomeOnComicsPageTappedEvent);
@@ -24,6 +30,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<_HomeOnSeeAllStoriesTappedEvent>(_onHomeOnSeeAllStoriesTappedEvent);
     on<_HomeOnSeeAllCreatorsTappedEvent>(_onHomeOnSeeAllCreatorsTappedEvent);
   }
+
+  final MarvelRepository marvelRepository;
+  final AppRouter router;
 
   FutureOr<void> _onHomeOnAppStartedEvent(_HomeOnAppStartedEvent event, Emitter<HomeState> emit) async {
     emit(const HomeState.loading());
@@ -36,11 +45,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     ]);
     emit(
       HomeState.loaded(
-        characters: data[0] as List<Character>,
-        comics: data[1] as List<Comic>,
-        series: data[2] as List<Series>,
-        stories: data[3] as List<Story>,
-        creators: data[4] as List<Creator>,
+        characters: (data[0] as ApiResponseCharacter).data.results,
+        comics: (data[1] as ApiResponseComic).data.results,
+        series: (data[2] as ApiResponseSeries).data.results,
+        stories: (data[3] as ApiResponseStory).data.results,
+        creators: (data[4] as ApiResponseCreator).data.results,
       ),
     );
   }

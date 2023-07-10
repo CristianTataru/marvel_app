@@ -2,13 +2,18 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:marvel_app/main.dart';
+import 'package:marvel_app/domain/repository/marvel_repository.dart';
 import 'package:marvel_app/models/api_filters.dart';
+import 'package:marvel_app/models/api_response_character.dart';
+import 'package:marvel_app/models/api_response_comic.dart';
+import 'package:marvel_app/models/api_response_creator.dart';
+import 'package:marvel_app/models/api_response_story.dart';
 import 'package:marvel_app/models/character.dart';
 import 'package:marvel_app/models/comic.dart';
 import 'package:marvel_app/models/creator.dart';
 import 'package:marvel_app/models/series.dart';
 import 'package:marvel_app/models/story.dart';
+import 'package:marvel_app/routes/router.dart';
 import 'package:marvel_app/routes/router.gr.dart';
 
 part 'series_details_event.dart';
@@ -16,13 +21,16 @@ part 'series_details_state.dart';
 part 'series_details_bloc.freezed.dart';
 
 class SeriesDetailsBloc extends Bloc<SeriesDetailsEvent, SeriesDetailsState> {
-  SeriesDetailsBloc() : super(const _SeriesDetailsLoadingState()) {
+  SeriesDetailsBloc(this.marvelRepository, this.router) : super(const _SeriesDetailsLoadingState()) {
     on<_SeriesDetailsOnPageOpenedEvent>(_onSeriesDetailsOnPageOpenedEvent);
     on<_SeriesDetailsOnSeeAllSeriesCharactersTappedEvent>(_onSeriesDetailsOnSeeAllSeriesCharactersTappedEvent);
     on<_SeriesDetailsOnSeeAllSeriesComicsTappedEvent>(_onSeriesDetailsOnSeeAllSeriesComicsTappedEvent);
     on<_SeriesDetailsOnSeeAllSeriesStoriesTappedEvent>(_onSeriesDetailsOnSeeAllSeriesStoriesTappedEvent);
     on<_SeriesDetailsOnSeeAllSeriesCreatorsTappedEvent>(_onSeriesDetailsOnSeeAllSeriesCreatorsTappedEvent);
   }
+
+  final MarvelRepository marvelRepository;
+  final AppRouter router;
 
   FutureOr<void> _onSeriesDetailsOnPageOpenedEvent(
       _SeriesDetailsOnPageOpenedEvent event, Emitter<SeriesDetailsState> emit) async {
@@ -34,7 +42,11 @@ class SeriesDetailsBloc extends Bloc<SeriesDetailsEvent, SeriesDetailsState> {
       marvelRepository.getSeriesCreators(event.series.id, 20, 0),
     ]);
     emit(SeriesDetailsState.loaded(
-        seriesCharacters: data[0], seriesComics: data[1], seriesStories: data[2], seriesCreators: data[3]));
+      seriesCharacters: (data[0] as ApiResponseCharacter).data.results,
+      seriesComics: (data[1] as ApiResponseComic).data.results,
+      seriesStories: (data[2] as ApiResponseStory).data.results,
+      seriesCreators: (data[3] as ApiResponseCreator).data.results,
+    ));
   }
 
   FutureOr<void> _onSeriesDetailsOnSeeAllSeriesCharactersTappedEvent(
