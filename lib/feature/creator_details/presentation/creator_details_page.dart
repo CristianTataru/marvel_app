@@ -13,26 +13,21 @@ import 'package:marvel_app/widgets/series_carousel.dart';
 import 'package:marvel_app/widgets/stories_carousel.dart';
 
 @RoutePage()
-class CreatorDetailsPage extends StatefulWidget {
+class CreatorDetailsPage extends StatelessWidget {
   const CreatorDetailsPage({required this.creator, super.key});
 
   final Creator creator;
 
   @override
-  State<CreatorDetailsPage> createState() => _CreatorDetailsPageState();
-}
-
-class _CreatorDetailsPageState extends State<CreatorDetailsPage> {
-  @override
   Widget build(BuildContext context) {
     return BlocProvider<CreatorDetailsBloc>(
-      create: (context) => diContainer.get()..add(CreatorDetailsEvent.onPageOpened(creator: widget.creator)),
+      create: (context) => diContainer.get()..add(CreatorDetailsEvent.onPageOpened(creator: creator)),
       child: BlocBuilder<CreatorDetailsBloc, CreatorDetailsState>(
         builder: (context, creatorDetailsState) {
           return Scaffold(
             backgroundColor: CustomColors.background,
             appBar: AppBar(
-              title: Text(widget.creator.fullName),
+              title: Text(creator.fullName),
               backgroundColor: CustomColors.appBar,
               leading: const BackButton(color: CustomColors.lightBlue),
             ),
@@ -46,7 +41,7 @@ class _CreatorDetailsPageState extends State<CreatorDetailsPage> {
                       child: Column(
                         children: [
                           const SizedBox(height: 8),
-                          TopSection(widget.creator),
+                          TopSection(creator),
                           const SizedBox(height: 16),
                           if (state.creatorComics.isNotEmpty) ...[
                             divider,
@@ -55,7 +50,7 @@ class _CreatorDetailsPageState extends State<CreatorDetailsPage> {
                               () {
                                 context
                                     .read<CreatorDetailsBloc>()
-                                    .add(CreatorDetailsEvent.onSeeAllCreatorComicsTapped(creator: widget.creator));
+                                    .add(CreatorDetailsEvent.onSeeAllCreatorComicsTapped(creator: creator));
                               },
                               title: "Comics",
                               seeAll: true,
@@ -75,7 +70,7 @@ class _CreatorDetailsPageState extends State<CreatorDetailsPage> {
                               () {
                                 context
                                     .read<CreatorDetailsBloc>()
-                                    .add(CreatorDetailsEvent.onSeeAllCreatorSeriesTapped(creator: widget.creator));
+                                    .add(CreatorDetailsEvent.onSeeAllCreatorSeriesTapped(creator: creator));
                               },
                               title: "Series",
                               seeAll: true,
@@ -95,7 +90,7 @@ class _CreatorDetailsPageState extends State<CreatorDetailsPage> {
                               () {
                                 context
                                     .read<CreatorDetailsBloc>()
-                                    .add(CreatorDetailsEvent.onSeeAllCreatorStoriesTapped(creator: widget.creator));
+                                    .add(CreatorDetailsEvent.onSeeAllCreatorStoriesTapped(creator: creator));
                               },
                               title: "Stories",
                               seeAll: true,

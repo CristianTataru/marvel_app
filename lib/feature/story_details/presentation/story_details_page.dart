@@ -13,26 +13,21 @@ import 'package:marvel_app/widgets/section_title.dart';
 import 'package:marvel_app/widgets/series_carousel.dart';
 
 @RoutePage()
-class StoryDetailsPage extends StatefulWidget {
+class StoryDetailsPage extends StatelessWidget {
   const StoryDetailsPage({required this.story, super.key});
 
   final Story story;
 
   @override
-  State<StoryDetailsPage> createState() => _StoryDetailsPageState();
-}
-
-class _StoryDetailsPageState extends State<StoryDetailsPage> {
-  @override
   Widget build(BuildContext context) {
     return BlocProvider<StoryDetailsBloc>(
-      create: (context) => diContainer.get()..add(StoryDetailsEvent.onPageOpened(story: widget.story)),
+      create: (context) => diContainer.get()..add(StoryDetailsEvent.onPageOpened(story: story)),
       child: BlocBuilder<StoryDetailsBloc, StoryDetailsState>(
         builder: (context, storyDetailsState) {
           return Scaffold(
             backgroundColor: CustomColors.background,
             appBar: AppBar(
-              title: Text(widget.story.title),
+              title: Text(story.title),
               backgroundColor: CustomColors.appBar,
               leading: const BackButton(color: CustomColors.lightBlue),
             ),
@@ -46,7 +41,7 @@ class _StoryDetailsPageState extends State<StoryDetailsPage> {
                       child: Column(
                         children: [
                           const SizedBox(height: 8),
-                          TopSection(widget.story),
+                          TopSection(story),
                           const SizedBox(height: 16),
                           if (state.storyCharacters.isNotEmpty) ...[
                             divider,
@@ -55,7 +50,7 @@ class _StoryDetailsPageState extends State<StoryDetailsPage> {
                               () {
                                 context
                                     .read<StoryDetailsBloc>()
-                                    .add(StoryDetailsEvent.onSeeAllStoryCharactersTapped(story: widget.story));
+                                    .add(StoryDetailsEvent.onSeeAllStoryCharactersTapped(story: story));
                               },
                               title: "Characters",
                               seeAll: true,
@@ -75,7 +70,7 @@ class _StoryDetailsPageState extends State<StoryDetailsPage> {
                               () {
                                 context
                                     .read<StoryDetailsBloc>()
-                                    .add(StoryDetailsEvent.onSeeAllStoryComicsTapped(story: widget.story));
+                                    .add(StoryDetailsEvent.onSeeAllStoryComicsTapped(story: story));
                               },
                               title: "Comics",
                               seeAll: true,
@@ -94,7 +89,7 @@ class _StoryDetailsPageState extends State<StoryDetailsPage> {
                               () {
                                 context
                                     .read<StoryDetailsBloc>()
-                                    .add(StoryDetailsEvent.onSeeAllStorySeriesTapped(story: widget.story));
+                                    .add(StoryDetailsEvent.onSeeAllStorySeriesTapped(story: story));
                               },
                               title: "Series",
                               seeAll: true,
@@ -113,7 +108,7 @@ class _StoryDetailsPageState extends State<StoryDetailsPage> {
                               () {
                                 context
                                     .read<StoryDetailsBloc>()
-                                    .add(StoryDetailsEvent.onSeeAllStoryCreatorsTapped(story: widget.story));
+                                    .add(StoryDetailsEvent.onSeeAllStoryCreatorsTapped(story: story));
                               },
                               title: "Creators",
                               seeAll: true,

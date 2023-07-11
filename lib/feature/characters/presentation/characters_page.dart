@@ -10,28 +10,15 @@ import 'package:marvel_app/widgets/common.dart';
 import 'package:marvel_app/widgets/marvel_image.dart';
 
 @RoutePage()
-class CharactersPage extends StatefulWidget {
+class CharactersPage extends StatelessWidget {
   const CharactersPage({super.key, this.filter});
 
   final ApiFilter? filter;
 
   @override
-  State<CharactersPage> createState() => _CharactersPageState();
-}
-
-class _CharactersPageState extends State<CharactersPage> {
-  ScrollController scrollController = ScrollController();
-
-  @override
-  void dispose() {
-    scrollController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return BlocProvider<CharactersBloc>(
-      create: (context) => diContainer.get()..add(CharactersEvent.onPageOpened(filter: widget.filter)),
+      create: (context) => diContainer.get()..add(CharactersEvent.onPageOpened(filter: filter)),
       child: BlocBuilder<CharactersBloc, CharactersState>(
         builder: (context, charactersState) {
           return Scaffold(
@@ -52,13 +39,13 @@ class _CharactersPageState extends State<CharactersPage> {
               loaded: (state) => ListView(
                 characters: state.characters,
                 canLoadMore: state.canLoadMore,
-                filter: widget.filter,
+                filter: filter,
               ),
               moreLoading: (state) => ListView(
                 characters: state.characters,
                 canLoadMore: null,
                 showSpinner: true,
-                filter: widget.filter,
+                filter: filter,
               ),
             ),
           );

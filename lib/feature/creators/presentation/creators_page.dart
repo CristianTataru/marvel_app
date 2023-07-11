@@ -9,20 +9,15 @@ import 'package:marvel_app/theme/custom_colors.dart';
 import 'package:marvel_app/widgets/common.dart';
 
 @RoutePage()
-class CreatorsPage extends StatefulWidget {
+class CreatorsPage extends StatelessWidget {
   const CreatorsPage({super.key, this.filter});
 
   final ApiFilter? filter;
 
   @override
-  State<CreatorsPage> createState() => _CreatorsPageState();
-}
-
-class _CreatorsPageState extends State<CreatorsPage> {
-  @override
   Widget build(BuildContext context) {
     return BlocProvider<CreatorsBloc>(
-      create: (context) => diContainer.get()..add(CreatorsEvent.onPageOpened(filter: widget.filter)),
+      create: (context) => diContainer.get()..add(CreatorsEvent.onPageOpened(filter: filter)),
       child: BlocBuilder<CreatorsBloc, CreatorsState>(
         builder: (context, creatorsState) {
           return Scaffold(
@@ -43,13 +38,13 @@ class _CreatorsPageState extends State<CreatorsPage> {
               loaded: (state) => ListView(
                 creators: state.creators,
                 canLoadMore: state.canLoadMore,
-                filter: widget.filter,
+                filter: filter,
               ),
               moreLoading: (state) => ListView(
                 creators: state.creators,
                 canLoadMore: null,
                 showSpinner: true,
-                filter: widget.filter,
+                filter: filter,
               ),
             ),
           );

@@ -13,26 +13,21 @@ import 'package:marvel_app/widgets/section_title.dart';
 import 'package:marvel_app/widgets/stories_carousel.dart';
 
 @RoutePage()
-class ComicDetailsPage extends StatefulWidget {
+class ComicDetailsPage extends StatelessWidget {
   const ComicDetailsPage({required this.comic, super.key});
 
   final Comic comic;
 
   @override
-  State<ComicDetailsPage> createState() => _ComicDetailsPageState();
-}
-
-class _ComicDetailsPageState extends State<ComicDetailsPage> {
-  @override
   Widget build(BuildContext context) {
     return BlocProvider<ComicDetailsBloc>(
-      create: (context) => diContainer.get()..add(ComicDetailsEvent.onPageOpened(comic: widget.comic)),
+      create: (context) => diContainer.get()..add(ComicDetailsEvent.onPageOpened(comic: comic)),
       child: BlocBuilder<ComicDetailsBloc, ComicDetailsState>(
         builder: (context, comicDetailsState) {
           return Scaffold(
             backgroundColor: CustomColors.background,
             appBar: AppBar(
-              title: Text(widget.comic.title),
+              title: Text(comic.title),
               backgroundColor: CustomColors.appBar,
               leading: const BackButton(color: CustomColors.lightBlue),
             ),
@@ -46,7 +41,7 @@ class _ComicDetailsPageState extends State<ComicDetailsPage> {
                       child: Column(
                         children: [
                           const SizedBox(height: 8),
-                          TopSection(widget.comic),
+                          TopSection(comic),
                           const SizedBox(height: 16),
                           if (state.comicCharacters.isNotEmpty) ...[
                             divider,
@@ -55,7 +50,7 @@ class _ComicDetailsPageState extends State<ComicDetailsPage> {
                               () {
                                 context
                                     .read<ComicDetailsBloc>()
-                                    .add(ComicDetailsEvent.onSeeAllComicCharactersTapped(comic: widget.comic));
+                                    .add(ComicDetailsEvent.onSeeAllComicCharactersTapped(comic: comic));
                               },
                               title: "Characters",
                               seeAll: true,
@@ -75,7 +70,7 @@ class _ComicDetailsPageState extends State<ComicDetailsPage> {
                               () {
                                 context
                                     .read<ComicDetailsBloc>()
-                                    .add(ComicDetailsEvent.onSeeAllComicStoriesTapped(comic: widget.comic));
+                                    .add(ComicDetailsEvent.onSeeAllComicStoriesTapped(comic: comic));
                               },
                               title: "Stories",
                               seeAll: true,
@@ -94,7 +89,7 @@ class _ComicDetailsPageState extends State<ComicDetailsPage> {
                               () {
                                 context
                                     .read<ComicDetailsBloc>()
-                                    .add(ComicDetailsEvent.onSeeAllComicCreatorsTapped(comic: widget.comic));
+                                    .add(ComicDetailsEvent.onSeeAllComicCreatorsTapped(comic: comic));
                               },
                               title: "Creators",
                               seeAll: true,

@@ -14,26 +14,21 @@ import 'package:marvel_app/widgets/section_title.dart';
 import 'package:marvel_app/widgets/stories_carousel.dart';
 
 @RoutePage()
-class SeriesDetailsPage extends StatefulWidget {
+class SeriesDetailsPage extends StatelessWidget {
   const SeriesDetailsPage({required this.series, super.key});
 
   final Series series;
 
   @override
-  State<SeriesDetailsPage> createState() => _SeriesDetailsPageState();
-}
-
-class _SeriesDetailsPageState extends State<SeriesDetailsPage> {
-  @override
   Widget build(BuildContext context) {
     return BlocProvider<SeriesDetailsBloc>(
-      create: (context) => diContainer.get()..add(SeriesDetailsEvent.onPageOpened(series: widget.series)),
+      create: (context) => diContainer.get()..add(SeriesDetailsEvent.onPageOpened(series: series)),
       child: BlocBuilder<SeriesDetailsBloc, SeriesDetailsState>(
         builder: (context, seriesDetailsState) {
           return Scaffold(
             backgroundColor: CustomColors.background,
             appBar: AppBar(
-              title: Text(widget.series.title),
+              title: Text(series.title),
               backgroundColor: CustomColors.appBar,
               leading: const BackButton(color: CustomColors.lightBlue),
             ),
@@ -47,7 +42,7 @@ class _SeriesDetailsPageState extends State<SeriesDetailsPage> {
                       child: Column(
                         children: [
                           const SizedBox(height: 8),
-                          TopSection(widget.series),
+                          TopSection(series),
                           const SizedBox(height: 16),
                           if (state.seriesCharacters.isNotEmpty) ...[
                             divider,
@@ -56,7 +51,7 @@ class _SeriesDetailsPageState extends State<SeriesDetailsPage> {
                               () {
                                 context
                                     .read<SeriesDetailsBloc>()
-                                    .add(SeriesDetailsEvent.onSeeAllSeriesCharactersTapped(series: widget.series));
+                                    .add(SeriesDetailsEvent.onSeeAllSeriesCharactersTapped(series: series));
                               },
                               title: "Characters",
                               seeAll: true,
@@ -76,7 +71,7 @@ class _SeriesDetailsPageState extends State<SeriesDetailsPage> {
                               () {
                                 context
                                     .read<SeriesDetailsBloc>()
-                                    .add(SeriesDetailsEvent.onSeeAllSeriesComicsTapped(series: widget.series));
+                                    .add(SeriesDetailsEvent.onSeeAllSeriesComicsTapped(series: series));
                               },
                               title: "Comics",
                               seeAll: true,
@@ -95,7 +90,7 @@ class _SeriesDetailsPageState extends State<SeriesDetailsPage> {
                               () {
                                 context
                                     .read<SeriesDetailsBloc>()
-                                    .add(SeriesDetailsEvent.onSeeAllSeriesStoriesTapped(series: widget.series));
+                                    .add(SeriesDetailsEvent.onSeeAllSeriesStoriesTapped(series: series));
                               },
                               title: "Stories",
                               seeAll: true,
@@ -115,7 +110,7 @@ class _SeriesDetailsPageState extends State<SeriesDetailsPage> {
                               () {
                                 context
                                     .read<SeriesDetailsBloc>()
-                                    .add(SeriesDetailsEvent.onSeeAllSeriesCreatorsTapped(series: widget.series));
+                                    .add(SeriesDetailsEvent.onSeeAllSeriesCreatorsTapped(series: series));
                               },
                               title: "Creators",
                               seeAll: true,

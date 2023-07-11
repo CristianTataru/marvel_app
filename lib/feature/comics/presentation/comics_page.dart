@@ -10,20 +10,15 @@ import 'package:marvel_app/widgets/common.dart';
 import 'package:marvel_app/widgets/marvel_image.dart';
 
 @RoutePage()
-class ComicsPage extends StatefulWidget {
+class ComicsPage extends StatelessWidget {
   const ComicsPage({super.key, this.filter});
 
   final ApiFilter? filter;
 
   @override
-  State<ComicsPage> createState() => _ComicsPageState();
-}
-
-class _ComicsPageState extends State<ComicsPage> {
-  @override
   Widget build(BuildContext context) {
     return BlocProvider<ComicsBloc>(
-      create: (context) => diContainer.get()..add(ComicsEvent.onPageOpened(filter: widget.filter)),
+      create: (context) => diContainer.get()..add(ComicsEvent.onPageOpened(filter: filter)),
       child: BlocBuilder<ComicsBloc, ComicsState>(
         builder: (context, comicsState) {
           return Scaffold(
@@ -44,13 +39,13 @@ class _ComicsPageState extends State<ComicsPage> {
               loaded: (state) => ListView(
                 comics: state.comics,
                 canLoadMore: state.canLoadMore,
-                filter: widget.filter,
+                filter: filter,
               ),
               moreLoading: (state) => ListView(
                 comics: state.comics,
                 canLoadMore: null,
                 showSpinner: true,
-                filter: widget.filter,
+                filter: filter,
               ),
             ),
           );

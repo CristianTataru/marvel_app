@@ -5,21 +5,14 @@ import 'package:marvel_app/di/di_container.dart';
 import 'package:marvel_app/feature/home/bloc/home_bloc.dart';
 import 'package:marvel_app/models/creator.dart';
 import 'package:marvel_app/models/story.dart';
-import 'package:marvel_app/models/thumbnail.dart';
 import 'package:marvel_app/theme/custom_colors.dart';
 import 'package:marvel_app/widgets/common.dart';
-import 'package:marvel_app/widgets/marvel_image.dart';
 import 'package:marvel_app/widgets/section_title.dart';
 
 @RoutePage()
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<HomeBloc>(
@@ -61,17 +54,17 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Row(
                         children: [
-                          UserPick(state.characters.first.thumbnail, "Characters", () {
+                          UserPick('assets/characters.jpg', "Characters", () {
                             context
                                 .read<HomeBloc>()
                                 .add(HomeEvent.onCharactersPageTapped(characters: state.characters));
                           }),
                           const Spacer(),
-                          UserPick(state.comics[2].thumbnail, "Comics", () {
+                          UserPick('assets/comics.jpg', "Comics", () {
                             context.read<HomeBloc>().add(HomeEvent.onComicsPageTapped(comics: state.comics));
                           }),
                           const Spacer(),
-                          UserPick(state.series[2].thumbnail, "Series", () {
+                          UserPick('assets/series.jpg', "Series", () {
                             context.read<HomeBloc>().add(HomeEvent.onSeriesPageTapped(series: state.series));
                           }),
                         ],
@@ -117,9 +110,9 @@ class _HomePageState extends State<HomePage> {
 }
 
 class UserPick extends StatelessWidget {
-  const UserPick(this.thumbnail, this.sectionTitile, this.onTap, {super.key});
+  const UserPick(this.path, this.sectionTitile, this.onTap, {super.key});
 
-  final Thumbnail thumbnail;
+  final String path;
   final String sectionTitile;
   final VoidCallback onTap;
 
@@ -133,7 +126,10 @@ class UserPick extends StatelessWidget {
             decoration: BoxDecoration(border: Border.all(color: Colors.white)),
             height: 136,
             width: 96,
-            child: MarvelImage(thumbnailPath: thumbnail.path, extension: thumbnail.extension),
+            child: Image(
+              image: AssetImage(path),
+              fit: BoxFit.cover,
+            ),
           ),
         ),
         const SizedBox(height: 8),
