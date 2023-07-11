@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:marvel_app/main.dart';
+import 'package:marvel_app/di/di_container.dart';
 import 'package:marvel_app/models/story.dart';
+import 'package:marvel_app/routes/router.dart';
 import 'package:marvel_app/routes/router.gr.dart';
 import 'package:marvel_app/theme/custom_colors.dart';
 
@@ -38,7 +39,7 @@ class StoryEntry extends StatelessWidget {
       padding: const EdgeInsets.only(right: 16),
       child: GestureDetector(
         onTap: () {
-          router.push(StoryDetailsRoute(story: story));
+          diContainer.get<AppRouter>().push(StoryDetailsRoute(story: story));
         },
         child: SizedBox(
           height: 168,

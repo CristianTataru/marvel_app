@@ -1,15 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marvel_app/di/di_container.dart';
 import 'package:marvel_app/feature/characters/bloc/characters_bloc.dart';
-import 'package:marvel_app/main.dart';
 import 'package:marvel_app/models/api_filters.dart';
 import 'package:marvel_app/models/character.dart';
 import 'package:marvel_app/theme/custom_colors.dart';
 import 'package:marvel_app/widgets/common.dart';
 import 'package:marvel_app/widgets/marvel_image.dart';
-
-final bloc = CharactersBloc(marvelRepository, router);
 
 @RoutePage()
 class CharactersPage extends StatefulWidget {
@@ -25,17 +23,6 @@ class _CharactersPageState extends State<CharactersPage> {
   ScrollController scrollController = ScrollController();
 
   @override
-  void initState() {
-    super.initState();
-    bloc.add(CharactersEvent.onPageOpened(filter: widget.filter));
-    scrollController.addListener(() {
-      if (scrollController.position.pixels == scrollController.position.maxScrollExtent) {
-        bloc.add(CharactersEvent.onMoreDataLoading(filter: widget.filter));
-      }
-    });
-  }
-
-  @override
   void dispose() {
     scrollController.dispose();
     super.dispose();
@@ -43,38 +30,40 @@ class _CharactersPageState extends State<CharactersPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CharactersBloc, CharactersState>(
-      bloc: bloc,
-      builder: (context, charactersState) {
-        return Scaffold(
-          backgroundColor: CustomColors.background,
-          appBar: AppBar(
-            title: const Row(
-              children: [
-                Text("Characters"),
-                Spacer(),
-                Icon(Icons.person_4),
-              ],
+    return BlocProvider<CharactersBloc>(
+      create: (context) => diContainer.get()..add(CharactersEvent.onPageOpened(filter: widget.filter)),
+      child: BlocBuilder<CharactersBloc, CharactersState>(
+        builder: (context, charactersState) {
+          return Scaffold(
+            backgroundColor: CustomColors.background,
+            appBar: AppBar(
+              title: const Row(
+                children: [
+                  Text("Characters"),
+                  Spacer(),
+                  Icon(Icons.person_4),
+                ],
+              ),
+              backgroundColor: CustomColors.appBar,
+              leading: const BackButton(color: CustomColors.lightBlue),
             ),
-            backgroundColor: CustomColors.appBar,
-            leading: const BackButton(color: CustomColors.lightBlue),
-          ),
-          body: charactersState.map(
-            loading: (state) => pageLoadingSpinner,
-            loaded: (state) => ListView(
-              characters: state.characters,
-              canLoadMore: state.canLoadMore,
-              filter: widget.filter,
+            body: charactersState.map(
+              loading: (state) => pageLoadingSpinner,
+              loaded: (state) => ListView(
+                characters: state.characters,
+                canLoadMore: state.canLoadMore,
+                filter: widget.filter,
+              ),
+              moreLoading: (state) => ListView(
+                characters: state.characters,
+                canLoadMore: null,
+                showSpinner: true,
+                filter: widget.filter,
+              ),
             ),
-            moreLoading: (state) => ListView(
-              characters: state.characters,
-              canLoadMore: null,
-              showSpinner: true,
-              filter: widget.filter,
-            ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }
@@ -91,7 +80,7 @@ class CharacterEntry extends StatelessWidget {
       child: GestureDetector(
         key: const Key('characterEntryTapKey'),
         onTap: () {
-          bloc.add(CharactersEvent.onCharacterTapped(character: character));
+          context.read<CharactersBloc>().add(CharactersEvent.onCharacterTapped(character: character));
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -152,7 +141,7 @@ class _ListViewState extends State<ListView> {
     super.initState();
     scrollController.addListener(() {
       if (scrollController.position.pixels == scrollController.position.maxScrollExtent && widget.canLoadMore == true) {
-        bloc.add(CharactersEvent.onMoreDataLoading(filter: widget.filter));
+        context.read<CharactersBloc>().add(CharactersEvent.onMoreDataLoading(filter: widget.filter));
       }
     });
   }

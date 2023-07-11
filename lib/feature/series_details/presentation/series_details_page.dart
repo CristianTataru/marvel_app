@@ -1,19 +1,17 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marvel_app/di/di_container.dart';
 import 'package:marvel_app/feature/series_details/bloc/series_details_bloc.dart';
-import 'package:marvel_app/main.dart';
 import 'package:marvel_app/models/series.dart';
 import 'package:marvel_app/theme/custom_colors.dart';
-import 'package:marvel_app/widgets/characters_caroulsel.dart';
+import 'package:marvel_app/widgets/characters_carousel.dart';
 import 'package:marvel_app/widgets/comics_carousel.dart';
 import 'package:marvel_app/widgets/common.dart';
-import 'package:marvel_app/widgets/creators_caroulsel.dart';
+import 'package:marvel_app/widgets/creators_carousel.dart';
 import 'package:marvel_app/widgets/marvel_image.dart';
 import 'package:marvel_app/widgets/section_title.dart';
 import 'package:marvel_app/widgets/stories_carousel.dart';
-
-final bloc = SeriesDetailsBloc(marvelRepository, router);
 
 @RoutePage()
 class SeriesDetailsPage extends StatefulWidget {
@@ -27,115 +25,119 @@ class SeriesDetailsPage extends StatefulWidget {
 
 class _SeriesDetailsPageState extends State<SeriesDetailsPage> {
   @override
-  void initState() {
-    super.initState();
-    bloc.add(SeriesDetailsEvent.onPageOpened(series: widget.series));
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SeriesDetailsBloc, SeriesDetailsState>(
-      bloc: bloc,
-      builder: (context, seriesDetailsState) {
-        return Scaffold(
-          backgroundColor: CustomColors.background,
-          appBar: AppBar(
-            title: Text(widget.series.title),
-            backgroundColor: CustomColors.appBar,
-            leading: const BackButton(color: CustomColors.lightBlue),
-          ),
-          body: seriesDetailsState.map(
-            loading: (state) => pageLoadingSpinner,
-            loaded: (state) => Column(
-              children: [
-                const SizedBox(height: 16),
-                Expanded(
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        const SizedBox(height: 8),
-                        TopSection(widget.series),
-                        const SizedBox(height: 16),
-                        if (state.seriesCharacters.isNotEmpty) ...[
-                          divider,
-                          const SizedBox(height: 8),
-                          SectionTitle(
-                            () {
-                              bloc.add(SeriesDetailsEvent.onSeeAllSeriesCharactersTapped(series: widget.series));
-                            },
-                            title: "Characters",
-                            seeAll: true,
-                          ),
-                          const SizedBox(height: 8),
-                          CharactersCarousel(
-                            characters: state.seriesCharacters.length > 5
-                                ? state.seriesCharacters.sublist(0, 5)
-                                : state.seriesCharacters,
-                          ),
-                          const SizedBox(height: 8),
-                        ],
-                        if (state.seriesComics.isNotEmpty) ...[
-                          divider,
-                          const SizedBox(height: 8),
-                          SectionTitle(
-                            () {
-                              bloc.add(SeriesDetailsEvent.onSeeAllSeriesComicsTapped(series: widget.series));
-                            },
-                            title: "Comics",
-                            seeAll: true,
-                          ),
-                          const SizedBox(height: 8),
-                          ComicsCarousel(
-                            comics:
-                                state.seriesComics.length > 5 ? state.seriesComics.sublist(0, 5) : state.seriesComics,
-                          ),
-                          const SizedBox(height: 8)
-                        ],
-                        if (state.seriesStories.isNotEmpty) ...[
-                          divider,
-                          const SizedBox(height: 8),
-                          SectionTitle(
-                            () {
-                              bloc.add(SeriesDetailsEvent.onSeeAllSeriesStoriesTapped(series: widget.series));
-                            },
-                            title: "Stories",
-                            seeAll: true,
-                          ),
-                          const SizedBox(height: 8),
-                          StoriesCarousel(
-                            stories: state.seriesStories.length > 5
-                                ? state.seriesStories.sublist(0, 5)
-                                : state.seriesStories,
-                          ),
-                          const SizedBox(height: 8)
-                        ],
-                        if (state.seriesCreators.isNotEmpty) ...[
-                          divider,
-                          const SizedBox(height: 8),
-                          SectionTitle(
-                            () {
-                              bloc.add(SeriesDetailsEvent.onSeeAllSeriesCreatorsTapped(series: widget.series));
-                            },
-                            title: "Creators",
-                            seeAll: true,
-                          ),
-                          const SizedBox(height: 8),
-                          CreatorsCarousel(
-                            creators: state.seriesCreators.length > 5
-                                ? state.seriesCreators.sublist(0, 5)
-                                : state.seriesCreators,
-                          ),
-                          const SizedBox(height: 8)
-                        ],
-                      ],
-                    ),
-                  ),
-                )
-              ],
+    return BlocProvider<SeriesDetailsBloc>(
+      create: (context) => diContainer.get()..add(SeriesDetailsEvent.onPageOpened(series: widget.series)),
+      child: BlocBuilder<SeriesDetailsBloc, SeriesDetailsState>(
+        builder: (context, seriesDetailsState) {
+          return Scaffold(
+            backgroundColor: CustomColors.background,
+            appBar: AppBar(
+              title: Text(widget.series.title),
+              backgroundColor: CustomColors.appBar,
+              leading: const BackButton(color: CustomColors.lightBlue),
             ),
-          ),
-        );
-      },
+            body: seriesDetailsState.map(
+              loading: (state) => pageLoadingSpinner,
+              loaded: (state) => Column(
+                children: [
+                  const SizedBox(height: 16),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          const SizedBox(height: 8),
+                          TopSection(widget.series),
+                          const SizedBox(height: 16),
+                          if (state.seriesCharacters.isNotEmpty) ...[
+                            divider,
+                            const SizedBox(height: 8),
+                            SectionTitle(
+                              () {
+                                context
+                                    .read<SeriesDetailsBloc>()
+                                    .add(SeriesDetailsEvent.onSeeAllSeriesCharactersTapped(series: widget.series));
+                              },
+                              title: "Characters",
+                              seeAll: true,
+                            ),
+                            const SizedBox(height: 8),
+                            CharactersCarousel(
+                              characters: state.seriesCharacters.length > 5
+                                  ? state.seriesCharacters.sublist(0, 5)
+                                  : state.seriesCharacters,
+                            ),
+                            const SizedBox(height: 8),
+                          ],
+                          if (state.seriesComics.isNotEmpty) ...[
+                            divider,
+                            const SizedBox(height: 8),
+                            SectionTitle(
+                              () {
+                                context
+                                    .read<SeriesDetailsBloc>()
+                                    .add(SeriesDetailsEvent.onSeeAllSeriesComicsTapped(series: widget.series));
+                              },
+                              title: "Comics",
+                              seeAll: true,
+                            ),
+                            const SizedBox(height: 8),
+                            ComicsCarousel(
+                              comics:
+                                  state.seriesComics.length > 5 ? state.seriesComics.sublist(0, 5) : state.seriesComics,
+                            ),
+                            const SizedBox(height: 8)
+                          ],
+                          if (state.seriesStories.isNotEmpty) ...[
+                            divider,
+                            const SizedBox(height: 8),
+                            SectionTitle(
+                              () {
+                                context
+                                    .read<SeriesDetailsBloc>()
+                                    .add(SeriesDetailsEvent.onSeeAllSeriesStoriesTapped(series: widget.series));
+                              },
+                              title: "Stories",
+                              seeAll: true,
+                            ),
+                            const SizedBox(height: 8),
+                            StoriesCarousel(
+                              stories: state.seriesStories.length > 5
+                                  ? state.seriesStories.sublist(0, 5)
+                                  : state.seriesStories,
+                            ),
+                            const SizedBox(height: 8)
+                          ],
+                          if (state.seriesCreators.isNotEmpty) ...[
+                            divider,
+                            const SizedBox(height: 8),
+                            SectionTitle(
+                              () {
+                                context
+                                    .read<SeriesDetailsBloc>()
+                                    .add(SeriesDetailsEvent.onSeeAllSeriesCreatorsTapped(series: widget.series));
+                              },
+                              title: "Creators",
+                              seeAll: true,
+                            ),
+                            const SizedBox(height: 8),
+                            CreatorsCarousel(
+                              creators: state.seriesCreators.length > 5
+                                  ? state.seriesCreators.sublist(0, 5)
+                                  : state.seriesCreators,
+                            ),
+                            const SizedBox(height: 8)
+                          ],
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }

@@ -1,5 +1,7 @@
 import 'package:marvel_app/widgets/comics_carousel.dart';
 import 'package:marvel_app/widgets/series_carousel.dart';
+import 'package:marvel_app/widgets/creators_carousel.dart';
+import 'package:marvel_app/widgets/characters_carousel.dart';
 
 Feature: StoryDetailsPage
     Scenario: Open Story Details Page and load data successfully

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:marvel_app/domain/repository/marvel_repository.dart';
 import 'package:marvel_app/models/api_filters.dart';
 import 'package:marvel_app/models/api_response_comic.dart';
@@ -12,6 +13,7 @@ part 'comics_event.dart';
 part 'comics_state.dart';
 part 'comics_bloc.freezed.dart';
 
+@injectable
 class ComicsBloc extends Bloc<ComicsEvent, ComicsState> {
   ComicsBloc(this.marvelRepository, this.router)
       : super(const _ComicsLoadedState(canLoadMore: true, lastOffset: 0, comics: [])) {

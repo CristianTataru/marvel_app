@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:marvel_app/main.dart';
+import 'package:marvel_app/di/di_container.dart';
 import 'package:marvel_app/models/series.dart';
+import 'package:marvel_app/routes/router.dart';
 import 'package:marvel_app/routes/router.gr.dart';
 import 'package:marvel_app/theme/custom_colors.dart';
 import 'package:marvel_app/widgets/marvel_image.dart';
@@ -39,7 +40,7 @@ class SeriesEntry extends StatelessWidget {
       padding: const EdgeInsets.only(right: 16),
       child: GestureDetector(
         onTap: () {
-          router.push(SeriesDetailsRoute(series: series));
+          diContainer.get<AppRouter>().push(SeriesDetailsRoute(series: series));
         },
         child: SizedBox(
           height: 168,

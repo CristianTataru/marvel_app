@@ -1,15 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marvel_app/di/di_container.dart';
 import 'package:marvel_app/feature/comics/bloc/comics_bloc.dart';
-import 'package:marvel_app/main.dart';
 import 'package:marvel_app/models/api_filters.dart';
 import 'package:marvel_app/models/comic.dart';
 import 'package:marvel_app/theme/custom_colors.dart';
 import 'package:marvel_app/widgets/common.dart';
 import 'package:marvel_app/widgets/marvel_image.dart';
-
-final bloc = ComicsBloc(marvelRepository, router);
 
 @RoutePage()
 class ComicsPage extends StatefulWidget {
@@ -23,45 +21,41 @@ class ComicsPage extends StatefulWidget {
 
 class _ComicsPageState extends State<ComicsPage> {
   @override
-  void initState() {
-    super.initState();
-    bloc.add(ComicsEvent.onPageOpened(filter: widget.filter));
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ComicsBloc, ComicsState>(
-      bloc: bloc,
-      builder: (context, comicsState) {
-        return Scaffold(
-          backgroundColor: CustomColors.background,
-          appBar: AppBar(
-            title: const Row(
-              children: [
-                Text("Comics"),
-                Spacer(),
-                Icon(Icons.book),
-              ],
+    return BlocProvider<ComicsBloc>(
+      create: (context) => diContainer.get()..add(ComicsEvent.onPageOpened(filter: widget.filter)),
+      child: BlocBuilder<ComicsBloc, ComicsState>(
+        builder: (context, comicsState) {
+          return Scaffold(
+            backgroundColor: CustomColors.background,
+            appBar: AppBar(
+              title: const Row(
+                children: [
+                  Text("Comics"),
+                  Spacer(),
+                  Icon(Icons.book),
+                ],
+              ),
+              backgroundColor: CustomColors.appBar,
+              leading: const BackButton(color: CustomColors.lightBlue),
             ),
-            backgroundColor: CustomColors.appBar,
-            leading: const BackButton(color: CustomColors.lightBlue),
-          ),
-          body: comicsState.map(
-            loading: (state) => pageLoadingSpinner,
-            loaded: (state) => ListView(
-              comics: state.comics,
-              canLoadMore: state.canLoadMore,
-              filter: widget.filter,
+            body: comicsState.map(
+              loading: (state) => pageLoadingSpinner,
+              loaded: (state) => ListView(
+                comics: state.comics,
+                canLoadMore: state.canLoadMore,
+                filter: widget.filter,
+              ),
+              moreLoading: (state) => ListView(
+                comics: state.comics,
+                canLoadMore: null,
+                showSpinner: true,
+                filter: widget.filter,
+              ),
             ),
-            moreLoading: (state) => ListView(
-              comics: state.comics,
-              canLoadMore: null,
-              showSpinner: true,
-              filter: widget.filter,
-            ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }
@@ -78,7 +72,7 @@ class ComicsEntry extends StatelessWidget {
       child: GestureDetector(
         key: const Key('comicEntryTapKey'),
         onTap: () {
-          bloc.add(ComicsEvent.onComicTapped(comic: comic));
+          context.read<ComicsBloc>().add(ComicsEvent.onComicTapped(comic: comic));
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -142,7 +136,7 @@ class _ListViewState extends State<ListView> {
     super.initState();
     scrollController.addListener(() {
       if (scrollController.position.pixels == scrollController.position.maxScrollExtent && widget.canLoadMore == true) {
-        bloc.add(ComicsEvent.onMoreDataLoading(filter: widget.filter));
+        context.read<ComicsBloc>().add(ComicsEvent.onMoreDataLoading(filter: widget.filter));
       }
     });
   }

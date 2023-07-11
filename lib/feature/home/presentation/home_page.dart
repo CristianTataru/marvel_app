@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marvel_app/di/di_container.dart';
 import 'package:marvel_app/feature/home/bloc/home_bloc.dart';
-import 'package:marvel_app/main.dart';
 import 'package:marvel_app/models/creator.dart';
 import 'package:marvel_app/models/story.dart';
 import 'package:marvel_app/models/thumbnail.dart';
@@ -10,8 +10,6 @@ import 'package:marvel_app/theme/custom_colors.dart';
 import 'package:marvel_app/widgets/common.dart';
 import 'package:marvel_app/widgets/marvel_image.dart';
 import 'package:marvel_app/widgets/section_title.dart';
-
-final bloc = HomeBloc(marvelRepository, router);
 
 @RoutePage()
 class HomePage extends StatefulWidget {
@@ -23,99 +21,97 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   @override
-  void initState() {
-    super.initState();
-    bloc.add(const HomeEvent.onAppStarted());
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeBloc, HomeState>(
-      bloc: bloc,
-      builder: (context, homeState) {
-        return Scaffold(
-          backgroundColor: CustomColors.background,
-          appBar: AppBar(
-            backgroundColor: CustomColors.appBar,
-            title: const Text("Welcome"),
-          ),
-          body: homeState.map(
-            loading: (state) => pageLoadingSpinner,
-            loaded: (state) => SingleChildScrollView(
-              key: const Key('homePageScrollKey'),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  const SizedBox(height: 24),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16),
-                    child: Text(
-                      "What's your pick for today?",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 32,
-                        fontWeight: FontWeight.bold,
+    return BlocProvider<HomeBloc>(
+      create: (context) => diContainer.get()..add(const HomeEvent.onAppStarted()),
+      child: BlocBuilder<HomeBloc, HomeState>(
+        builder: (context, homeState) {
+          return Scaffold(
+            backgroundColor: CustomColors.background,
+            appBar: AppBar(
+              backgroundColor: CustomColors.appBar,
+              title: const Text("Welcome"),
+            ),
+            body: homeState.map(
+              loading: (state) => pageLoadingSpinner,
+              loaded: (state) => SingleChildScrollView(
+                key: const Key('homePageScrollKey'),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    const SizedBox(height: 24),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 16),
+                      child: Text(
+                        "What's your pick for today?",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 32,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
                     ),
-                  ),
-                  const SizedBox(height: 24),
-                  SectionTitle(() {}, title: "Recommendations", seeAll: false),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: Row(
-                      children: [
-                        UserPick(state.characters.first.thumbnail, "Characters", () {
-                          bloc.add(HomeEvent.onCharactersPageTapped(characters: state.characters));
-                        }),
-                        const Spacer(),
-                        UserPick(state.comics[2].thumbnail, "Comics", () {
-                          bloc.add(HomeEvent.onComicsPageTapped(comics: state.comics));
-                        }),
-                        const Spacer(),
-                        UserPick(state.series[2].thumbnail, "Series", () {
-                          bloc.add(HomeEvent.onSeriesPageTapped(series: state.series));
-                        }),
-                      ],
+                    const SizedBox(height: 24),
+                    SectionTitle(() {}, title: "Recommendations", seeAll: false),
+                    const SizedBox(
+                      height: 16,
                     ),
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  divider,
-                  const SizedBox(height: 8),
-                  SectionTitle(() {
-                    bloc.add(HomeEvent.onSeeAllStoriesTapped(stories: state.stories));
-                  }, title: "Stories", seeAll: true),
-                  const SizedBox(height: 16),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [...state.stories.map((story) => StoryEntry(story))],
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Row(
+                        children: [
+                          UserPick(state.characters.first.thumbnail, "Characters", () {
+                            context
+                                .read<HomeBloc>()
+                                .add(HomeEvent.onCharactersPageTapped(characters: state.characters));
+                          }),
+                          const Spacer(),
+                          UserPick(state.comics[2].thumbnail, "Comics", () {
+                            context.read<HomeBloc>().add(HomeEvent.onComicsPageTapped(comics: state.comics));
+                          }),
+                          const Spacer(),
+                          UserPick(state.series[2].thumbnail, "Series", () {
+                            context.read<HomeBloc>().add(HomeEvent.onSeriesPageTapped(series: state.series));
+                          }),
+                        ],
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 8),
-                  divider,
-                  const SizedBox(height: 8),
-                  SectionTitle(
-                    () {
-                      bloc.add(HomeEvent.onSeeAllCreatorsTapped(creators: state.creators));
-                    },
-                    title: "Creators",
-                    seeAll: true,
-                  ),
-                  CreatorsCarousel(
-                    state.creators,
-                  )
-                ],
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    divider,
+                    const SizedBox(height: 8),
+                    SectionTitle(() {
+                      context.read<HomeBloc>().add(HomeEvent.onSeeAllStoriesTapped(stories: state.stories));
+                    }, title: "Stories", seeAll: true),
+                    const SizedBox(height: 16),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [...state.stories.map((story) => StoryEntry(story))],
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    divider,
+                    const SizedBox(height: 8),
+                    SectionTitle(
+                      () {
+                        context.read<HomeBloc>().add(HomeEvent.onSeeAllCreatorsTapped(creators: state.creators));
+                      },
+                      title: "Creators",
+                      seeAll: true,
+                    ),
+                    CreatorsCarousel(
+                      state.creators,
+                    )
+                  ],
+                ),
               ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }
@@ -161,7 +157,7 @@ class StoryEntry extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: GestureDetector(
         onTap: () {
-          bloc.add(HomeEvent.onStoryTapped(story: story));
+          context.read<HomeBloc>().add(HomeEvent.onStoryTapped(story: story));
         },
         child: ClipRRect(
           borderRadius: const BorderRadius.all(Radius.circular(8)),
@@ -241,7 +237,7 @@ class CreatorEntry extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: GestureDetector(
         onTap: () {
-          bloc.add(HomeEvent.onCreatorTapped(creator: creator));
+          context.read<HomeBloc>().add(HomeEvent.onCreatorTapped(creator: creator));
         },
         child: SizedBox(
           width: 144,

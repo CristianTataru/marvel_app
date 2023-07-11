@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:marvel_app/main.dart';
 import 'package:marvel_app/models/comic.dart';
+import 'package:marvel_app/routes/router.dart';
 import 'package:marvel_app/routes/router.gr.dart';
 import 'package:marvel_app/theme/custom_colors.dart';
 import 'package:marvel_app/widgets/marvel_image.dart';
+
+import '../di/di_container.dart';
 
 class ComicsCarousel extends StatelessWidget {
   const ComicsCarousel({required this.comics, super.key});
@@ -38,7 +40,7 @@ class ComicEntry extends StatelessWidget {
       padding: const EdgeInsets.only(right: 16),
       child: GestureDetector(
         onTap: () {
-          router.push(ComicDetailsRoute(comic: comic));
+          diContainer.get<AppRouter>().push(ComicDetailsRoute(comic: comic));
         },
         child: SizedBox(
           height: 168,

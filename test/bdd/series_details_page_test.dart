@@ -1,10 +1,10 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_import, directives_ordering
 
-import 'package:marvel_app/widgets/creators_caroulsel.dart';
 import 'package:marvel_app/widgets/stories_carousel.dart';
+import 'package:marvel_app/widgets/creators_carousel.dart';
 import 'package:marvel_app/widgets/comics_carousel.dart';
-import 'package:marvel_app/widgets/characters_caroulsel.dart';
+import 'package:marvel_app/widgets/characters_carousel.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';

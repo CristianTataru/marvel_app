@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:marvel_app/domain/repository/marvel_repository.dart';
 import 'package:marvel_app/models/api_filters.dart';
 import 'package:marvel_app/models/api_response_creator.dart';
@@ -13,6 +14,7 @@ part 'creators_event.dart';
 part 'creators_state.dart';
 part 'creators_bloc.freezed.dart';
 
+@injectable
 class CreatorsBloc extends Bloc<CreatorsEvent, CreatorsState> {
   CreatorsBloc(this.marvelRepository, this.router)
       : super(const _CreatorsLoadedState(canLoadMore: true, lastOffset: 0, creators: [])) {

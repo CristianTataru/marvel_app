@@ -1,15 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marvel_app/di/di_container.dart';
 import 'package:marvel_app/feature/series/bloc/series_bloc.dart';
-import 'package:marvel_app/main.dart';
 import 'package:marvel_app/models/api_filters.dart';
 import 'package:marvel_app/models/series.dart';
 import 'package:marvel_app/theme/custom_colors.dart';
 import 'package:marvel_app/widgets/common.dart';
 import 'package:marvel_app/widgets/marvel_image.dart';
-
-final bloc = SeriesBloc(marvelRepository, router);
 
 @RoutePage()
 class SeriesPage extends StatefulWidget {
@@ -23,45 +21,41 @@ class SeriesPage extends StatefulWidget {
 
 class _SeriesPageState extends State<SeriesPage> {
   @override
-  void initState() {
-    super.initState();
-    bloc.add(SeriesEvent.onPageOpened(filter: widget.filter));
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SeriesBloc, SeriesState>(
-      bloc: bloc,
-      builder: (context, seriesState) {
-        return Scaffold(
-          backgroundColor: CustomColors.background,
-          appBar: AppBar(
-            title: const Row(
-              children: [
-                Text("Series"),
-                Spacer(),
-                Icon(Icons.library_books_outlined),
-              ],
+    return BlocProvider<SeriesBloc>(
+      create: (context) => diContainer.get()..add(SeriesEvent.onPageOpened(filter: widget.filter)),
+      child: BlocBuilder<SeriesBloc, SeriesState>(
+        builder: (context, seriesState) {
+          return Scaffold(
+            backgroundColor: CustomColors.background,
+            appBar: AppBar(
+              title: const Row(
+                children: [
+                  Text("Series"),
+                  Spacer(),
+                  Icon(Icons.library_books_outlined),
+                ],
+              ),
+              backgroundColor: CustomColors.appBar,
+              leading: const BackButton(color: CustomColors.lightBlue),
             ),
-            backgroundColor: CustomColors.appBar,
-            leading: const BackButton(color: CustomColors.lightBlue),
-          ),
-          body: seriesState.map(
-            loading: (state) => pageLoadingSpinner,
-            loaded: (state) => ListView(
-              series: state.series,
-              canLoadMore: state.canLoadMore,
-              filter: widget.filter,
+            body: seriesState.map(
+              loading: (state) => pageLoadingSpinner,
+              loaded: (state) => ListView(
+                series: state.series,
+                canLoadMore: state.canLoadMore,
+                filter: widget.filter,
+              ),
+              moreLoading: (state) => ListView(
+                series: state.series,
+                canLoadMore: null,
+                showSpinner: true,
+                filter: widget.filter,
+              ),
             ),
-            moreLoading: (state) => ListView(
-              series: state.series,
-              canLoadMore: null,
-              showSpinner: true,
-              filter: widget.filter,
-            ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }
@@ -78,7 +72,7 @@ class SeriesEntry extends StatelessWidget {
       child: GestureDetector(
         key: const Key('seriesEntryTapKey'),
         onTap: () {
-          bloc.add(SeriesEvent.onSeriesTapped(series: series));
+          context.read<SeriesBloc>().add(SeriesEvent.onSeriesTapped(series: series));
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -143,7 +137,7 @@ class _ListViewState extends State<ListView> {
     super.initState();
     scrollController.addListener(() {
       if (scrollController.position.pixels == scrollController.position.maxScrollExtent && widget.canLoadMore == true) {
-        bloc.add(SeriesEvent.onMoreDataLoading(filter: widget.filter));
+        context.read<SeriesBloc>().add(SeriesEvent.onMoreDataLoading(filter: widget.filter));
       }
     });
   }

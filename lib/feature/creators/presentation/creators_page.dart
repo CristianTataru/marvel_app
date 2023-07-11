@@ -1,14 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marvel_app/di/di_container.dart';
 import 'package:marvel_app/feature/creators/bloc/creators_bloc.dart';
-import 'package:marvel_app/main.dart';
 import 'package:marvel_app/models/api_filters.dart';
 import 'package:marvel_app/models/creator.dart';
 import 'package:marvel_app/theme/custom_colors.dart';
 import 'package:marvel_app/widgets/common.dart';
-
-final bloc = CreatorsBloc(marvelRepository, router);
 
 @RoutePage()
 class CreatorsPage extends StatefulWidget {
@@ -21,54 +19,42 @@ class CreatorsPage extends StatefulWidget {
 }
 
 class _CreatorsPageState extends State<CreatorsPage> {
-  ScrollController scrollController = ScrollController();
-
-  @override
-  void initState() {
-    super.initState();
-    bloc.add(CreatorsEvent.onPageOpened(filter: widget.filter));
-  }
-
-  @override
-  void dispose() {
-    scrollController.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CreatorsBloc, CreatorsState>(
-      bloc: bloc,
-      builder: (context, creatorsState) {
-        return Scaffold(
-          backgroundColor: CustomColors.background,
-          appBar: AppBar(
-            title: const Row(
-              children: [
-                Text("Creators"),
-                Spacer(),
-                Icon(Icons.person),
-              ],
+    return BlocProvider<CreatorsBloc>(
+      create: (context) => diContainer.get()..add(CreatorsEvent.onPageOpened(filter: widget.filter)),
+      child: BlocBuilder<CreatorsBloc, CreatorsState>(
+        builder: (context, creatorsState) {
+          return Scaffold(
+            backgroundColor: CustomColors.background,
+            appBar: AppBar(
+              title: const Row(
+                children: [
+                  Text("Creators"),
+                  Spacer(),
+                  Icon(Icons.person),
+                ],
+              ),
+              backgroundColor: CustomColors.appBar,
+              leading: const BackButton(color: CustomColors.lightBlue),
             ),
-            backgroundColor: CustomColors.appBar,
-            leading: const BackButton(color: CustomColors.lightBlue),
-          ),
-          body: creatorsState.map(
-            loading: (state) => pageLoadingSpinner,
-            loaded: (state) => ListView(
-              creators: state.creators,
-              canLoadMore: state.canLoadMore,
-              filter: widget.filter,
+            body: creatorsState.map(
+              loading: (state) => pageLoadingSpinner,
+              loaded: (state) => ListView(
+                creators: state.creators,
+                canLoadMore: state.canLoadMore,
+                filter: widget.filter,
+              ),
+              moreLoading: (state) => ListView(
+                creators: state.creators,
+                canLoadMore: null,
+                showSpinner: true,
+                filter: widget.filter,
+              ),
             ),
-            moreLoading: (state) => ListView(
-              creators: state.creators,
-              canLoadMore: null,
-              showSpinner: true,
-              filter: widget.filter,
-            ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }
@@ -85,7 +71,7 @@ class CreatorEntry extends StatelessWidget {
       child: GestureDetector(
         key: const Key('creatorEntryTapKey'),
         onTap: () {
-          bloc.add(CreatorsEvent.onCreatorTapped(creator: creator));
+          context.read<CreatorsBloc>().add(CreatorsEvent.onCreatorTapped(creator: creator));
         },
         child: Row(
           children: [
@@ -152,7 +138,7 @@ class _ListViewState extends State<ListView> {
     super.initState();
     scrollController.addListener(() {
       if (scrollController.position.pixels == scrollController.position.maxScrollExtent && widget.canLoadMore == true) {
-        bloc.add(CreatorsEvent.onMoreDataLoading(filter: widget.filter));
+        context.read<CreatorsBloc>().add(CreatorsEvent.onMoreDataLoading(filter: widget.filter));
       }
     });
   }

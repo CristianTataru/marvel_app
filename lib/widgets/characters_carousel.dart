@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:marvel_app/main.dart';
+import 'package:marvel_app/di/di_container.dart';
 import 'package:marvel_app/models/character.dart';
+import 'package:marvel_app/routes/router.dart';
 import 'package:marvel_app/routes/router.gr.dart';
 import 'package:marvel_app/theme/custom_colors.dart';
 import 'package:marvel_app/widgets/marvel_image.dart';
@@ -38,7 +39,7 @@ class CharacterEntry extends StatelessWidget {
       padding: const EdgeInsets.only(right: 16),
       child: GestureDetector(
         onTap: () {
-          router.push(CharacterDetailsRoute(character: character));
+          diContainer.get<AppRouter>().push(CharacterDetailsRoute(character: character));
         },
         child: SizedBox(
           height: 168,

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:marvel_app/domain/repository/marvel_repository.dart';
 import 'package:marvel_app/models/api_filters.dart';
 import 'package:marvel_app/models/api_response_story.dart';
@@ -13,6 +14,7 @@ part 'stories_event.dart';
 part 'stories_state.dart';
 part 'stories_bloc.freezed.dart';
 
+@injectable
 class StoriesBloc extends Bloc<StoriesEvent, StoriesState> {
   StoriesBloc(this.marvelRepository, this.router)
       : super(const _StoriesLoadedState(canLoadMore: true, lastOffset: 0, stories: [])) {

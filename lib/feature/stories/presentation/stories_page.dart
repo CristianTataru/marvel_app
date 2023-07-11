@@ -1,14 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marvel_app/di/di_container.dart';
 import 'package:marvel_app/feature/stories/bloc/stories_bloc.dart';
-import 'package:marvel_app/main.dart';
 import 'package:marvel_app/models/api_filters.dart';
 import 'package:marvel_app/models/story.dart';
 import 'package:marvel_app/theme/custom_colors.dart';
 import 'package:marvel_app/widgets/common.dart';
-
-final bloc = StoriesBloc(marvelRepository, router);
 
 @RoutePage()
 class StoriesPage extends StatefulWidget {
@@ -22,45 +20,41 @@ class StoriesPage extends StatefulWidget {
 
 class _StoriesPageState extends State<StoriesPage> {
   @override
-  void initState() {
-    super.initState();
-    bloc.add(StoriesEvent.onPageOpened(filter: widget.filter));
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return BlocBuilder<StoriesBloc, StoriesState>(
-      bloc: bloc,
-      builder: (context, storiesState) {
-        return Scaffold(
-          backgroundColor: CustomColors.background,
-          appBar: AppBar(
-            title: const Row(
-              children: [
-                Text("Stories"),
-                Spacer(),
-                Icon(Icons.menu_book_sharp),
-              ],
+    return BlocProvider<StoriesBloc>(
+      create: (context) => diContainer.get()..add(StoriesEvent.onPageOpened(filter: widget.filter)),
+      child: BlocBuilder<StoriesBloc, StoriesState>(
+        builder: (context, storiesState) {
+          return Scaffold(
+            backgroundColor: CustomColors.background,
+            appBar: AppBar(
+              title: const Row(
+                children: [
+                  Text("Stories"),
+                  Spacer(),
+                  Icon(Icons.menu_book_sharp),
+                ],
+              ),
+              backgroundColor: CustomColors.appBar,
+              leading: const BackButton(color: CustomColors.lightBlue),
             ),
-            backgroundColor: CustomColors.appBar,
-            leading: const BackButton(color: CustomColors.lightBlue),
-          ),
-          body: storiesState.map(
-            loading: (state) => pageLoadingSpinner,
-            loaded: (state) => ListView(
-              stories: state.stories,
-              canLoadMore: state.canLoadMore,
-              filter: widget.filter,
+            body: storiesState.map(
+              loading: (state) => pageLoadingSpinner,
+              loaded: (state) => ListView(
+                stories: state.stories,
+                canLoadMore: state.canLoadMore,
+                filter: widget.filter,
+              ),
+              moreLoading: (state) => ListView(
+                stories: state.stories,
+                canLoadMore: null,
+                showSpinner: true,
+                filter: widget.filter,
+              ),
             ),
-            moreLoading: (state) => ListView(
-              stories: state.stories,
-              canLoadMore: null,
-              showSpinner: true,
-              filter: widget.filter,
-            ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }
@@ -77,7 +71,7 @@ class _StoryEntry extends StatelessWidget {
       child: GestureDetector(
         key: const Key('storyEntryTapKey'),
         onTap: () {
-          bloc.add(StoriesEvent.onStoryTapped(story: story));
+          context.read<StoriesBloc>().add(StoriesEvent.onStoryTapped(story: story));
         },
         child: Row(
           children: [
@@ -141,7 +135,7 @@ class _ListViewState extends State<ListView> {
     super.initState();
     scrollController.addListener(() {
       if (scrollController.position.pixels == scrollController.position.maxScrollExtent && widget.canLoadMore == true) {
-        bloc.add(StoriesEvent.onMoreDataLoading(filter: widget.filter));
+        context.read<StoriesBloc>().add(StoriesEvent.onMoreDataLoading(filter: widget.filter));
       }
     });
   }

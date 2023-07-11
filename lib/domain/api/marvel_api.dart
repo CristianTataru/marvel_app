@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:marvel_app/models/api_response_character.dart';
 import 'package:marvel_app/models/api_response_comic.dart';
 import 'package:marvel_app/models/api_response_creator.dart';
@@ -8,8 +9,10 @@ import 'package:retrofit/http.dart';
 
 part 'marvel_api.g.dart';
 
+@injectable
 @RestApi(baseUrl: 'https://gateway.marvel.com/v1/public/')
 abstract class MarvelApi {
+  @factoryMethod
   factory MarvelApi(Dio dio) = _MarvelApi;
 
   @GET('characters?offset={offset}&ts=1&apikey=00ee96560cac21670b4f2de5366c8424&hash=21872f0e0170799d38b91f74ff9b9c4d')

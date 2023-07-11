@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:marvel_app/main.dart';
+import 'package:marvel_app/di/di_container.dart';
 import 'package:marvel_app/models/creator.dart';
+import 'package:marvel_app/routes/router.dart';
 import 'package:marvel_app/routes/router.gr.dart';
 import 'package:marvel_app/theme/custom_colors.dart';
 
@@ -38,7 +39,7 @@ class CreatorEntry extends StatelessWidget {
       padding: const EdgeInsets.only(right: 16),
       child: GestureDetector(
         onTap: () {
-          router.push(CreatorDetailsRoute(creator: creator));
+          diContainer.get<AppRouter>().push(CreatorDetailsRoute(creator: creator));
         },
         child: SizedBox(
           height: 168,

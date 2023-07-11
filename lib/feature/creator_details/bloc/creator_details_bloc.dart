@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:marvel_app/domain/repository/marvel_repository.dart';
 import 'package:marvel_app/models/api_filters.dart';
 import 'package:marvel_app/models/api_response_comic.dart';
@@ -18,6 +19,7 @@ part 'creator_details_event.dart';
 part 'creator_details_state.dart';
 part 'creator_details_bloc.freezed.dart';
 
+@injectable
 class CreatorDetailsBloc extends Bloc<CreatorDetailsEvent, CreatorDetailsState> {
   CreatorDetailsBloc(this.marvelRepository, this.router) : super(const _CreatorDetailsLoadingState()) {
     on<_CreatorDetailsOnPageOpenedEvent>(_onCreatorDetailsOnPageOpenedEvent);

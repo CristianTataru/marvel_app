@@ -1,4 +1,5 @@
 import 'package:html_unescape/html_unescape.dart';
+import 'package:injectable/injectable.dart';
 import 'package:marvel_app/domain/api/marvel_api.dart';
 import 'package:marvel_app/models/api_response_character.dart';
 import 'package:marvel_app/models/api_response_comic.dart';
@@ -8,6 +9,7 @@ import 'package:marvel_app/models/api_response_story.dart';
 import 'package:marvel_app/models/story.dart';
 import 'package:marvel_app/models/story_data.dart';
 
+@singleton
 class MarvelRepository {
   MarvelRepository(this.marvelApi);
 

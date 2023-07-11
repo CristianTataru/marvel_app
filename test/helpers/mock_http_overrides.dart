@@ -16,6 +16,7 @@ class _MockHttpClient extends Mock implements HttpClient {
   }
 
   @override
+  // ignore: no_leading_underscores_for_local_identifiers
   set autoUncompress(bool _autoUncompress) {}
 }
 
